@@ -53,7 +53,7 @@
 
   "SCOPE_NOTE": {
     "ai_summaries": "51 'AI Summary' PDFs exist in-corpus. They are a FREE written register requiring no LLM spend. They are AI-generated, not authored course material, and must never be presented as the instructor's words.",
-    "pdfs_total": 181 PDFs. The originals are the authored written half.",
+    "pdfs_total": "181 PDFs. The originals are the authored written half.",
     "transcription_required": "Only the 85 MP3s and the audio of the 183 MP4s. 51 PDFs need no transcription at all."
   },
 

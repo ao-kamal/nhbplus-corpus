@@ -67,7 +67,7 @@
     "audio_hours_range": "573 - 963 hours, central ~760",
     "deepgram_rate": "~$0.0043/min (audio-and-stt.md, CUT30 era)",
     "forecast_cost_range": "~$155 - ~$248, central ~$196",
-    "THIS IS A FORECAST FROM AN EXTRAPOLATION, NOT A MEASUREMENT. audio-and-stt.md requires budgeting from measured duration. Before spending, the month folders must actually be enumerated and the durations summed. Treat ~$196 as an order-of-magnitude guide only."
+    "forecast_caveat": "THIS IS A FORECAST FROM AN EXTRAPOLATION, NOT A MEASUREMENT. audio-and-stt.md requires budgeting from measured duration. Before spending, the month folders must actually be enumerated and the durations summed. Treat ~$196 as an order-of-magnitude guide only."
   },
 
   "bandwidth_resolution": {
