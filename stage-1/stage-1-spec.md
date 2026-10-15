@@ -50,13 +50,13 @@ billing the corpus costs `35,013.1 min × $0.0043 = $150.56` — the forecast.
 **Residual, all three need an operator value:**
 
 **SETTLED 2026-10-15.** Both items are now measured, not estimated. See 2.2 for the
-full budget table and `SPEND_HARD_STOP_USD = $207.31`.
+full budget table and `SPEND_HARD_STOP_USD = $207.35`.
 
 | Item | Was | Now |
 |---|---|---|
 | 2 units with no duration | ~$1.31 estimated | **$1.23 measured** |
 | loss allowance for 504s | unset | **$10.00** |
-| `SPEND_HARD_STOP_USD` | unresolved | **$207.31** |
+| `SPEND_HARD_STOP_USD` | unresolved | **$207.35** |
 
 **D2 — price: RESOLVED 2026-10-15.** `RATE_USD_PER_MIN = 0.0043`, now sourced and
 dated from the price page instead of derived from the forecast. The figure was
@@ -99,7 +99,7 @@ creating additional projects or accounts to work around per-project limits is
 
 So a second key adds **$200 of budget and zero throughput**, and load-balancing
 transcription across the two accounts would be an explicit ToS violation. **Use it
-for budget only.** The run needs the budget — $207.31 exceeds the $200 credit. It
+for budget only.** The run needs the budget — $207.35 exceeds the $200 credit. It
 does not need the concurrency: one project at concurrency 50 covers the corpus.
 
 **D4 - keyterm prompting: ADOPTED 2026-10-15** (operator). $0.0013/min,
@@ -207,7 +207,7 @@ COMMIT_COST           = billed_seconds(part) * (RATE + KEYTERM_RATE)
 SETTLE_FROM           = raw metadata.duration seconds, IDENTICALLY in the 7b gate
                         and in V10
 
-SPEND_HARD_STOP_USD   = 207.31    OPERATOR-SET, measured, not estimated
+SPEND_HARD_STOP_USD   = 207.35    OPERATOR-SET, measured, not estimated
 LOSS_ALLOWANCE_USD    = 10.00     covers a 5% failure rate across 3,611 parts
 ```
 
@@ -216,10 +216,10 @@ LOSS_ALLOWANCE_USD    = 10.00     covers a 5% failure rate across 3,611 parts
 | | |
 |---|---|
 | corpus 35,013.1 min × $0.0043 | **$150.56** |
-| 2 previously-undated units, **measured today** | **$1.23** |
+| 2 previously-undated units, **measured today** | **$1.27** |
 | 504 loss allowance | **$10.00** |
 | keyterm 35,013.1 min × $0.0013 | **$45.52** |
-| **`SPEND_HARD_STOP_USD`** | **$207.31** |
+| **`SPEND_HARD_STOP_USD`** | **$207.35** |
 
 **Credit position: no payment card on file.** So the vendor itself enforces the
 ceiling — exhausting the credit returns **HTTP 402** and processing stops. That is
@@ -301,7 +301,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 |---|---|---|
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
 | **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches `FETCH_CONCURRENCY 1 → 6`.** |
-| **W0-Remux** | OPEN | `ffmpeg -vn -c:a copy` audio-identical; log the **real** size cut (85% expected — measure). **The majority path**: 133/230 are MP4. |
+| **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
 | **W0-SyncCeiling** | OPEN | calibrate sync at `SYNC_SEG_SEC`. **Must not** raise the cutoff. |
 | **W0-AsyncContract** | OPEN, **GO/NO-GO** | outbound-only async, and **does a GET after N minutes actually return a transcript?** Constraint 7 says retention is none. This is now the highest-value probe in the plan. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
@@ -488,9 +488,53 @@ else:
 
 `ffmpeg -vn -c:a copy` every unit. **133 of 230 are MP4.**
 
-`ffprobe` duration is the cost-gate input, **not the manifest, and not a placeholder**.
-If remuxed ≥ `CAP_BYTES` → `ffmpeg -f segment -segment_time SEGMENT_SEC`.
-Single-part otherwise. **Every part gets its own receipt entry.**
+**Output container: `.mka`, never `.m4a`.** Verified 2026-10-15. `.m4a` is an
+MP4 container and **cannot hold an MP3 elementary stream** — it fails rc=234
+*"Could not write header (incorrect codec parameters)"* for **97 of 230 units**.
+`.mka` (Matroska audio) carried every sample, MP3 and AAC alike.
+
+> The plan did not specify a container at all. `.m4a` is the conventional
+> audio-only extension, so an implementer would reach for it and fail 42% of the
+> corpus with an error that reads like a codec fault rather than a container fault.
+
+**Bit-exactness** — verified by SHA-256 over decoded PCM:
+
+| codec | result |
+|---|---|
+| MP3 | **EXACT**, identical hash over 711 MB and 994 MB of PCM |
+| AAC | near-exact — ~10 KB differs in 1.1 GB (encoder delay on repack) |
+
+Claim bit-exactness for MP3; claim **near-exact** for AAC.
+
+**Size cut — the plan's "~85%" was wrong two ways:**
+
+| format | units | measured cut | why |
+|---|---|---|---|
+| MP4 | 133 | **+78.5% to +81.8%** | the video track is most of the file |
+| MP3 | 97 | **−1.6% — the output is LARGER** | no video to strip; only repackaging |
+| **corpus** | 230 | **146.39 → 42.17 GiB (71.2%)** | |
+
+The real saving is **104.21 GiB, not the 124.43 GiB** an 85% assumption implies.
+
+**Do NOT transcode to 16 kHz PCM.** Measured at **−166% size on MP3** — a 133.6 MB
+source becomes 355.9 MB of `s16le`. 97 of 230 units are MP3. Any 16 kHz path must
+use FLAC or Opus, never WAV.
+
+> `-ac 1 -ar 16000` are **output** options and must follow `-i`. Placed before it
+> they parse as input options and ffmpeg fails *"Option sample_rate not found"*.
+
+**Segment** when remuxed ≥ `CAP_BYTES` → `ffmpeg -f segment -segment_time
+SEGMENT_SEC`. Single-part otherwise. **Every part gets its own receipt entry.**
+
+**The cost gate MUST read decoded PCM length, never a container header.**
+Deepgram bills the decoded duration. Measured: `pjFQiLQQ`'s header claims 4,958 s
+while its decoded PCM is **5,431.8 s (+9.54%)** — a header-derived reservation is
+under-reserved by exactly the header's error, per part, silently.
+
+> A 10-MP3 stratified sample then confirmed the **manifest** durations are sound
+> (all within 0.02% of decoded truth), so the $150.56 forecast stands.
+> `pjFQiLQQ` slipped through only because its recorded `dur_s` was 0 — the exact
+> class of unit the check exists for.
 
 #### 7.1a Channel handling — DETECT per file, never choose corpus-wide `[R1]`
 
@@ -916,7 +960,7 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 
 | | Outcome |
 |---|---|
-| D1 | **settled** - $207.31, every line measured |
+| D1 | **settled** - $207.35, every line measured |
 | D2 | **closed** - $0.0043/min, sourced and dated |
 | D3 | **closed** - dual-mono, per-file rule, $26.98 |
 | D4 | **adopted** - keyterm on, +$45.52, A/B-measured |

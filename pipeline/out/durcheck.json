@@ -1,0 +1,103 @@
+{
+ "probe": "duration-trust",
+ "date": "2026-10-15",
+ "rate": 0.0043,
+ "sampled": 10,
+ "manifest_off_by_over_1pct": 0,
+ "header_off_by_over_1pct": 0,
+ "manifest_total_min": 1779.7,
+ "truth_total_min": 1779.8,
+ "drift_pct": 0.005,
+ "rows": [
+  {
+   "handle": "RrM2CLTC",
+   "channels": 2,
+   "manifest_s": 5502,
+   "header_s": 5503.0,
+   "truth_s": 5502.9,
+   "manifest_pct_vs_truth": -0.02,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "17ESRbBJ",
+   "channels": 2,
+   "manifest_s": 8196,
+   "header_s": 8196.7,
+   "truth_s": 8196.7,
+   "manifest_pct_vs_truth": -0.01,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "9jdm2bpQ",
+   "channels": 2,
+   "manifest_s": 9779,
+   "header_s": 9779.3,
+   "truth_s": 9779.2,
+   "manifest_pct_vs_truth": -0.0,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "4nEQGBoK",
+   "channels": 1,
+   "manifest_s": 10476,
+   "header_s": 10476.5,
+   "truth_s": 10476.5,
+   "manifest_pct_vs_truth": -0.01,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "ovEWhJbA",
+   "channels": 2,
+   "manifest_s": 10860,
+   "header_s": 10860.8,
+   "truth_s": 10860.8,
+   "manifest_pct_vs_truth": -0.01,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "IiUghJRL",
+   "channels": 1,
+   "manifest_s": 11239,
+   "header_s": 11239.6,
+   "truth_s": 11239.6,
+   "manifest_pct_vs_truth": -0.01,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "9ycSBZxA",
+   "channels": 1,
+   "manifest_s": 11676,
+   "header_s": 11676.5,
+   "truth_s": 11676.5,
+   "manifest_pct_vs_truth": -0.0,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "RnEASRBT",
+   "channels": 1,
+   "manifest_s": 12375,
+   "header_s": 12375.8,
+   "truth_s": 12375.8,
+   "manifest_pct_vs_truth": -0.01,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "ZzNkyRhK",
+   "channels": 1,
+   "manifest_s": 12935,
+   "header_s": 12935.4,
+   "truth_s": 12935.4,
+   "manifest_pct_vs_truth": -0.0,
+   "header_pct_vs_truth": 0.0
+  },
+  {
+   "handle": "lzFSHZRI",
+   "channels": 1,
+   "manifest_s": 13746,
+   "header_s": 13746.4,
+   "truth_s": 13746.4,
+   "manifest_pct_vs_truth": -0.0,
+   "header_pct_vs_truth": 0.0
+  }
+ ]
+}

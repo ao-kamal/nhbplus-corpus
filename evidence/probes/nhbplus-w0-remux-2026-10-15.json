@@ -1,0 +1,88 @@
+{
+  "probe": "W0-Remux",
+  "date": "2026-10-15",
+  "status": "PASS_WITH_CORRECTIONS",
+  "cost": { "usd": 0.0, "note": "download + local decode only. Nothing uploaded." },
+
+  "verdict": "`-vn -c:a copy` is safe and bit-exact for MP3. The plan's '~85% size cut' is true for MP4 and NEGATIVE for MP3, and the output container the plan implies would fail for 97 of 230 units. Three corrections follow.",
+
+  "V1_bit_exactness": {
+    "method": "Decode source and remuxed output to raw PCM, SHA-256 each, compare. Streaming, because buffering f32le PCM for a 194-minute file is 1.9 GB and OOM-killed the VM on the first attempt.",
+    "results": [
+      { "handle": "EqN2UTLK", "codec": "mp3", "pcm_mb": 711.81, "result": "EXACT - identical SHA-256" },
+      { "handle": "pjFQiLQQ", "codec": "mp3", "pcm_mb": 994.59, "result": "EXACT - identical SHA-256" },
+      { "handle": "InViQbBR", "codec": "aac", "pcm_mb": 373.38, "result": "EXACT - identical SHA-256" },
+      { "handle": "dvcEDToK", "codec": "aac", "pcm_mb": 1122.30, "result": "DIFFERS by 0.01 MB in 1122 MB" }
+    ],
+    "verdict": "PASS",
+    "caveat": "The AAC difference is ~10 KB in 1.1 GB - encoder delay and padding on repack, not a codec change. Immaterial for STT, but it means 'bit-exact' is literally true for MP3 and near-exact for AAC. The plan should not claim bit-exactness for AAC."
+  },
+
+  "V2_duration_drift": {
+    "results": "0.0000 s on 3 of 4 samples. pjFQiLQQ showed 473.0567 s.",
+    "diagnosis": "NOT a remux fault. pjFQiLQQ's CONTAINER HEADER is wrong; the source is stereo mp3 at 48 kHz with a header claiming 4,958 s while the decoded PCM is 5,431.8 s (+9.54%). The remux faithfully preserved audio that was longer than its own header claimed.",
+    "consequence": "The plan states 'ffprobe duration is the cost-gate input, not the manifest'. That is a MONEY BUG: Deepgram bills the decoded duration, so a preflight reserving against a container header under-reserves by exactly the header's error, per part, silently.",
+    "required_fix": "The preflight cost gate must derive duration from DECODED PCM, never from a container header."
+  },
+
+  "V3_size_cut_THE_PLAN_GUESS_WAS_WRONG_TWO_WAYS": {
+    "measured": {
+      "mp4": { "samples_pct": [78.5, 81.8], "why": "the video track is most of the file, so stripping it is where the saving is" },
+      "mp3": { "samples_pct": [-1.6, -1.7], "why": "there is no video to strip; the remux only repackages, and Matroska framing is marginally less efficient than native MP3 framing. THE OUTPUT IS LARGER THAN THE INPUT." }
+    },
+    "projected_over_corpus": {
+      "mp3": { "units": 97, "in_gib": 16.12, "out_gib": 16.38 },
+      "mp4": { "units": 133, "in_gib": 130.26, "out_gib": 25.79 },
+      "total_in_gib": 146.39, "total_out_gib": 42.17,
+      "aggregate_cut_pct": 71.2,
+      "plan_assumed": "85% on every unit, implying a 124.43 GiB saving",
+      "actual_saving_gib": 104.21,
+      "verdict": "the real saving is 20 GiB LESS than the plan implies, because 97 MP3 units save nothing at all"
+    }
+  },
+
+  "CONTAINER_DEFECT_THAT_WOULD_HAVE_BROKEN_97_UNITS": {
+    "what": "ffmpeg -vn -c:a copy with an .m4a output FAILS for every mp3 source: rc=234, 'Could not write header (incorrect codec parameters ?): Invalid argument'. .m4a is an MP4 container and cannot hold an MP3 elementary stream.",
+    "blast_radius": "97 of 230 units, including every stereo unit",
+    "fix": "Use a container that accepts every codec in this corpus. VERIFIED WORKING: .mka (Matroska audio). It carried all four samples, mp3 and aac alike.",
+    "why_this_matters": "The plan's section 7a does not specify an output container at all. An implementer would reach for .m4a, because it is the conventional audio-only extension, and would fail 42% of the corpus with an error that looks like a codec problem rather than a container problem."
+  },
+
+  "TRANSCODE_ALTERNATIVE_MEASURED_AND_REJECTED": {
+    "command": "ffmpeg -i src -ac 1 -ar 16000 -c:a pcm_s16le out.wav",
+    "measured_size_vs_source": { "mp3": "-166.4% (355.9 MB from a 133.6 MB source)", "mp4": "+65.5% cut (124.5 MB from 361.2 MB)" },
+    "verdict": "REJECT for MP3. Uncompressed 16 kHz PCM is a large size INCREASE over a compressed source, and MP3s are 97 of 230 units. Remux stays the pipeline default; any 16 kHz path must use a compressed codec (FLAC or Opus), never s16le WAV.",
+    "side_finding": "-ac 1 -ar 16000 are OUTPUT options and must follow -i. Placed before -i they are parsed as input options and ffmpeg fails with 'Option sample_rate not found'. That cost one probe run and is recorded here so the pipeline does not reproduce it."
+  },
+
+  "duration_trust_check_ran_because_of_the_pjFQiLQQ_anomaly": {
+    "question": "Was pjFQiLQQ an isolated anomaly, or is the $150.56 forecast built on unreliable container headers?",
+    "method": "10 of 96 MP3s, stratified across the duration range, each downloaded and fully decoded to PCM; manifest dur_s vs container header vs decoded truth.",
+    "results": [
+      { "manifest_vs_truth_pct": -0.02 }, { "manifest_vs_truth_pct": -0.01 },
+      { "manifest_vs_truth_pct": -0.00 }, { "manifest_vs_truth_pct": -0.01 },
+      { "manifest_vs_truth_pct": -0.01 }, { "manifest_vs_truth_pct": -0.01 },
+      { "manifest_vs_truth_pct": -0.00 }, { "manifest_vs_truth_pct": -0.01 },
+      { "manifest_vs_truth_pct": -0.00 }, { "manifest_vs_truth_pct": -0.00 }
+    ],
+    "manifest_off_by_over_1pct": 0,
+    "header_off_by_over_1pct": 0,
+    "verdict": "THE MANIFEST IS SOUND. It does not track the container header - it was built from decoded durations. The $150.56 forecast STANDS.",
+    "why_pjFQiLQQ_slipped_through": "Its manifest dur_s was 0 (unknown), so it was never cross-checked against anything. That is exactly the class of unit the check is for."
+  },
+
+  "budget_correction": {
+    "pjFQiLQQ_duration": { "budget_recorded_min": 82.6, "measured_min": 90.5, "source_of_error": "container header, same defect as above" },
+    "undated_total": { "was": 1.23, "now": 1.27 },
+    "SPEND_HARD_STOP_USD": { "was": 207.31, "now": 207.35 },
+    "note": "A 4-cent change, but it arrived from a 9.54% measurement error on a single unit - which is precisely the kind of error that would have been invisible without decoding rather than reading headers."
+  },
+
+  "instruments_that_failed_during_this_probe": [
+    { "n": 1, "defect": "A sample handle was a PDF, not audio. Wrong handle chosen without checking.", "fix": "verify the handle's media type before probing it" },
+    { "n": 2, "defect": "diff_snr buffered two full f32le PCM arrays. A 194-minute file is 1.9 GB each, and the process was OOM-KILLED on an 8 GB VM.", "fix": "stream the decode into a hash. The numeric SNR comparison was redundant anyway - an identical SHA-256 over decoded PCM IS the bit-exactness proof." },
+    { "n": 3, "defect": "pcm_sha spliced conversion options at a fixed command index, corrupting '-v error' into '-v -ac 1 error'. ffmpeg then decoded ZERO bytes and the empty-vs-empty SHA-256 comparison returned TRUE - a false PASS in the very gate built to prevent that class of defect.", "fix": "append options after '-i <path>' rather than at an index, AND treat a zero-byte decode as a hard failure rather than an equal hash. Both are in the probe." }
+  ],
+
+  "artifacts": ["pipeline/out/w0-remux.json", "pipeline/out/durcheck.json"]
+}
