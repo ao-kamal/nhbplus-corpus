@@ -28,6 +28,7 @@ These outrank every mechanism here. Nothing below may trade one away.
 | 4 | **Evidence, not assertion.** | W0 probes. Ten claims withdrawn during planning; kept visible in §13.2. |
 | 5 | **Operator picks the files.** | `scope-final.json`, 339 targets, locked. |
 | 6 | **A sentinel is not a measurement** `[R1]` | **[F-KIB 2026-10-15] THIS IS UNDERSTATED. NOT 73 OF 230 — ALL 188 CALLS.** Every declared size in the corpus is an **exact multiple of 1 KiB**: **188 of 188, 100% of the corpus bytes.** The chance of that by accident is (1/1024)^188. The spec detects sentinels only at **GiB** granularity (`bytes % 2**30 == 0`), which finds 73 and calls the other 115 "real". They are not real either — they are KiB-quantised. Proof from the one unit measured against ground truth: `wiUyTRZb` **declared 397,410,304 B (KiB-exact)** vs **actual downloaded 397,487,264 B (NOT KiB-exact)**, a 76,960 B delta. So there is **no unquantised subset** by this test, and the "73 sentinels / 157 real" split in this document is wrong in kind, not just in number. **§6 (sentinel detection) must test `bytes % 1024 == 0`, and no threshold may consume any declared size.** §6 (73 of 230 carry placeholder sizes** — 37 at exactly 1 GiB, 36 at exactly 2 GiB = **109.00 GiB of 146.39 GiB = 74.5%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
+| 6a | **Send `mip_opt_out=true` on EVERY request.** **[R4-8.47]** Probed 2026-10-14: with the flag `HTTP 200`, without it `HTTP 200`, `VERDICT: PASS` (`deepgram-capability-probe-2026-10-14.json` § `STEP_0_CONSENT_GATE`). `operator-decision-compute-azure-2026-10-14.json` records it as *"structural and sent on every request"*. **This document contained ZERO occurrences of `mip_opt_out`, `consent` or `GDPR` before this line — the flag existed in a dated decision record and in nothing else.** §0's own rule is that *"an agent executes this with no other document open"*, so an omission here is an omission in the executed path, not in the reading list. **The artifact is explicit: *"Acceptance of the flag is NOT permission to stop sending it."*** §7.2. |
 | 7 | **The response is the only retrieval** `[R1]` | `evidence/probes/deepgram-eu-limits-and-chain-proof-2026-10-15.json`, under `limits_that_would_have_broken_the_run`: *"Deepgram does not store transcripts. The API response is the only opportunity to retrieve it."* **Every submission is single-shot.** The response body must stream to disk as it arrives. §7.3. |
 
 ### 0.0 How to read the tags in this document `[F41]`
@@ -754,7 +755,7 @@ reported 4/4 failures while the route worked.
 `partial > threshold` → SIGKILL + `rm` + `FETCH_OVERRUN`.
 No growth 120 s → `mega-cancel --all` + `FETCH_STALL`.
 After any kill/cancel: `mega-cancel --all`, watch 60 s, **assert zero growth**
-(server-side transfer survives client death), then 5 s after SIGKILL.
+(server-side transfer survives client death). **[R4-8.33] ONE WAIT: 60 s.**
 
 ### 6.3 Loopback lifecycle — the missing deletion point `[R1]`
 
@@ -1005,7 +1006,9 @@ What is actually true, from the repo:
 | the guard that matters | **not a size threshold.** It is `SEGMENT_SEC`, and `SEGMENT_SEC` is dead code under a 2 GB `CAP_BYTES` the 385 MiB maximum cannot reach (T6 #8). |
 
 **So the size guard is withdrawn rather than re-derived.** The honest measured
-maximum is 385.1 MiB / 403.8 MB and it is an **MP3, not a sentinel MP4**; and
+maximum is **383.7 MiB / 402.31 MB** — **[R4-8.10] this line said 385.1 MiB /
+403.8 MB while §7.2 said 383.7 in the same document.** `wiUyTRZb`'s remuxed
+`.mka` is 402,307,896 B = 383.67 MiB. It is an **MP3, not a sentinel MP4**; and
 since the largest remuxed unit sits at 19% of `CAP_BYTES`, a size guard has
 nothing to catch. `CAP_BYTES` stays, `SEGMENT_SEC` stays, and the branch is
 recorded as never taken rather than dressed up as a live control.
@@ -1514,7 +1517,7 @@ below, with no cross-reference. **67 of 296 names (23%) are affected**, not thre
 
 | Defect | Measured | Fix |
 |---|---|---|
-| dash splitter mangles intra-word hyphens | **50 of 229** cleaned paths contain ` - `, of which **7** are true intra-word mangles (`Ron-Lynch`, `Biz-Op Blueprint`, `Clean Biz-Ops`, `Pre-Openings`, `CMO-CRO Roles`, `Call of Duty Biz-Ops`, `7-Figure Fill-In-The-Blank`). **[B20] The spec previously said 67 of 296 - the denominator 296 excludes the 42 lessons, one of which is damaged.** | normalise dash **styles** only; never split `[A-Za-z]-[A-Za-z]` |
+| dash splitter mangles intra-word hyphens | **[R4-8.55] measured: 38 of 188 calls, 46 of 339 total, of which **0** are true intra-word mangles** — the 7 are all intact. The old "50 of 229" was wrong on both terms: 229 is *units with a duration*, not a path count, and [B20]'s 296 excluded the lessons. It once contained (`Ron-Lynch`, `Biz-Op Blueprint`, `Clean Biz-Ops`, `Pre-Openings`, `CMO-CRO Roles`, `Call of Duty Biz-Ops`, `7-Figure Fill-In-The-Blank`). **[B20] The spec previously said 67 of 296 - the denominator 296 excludes the 42 lessons, one of which is damaged.** | normalise dash **styles** only; never split `[A-Za-z]-[A-Za-z]` |
 | `Call` stripped mid-phrase | `Call of Duty` → `of Duty Biz - Ops`; `Call Booking Page` → `05 5 Booking Page` | strip `Call` only as a whole token outside a compound |
 | `None` leaked into 3 filenames | `None Selling To Women 3.0.md` etc. | a missing date **omits the prefix**, it does not fill it. V8 asserts no filename contains `None` |
 | extension-in-stem | **2 `.mp4.md`** paths | strip a trailing media extension before appending `.md`. V6 checks **stems**, not just extensions |
@@ -1523,7 +1526,10 @@ below, with no cross-reference. **67 of 296 names (23%) are affected**, not thre
 | **dropped call** | `10-31-2022 NHB+ Mindstream Call` absent; **187 paths, not 188** | drop `Mindstream` from the alternation; **and add a guard: if `tidy()` returns empty, fall back to `topic`, never `continue`** |
 | lesson ordinals renumbered | source `7. AC - Unannounced bonus` → `02 …` | preserve source numbering |
 | dates lost | the corpus's **only** ISO-dated name (`2024-09-27`) is the one that lost its date | accept `YYYY-MM-DD` as well as `M-D-YYYY` |
-| **3 calls undated** | `undated-other-9/-5/-5` | §10 needs a day; list them, do not leave them to run time |
+| **[R4-8.54] 2 calls are undated, not 3.** The manifest carries
+`undated-other-5-MmMmABhJ` and `undated-other-5-x3Mi0JJL` — there is no
+`undated-other-9` prefix, and **186 of 188 calls are dated, not 185.** |
+| ~~3 calls undated~~ | `undated-other-9/-5/-5` | §10 needs a day; list them, do not leave them to run time |
 
 **Written hands derive their filename from their CALL's clean name**, suffixed
 `(written hand)`. This is one line and it simultaneously kills: 10 of 37 hands
@@ -1627,7 +1633,15 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required |
 | V4 | three-way duration reconcile |
 | V5 | span coverage |
-| V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$` |
+| V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **[R4-8.39] ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) == 230 + 109 == 339`.** Until that floor exists, V6 green means nothing. |
+> **[R4-8.40] AND EVERY CORPUS FORMAT IS CURRENTLY UNCATCHABLE BY V6.** The corpus
+> contains `pdf, docx, pptx, txt, xlsx, png, zip`. None is in the extension list,
+> none matches the stem regex, and a `.pdf` or `.docx` under `vault/` would pass
+> V6 outright **while violating Constraint 1.** The list above is an audio list
+> applied to a corpus that is not mostly audio. **`pdf\|docx\|pptx\|xlsx\|txt\|png\|zip`
+> are added to the banned set**, because an extracted document ships as `.md` and
+> the *source* must not ship beside it.
+
 | V7 | reduction diff: re-render from receipts, byte-compare |
 | V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** |
 | V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (188 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. [B7]** V9 previously checked documents only, so it **structurally could not catch the dropped call** |
@@ -1653,12 +1667,42 @@ For each audio unit U:
  3. H(U) values are PAIRWISE DISTINCT across all 230 audio units
  4. EXACTLY ONE note under vault/ renders utterance text hashing to H(U)
  5. no two units share a NON-NULL request_id
-      [F14] `request_id` is None for EVERY submission - proven by
-      nhbplus-w0-asynccontract-2026-10-15.json. The clause as previously written
-      ("no request_id appears under two different unit ids") FAILS on a flawless
-      run, because None appears under all 230 unit ids.
  6. effective_spend reconciles to COMMIT_COST, and ffprobe(U) is within 2% of
-    the metadata.duration in the response named by U's OWN request_id
+    the metadata.duration in U's OWN response
+
+ > **[R4-T1.10] CLAUSES 5 AND 6 WERE MUTUALLY EXCLUSIVE, AND §12.1 DELETED THE
+ > EVIDENCE FOR CLAUSE 6.** [F14] had asserted "`request_id` is None for EVERY
+ > submission" and therefore removed the `request_id` column from AUDIT.md.
+ > **Two later artifacts contradict that**, and [F14] predates both:
+ >
+ > | artifact | `request_id` |
+ > |---|---|
+ > | `nhbplus-w0-asynccontract-2026-10-15.json` | `None` |
+ > | `deepgram-eu-limits-and-chain-proof-2026-10-15.json` | `01a13cfc-1b03-7e10-94cb-a448d81cb512` |
+ > | `nhbplus-w0-syncceiling3-2026-10-15.json` | `01a13ec6-9208-7c90-a68d-0209a8e6be33` |
+ >
+ > **So [F14]'s generalisation was wrong**: it held for the asynccontract's
+ > request SHAPE and was carried to every submission. With `request_id` present,
+ > clause 5 becomes **measurably testable** rather than vacuous — the opposite
+ > of what the [F14] fix assumed — and clause 6 becomes evaluable instead of
+ > unimplementable.
+ >
+ > **RESOLUTION.** Clause 5 stays, worded for the null case so it is falsifiable
+ > either way. **Clause 6 is re-worded to bind `ffprobe(U)` to U's OWN stored
+ > response**, not to a request_id lookup, so it no longer depends on the field
+ > existing at all. **The `request_id` column is RESTORED to AUDIT.md** — it was
+ > deleted on the strength of a claim two later artifacts disprove, and the
+ > artifact that disproves it says so in writing and asks for this.
+ >
+ > **STILL OPEN, and not settled by the re-wording:** whether `request_id` is
+ > present on the sync path *generally* or only on some request shapes is not
+ > established. Two present, one absent, three probes. Clause 5 is written to
+ > pass in both cases; **do not read that as evidence the question is settled.**
+
+ > **[F14] history, kept because the failure is the point:** the clause as first
+ > written ("no request_id appears under two different unit ids") FAILED on a
+ > flawless run, because None appears under all 230 unit ids. The fix was right
+ > about that and wrong about why.
 ```
 
 **Why it cannot fail trivially:** `H` is computed from the **raw response**, not
@@ -1751,9 +1795,12 @@ operator cut from the frontmatter became reachable only by leaving Obsidian and
 running `jq`. A cut that moves data into a format the reader's software cannot
 open is not a clean cut.
 
-Emit one generated `_meta/AUDIT.md` — 339 lines, one per unit:
+Emit one generated `_meta/AUDIT.md` — **[R4-8.44] 230 lines, one per AUDIO UNIT, not 339.** 339 is the count of *targets*; only 230 of those are audio units, and V12 clauses 1–4 are all about audio units. The 109 documents are verified by §11's path and frontmatter gates, not here:
 `unit · handle · declared_s · ffprobe_s · settle_s · sha256-12 · verdict`
-(no request_id column: it is None for every submission - [F14]),
+request_id  **[R4-T1.10] RESTORED.** [F14] removed this column on the strength
+of "None for EVERY submission"; two later dated artifacts carry a non-null
+value (`syncceiling3`: `01a13ec6-...`, `deepgram-eu-limits`: `01a13cfc-...`).
+Recorded as measured, blank if absent — never invented.
 with totals in the header, linked from `00 Home.md`.
 
 **No note gains a field. No note gains a provenance section. The operator's cut is

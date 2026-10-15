@@ -80,6 +80,34 @@ def drop_lead(s):
     s = re.sub(r"^\s*[-–—:]\s*", "", s)
     return s
 
+def safe_stem(s):
+    """[R4-8.51/8.52/8.53] Characters that are LEGAL in a Windows filename and
+    still break the vault. Applied to every emitted stem, not per branch.
+
+      #   Obsidian uses `#` as the ANCHOR separator inside [[wikilinks]], so
+          `[[Reading Offers #1]]` resolves to a heading, not to the note. Seven
+          basenames carried it. Replaced with a plain space - the sequence
+          number is the content, the hash is not.
+      $   one file, `$200,000 Ad Template.md`. Legal, but a shell/glob hazard.
+      _   one survivor, `2022-12-29 Relationship_Trust Cycles.md`, which also
+          broke section 10.3 step 1 (`_` -> space) by being the one name that
+          kept it. Rule 10.2 declares this fixed; it was not.
+    """
+    s = re.sub(r"\s*#+\s*", " ", s)
+    s = re.sub(r"\s*_+\s*", " ", s)
+    s = re.sub(r"\s*\$+\s*", " ", s)
+    return re.sub(r"\s{2,}", " ", s).strip()
+
+
+def course_key(raw):
+    """[R4-8.49] The 11 structured courses emit 13 Obsidian folders because the
+    corpus spells two of them two ways: `7-Day Fast Start` (7 files) and
+    `7 Day Fast Start` (4), `7-Figure Sales Funnel` (6) and `7 Figure Sales
+    Funnel` (1). A reader sees two courses that are one course. Fold the dash
+    out so the folder identity matches the course identity."""
+    return re.sub(r"\s*-\s*", " ", raw or "").strip()
+
+
 def strip_brand(s):
     """[F27] Leading brand tokens. This has to run AFTER the DATE strip, not
     inside drop_lead: drop_lead sees "01-31-2024 NHB - Value Matrix", so its
@@ -120,7 +148,7 @@ def call_path(u):
     s = re.sub(r"^\s*(?:\d{1,2}[-/.]\d{1,2}[-/.]\d{4}|\d{4}-\d{2}-\d{2})\s*[-–—:]*\s*", "", s)
     # the ISO branch above already existed but the corpus's ONLY ISO-dated name
     # still lost its date, so the ordering here is load-bearing
-    s = strip_brand(tidy(s))
+    s = safe_stem(strip_brand(tidy(s)))
     # a trailing media extension in the STEM produced "....mp4.md", which
     # Obsidian renders as a note named "TSL Structures.mp4" - a media extension
     # inside a markdown vault, arriving by a route V6 does not check because the
@@ -145,7 +173,7 @@ def lesson_path(u):
     s = re.sub(r"^\s*\d{1,2}\s*[.)]\s*", "", s)                 # re-strip for lessons
     s = tidy(s)
     course = re.sub(r"^\s*\d+\.\s*", "", u["source_folder"]).strip()
-    return course, s
+    return course, safe_stem(strip_brand(s))
 
 # ------------------------------------------------------------------ build
 print("=" * 78)
@@ -185,6 +213,7 @@ lesson_rows, lpaths = [], defaultdict(list)
 renumbered = []
 for u in sorted(lessons, key=lambda x: x["source_folder"]):
     course, title = lesson_path(u)
+    course = course_key(course) or course
     # [F10] The SOURCE ordinal, not a running counter. Renumbering to 01..NN
     # silently closed the gap in the Converting ads course, whose source
     # numbering runs 1,2,3,5,6,7,8,9 - there is no lesson 4, and renumbering
@@ -261,7 +290,7 @@ for t in sc["targets"]:
     if t["kind"] == "audio": continue
     s = tidy(drop_lead(strip_junk(t["name"])))
     s = re.sub(r"\.(docx|xlsx|pptx|pdf|zip|txt|png)$", "", s, flags=re.I)
-    s = strip_brand(s)
+    s = safe_stem(strip_brand(s))
     # [F27] 3 underscores survived into filenames. An underscore is legal in a
     # Windows path, so nothing was broken - but every other name in the vault
     # uses spaces, and a mixed convention is a mixed convention forever.
@@ -351,7 +380,8 @@ for t in drows:
         t["path"] = f"written-hands/{y}/{month if month != 'undated' else 'undated'}/{stem}.md"
         t["path"] = re.sub(r"/undated/undated/", "/undated/", t["path"])
     else:
-        slug = course_slug(t)
+        slug = course_slug(t) or ""
+        slug = course_key(slug)
         # [F39] The course FOLDER is the disambiguator. Repeating its name inside
         # the filename gave
         #   courses/Plug & Play High Converting Sales Letter/Plug & Play High
