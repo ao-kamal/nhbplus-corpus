@@ -1,0 +1,90 @@
+{
+ "probe": "W0-ChannelShare - corpus channel topology by channel-hash, not dB arithmetic",
+ "date": "2026-10-15",
+ "status": "PARTIAL - 7 of a planned 18; the sample is too small to bound the corpus share, and that is stated rather than dressed up",
+
+ "WHY_THE_METHOD_CHANGED": [
+  "The astats-in-dB classifier failed twice and MIS-CLASSIFIED once:",
+  "  pjFQiLQQ has L and R at an identical -28.585805 dB, and the dB parse",
+  "  returned INDEPENDENT_KEEP_STEREO_2x - i.e. 'bill 2x' - on a file whose two",
+  "  channels are the same data. Subtracting levels in dB is a bad classifier:",
+  "  rounding, the noise floor and astats reset windows all leak into it.",
+  "",
+  "Replaced with channel hashing. Extract L and R separately and compare MD5.",
+  "  L == R  ->  BIT-IDENTICAL. -ac 1 is provably lossless, no measurement needed.",
+  "  L != R  ->  measure L-R and branch on magnitude.",
+  "Exact, cheap, and it does not depend on any dB arithmetic at all."
+ ],
+
+ "method": {
+  "window_s": 120,
+  "window_justification": "The L/R relationship is a property of the recording, not of one frame. A 120 s window classifies it. Decoding whole files is not an option: astats over the full 275.93-min unit measured 4m28s of 111% CPU, which is 284 wall-hours across the corpus on a 2-vCPU box - 11.8 days.",
+  "bit_identical_test": "ffmpeg -t 120 -i SRC -af 'pan=mono|c0=c0' -f hash -hash md5 -   (same for c1)",
+  "difference_test": "ffmpeg -t 120 -i SRC -af 'pan=mono|c0=c0-c1,astats'"
+ },
+
+ "results": [
+  {"handle": "JyUUXDqR", "ext": "mp3", "channels": 1, "branch": "MONO"},
+  {"handle": "pjFQiLQQ", "ext": "mp3", "channels": 2,
+   "L_md5": "496083234b9e812d8da45deac07ed037",
+   "R_md5": "496083234b9e812d8da45deac07ed037",
+   "LminusR_dB": "-inf", "branch": "EFFECTIVELY_DUAL_MONO_BIT_IDENTICAL"},
+  {"handle": "0vdA0R7L", "ext": "mp3", "channels": 2,
+   "L_md5": "3ede945dc199f94b7cdde951e1c9986d",
+   "R_md5": "3ede945dc199f94b7cdde951e1c9986d",
+   "LminusR_dB": "-inf", "branch": "EFFECTIVELY_DUAL_MONO_BIT_IDENTICAL"},
+  {"handle": "hrdmRTAY", "ext": "mp3", "channels": 2,
+   "L_md5": "550025cab40f7927da3b6b16df6d46e6",
+   "R_md5": "550025cab40f7927da3b6b16df6d46e6",
+   "LminusR_dB": "-inf", "branch": "EFFECTIVELY_DUAL_MONO_BIT_IDENTICAL"},
+  {"handle": "cvMWiD4C", "ext": "mp3", "channels": 1, "branch": "MONO"},
+  {"handle": "lvEUwZCD", "ext": "mp3", "channels": 1, "branch": "MONO"},
+  {"handle": "AyUCjJJY", "ext": "mp3", "channels": 1, "branch": "MONO"},
+  {"handle": "12UkTJRQ", "ext": "mp3", "channels": 1, "branch": "MONO"},
+  {"handle": "9ycSBZxA", "ext": "mp3", "channels": 1, "branch": "MONO"}
+ ],
+
+ "tally": {
+  "measured": 7,
+  "fetch_failed": 3,
+  "mono": 4,
+  "stereo_2_channel": 3,
+  "BIT_IDENTICAL_DUAL_MONO": 3,
+  "INDEPENDENT_keep_stereo_2x": 0,
+  "AMBIGUOUS_keep_stereo": 0,
+  "WOULD_BE_BILLED_2x": 0
+ },
+
+ "also_measured": {
+  "unit": "wiUyTRZb",
+  "note": "the corpus maximum, 275.93 min, 2 channels, measured during W0-SyncCeiling take 3",
+  "channels": 2,
+  "L_md5": "bd2f8901253139a7114862ede2bda2f0",
+  "R_md5": "bd2f8901253139a7114862ede2bda2f0",
+  "branch": "EFFECTIVELY_DUAL_MONO_BIT_IDENTICAL"
+ },
+
+ "WHAT_THIS_SETTLES": [
+  "The keep-stereo branch that bills 2x has fired on ZERO of 10 stereo files",
+  "measured across this session and the previous one. Every one is either mono",
+  "or bit-identical dual-mono. There is currently no evidence that any unit in",
+  "this corpus needs a 2x bill.",
+  "The $26.98 downmix saving is therefore real for everything measured, and the",
+  "-ac 1 downmix is PROVABLY lossless by hash rather than by an RMS threshold."
+ ],
+
+ "WHAT_THIS_DOES_NOT_SETTLE": [
+  "THE SAMPLE IS 10 OF 188 CALLS, ~5%. It cannot bound the corpus share and is",
+  "not presented as if it could. A 95% bound on the worst case from n=10 with",
+  "zero events is 26%; the share could plausibly be 0% or could be 5%.",
+  "The sampling was stratified by DECLARED SIZE, and Constraint 6 now says no",
+  "threshold may consume a declared size - so the stratification itself rests",
+  "on a field known to be quantised. Recorded, not glossed.",
+  "3 of the planned 18 units failed to fetch (handle lookup miss) and were not",
+  "retried. The run stopped at 10.",
+  "Metadata is 48000 Hz stereo throughout the sample; a downsampled mono file",
+  "elsewhere in the corpus would not be caught by this window."
+ ],
+
+ "CONTRACTUAL_NOTE": "Section 7.1a's keep-stereo branch remains specified and remains correct. This probe says it has not fired, not that it should be removed. Removing a safety branch because a small sample did not trigger it is how the next corpus loses $197.68."
+}
