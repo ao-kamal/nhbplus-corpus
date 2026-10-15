@@ -1,0 +1,74 @@
+﻿==============================================================================
+CLEAN NAMES FOR CALLS
+==============================================================================
+  UNSAFE: '10-31-2022 NHB+ Mindstream Call'
+  6-7-2021 - How To Sell & Close High Ticket           ->  2021-06-07 How To Sell & Close High Ticket.md
+  4-18-2022 FF Guest Call - Mike Gandia                ->  2022-04-18 Mike Gandia.md
+  4-25-2022 FF Guest Call - Dale LAB Profile           ->  2022-04-25 Dale LAB Profile.md
+  4-27-2022 Podcast VSL Training                       ->  2022-04-27 Podcast VSL Training.md
+  5-30-2022 FF Guest Call - Ron-Lynch, Uncensored Ca   ->  2022-05-30 Ron - Lynch, Uncensored.md
+  6-13-2022 FF Guest Call - Matt Bacak, The Birth of   ->  2022-06-13 Matt Bacak, The Birth of High Ticket and 
+  6-16-2022 FF Guest Call - Blake Wyatt, Ultimate Ec   ->  2022-06-16 Blake Wyatt, Ultimate Economics Tracking 
+  6-23-2022 FF_NHB+ Weekly Calls - Competing on Econ   ->  2022-06-23 Weekly Calls - Competing on Economics.md
+  6-27-2022 FF Guest Call - Dale on Equity             ->  2022-06-27 Dale on Equity.md
+  6-30-2022 FF_NHB+ Weekly Calls - Intentional Busin   ->  2022-06-30 Weekly Calls - Intentional Business Model
+  7-7-2022 FF_NHB+ Weekly Calls - The Philosophy of    ->  2022-07-07 Weekly Calls - The Philosophy of Offers.m
+  7-11-2022 FF Guest Call - Double Trouble Publishin   ->  2022-07-11 Double Trouble Publishing.md
+  7-16-2022 FF_NHB+ Secrets of The Game Mindset Call   ->  2022-07-16 Secrets of The Game Mindset.md
+  7-18-2022 FF Guest Speaker Loren on FB Ads           ->  2022-07-18 Guest Speaker Loren on FB Ads.md
+  7-20-2022 FF Guest Speaker Patrick Kenney on Googl   ->  2022-07-20 Guest Speaker Patrick Kenney on Google Ad
+  7-21-2022 FF_NHB+ Training Call - Evaluative Call    ->  2022-07-21 Evaluative Booking Models.md
+  7-25-2022 - FF Guest Speaker Erfan Riahi on Closin   ->  2022-07-25 Guest Speaker Erfan Riahi on Closing.md
+  7-27-2022 - FF Guest Speaker John Caprani on Netwo   ->  2022-07-27 Guest Speaker John Caprani on Network Mas
+  ... 187 calls total
+
+  COLLISIONS after cleaning: 0
+
+==============================================================================
+CLEAN NAMES FOR COURSE LESSONS
+==============================================================================
+  1. Rapid Launch Stack                          ->  courses/Rapid Launch Stack/01 Rapid Launch Stack.md
+  2.1 Sales Funnel Assembly                      ->  courses/7-Figure Sales Funnel/01 1 Sales Funnel Assembly
+  2.2 Sales Page Assembly                        ->  courses/7-Figure Sales Funnel/02 2 Sales Page Assembly.m
+  2.3 Order Form Assembly                        ->  courses/7-Figure Sales Funnel/03 3 Order Form Assembly.m
+  2.4 One Time Offers                            ->  courses/7-Figure Sales Funnel/04 4 One Time Offers.md
+  2.5 Call Booking Page                          ->  courses/7-Figure Sales Funnel/05 5 Booking Page.md
+  2.6 Call Booking Confirmation                  ->  courses/7-Figure Sales Funnel/06 6 Booking Confirmation.
+  0. AC Welcome Video                            ->  courses/Automatic Clients Course/01 AC Welcome Video.md
+  7. AC - Unannounced bonus                      ->  courses/Automatic Clients Course/02 AC - Unannounced bon
+  1. 100 BOOKS A DAY                             ->  courses/Advanced Acquisition Theory Course/01 100 BOOKS 
+  2. TRANSITION PERIODS                          ->  courses/Advanced Acquisition Theory Course/02 TRANSITION
+  3. SALES VELOCITY                              ->  courses/Advanced Acquisition Theory Course/03 SALES VELO
+  4. 10X FACTOR OF SCALING                       ->  courses/Advanced Acquisition Theory Course/04 10X FACTOR
+  5. DOMINATING FACEBOOK, GOOGLE AND YOUTUBE     ->  courses/Advanced Acquisition Theory Course/05 DOMINATING
+  6. 3 LEVELS OF CUSTOMERS                       ->  courses/Advanced Acquisition Theory Course/06 3 LEVELS O
+  7. WHY EVERYTHING WE DO IS MOBILE FIRST        ->  courses/Advanced Acquisition Theory Course/07 WHY EVERYT
+  ... 42 lessons total
+
+  within-course filename collisions: 0
+
+==============================================================================
+DOCUMENTS - 4 KNOWN COLLISIONS
+==============================================================================
+  distinct cleaned names: 105 of 109
+  COLLISIONS: 1
+
+    'resources links'
+      kind=course_doc    VvVSGbhJ  Resources Links
+      kind=course_doc    knMmWRSD  Resources Links
+      kind=course_doc    ErdCVRgJ  Resources Links
+      kind=course_doc    FzdgmLQD  Resources Links
+      kind=course_doc    c7Ew1TaQ  Resources Links
+
+==============================================================================
+VERIFY
+==============================================================================
+  total clean paths   : 229
+  all casefold-unique : True
+  unwritable on Windows: 0
+  longest paths:
+    109  calls/2025/02 February/2025-02-17 AI Hack That Writes Your Google Ads on Autopilot - With Charles Kirkland.md
+    102  courses/Plug & Play High Converting Sales Letter/01 7 - Figure Fill - In - The - Blank Sales Letter.md
+    100  courses/Advanced Acquisition Theory Course/10 PRIVATE INVITATION TO THE AUTOMATIC CLIENTS PROGRAM.md
+
+WRITTEN C:\Users\layiw\Documents\Kamal\nhbplus-corpus\pipeline\scripts\..\out\clean-names.json

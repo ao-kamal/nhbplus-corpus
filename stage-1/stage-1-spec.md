@@ -142,7 +142,10 @@ argument is search: without it the corpus spells its own programme name
 
 ```
 MEGA_URL_TMPL  = "https://mega.nz/folder/<PH>#<KEY>/file/<HANDLE>"
-     PROVEN. Peak disk 2.00 GB, never 320 GB.
+     PROVEN. [B26] Peak disk is **1.50 GiB MEASURED** (dvcEDToK, the largest unit
+     examined). The 2.00 GB figure that circulated was 2 GiB — the SENTINEL
+     value, 36× repeated. Constraint 6 forbids consuming a sentinel and §2
+     was doing exactly that.
 
 FETCH_CONCURRENCY      = SIZE-ADAPTIVE, not a constant. See 6.3.
 FETCH_CONCURRENCY_CEILING = 39   RAISED from 1, 2026-10-15. W0-Cap PASSED: the
@@ -203,7 +206,15 @@ KEYTERM               = ON, per unit, list built from that unit's OWN vocabulary
 PER_REQUEST_MINIMUM   = NONE      Proven: true per-second billing, no minimum,
                                    no rounding. The pessimistic ceil was deleted.
 
-COMMIT_COST           = billed_seconds(part) * (RATE + KEYTERM_RATE)
+COMMIT_COST           = (billed_seconds(part) / 60) * (RATE + KEYTERM_RATE)
+                        RATE and KEYTERM_RATE are USD PER MINUTE; billed_seconds
+                        is SECONDS. Without the /60 this is a 60x OVERCOMMIT: a
+                        3,600 s part commits $20.16 instead of $0.336, and the
+                        corpus commits $11,764.40 instead of $196.07. The preflight
+                        would stop the run after roughly ten parts. [B4]
+                        THIS IS THE SAME UNIT SLIP THAT PRODUCED THE 273.7x ERROR -
+                        seconds multiplied by dollars-per-minute. The class is
+                        closed by this fix and by the loss-allowance re-base.
 SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
                         IDENTICALLY in the 7.2 gate and in V10. [T5 #3]
                         NOT the response's channel array: Deepgram returns
@@ -540,14 +551,19 @@ so a full loopback never produces partial audio.
   until fetched — `dvcEDToK` declared 2 GiB and is actually 1.50 GiB — so reserve
   the display band's **upper bound**, never the declared value.
 
-  **The `2 ×` was wrong and made a named unit permanently unfetchable.** Usable
-  loopback measures 3,936 MiB, so `2 ×` capped admissible `declared` at 1,936 MiB
-  — and `10-03-2024 ... October Reading Offers Call - 1476x10` is **3.00 GB**,
-  the unit that forced the entire remux architecture. It needs 5.65 GiB under
-  `2 ×`, which no sequence of fetches can supply, and `bytes % (1<<30) != 0` so
-  the sentinel branch does not rescue it. `2 ×` is an off-by-one for a loopback
-  whose whole purpose is to hold one copy at a time.
-  When `declared` is a sentinel (Constraint 6) use a fixed 512 MiB reserve instead.
+  **The `2 ×` was an off-by-one for a loopback whose purpose is to hold one
+  copy at a time**, and is replaced by the size-adaptive predicate above.
+
+  > **[B2] The 3.00 GB unit that motivated it DOES NOT EXIST IN SCOPE.** The file
+  > is `EyFE2DpD` at 3,221,225,472 B = **3 × 2³⁰ exactly, so it IS a sentinel**,
+  > and it is a **never-fetched MP4 alternate**. That call's fetched primary is
+  > `03UW2LCY` at **151 MiB**. Largest non-sentinel audio in scope is 1.0654 GB.
+  > The `2 ×` was removed on the authority of a phantom.
+  When `declared` is a sentinel, reserve the **2,560 MiB** display-band upper
+  bound above. **[B3] A 512 MiB reserve also appeared here, contradicting the
+  2,560 MiB figure 20 lines above - a 5x disagreement inside one block on the
+  safety-critical number. Measured `dvcEDToK`: declared 2 GiB, real 1.50 GiB, so
+  512 MiB was 3x under.**
 - **Reap partial files** after any failed fetch — a refused transfer still leaves
   one 0-byte partial behind.
 - **Name `LOOPBACK_ENOSPC`** as a state distinct from overrun/stall.
@@ -728,13 +744,30 @@ submitted on its own and timed:
 
 ```
 unit        dvcEDToK, 204.3 min, 280.7 MB remuxed .mka
+                        *** NOT THE WORST CASE. [B1] 46 calls are LONGER. ***
+                        The longest is wiUyTRZb at 275.9 min / 16,556 s.
 upload      1.9 s at 150.8 MB/s
 response    HTTP 200 in 103.2 s
 total       105.1 s   against a 600 s ceiling
 MARGIN      5.7x
 ```
 
-> **The earlier 273.7× was a CALCULATED margin and it was wrong by 48×.** It
+> **The 273.7× was a 60× UNIT SLIP, not an extrapolation error. [B1][B4]** 600 s
+> of server time at 126× realtime is 75,600 SECONDS = 21.0 hours. The artifact
+> wrote that as 75,525 MINUTES / 1,259 hours. Corrected: 21.0 / 4.6 = **4.57×**,
+> which agrees with the measurement. The arithmetic in correct units already
+> matched reality — the units were wrong. **This is the same defect as B4**,
+> seconds × dollars-per-minute, and it is why a calculated margin is not a
+> margin.
+>
+> **AND THE MEASUREMENT WAS ON THE WRONG UNIT. [B1]** `dvcEDToK` is 204.3 min,
+> not the corpus maximum. **46 calls are longer.** The worst case is
+> `wiUyTRZb` at 275.9 min. Scaling the measured 105.1 s gives ~142 s →
+> **4.2× margin**, not 5.7×. W0-SyncCeiling is **REOPENED** for `wiUyTRZb`. It
+> was skipped because `dvcEDToK`'s manifest `dur_s` is `None`, so it never
+> appeared in the duration-sorted list used to pick the worst case.
+>
+> (superseded note retained: the earlier reading)
 > extrapolated a 126× realtime factor measured on a 68-minute, 124.5 MB file to a
 > unit 4× longer and 12× larger. **A margin calculated for the worst case is not a
 > margin.** $1.54 bought the real number; nothing else could.
@@ -933,6 +966,13 @@ the 109 documents that **no artifact actually populated** — `clean-names.json`
 carries `handle/verbatim/kind/clean` and no `path` for any of them `[R1]`.
 `design-names.py` must emit one, and V8 must assert its existence.
 
+> **[B19] V8 CANNOT PASS TODAY.** Verified by grepping every write to a `path`
+> key across `pipeline/scripts/`: `design-names.py` writes `path` for calls
+> (line 114) and lessons (line 137) and **never for a document**. All 109 document
+> records carry exactly `['clean','handle','kind','verbatim']`. This is a build
+> task, not a note: until the line is written, V8 fails on its first run and the
+> §9 docs shakedown cannot complete.
+
 ### 10.1 Frontmatter value domains — asserted, not merely counted `[R1]`
 
 Rev 0's V8 asserted a **field count**, so these all shipped: `duration: 0` on 3
@@ -966,7 +1006,7 @@ below, with no cross-reference. **67 of 296 names (23%) are affected**, not thre
 
 | Defect | Measured | Fix |
 |---|---|---|
-| dash splitter mangles intra-word hyphens | **67/296** names contain ` - `, incl. the spec's own example `Ron-Lynch` → `Ron - Lynch`, and a double-hyphen `A - - ` artifact | normalise dash **styles** only; never split `[A-Za-z]-[A-Za-z]` |
+| dash splitter mangles intra-word hyphens | **50 of 229** cleaned paths contain ` - `, of which **7** are true intra-word mangles (`Ron-Lynch`, `Biz-Op Blueprint`, `Clean Biz-Ops`, `Pre-Openings`, `CMO-CRO Roles`, `Call of Duty Biz-Ops`, `7-Figure Fill-In-The-Blank`). **[B20] The spec previously said 67 of 296 - the denominator 296 excludes the 42 lessons, one of which is damaged.** | normalise dash **styles** only; never split `[A-Za-z]-[A-Za-z]` |
 | `Call` stripped mid-phrase | `Call of Duty` → `of Duty Biz - Ops`; `Call Booking Page` → `05 5 Booking Page` | strip `Call` only as a whole token outside a compound |
 | `None` leaked into 3 filenames | `None Selling To Women 3.0.md` etc. | a missing date **omits the prefix**, it does not fill it. V8 asserts no filename contains `None` |
 | extension-in-stem | **2 `.mp4.md`** paths | strip a trailing media extension before appending `.md`. V6 checks **stems**, not just extensions |
@@ -1039,7 +1079,7 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$` |
 | V7 | reduction diff: re-render from receipts, byte-compare |
 | V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** |
-| V9 | counts 37/36/36; **and every kind-`call` handle in `scope-final.json` has exactly one emitted note** — V9 previously checked documents only, so it **structurally could not catch the dropped call** |
+| V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (188 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. [B7]** V9 previously checked documents only, so it **structurally could not catch the dropped call** |
 | V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** |
 | V11 | egress SHA256 per-file match |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
