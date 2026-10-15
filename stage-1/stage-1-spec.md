@@ -59,21 +59,34 @@ billing the corpus costs `35,013.1 min × $0.0043 = $150.56` — the forecast.
 dated from the price page instead of derived from the forecast. The figure was
 correct all along; only its provenance was wrong. The circularity is gone.
 
-**D3 — multichannel billing: NEW, BLOCKING, not previously considered.**
+**D3 — multichannel billing: RESOLVED 2026-10-15. Detect, do not choose.**
 
 > *"We bill based on the total duration of processed audio. If you process a
 > 10-minute file with 2 channels (stereo), you are billed for 20 minutes."*
 
-**A stereo source bills double.** 133 of the 230 units are MP4 video files, which
-are commonly stereo, and §7a remuxes with `-c:a copy` — which **preserves**
-channel count. The plan would knowingly submit stereo audio at 2× cost, adding up
-to **+$150.56**, which is larger than every other budget finding in this document
-combined.
+`W0-ChannelCount` measured it (`evidence/probes/nhbplus-w0-channelcount-2026-10-15.json`).
+**Every stereo file in the sample is dual-mono** — both channels carry the same
+signal, two of the three bit-identical. **There is no per-participant channel
+separation anywhere in the corpus.**
 
-**W0-ChannelCount is now a blocking probe.** If any substantial share is
-multichannel, the operator chooses between `ffmpeg -ac 1` downmix to mono
-(standard for speech, halves cost) and paying 2×. **That trades audio fidelity
-against money and is not the assistant's call.**
+**What `-ac 1` loses: nothing measurable.** Two identical in-phase signals average
+to the same signal at −6 dB. No cancellation — cancellation requires opposite
+phase, and identical signals are in phase. No content change, no diarization
+change, because there was never separate channel content to lose.
+
+**The money — and a correction to rev 1.** Rev 1 quoted a **$150.56** exposure,
+which was the worst case where every unit is stereo. Measured, only **17.9% of
+minutes are stereo**, so the real saving is **$26.98**:
+
+```
+run cost as-is          $177.54
+run cost with -ac 1     $150.56
+saving                  $26.98
+```
+
+**The rule is per file, not per corpus** (§7.1). The 10-file sample constrains
+nothing at scale — the measurement is applied to all 230 units, so a single
+per-participant file anywhere is *detected and preserved* rather than downmixed.
 
 **D4 — keyterm prompting: operator's call, not adopted.** $0.0013/min add-on, so
 roughly **+$45.56** across the run. A jargon-heavy mentorship corpus would plausibly
@@ -236,7 +249,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-SyncCeiling** | OPEN | calibrate sync at `SYNC_SEG_SEC`. **Must not** raise the cutoff. |
 | **W0-AsyncContract** | OPEN, **GO/NO-GO** | outbound-only async, and **does a GET after N minutes actually return a transcript?** Constraint 7 says retention is none. This is now the highest-value probe in the plan. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
-| **W0-ChannelCount** | **NEW, BLOCKING `[R1]`** | **ffprobe channel counts on a sample before the first submission.** Stereo bills **double**; 133/230 are MP4 and §7a's `-c:a copy` preserves channels. Up to **+$150.56**. Operator decides downmix-vs-pay. |
+| **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
 | **W0-Egress** | OPEN | binary VM→PC copy, per-file SHA256 manifest compared. |
 
@@ -387,15 +400,42 @@ else:
 
 `ffmpeg -vn -c:a copy` every unit. **133 of 230 are MP4.**
 
-> **`-c:a copy` preserves channel count, and Deepgram bills multichannel audio at
-> double: *"If you process a 10-minute file with 2 channels (stereo), you are
-> billed for 20 minutes."*** W0-ChannelCount is **blocking** (§4, D3). If the
-> sample shows a substantial stereo share, the operator chooses
-> `ffmpeg -ac 1` downmix — standard for speech, halves cost — or pays 2×.
-
 `ffprobe` duration is the cost-gate input, **not the manifest, and not a placeholder**.
 If remuxed ≥ `CAP_BYTES` → `ffmpeg -f segment -segment_time SEGMENT_SEC`.
 Single-part otherwise. **Every part gets its own receipt entry.**
+
+#### 7.1a Channel handling — DETECT per file, never choose corpus-wide `[R1]`
+
+Deepgram bills stereo at **×2**. But **every stereo file measured is dual-mono**
+(§0 D3), so downmixing is lossless and worth **$26.98**. Both pure options are
+worse than measuring: unconditional `-ac 1` would destroy channel separation on
+any per-participant file; unconditional stereo pays 2× on files that gain nothing.
+
+After remux, compute the difference signal for each part:
+
+```
+rms_L  = ffmpeg -i part  -af "pan=mono|c0=c0,astats"        -f null -
+rms_R  = ffmpeg -i part  -af "pan=mono|c0=c1,astats"        -f null -
+rms_D  = ffmpeg -i part  -af "pan=mono|c0=c0-c1,astats"     -f null -
+delta  = rms_D - rms_L        (dB)
+```
+
+```
+delta <= -40  -> DUAL-MONO.      -ac 1.  Lossless, saves money.
+delta >= -20  -> INDEPENDENT.    KEEP STEREO.  Per-participant audio; downmixing
+                                   would force acoustic diarization instead of
+                                   channel-derived attribution. Pay the 2x.
+otherwise    -> AMBIGUOUS.      keep stereo, flag AMBIGUOUS_CHANNELS for the
+                                operator. NEVER silently decide.
+```
+
+One extra ffmpeg pass per part. `channels` goes in the receipt, and the
+downmix decision is recorded beside it — so the money path and the fidelity path
+are auditable together.
+
+> **Do not invoke ffmpeg with `-v error` around `astats`.** It writes at `info`
+> level, so every reading silently returns `-inf` — indistinguishable from a silent
+> input. This cost one probe run and is recorded in the evidence artifact.
 
 ### 7.2 Submit
 
@@ -784,7 +824,15 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 
 ## 15. Open
 
-**Blocking, operator-owned:** **D1** the budget contradiction; **D2** the price.
+**Blocking, operator-owned — three values remain:**
+
+| | Value needed | Context |
+|---|---|---|
+| **D1a** | loss allowance for 504s | paid-and-unrecoverable; currently $0 allowed |
+| **D1b** | `SPEND_HARD_STOP_USD` **above** $150.56 + ~$1.31 (2 undated units) + the allowance | must exceed, not equal |
+| **D4** | keyterm prompting, +$45.56? | improves jargon accuracy; increases spend |
+
+D2 (price) and D3 (channels) are **resolved and closed**.
 
 **Naming repair** — §10.2 lists 10 defect classes across 67 names, plus the
 dropped call and 3 undated calls. Not three defects. This is the largest single
