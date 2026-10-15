@@ -50,18 +50,52 @@ live references to 339 / 188 / 230 / 105 / 440 / $204.69 / 35,013.1 / 583.55 /
 
 ## Residual risk at G1 - carried forward, not waived
 
-1. **The stereo census is sampled, not complete.** 65 of 191 dated calls;
-   2 genuinely stereo (3.08%, 95% interval ~1.0-8.5%). `section 2.2`'s
-   $197.68 keep-stereo ceiling stands as the bound to hold against.
-2. **D4 keyterm (+$45.52) is UNEVIDENCED** by the only A/B on disk, which
-   records zero gain and zero loss. A re-run costs $0.76/arm. If it shows no
-   gain, keyterm comes off and the budget falls by $45.52.
-3. **The PDF gate is closed on 49 of 50.** `6. 7-Figure VSL Script Template` is
-   unclassified because two passes matched on filename rather than handle.
-4. **13 of 14 gates are UNEVALUABLE** because no pipeline code exists yet. That
-   is the correct state at G1 and is the substance of Stage 3.
-5. **The 42-GB `attachments/` conflict** between VAULT-STRUCTURE.md and V6 is
-   documented and unresolved; V6 bans it and VAULT-STRUCTURE mandates it.
+**Status as of the same day. Two items closed after the gate was declared, one
+closed in the direction opposite to how it was first written down.**
+
+1. **OPEN - the stereo census is sampled, not complete.** 65 of 191 dated calls;
+   2 genuinely stereo (3.08%, 95% interval ~1.0-8.5%). `section 2.2`'s $197.68
+   keep-stereo ceiling stands as the bound to hold against.
+
+2. **IN FLIGHT - D4 keyterm (+$45.52) is UNEVIDENCED** by the only A/B on disk,
+   which records zero gain and zero loss. A re-run is in progress with a
+   corrected keyterm selector. **The first re-run was itself defective and its
+   result was discarded**: it selected capitalised tokens with 1-3 occurrences,
+   which on a transcript returns `ABSOLUTELY`, `ACTUALLY`, `AGAIN`, `ANYTHING` -
+   sentence-initial adverbs, which is exactly what keyterm has nothing to offer
+   on. The apparent gains it produced (`Actually 3->4`, `Altman 1->2`) were
+   noise. v3 builds the stoplist from the transcript's own 150 most frequent word
+   types instead. **A null result removes +$45.52 from the budget.**
+
+3. **CLOSED - the PDF gate is closed on 50 of 50, not 49.** The document missing
+   from v1 was `6. 7-Figure VSL Script Template`; the audit's hand-typed target
+   list was missing the `6. ` ordinal and `if not r: continue` swallowed it. v2
+   derives targets from the artifact and raises on a lookup miss.
+   `evidence/probes/nhbplus-pdf-fallback-audit-v2-2026-10-15.json`.
+   **The original 48 text / 2 sparse / 0 raster was right; my correction to 47
+   was the error.** All three page-capped PDFs are now named, including
+   `500-page-swipe-file-clayton-makepeace_compress_1` at 200/597 pages and
+   20,205 words, which the completeness note had missed entirely.
+
+4. **OPEN - 13 of 14 gates are UNEVALUABLE** because no pipeline code exists yet.
+   That is the correct state at G1 and is the substance of Stage 3.
+
+5. **CLOSED - the `attachments/` conflict** between VAULT-STRUCTURE.md and V6
+   is resolved in favour of Constraint 1, which is absolute. `attachments/`
+   does not ship. The same file's verbatim-vs-clean naming conflict and its
+   index-note-tree conflict are resolved in the same direction. VAULT-STRUCTURE.md
+   is now explicitly subordinate to the master specification, with a resolution
+   table at the top of the file, and its status changed from "proposed, pending
+   operator sign-off" to signed-and-superseded on those three points.
+
+## A note on how item 3 closed
+
+Item 3 was recorded as an open defect, then "fixed" from 48 to 47 in the wrong
+direction, then found to have been right the first time. The first fix was made
+on the evidence of an artifact that disagreed with itself, and the disagreement
+was in the audit script rather than in the corpus. **A self-inconsistent artifact
+is evidence about the script that wrote it, not about the thing it measured.**
+That is now stated in section 8.1 next to the table.
 
 ## What G1 does NOT say
 

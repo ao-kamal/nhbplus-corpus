@@ -118,8 +118,14 @@ phase, and identical signals are in phase. No content change, no diarization
 change, because there was never separate channel content to lose.
 
 **The money — and a correction to rev 1.** Rev 1 quoted a **$150.56** exposure,
-which was the worst case where every unit is stereo. Measured, only **17.9% of
-minutes are stereo**, so the real saving is **$26.98**:
+which was the worst case where every unit is stereo. It went on: "Measured,
+only **17.9% of minutes are stereo**, so the real saving is **$26.98**."
+**THAT MEASUREMENT IS WITHDRAWN.** W0-ChannelShare v3 measured 65 units
+stratified by type and month and found **3.08% genuinely stereo** (95% interval
+1.0–8.5%), against 23.1% that merely *have* two channels, of which 13 of 15
+are bit-identical dual-mono. `$26.98` goes with it; the `-ac 1` saving at v3's
+own share is **$6.21**, and §2.2's keep-stereo tail carries the ceilings.
+The table below is kept as the record of what was believed then:
 
 ```
 run cost as-is          $177.54
@@ -385,13 +391,42 @@ SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
                         the pre-downmix count would settle every downmixed unit at
                         2x and double-count the $26.98 saving into the ledger.
 
-  KEEP-STEREO TAIL (not in the $197.68 above). 3 of 3 stereo files were dual-mono, so the 7.1a keep-stereo branch has
-    fired 0 of 3 and the $26.98 downmix saving is currently whole. If a future
-    part reads INDEPENDENT and keeps 2 channels, SETTLE_FROM bills 2x for it.
-    Worst case over the corpus: +$197.68, i.e. a $405.36 run against a
-    $207.68 stop. The gate must stop, not re-derive, when this happens -
-    the unmeasured tail is a spend risk the flat budget does not cover.
-    Corpus-wide stereo share is UNKNOWN (see section 6 residual risks).
+  KEEP-STEREO TAIL (not in the $197.68 above).
+
+  **CORRECTED AGAINST W0-ChannelShare v3. The previous text here was stale in
+  a way that made the branch look dead.**
+
+  It read: "3 of 3 stereo files were dual-mono, so the 7.1a keep-stereo branch
+  has fired 0 of 3 and the $26.98 downmix saving is currently whole." **That is
+  no longer true.** v3 measured 65 units: **50 MONO, 13 bit-identical
+  dual-mono, and 2 GENUINELY STEREO** - `ljF0mZ4Y` (*Diving Into Data Part 3*)
+  and `IqVSkD5Z` (*Coffee Room Impromptu Call*) - each independently re-verified
+  by a second fetch and hashed on a 120 s window AND the full file, with sha256.
+  **On both, `-ac 1` is a REAL DOWNMIX, not lossless.** The branch fires. The
+  saving is NOT whole.
+
+  What the saving covers: the **13 bit-identical** units, where `-ac 1` is
+  byte-identical on both channels. What it does not cover: the 2 independent
+  units, which must keep 2 channels and are billed 2x by SETTLE_FROM on
+  INPUT_CHANNEL_COUNT.
+
+  | | calls | min at 180.5 mean | extra billed |
+  |---|---|---|---|
+  | 95% lower, 1.0% | 1.9 | 345 | **$1.93** |
+  | **v3 point estimate, 3.08%** | **5.9** | **1,061** | **$5.94** |
+  | 95% upper, 8.5% | 16.2 | 2,930 | **$16.41** |
+
+  **THE ARTIFACT'S "~$35 EXTRA" IS WITHDRAWN.** It is
+  `0.179 x 34,472.1 min x $0.0056 = $34.55` to the cent - it applies the
+  **17.9% share that v3 itself withdraws as a sampling artefact**, in the same
+  document that withdraws it. A money figure derived from a retracted
+  measurement, sitting in the artifact that retracts it. The figure from v3's
+  own measurement is **$5.94**.
+
+  CEILINGS, which the gate holds against rather than re-derives:
+  every dated call keeping 2 channels = **$193.04**; all 235 units including
+  the 42 lessons = **$201.83**. The gate must STOP, not re-derive, when it hits
+  one. The share is still SAMPLED at 65 of 191, not censused.
 
 SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. Three values
                                 were in circulation and all three were wrong:
@@ -431,9 +466,14 @@ SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. Three values
   | run as-is | $177.54 | **$392.15** |
   | downmix saving | $26.98 | **$35.10** |
 
-  **`$26.98` is `RATE`-only.** The stereo share is `0.179 x 36,336.6 = 6,267`
-  minutes, and at `RATE` alone that is $26.95 — so the number is internally
-  consistent but **computed at the wrong rate and never entered this budget.**
+  **AND THE `$26.98` / `6,267` ARITHMETIC WAS WRONG ON ITS OWN TERMS, TOO.**
+`0.179 x 36,336.6` is **6,504**, not 6,267 — a 3.8% error in the first
+multiplication. And `6,267 x $0.0056` is **$35.10**, which is the figure in the
+row above labelled "at RATE + KEYTERM" — the two columns had each other's
+arithmetic. Nothing built on `6,267` produces `$26.95` at any rate in this
+document. **Both are withdrawn**; §2.2's keep-stereo tail carries the
+replacement, derived from the share v3 actually measured, and it is computed
+rather than asserted.
   All three lines are re-based above; $26.98 is withdrawn as a live figure and
   retained only as the STT-only saving.
 
@@ -631,7 +671,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7×, measured at 5.7× on the 47th-ranked unit, and then asserted at 3.8× with no artifact behind it. The true figure on the corpus maximum is 3.28×** — not 273.7×, not 5.7×, and not the 3.8× that a fix supplied — see W0-SyncCeiling. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelShare** | 🟡 **PARTIAL · v3 2026-10-15** | **SUPERSEDES THE v1 HEADLINE ("ZERO OF 10") AND THE v2 HEADLINE ("1 OF 19").** **65 of 191 calls, stratified by TYPE and MONTH — both REAL fields.** Result: **50 mono, 13 bit-identical dual-mono, 2 genuinely stereo.** Stereo share **15 of 65 = 23.1%**; genuinely-stereo share **2 of 65 = 3.08%** (95% interval ~1.0–8.5%). **THE 2× BILL IS REAL AND §7.1a's KEEP-STEREO BRANCH FIRES.** Both hits independently re-verified by a second fetch and hashed on a 120 s window AND the full file: **`ljF0mZ4Y`** (*02-12-2025 NHB Coaching Call — Diving Into Data Part 3*, mp3, coaching) and **`IqVSkD5Z`** (*2024-09-27 FF.NHB Coffee Room Impromptu Call*, mp4, other). For both, `L ≠ R` **and `−ac 1 ≠ L`** — **so −ac 1 is a REAL DOWNMIX on them, not a lossless collapse.** **WHY v1 FOUND NOTHING:** it stratified by DECLARED SIZE, which Constraint 6 says is quantised; the confirmed stereo units carry 2 GiB sentinels and fell in the bucket that got the SMALLEST allocation. **The sentinel defect as a SAMPLING FRAME.** **WITHDRAWN:** the "all type other" pattern — it did not survive a type-stratified sample. Artifact `nhbplus-w0-channelshare-v3-2026-10-15.json`. PREVIOUSLY: | **[ R4-PROP] THE EARLIER HEADLINE "ZERO OF 10 STEREO FILES, EVERY ONE BIT-IDENTICAL" HAS BEEN FALSIFIED.** An expanded sample found **`pvd0RJrB` (`ff_nhb weekly calls - competing on economics`, 2022-06-23, 175 min, declared size exactly 2 GiB — a sentinel)**: L md5 `2f144ac4…` ≠ R md5 `53ade16b…`. **The first genuinely-stereo unit in the corpus. The keep-stereo branch FIRES and that part bills at 2×.** Combined: **1 of 19 measured calls is genuinely stereo**; of 5 stereo files, 3 are bit-identical and 1 is not. At n=19 the 95% interval runs ~2%–26%, so the share is still not bounded — but it is no longer bounded above by zero. §2.2's $197.68 keep-stereo line STANDS. WHY THE FIRST SAMPLE MISSED IT: it stratified by DECLARED SIZE, and Constraint 6 says declared sizes are quantised and may not gate anything; this unit's declared size is exactly 2 GiB so it sat in the sentinel bucket, which got the SMALLEST allocation. **The sentinel defect once more — not as a threshold, not as a cost, but as a SAMPLING FRAME.** Artifact `nhbplus-w0-aclose-2026-10-15.json`. PREVIOUSLY: | **[MEASURED] 10 of 193 calls sampled (~5%), stratified by size. 7 measured, 3 fetch-failed. Every stereo file is BIT-IDENTICAL dual-mono: L md5 == R md5, proven by hash, not by an RMS threshold. 4 mono, 3 bit-identical, and the keep-stereo 2× branch fired on ZERO.** Includes `wiUyTRZb`, the corpus maximum. **The sample is too small to bound the corpus share and is not presented as if it could** — with n=10 and zero events the 95% upper bound is ~26%. Artifact `nhbplus-w0-channelshare-2026-10-15.json`. The branch stays specified; a small sample not triggering it is not grounds for deleting a 2×-billing safety branch. |
-| **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
+| **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED — AND ITS BASIS SINCE SUPERSEDED.** It read "3 of 3 stereo files are **dual-mono**" — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
 | **W0-Egress** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `scp -r` VM→PC is byte-exact (4/4 SHA-256 match), 11/11 typography checks survive, LF preserved, no BOM. **It produced a plan correction: V6 must run on the VM source tree BEFORE the copy.** |
 
@@ -1048,12 +1088,16 @@ delta <= -40   -> EFFECTIVELY_DUAL_MONO.  -ac 1 RE-ENCODES (a copy codec cannot
 delta >= -20   -> INDEPENDENT.     KEEP STEREO.  Per-participant audio; downmixing
                                    would force acoustic diarization instead of
                                    channel-derived attribution. Pay the 2x.
-otherwise      -> AMBIGUOUS.      TWO OF FIVE BRANCHES ARE UNOBSERVED.
-   `INDEPENDENT` and `AMBIGUOUS` fired on **0 of 3** stereo files — all three
-   were dual-mono, so the delta was uniformly 0.00 dB and neither branch was
-   ever taken. They are specified, not validated. The corpus-wide stereo share
-   is also UNKNOWN (3 of 235 measured), so the branch that bills 2x has no
-   measured population behind it. That tail is priced in §2.2's keep-stereo
+otherwise      -> AMBIGUOUS.      ONE BRANCH REMAINS UNOBSERVED. `INDEPENDENT` NO LONGER IS.
+   This read: "`INDEPENDENT` and `AMBIGUOUS` fired on **0 of 3** stereo files —
+   all three were dual-mono, so the delta was uniformly 0.00 dB and neither
+   branch was ever taken. They are specified, not validated."
+   **W0-ChannelShare v3 falsified the first half of that.** Of 65 units,
+   **`ljF0mZ4Y` and `IqVSkD5Z` read INDEPENDENT**, so the branch has a real
+   non-zero delta to work on and `-ac 1` on those is a genuine downmix.
+   **`AMBIGUOUS` is the one branch that has still never fired** and remains
+   specified-but-unvalidated. The share is no longer UNKNOWN either: **3.08%
+   genuinely stereo, 95% interval 1.0–8.5%**, over 65 of 191 dated calls. That tail is priced in §2.2's keep-stereo
    line, not here.       keep stereo, flag AMBIGUOUS_CHANNELS for the
                                    operator. NEVER silently decide.
 ```
@@ -1411,8 +1455,11 @@ and that prediction is **not confirmed**.
 **the response reports 1× while the card is charged 2×.** The receipt therefore
 **under-records the bill** on any kept-stereo unit. `SETTLE_FROM` multiplies by
 the **input** channel count read from the local part, never from the response.
-Bounded by measurement — 3 of 3 stereo files were dual-mono, so the keep branch
-fired 0 of 3 — but the gate must be correct on it. **§2.2 carries an explicit
+Bounded by measurement — **and the bound has moved since it was written.**
+It read "3 of 3 stereo files were dual-mono, so the keep branch fired 0 of 3."
+W0-ChannelShare v3 found **2 of 65 genuinely INDEPENDENT**, on which `-ac 1` is
+a real downmix, so the keep branch **does** fire and the input count **does**
+exceed 1 on a real unit. The gate must be correct on it. **§2.2 carries an explicit
 keep-stereo line, bounded at 2x the corpus: +$197.68 in the worst case where
 every unit keeps stereo, against a $213.48 stop.** Earlier revisions claimed
 this line existed twice while grepping for it returned only the claim itself.
