@@ -57,9 +57,21 @@ def drop_lead(s):
     # or "2.1 Sales Funnel Assembly" loses only its "2." and becomes
     # "1 Sales Funnel Assembly" - then the counter prepends "01" and the
     # filename reads "01 1 Sales Funnel Assembly". 13 of 42 lessons were affected.
-    s = re.sub(r"^\s*\d{1,2}\s*\.\s*\d{1,2}\s*[.)]?\s*", "", s)   # 2.1 / 10.3
+    # The dot must be CONTIGUOUS. Allowing spaces here made "4. 7-Figure
+    # Fill-In-The-Blank Sales Letter" (ordinal 4, title beginning "7-Figure")
+    # parse as the dotted ordinal 4.7 and emit "4 Figure Fill-In-The-Blank",
+    # destroying the number. Every real dotted ordinal in the corpus is
+    # contiguous: 2.1, 3.2, 7.1.
+    s = re.sub(r"^\s*\d{1,2}\.\d{1,2}\s*[.)]?\s*", "", s)             # 2.1 / 10.3
     s = re.sub(r"^\s*\d{1,2}\s*[.)]\s*", "", s)                    # 65 files
     s = s.replace("FF_NHB+", "").replace("NHB+", "").replace("FF ", "")
+    # [F27] 22 brand tokens survived: "NHB - " on 21 and "FF.NHB" on 1. The
+    # brand is in the vault path 230 times over; it is not a sort key and it
+    # is not the call's subject. Every occurrence in the corpus is a LEADING
+    # token, so a leading-only strip is enough and cannot eat a subject that
+    # legitimately contains the word.
+    s = re.sub(r"^(?:ff\.?[ _]?)?nhb\+?\s*[-.]?\s*", "", s, flags=re.I)
+    s = re.sub(r"^ff\.?\s*", "", s, flags=re.I)
     # `Mindstream` must NOT be in this alternation. With it, the regex ate the
     # whole phrase "NHB+ Mindstream Call" down to an empty stem, call_path
     # returned None, and the unit was dropped silently - fetched and transcribed
@@ -67,6 +79,17 @@ def drop_lead(s):
     s = re.sub(r"\b(?:Theory|Coaching|Guest|Training|Mastermind)\s*Call\b", "", s, flags=re.I)
     s = re.sub(r"^\s*[-–—:]\s*", "", s)
     return s
+
+def strip_brand(s):
+    """[F27] Leading brand tokens. This has to run AFTER the DATE strip, not
+    inside drop_lead: drop_lead sees "01-31-2024 NHB - Value Matrix", so its
+    `^` anchor never reaches the brand, and the brand then surfaces the moment
+    the date is removed - which is exactly where 22 of them were surviving."""
+    s = re.sub(r"^(?:ff\.?[ _]?)?nhb\+?\s*[-.:]?\s*", "", s, flags=re.I)
+    s = re.sub(r"^ff[._]\s*", "", s, flags=re.I)
+    s = re.sub(r"^[-–—:]\s*", "", s)
+    return s
+
 
 def tidy(s):
     s = WINDOWS.sub("", s)
@@ -97,7 +120,7 @@ def call_path(u):
     s = re.sub(r"^\s*(?:\d{1,2}[-/.]\d{1,2}[-/.]\d{4}|\d{4}-\d{2}-\d{2})\s*[-–—:]*\s*", "", s)
     # the ISO branch above already existed but the corpus's ONLY ISO-dated name
     # still lost its date, so the ordering here is load-bearing
-    s = tidy(s)
+    s = strip_brand(tidy(s))
     # a trailing media extension in the STEM produced "....mp4.md", which
     # Obsidian renders as a note named "TSL Structures.mp4" - a media extension
     # inside a markdown vault, arriving by a route V6 does not check because the
@@ -212,6 +235,11 @@ for t in sc["targets"]:
     if t["kind"] == "audio": continue
     s = tidy(drop_lead(strip_junk(t["name"])))
     s = re.sub(r"\.(docx|xlsx|pptx|pdf|zip|txt|png)$", "", s, flags=re.I)
+    s = strip_brand(s)
+    # [F27] 3 underscores survived into filenames. An underscore is legal in a
+    # Windows path, so nothing was broken - but every other name in the vault
+    # uses spaces, and a mixed convention is a mixed convention forever.
+    s = re.sub(r"\s*_+\s*", " ", s).strip()
     drows.append({**t, "clean": s})
 
 by_name = defaultdict(list)
@@ -221,16 +249,24 @@ dups = {k: v for k, v in by_name.items() if len(v) > 1}
 # D4: the course prefix was computed and then DISCARDED - `dpaths` was built and
 # never read, which is why five "Resources Links" still collided. Apply it. The
 # five carry five distinct course values, so this genuinely disambiguates.
-def course_slug(t):
+def course_slug(t, stem=""):
     raw = (t.get("course") or t.get("folder") or "").strip()
     raw = re.sub(r"^\s*\d{1,2}\.\s*", "", raw)          # drop the ordinal
     raw = re.sub(r"\s*[-–—]\s*", " ", raw)
     raw = re.sub(r"\s+", " ", raw).strip()
+    # [F39] "Plug & Play High Converting Sales Letter Resources Links" already
+    # begins with its own course name, so prefixing produced
+    #   .../Plug & Play High Converting Sales Letter/Plug & Play High Converting
+    #   Sales Letter Resources Links.md
+    # The course FOLDER already disambiguates. Only prefix when the stem does
+    # not already carry the name.
+    if stem and raw and raw.casefold() in stem.casefold():
+        return ""
     return safe(raw) and len(raw) <= 60 and raw or ""
 
 for t in drows:
     n_coll = len(by_name[t["clean"].casefold()])
-    slug = course_slug(t)
+    slug = course_slug(t, t["clean"])
     if n_coll > 1 and slug:
         t["clean"] = f"{slug} {t['clean']}"
 
@@ -283,11 +319,26 @@ for t in drows:
         # sorts before `10 January` but after `12 December` without the pad.
         month = (f"{int(mo):02d} {MN[int(mo)-1]}"
                  if mo.isdigit() and 1 <= int(mo) <= 12 else "undated")
-        t["path"] = f"written-hands/{y}/{month}/{stem}.md"
+        # [F29] A hand with no ISO date in its `unit` produced the literal
+        # path written-hands/undated/undated/ - the year folder AND the month
+        # folder both said undated. One segment is enough.
+        t["path"] = f"written-hands/{y}/{month if month != 'undated' else 'undated'}/{stem}.md"
+        t["path"] = re.sub(r"/undated/undated/", "/undated/", t["path"])
     else:
         slug = course_slug(t)
-        t["path"] = (f"courses/{slug}/{stem}.md" if slug and t["kind"] == "course_doc"
-                     else f"library/{stem}.md")
+        # [F39] The course FOLDER is the disambiguator. Repeating its name inside
+        # the filename gave
+        #   courses/Plug & Play High Converting Sales Letter/Plug & Play High
+        #   Converting Sales Letter Resources Links.md
+        # The folder alone separates these five. Strip the redundant leading
+        # course name from the stem, but only if something survives.
+        fn = stem
+        if slug and fn.casefold().startswith(slug.casefold()):
+            trimmed = fn[len(slug):].strip(" -&")
+            if trimmed:
+                fn = trimmed
+        t["path"] = (f"courses/{slug}/{fn}.md" if slug and t["kind"] == "course_doc"
+                     else f"library/{fn}.md")
 
 by_path = defaultdict(list)
 for t in drows: by_path[t["path"].casefold()].append(t)

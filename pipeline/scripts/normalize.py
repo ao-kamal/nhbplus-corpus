@@ -52,7 +52,14 @@ MEDIA = ("mp3", "mp4", "wav", "m4a", "mov", "m4v")
 # clean zero that read as a finding. LAST occurrence, not first: names like
 # '10. 12-07-2023 ... .mp4' contain dots that are not extensions.
 EXT = re.compile(r"\.([A-Za-z0-9]{1,5})(?=\s|$)")
-DATE   = re.compile(r"^\s*(\d{1,2})\s*-\s*(\d{1,2})\s*-\s*((?:19|20)\d{2})\s*")
+# [F26] TWO date forms, because the corpus carries two. This was M-D-YYYY only,
+# and design-names.py:92 already accepted ISO - so the ISO fix sat in the wrong
+# file, where it could never fire, because this regex is what populates
+# u["date"]. The corpus's only ISO-dated verbatim name
+# ("2024-09-27 ... Coffee Room Impromptu") lost its date and came back as a path
+# with no date prefix at all. Group order is (M, D, Y) in BOTH alternatives so
+# call_date() below needs no branch.
+DATE   = re.compile(r"^\s*(?:(\d{4})\s*-\s*(\d{1,2})\s*-\s*(\d{1,2})|(\d{1,2})\s*-\s*(\d{1,2})\s*-\s*((?:19|20)\d{2}))\s*")
 ORDN   = re.compile(r"^\s*\d{1,2}\s*[.)]\s*")
 PLAT   = re.compile(r"\s+on\s+(vimeo(\.com)?|youtube(\.com)?|wistia|loom|teachable)\s*$", re.I)
 TYPES  = ("guest", "coaching", "theory", "training", "q&a", "mastermind")
@@ -94,7 +101,14 @@ def call_date(name):
     n = ORDN.sub("", name or "")
     m = DATE.match(n)
     if not m: return None
-    mo, d, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    # [F26] TWO forms, TWO group orders. ISO groups are (Y, M, D) in slots
+    # 1-3; US groups are (M, D, Y) in slots 4-6. Reading slots 1-3 for both is
+    # how a date can be parsed and still be wrong: "2024-09-27" would come back
+    # as year=27, month=9, day=24.
+    if m.group(1):
+        y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    else:
+        mo, d, y = int(m.group(4)), int(m.group(5)), int(m.group(6))
     if not (1 <= mo <= 12 and 1 <= d <= 31): return None
     return f"{y:04d}-{mo:02d}-{d:02d}"
 
