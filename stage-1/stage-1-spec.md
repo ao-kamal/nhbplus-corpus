@@ -27,7 +27,15 @@ These outrank every mechanism here. Nothing below may trade one away.
 | 3 | **Remove nothing.** Where a route is blocked, the route changes. | The 2 sparse PDFs are extracted, not dropped. 100 MP4 alternates are never fetched — a route change, not a removal. |
 | 4 | **Evidence, not assertion.** | W0 probes. Ten claims withdrawn during planning; kept visible in §13.2. |
 | 5 | **Operator picks the files.** | `scope-final.json`, **344** targets, locked. |
-| 6 | **A sentinel is not a measurement** `` | **[F-KIB 2026-10-15] THIS IS UNDERSTATED. NOT 77 OF 235 — ALL 193 CALLS.** Every declared size in the corpus is an **exact multiple of 1 KiB**: **193 of 188, 100% of the corpus bytes.** The chance of that by accident is (1/1024)^188. The spec detects sentinels only at **GiB** granularity (`bytes % 2**30 == 0`), which finds 73 and calls the other 115 "real". They are not real either — they are KiB-quantised. Proof from the one unit measured against ground truth: `wiUyTRZb` **declared 397,410,304 B (KiB-exact)** vs **actual downloaded 397,487,264 B (NOT KiB-exact)**, a 76,960 B delta. So there is **no unquantised subset** by this test, and the "73 sentinels / 157 real" split in this document is wrong in kind, not just in number. **§6 (sentinel detection) must test `bytes % 1024 == 0`, and no threshold may consume any declared size.** §6 (73 of 235 carry placeholder sizes** — 38 at exactly 1 GiB, 39 at exactly 2 GiB = **116.00 GiB of 153.81 GiB = 75.4%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
+| 6 | **A sentinel is not a measurement** `` | **[F-KIB 2026-10-15] THIS WAS UNDERSTATED **AND** WRONG IN ITS NUMBER. ALL 335 DECLARED SIZES.** Every declared size in the corpus is an **exact multiple of 1 KiB**: **335 of 335 declared sizes, 100%**, measured.
+> **BOTH FORMER FIGURES WERE WRONG.** “193 of 188” is impossible, and “73 of 235”
+> does not follow from the “38 at exactly 1 GiB, 39 at exactly 2 GiB” in its own
+> sentence, which sums to **77**. Measured from `manifest-v3.json`: **335 declared
+> sizes** = 235 primaries + 100 MP4 alternates, and **all 335 are KiB-exact**. Of
+> those **156 are GiB-exact**, which is what the old GiB-boundary test found.
+> The 77 GiB-exact primaries carry **116.00 GiB of 153.807 GiB = 75.4%**.
+> `scope-final.json`'s own `sentinel_test` agrees: KiB qualifies ALL 335, GiB-exactness
+> finds only 156. **Cite the measurement, not the sentence.** The chance of that by accident is (1/1024)^188. The spec detects sentinels only at **GiB** granularity (`bytes % 2**30 == 0`), which finds 73 and calls the other 115 "real". They are not real either — they are KiB-quantised. Proof from the one unit measured against ground truth: `wiUyTRZb` **declared 397,410,304 B (KiB-exact)** vs **actual downloaded 397,487,264 B (NOT KiB-exact)**, a 76,960 B delta. So there is **no unquantised subset** by this test, and the "73 sentinels / 157 real" split in this document is wrong in kind, not just in number. **§6 (sentinel detection) must test `bytes % 1024 == 0`, and no threshold may consume any declared size.** §6 (73 of 235 carry placeholder sizes** — 38 at exactly 1 GiB, 39 at exactly 2 GiB = **116.00 GiB of 153.81 GiB = 75.4%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
 | 6a | **Send `mip_opt_out=true` on EVERY request.** **** Probed 2026-10-14: with the flag `HTTP 200`, without it `HTTP 200`, `VERDICT: PASS` (`deepgram-capability-probe-2026-10-14.json` § `STEP_0_CONSENT_GATE`). `operator-decision-compute-azure-2026-10-14.json` records it as *"structural and sent on every request"*. **This document contained ZERO occurrences of `mip_opt_out`, `consent` or `GDPR` before this line — the flag existed in a dated decision record and in nothing else.** §0's own rule is that *"an agent executes this with no other document open"*, so an omission here is an omission in the executed path, not in the reading list. **The artifact is explicit: *"Acceptance of the flag is NOT permission to stop sending it."*** §7.2. |
 | 7 | **The response is the only retrieval** `` | `evidence/probes/deepgram-eu-limits-and-chain-proof-2026-10-15.json`, under `limits_that_would_have_broken_the_run`: *"Deepgram does not store transcripts. The API response is the only opportunity to retrieve it."* **Every submission is single-shot.** The response body must stream to disk as it arrives. §7.3. |
 
@@ -1923,8 +1931,15 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** — **formula in §11.4** |
 | V11 | egress SHA256 per-file match — **formula in §11.4** |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
-| **V13** | **`00 Topics.md` — NEW. POPULATION IS 230, NOT 225.** **re-scoped it to what measurement supports; found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from 's clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. |
-| **V13** (population note) | 's own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `235 − 221 =` **9** units, but the same row says "4 of 235". The **group count** is 4; the **units inside them** is 9. **** |
+| **V13** | **`00 Topics.md` — NEW. POPULATION IS 235 (193 calls + 42 lessons), NOT 225 AND NOT 230.** **re-scoped it to what measurement supports; found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from 's clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. |
+| **V13** (population note) | 's own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `235 − 221 =` **14** units, but the same row says "4 of 235".
+> **CORRECTED: 235 − 221 is 14, NOT 9.** The sentence it corrected was itself
+> internally inconsistent - it measured 4 of 235 units sharing a stem, so
+> 221 + 4 = **225**, not 235. A row that does not sum to its own population
+> cannot be totalled from. The correct reading: the measured table counts only
+> 225 of 235 units and **10 are unaccounted for** - a gap in the source,
+> recorded rather than closed by adjusting a number to fit. **Re-measure before
+> any implementation trusts 221, 4, or 14.** The **group count** is 4; the **units inside them** is 9. **** |
 
 ### 11.1 V12 — Identity Binding ``
 
@@ -2086,7 +2101,7 @@ V5(transcript_words, d_manifest) :=
     FAIL if transcript_words is empty      # V4 already ensures a duration
     FAIL if head_gap > SPAN_EDGE_SEC       # first minutes of speech missing
     FAIL if tail_gap > SPAN_EDGE_SEC       # last minutes of speech missing
-    FAIL if span_ratio < MIN_SPAN_RATIO   # (last_s - first_s) / d_manifest
+    FAIL if span_ratio < MIN_SPAN_RATIO   # UNSET. See the block below.   # (last_s - first_s) / d_manifest
     PASS otherwise
     NON_VACUOUS iff len(transcript_words) > 0 and d_manifest > 0
 ```
@@ -2309,6 +2324,10 @@ V8(notes, scope_final) :=
     FAIL if any("None" in Path(n).name for n in notes)
     FAIL if any(d.path is None for d in scope_final.documents)  # 109 documents
 
+    fronts = [parse_frontmatter(n) for n in notes]   # BOUND. This variable was
+    # named by the non-vacuity clause and never assigned - a reader following
+    # the formula had no way to compute it.
+
     NON_VACUOUS iff all(fm is not None for fm in fronts) and len(notes) >= 344
 ```
 
@@ -2361,7 +2380,18 @@ V10(receipts) :=
     # -map_channel and produces a MONO part, so reading the pre-downmix count
     # would settle every downmixed unit at 2x and double-count the saving.
 
-    committed = sum(settle_from(r) * RATE for r in receipts if r.state == "settled")
+    committed = sum(COMMIT_COST(r) for r in receipts if r.state == "settled")
+    # COMMIT_COST is defined ONCE in 2.2 and is used by BOTH this gate and
+    # the 7.2 submission path:
+    #     COMMIT_COST = (billed_seconds(part) / 60) * (RATE + KEYTERM_RATE)
+    #
+    # THIS LINE PREVIOUSLY READ `settle_from(r) * RATE`, WHICH IS A 60x UNIT
+    # SLIP THIS DOCUMENT ALREADY WARNED ABOUT. SETTLE_FROM yields SECONDS;
+    # RATE is dollars per MINUTE. A 3,600 s part committed $20.16 instead of
+    # $0.336 and the whole corpus committed $11,764.40 instead of $196.07 -
+    # the run would have stopped after roughly ten parts. It also omitted
+    # KEYTERM_RATE, under-booking by $44.81 and letting V10 pass a run that is
+    # genuinely over the stop. Do not reintroduce either omission.
     lost      = LOSS_ALLOWANCE_USD            # 10.00
     total     = committed + lost
 
@@ -2384,8 +2414,19 @@ V10(receipts) :=
 
 ```
 V11(manifest_json, pc_copy) :=
-    # W0-Egress proved PowerShell pipelines corrupt typography:
-    # 11/11 spot-checks differed, 256 match. So NO shell pipeline touches the copy.
+    # W0-Egress restricted PowerShell pipelines BY NAME. The plan forbids them
+    # because `Get-Content -Raw | Set-Content -Encoding utf8` essentially
+    # rewrites newlines and can strip a BOM - NOT because a transfer was observed
+    # corrupting one. The probe's actual verdicts were PASS on both counts:
+    #   typography_survival.verdict = PASS - 11 of 11
+    #   byte_identity.verdict       = PASS - scp -r is byte-exact
+    # over 5 small files. **The plan correction W0-Egress produced is a
+    # SEQUENCING one, not a corruption one**: V6 runs on the VM source tree
+    # before the copy. A previous revision of this comment claimed "11 of 11
+    # spot-checks differed while 256 matched on length", and a population of 256
+    # or 267 files. **No such transfer ever happened and neither figure appears
+    # in the artifact.** So NO shell pipeline touches the copy - for a reason
+    # that is true, not one that was convenient.
     for f in manifest_json.files:
         FAIL if sha256((pc_copy / f.relpath).read_bytes()) != f.sha256
         FAIL if (pc_copy / f.relpath).stat().st_size != f.bytes
