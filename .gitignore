@@ -33,3 +33,11 @@ desktop.ini
 # subagent scratch (agents write here while running; findings go in stage-1/)
 pipeline/out/_r*/
 
+# --- beads recovery artifacts (never work, never commit) ---
+# frankensqlite 0.4.4 leaves a dated quarantine point under .beads/quarantine/
+# each time a WAL-index recovery fails. Three runs today produced ~3.3 MB.
+# Untracked-by-default is right; ignoring it stops it masquerading as a change.
+/.beads/quarantine/
+/.beads/.br_recovery/
+# vacuum lease files from failed/retried br operations
+/.beads/.beads.vacuum.*
