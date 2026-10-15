@@ -356,12 +356,29 @@ developers.deepgram.com/reference/api-rate-limits.md
 
 FETCH_IMG_BYTES = 4 GiB   loopback ext4, kernel-enforced. W0-Cap proves ENOSPC.
 CAP_BYTES       = 2_000_000_000
-SEGMENT_SEC     = 1500    PROVISIONAL. The remuxed >= CAP_BYTES guard ONLY.
+SEGMENT_SEC     = 1500    UNREACHABLE for this corpus, not merely provisional.
+                         The largest part in the corpus is 385 MiB against a
+                         2 GB CAP_BYTES, so the segmenter never fires. It is
+                         retained as the ONLY defence if a future fetch exceeds
+                         the sync ceiling, and it must be re-validated against
+                         a real part before it is relied on.
                          There is no sync fallback - see 7.2.
 FETCH_STALL_SEC = 120     POST_KILL_QUIESCE_SEC = 60
-WPM_MIN, WPM_MAX = 60, 260          PROVISIONAL
+WPM_MIN, WPM_MAX = 60, 260          MEASURED 2026-10-15, wpm.json.
+                                     147.6-225.8 observed, mean 188.9, n=5.
+                                     WPM_MIN sits 87.6 wpm BELOW the
+                                     lowest observed: safe, 2.5x margin.
+                                     WPM_MAX sits only 34.2 wpm ABOVE the
+                                     highest observed: 1.15x margin, THIN.
+                                     At n=5 a dense lesson could exceed it and
+                                     V5 would fail a good note. Re-measure
+                                     across the 42 lessons before the run;
+                                     do not widen it to make a gate pass.
 SPAN_EDGE_SEC   = 60
-FORECAST_USD    = 150.56
+FORECAST_USD    = 203.48    WAS 150.56. That was the RATE-only figure before
+                             keyterm was adopted. At RATE + KEYTERM the run is
+                             $203.48 and the hard stop is $213.48. A forecast
+                             below the run it forecasts is not a forecast.
 ```
 
 ### 2.2 Spend constants — sourced, settled, and measured `[settled 2026-10-15]`
