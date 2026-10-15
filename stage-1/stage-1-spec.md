@@ -401,7 +401,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
 | **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches: `FETCH_CONCURRENCY` 1 → **the size-adaptive predicate, 1–38 in flight** — not a constant.** **[F18] This row said "1 → 6" and contradicted §2, §3 and §6.3. The raise to 6 was real; the ceiling is now the predicate's small band.** |
 | **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM - **[F23] the 995 MB figure appears only in this spec and in the [B24] note; w0-remux.json records 133.6/89.8 MB sources. Cite the artifact, not this line.**), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
-| **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15** | **CLOSED, MEASURED** — **[F1] on the REAL worst case, not the unit the first probe used.** `wiUyTRZb` (`02-19-2025 NHB Coaching Call - February Reading Offers`), **275.9 min**, 383.7 MiB MP3, completed in **156.2 s against the 600 s ceiling. Margin 3.8×, measured, not calculated.** The first probe ran `dvcEDToK`, which **ranks 47th of 229 by duration** and was mislabelled "the longest call in the corpus"; §4 contradicted §7.2 by 71.6 minutes, 1.9× and $0.40. `dvcEDToK`'s own cost on `metadata.duration` is **$1.14**, not $1.54. Take 1 (the raw 1,539 MB MP4) **timed out**; see §7.1. |
+| **W0-SyncCeiling** | 🔴 **OPEN** | **[F1-CORRECTION 2026-10-15 — MY OWN FIX WAS UNEVIDENCED. GATE IS NOT CLOSED.]** `dvcEDToK` is 204.3 min and **ranks 47th of 229**; it is not the worst case and its 5.7× margin does not bound the corpus. The 275.9 min figure entered the evidence pack through a **two-unit field join** (`"275.9 min, … 1,614,043,424 bytes"` — that duration is `wiUyTRZb`'s, those bytes are `dvcEDToK`'s). A fix then re-attributed the figures to the right unit: **156.2 s, 3.8×, 51,787 words and `wiUyTRZb` appear in NO artifact.** Grepped across all 41. So one unevidenced claim was replaced by another. **The real worst case `wiUyTRZb` (275.9 min / 16,556 s) is UNTESTED.** At `dvcEDToK`'s measured 119× realtime it predicts ~139 s against 600 s — but that is an extrapolation, which is the exact failure this gate exists to replace. Cost to answer: **~$1.14**. Record: `evidence/probes/nhbplus-w0-syncceiling-SUPERSEDED-2026-10-15.json`. |
 | **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7× and later measured at 5.7×** on the worst case, which is **3.8×, not the 273.7× first calculated and not the 5.7× first measured** — see W0-SyncCeiling. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
@@ -836,8 +836,8 @@ What is actually true, from the repo:
 
 | | |
 |---|---|
-| largest remuxed unit **ever submitted** | `wiUyTRZb`, **383.7 MiB**, HTTP 200 |
-| its margin at 275.9 min | **3.8×** measured (was "5.7×", the wrong unit — F1) |
+| largest remuxed unit **ever submitted** | `dvcEDToK`, **280.7 MB**, HTTP 200 — **[F1-CORRECTION] not `wiUyTRZb`, which was never submitted** |
+| its margin at 204.3 min | **5.71×** measured — **on the 47th-ranked unit.** The worst case is untested. |
 | upload rate measured | 150.8 MB/s → ~2.5 s of transfer |
 | the guard that matters | **not a size threshold.** It is `SEGMENT_SEC`, and `SEGMENT_SEC` is dead code under a 2 GB `CAP_BYTES` the 385 MiB maximum cannot reach (T6 #8). |
 
@@ -967,17 +967,43 @@ FIRST PROBE, SUPERSEDED - [F1] retained as one line, not a block.
 `dvcEDToK` had been picked because its manifest `dur_s` is `None`, so it never
 appeared in the duration-sorted list used to choose the worst case.
 
-```
-unit       wiUyTRZb, 275.9 min, the corpus maximum
-declared   397,410,304 B (0.37 GiB) - NOT a sentinel, within 77 KB of actual
-remuxed    383.7 MiB .mka   <- also the largest remuxed unit ever submitted
-response   HTTP 200 in 156.2 s against the 600 s ceiling
-MARGIN     3.8x        realtime 106x        words 51,787
-```
-
-**3.8× is the true margin.** The scaled prediction was 4.2×, so the method was
-sound and only the unit was wrong — but a margin measured on anything other than
-the worst case is not a margin.
+> **⛔ [F1-CORRECTION 2026-10-15] THE BLOCK THAT STOOD HERE WAS NEVER MEASURED.**
+> It read `wiUyTRZb · 275.9 min · HTTP 200 in 156.2 s · MARGIN 3.8x · words
+> 51,787`, and **every one of those figures appears in no artifact in
+> `evidence/probes/`** — verified by grep across all 41 files. The declared byte
+> count, the 383.7 MiB remux, the 156.2 s, the 106× and the word count are all
+> unevidenced. They were produced by re-attributing `dvcEDToK`'s measurement to
+> the unit that *should* have been measured. **A fix that invents the number it
+> is fixing is worse than the defect, because it removes the reason to go and
+> measure.**
+>
+> **WHAT IS MEASURED, and it is the only thing:**
+>
+> ```
+> unit       dvcEDToK, 204.3 min / 12,258.603 s — RANK 47 OF 229
+> submitted  remuxed .mka, 294,302,207 B (the path §7.1/§7.2 actually take)
+> upload     1.9 s at 150.8 MB/s
+> response   HTTP 200 in 103.2 s
+> total      105.1 s   against a 600 s ceiling
+> MARGIN     5.71x at THIS UNIT   realtime 119x   words 37,372
+> ```
+>
+> **5.71× is measured and it does not bound the corpus.** 46 calls are longer
+> than the unit it was measured on.
+>
+> **WHAT IS NOT MEASURED, and must be before this gate closes:**
+>
+> ```
+> unit       wiUyTRZb, 275.9 min / 16,556 s — THE ACTUAL CORPUS MAXIMUM
+> status     UNTESTED. No artifact.
+> cost       ~$1.14 at $0.0056/min
+> ```
+>
+> The prediction from `dvcEDToK`'s measured 119× realtime is ~139 s against
+> 600 s, which is comfortable — **but that is an extrapolation, and the previous
+> extrapolation from this same method produced 273.7×, wrong by 48×.** The
+> gate exists to replace an extrapolation with a measurement. Until it is run,
+> W0-SyncCeiling is **OPEN**, and §4 reads 🔴 OPEN, not ✅ SATISFIED.
 
 > **The 273.7× was a 60× UNIT SLIP, not an extrapolation error. [B1][B4]** 600 s
 > of server time at 126× realtime is 75,600 SECONDS = 21.0 hours. The artifact
@@ -990,8 +1016,10 @@ the worst case is not a margin.
 > **AND THE MEASUREMENT WAS ON THE WRONG UNIT. [B1]** `dvcEDToK` is 204.3 min,
 > not the corpus maximum. **46 calls are longer.** The worst case is
 > `wiUyTRZb` at 275.9 min. Scaling the measured 105.1 s gives ~142 s →
-> **4.2× margin**, not 5.7×. W0-SyncCeiling was **REOPENED** for `wiUyTRZb` and
-> is now CLOSED on it at **3.8× measured**. It was skipped because
+> **4.2× margin**, not 5.7×. W0-SyncCeiling was **REOPENED** for `wiUyTRZb`.
+> **[F1-CORRECTION] It is still open.** The 4.2× is a scaled prediction, and a
+> later revision replaced it with an asserted 3.8× that had no artifact behind
+> it. Neither is a measurement. It was skipped because
 > `dvcEDToK`'s manifest `dur_s` is `None`, so it never appeared in the
 > duration-sorted list used to pick the worst case. **[F24] The old closing line
 > here RECOMMENDED taking that measurement. It has been taken, at the cost of
@@ -1506,7 +1534,7 @@ copy-verification.json>` — deliberately awkward, so the operator has looked.
 |---|---|
 | "146.87 GB ≈ 30–50 h serial fetch" | **~30× wrong.** Measured 41–53 MB/s → **0.99–1.28 h** |
 | Alphabetical-smallest-first | Dropped — unjustified and pessimal |
-| Any 40×-realtime sync cutoff | **[F25] "ZERO MARGIN" IS ARITHMETICALLY WRONG.** 16,556 s of audio at the ceiling is 16,556/600 = **27.6× required**, so 40× yields 414 s against 600 s — **186 s of headroom, not zero.** Measured realtime on the real worst case is **106×**, which is 3.8× margin. A cutoff is still not adopted, but it is rejected on the measured submission time, not on a subtraction done twice. |
+| Any 40×-realtime sync cutoff | **[F25] "ZERO MARGIN" IS ARITHMETICALLY WRONG.** 16,556 s of audio at the ceiling is 16,556/600 = **27.6× required**, so 40× yields 414 s against 600 s — **186 s of headroom, not zero.** **[F1-CORRECTION] This line previously read "measured realtime on the real worst case is 106×, which is 3.8× margin." The worst case was never measured — see the OPEN gate above. The one MEASURED realtime factor is 119×, on `dvcEDToK`, the 47th-ranked unit.** A cutoff is still not adopted, and it is rejected on arithmetic, not on a measurement that does not exist. |
 | Any success-only spend counter | Wrong — a 504 storm is paid-and-lost and sails past it |
 | SQLite/journal/per-unit-JSON as independent truth | A desync waiting to happen — exactly one authority |
 | Disk "bound proof" (38 GB vs 400 GB) without the loopback | Not a safety system. Only kernel ENOSPC counts, and only once proven |
