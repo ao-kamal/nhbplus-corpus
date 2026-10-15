@@ -364,28 +364,66 @@ SEGMENT_SEC     = 1500    UNREACHABLE for this corpus, not merely provisional.
                          a real part before it is relied on.
                          There is no sync fallback - see 7.2.
 FETCH_STALL_SEC = 120     POST_KILL_QUIESCE_SEC = 60
-WPM_MIN, WPM_MAX = 60, 260          MEASURED 2026-10-15, wpm.json.
-                                     147.6-225.8 observed, mean 188.9, n=5.
-                                     WPM_MIN sits 87.6 wpm BELOW the
-                                     lowest observed: safe, 2.5x margin.
-                                     WPM_MAX sits only 34.2 wpm ABOVE the
-                                     highest observed: 1.15x margin, THIN.
-                                     At n=5 a dense lesson could exceed it and
-                                     V5 would fail a good note. Re-measure
-                                     across the 42 lessons before the run;
-                                     do not widen it to make a gate pass.
-SPAN_EDGE_SEC   = 60      PROVISIONAL, NO MEASUREMENT, and unlike
-                         SEGMENT_SEC this one REACHES on every unit. It is
-                         the slack allowed between a transcript's first and
-                         last word and the unit's declared duration, in V5's
-                         span coverage. 60 s is a GUESS. Re-measure against
-                         the five units in nhbplus-wpm-2026-10-15.json: their
-                         response/manifest duration ratio is 1.0000, so the
-                         true edge may be far tighter - and a slack value
-                         that is too loose lets a TRUNCATED ASSEMBLY PASS.
-                         Named as a guess until it is measured, which is what
-                         the other three constants in this block already say
-                         about themselves.
+WPM_MIN          = 60     MEASURED 2026-10-15. Census, 47 units.
+WPM_MAX          = 300    MEASURED 2026-10-15. Census, 47 units.
+
+  WPM, MEASURED ON THE POPULATION, NOT ESTIMATED ON A SAMPLE:
+
+    n = 47  (42 lessons, ALL of them + 5 calls)
+    min 127.6   mean ~208   max 251.7
+
+  evidence/probes/nhbplus-lessons-census-2026-10-15.json   42 of 42, 0 errors
+  evidence/probes/nhbplus-call-edges-2026-10-15.json       5 calls, free -
+                                                           transcripts cached
+
+  **WPM_MAX WAS 260 AND IT WAS TOO TIGHT BY 8.3 wpm.** It sat above the
+  densest measured unit by less than 3%, and TWO lessons were already within
+  15 wpm of it (251.7 and 245.9). It would not have failed today, but it was
+  one dense lecture away from failing a perfectly good note, and a gate that
+  fails correct work costs a re-run of the whole unit.
+
+  **IT IS NOW 300 = 1.19x the densest measured unit.** That ratio is chosen
+  from the failure it exists to catch: a part counted or assembled twice
+  roughly DOUBLES the rate, so the bound has to sit well clear of 251.7 while
+  staying far below the ~503 a duplication would produce. 19% headroom catches
+  any real duplication and fires on nothing real.
+
+  **WPM_MIN STAYS 60 AND IS NOW MEASURED RATHER THAN GUESSED.** The quietest
+  measured unit is 127.6 wpm, so 60 is **47% of it** - a transcript missing
+  more than half its words. That is the truncation case WPM_MIN exists for, and
+  the bound is now grounded rather than asserted.
+
+  **DO NOT WIDEN EITHER BOUND TO MAKE A GATE PASS.** Both are set from the
+  measured population; a unit outside them is a finding about that unit.
+SPAN_EDGE_SEC     = 10      MEASURED 2026-10-15. Census, 47 units, 94 edges.
+                              WAS 60, ON NO EVIDENCE, FOR FIVE ROUNDS.
+
+  | | head gap | tail gap |
+  |---|---|---|
+  | 42 lessons, all of them | 0.00 - 4.64 s | -0.69 - 4.35 s |
+  | 5 calls | 0.24 - 2.16 s | -1.00 - 1.73 s |
+  | **largest anywhere** | **4.64 s** | **4.35 s** |
+
+  **60 WAS 12.9x TOO LOOSE.** It sat above the largest edge ever measured. A
+  note missing its first **55 seconds** of speech would have passed the gate
+  whose entire job is to catch that. This was not an unmeasured constant that
+  happened to be wrong; it was wrong by an order of magnitude and in the
+  permissive direction, like every other unmarked constant this project has
+  found.
+
+  **IT IS NOW 10 s = 2.15x the largest edge observed**, and 0 of 94 measured
+  edges would fail it. Ten seconds of missing speech at the head or tail is a
+  genuine truncation defect worth catching; a bound loose enough to pass one
+  is not a gate.
+
+  **10 OF 47 UNITS HAVE A NEGATIVE TAIL** - the last word ends AFTER the
+  declared duration, by up to 1.00 s. **A negative gap is NOT a failure and
+  must never be treated as one.** It is the `pjFQiLQQ` class: the manifest
+  duration is a claim and the transcript extent is the measurement, so the
+  measurement can exceed the claim. V5's formula uses `tail_gap > SPAN_EDGE_SEC`,
+  which a negative value cannot satisfy, so the case is handled correctly by
+  construction - stated here because it is surprising enough that a future
+  reader will otherwise "fix" it.
 FORECAST_USD    = 203.48    WAS 150.56. That was the RATE-only figure before
                              keyterm was adopted. At RATE + KEYTERM the run is
                              $203.48 and the hard stop is $213.48. A forecast
@@ -1817,8 +1855,8 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V1 | fetch caps: ENOSPC proven; **no kill fired on a sentinel `declared`** |
 | V2 | remux/segment: no part ≥ `CAP_BYTES` |
 | V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required |
-| V4 | three-way duration reconcile |
-| V5 | span coverage |
+| V4 | **three-way duration reconcile** — formula in §11.0 |
+| V5 | **span coverage** — formula in §11.0 |
 | V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) >= 344 and every note matches section 10's tree
      # 344 = 193 calls + 42 lessons + 109 documents.
      # >= not ==, and this is CORRECTION: section 10's own tree also names
@@ -1949,6 +1987,106 @@ that treats it as a gate failure will misreport a bug as a measurement. Any gate
 increments its count**.
 
 ---
+
+### 11.0 The two gate formulas V4 and V5 assert, written out
+
+**Both gates were a single line naming a check, with no rule, no threshold and
+no failure behaviour.** That is the same defect as §7.2.0's missing request
+payload: a mandate with no mechanism. An engineer holding this document could
+not implement either.
+
+#### V4 — three-way duration reconcile
+
+Three durations exist for every unit and they do not agree:
+
+| source | what it actually is |
+|---|---|
+| `manifest.media.dur_s` | the value MEGA reports; may be a SENTINEL (a display value, not a measurement) |
+| container header | what the file's own metadata claims |
+| decoded PCM | what `ffprobe -count_frames`, or the assembled transcript's own extent, actually contains |
+
+**`pjFQiLQQ` is the corpus's known divergence: header 4,958.7 s against decoded
+5,431.8 s, +9.54%.** Every other unit measured agrees to within a millisecond
+(`16,556.208` vs `16,556.207`). So the rule cannot be "they must match" — it must
+be "disagreement is bounded, and the larger value wins for billing."
+
+```
+V4(d_manifest, d_header, d_decoded) :=
+    # the DECODED value is authoritative. It is the only one that is a
+    # measurement of the audio rather than a claim about it.
+    d_authoritative := d_decoded
+
+    # a disagreement is a FINDING, not automatically a failure
+    spread := max(d_manifest, d_header, d_decoded) - min(d_manifest, d_header, d_decoded)
+    ratio  := spread / d_authoritative
+
+    FAIL if d_decoded is missing          # no decoded value = no authority
+    FAIL if ratio > DURATION_TOLERANCE    # 0.10, i.e. 10%
+    WARN and record if ratio > 0.02       # 2%: worth a human glance
+    PASS otherwise
+
+    # A sentinel d_manifest is EXCLUDED from the spread entirely. It is a
+    # display value; including it manufactures disagreement that is not there.
+```
+
+**BILLING USES `d_authoritative`, NOT `d_manifest`.** On `pjFQiLQQ` that is
+the difference between 4,958.7 and 5,431.8 minutes — the 286.9-minute tail that
+was an estimate is now 294.84 measured. Billing from the header would have
+under-charged by 9.54% on that unit and never shown why.
+
+#### V5 — span coverage
+
+Catches the failure mode a words-per-minute check cannot: an assembly that
+**drops the beginning or the end of a transcript** and still looks plausible in
+the middle. `WPM_MIN` catches "too few words overall". `SPAN_EDGE_SEC` catches
+"the right number of words, from the wrong window."
+
+```
+V5(transcript_words, d_manifest) :=
+    first_s := transcript_words[0].start
+    last_s  := transcript_words[-1].end
+
+    head_gap := first_s
+    tail_gap := d_manifest - last_s
+
+    FAIL if transcript_words is empty      # V4 already ensures a duration
+    FAIL if head_gap > SPAN_EDGE_SEC       # first minutes of speech missing
+    FAIL if tail_gap > SPAN_EDGE_SEC       # last minutes of speech missing
+    FAIL if span_ratio < MIN_SPAN_RATIO   # (last_s - first_s) / d_manifest
+    PASS otherwise
+```
+
+**`SPAN_EDGE_SEC` IS MEASURED, NOT GUESSED.** It read **60 for five review
+rounds on no evidence.**
+
+It is now **10**, from a census of **47 units and 94 edges** — all 42 lessons
+plus 5 calls whose transcripts were already cached:
+
+| | head gap | tail gap |
+|---|---|---|
+| 42 lessons | 0.00 – 4.64 s | −0.69 – 4.35 s |
+| 5 calls | 0.24 – 2.16 s | −1.00 – 1.73 s |
+| **largest anywhere** | **4.64 s** | **4.35 s** |
+
+**60 was 12.9x the largest edge ever measured.** A note missing its first 55
+seconds of speech would have passed the gate whose entire job is to catch that.
+**10 s is 2.15x the largest observed and fails 0 of 94 real edges.**
+
+**10 of the 47 units have a NEGATIVE tail** — the last word ends *after* the
+declared duration, by up to 1.00 s. **A negative gap is not a failure.** It is
+the `pjFQiLQQ` class: the manifest duration is a claim, the transcript extent is
+the measurement, and the measurement can exceed the claim. The formula above
+uses `tail_gap > SPAN_EDGE_SEC`, which a negative value cannot satisfy, so the
+case is correct by construction — recorded because it is surprising enough
+that a future reader would otherwise try to "fix" it.
+
+Artifacts: `nhbplus-lessons-census-2026-10-15.json`, `nhbplus-call-edges-2026-10-15.json`.
+
+**Two failures must be distinguished and they are not the same event.** A unit
+with no words is a **fetch or decode failure**. A unit whose words are present
+but span too little is an **assembly failure**. The first costs money to retry;
+the second means the transcript is being built wrong and retrying will produce
+the same wrong answer. Both are FAIL, and they are reported with different names.
 
 ## 12. Egress and teardown
 

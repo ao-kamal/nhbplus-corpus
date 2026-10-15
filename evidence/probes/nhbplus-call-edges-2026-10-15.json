@@ -1,0 +1,42 @@
+[
+ {
+  "unit": "93MkzLRY",
+  "words": 17293,
+  "wpm": 201.3,
+  "head": 2.0,
+  "tail": -0.44,
+  "span_ratio": 0.999698
+ },
+ {
+  "unit": "97NAyRyA",
+  "words": 22725,
+  "wpm": 217.3,
+  "head": 2.16,
+  "tail": -1.0,
+  "span_ratio": 0.999815
+ },
+ {
+  "unit": "InViQbBR",
+  "words": 15344,
+  "wpm": 225.8,
+  "head": 0.24,
+  "tail": 1.73,
+  "span_ratio": 0.999517
+ },
+ {
+  "unit": "RrM2CLTC",
+  "words": 13536,
+  "wpm": 147.6,
+  "head": 2.08,
+  "tail": 1.56,
+  "span_ratio": 0.999338
+ },
+ {
+  "unit": "p7VUBL5D",
+  "words": 15942,
+  "wpm": 152.5,
+  "head": 0.32,
+  "tail": -0.39,
+  "span_ratio": 1.000011
+ }
+]

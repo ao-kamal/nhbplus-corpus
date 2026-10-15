@@ -121,9 +121,45 @@ live references to 339 / 188 / 230 / 105 / 440 / $204.69 / 35,013.1 / 583.55 /
 3. **CLOSED - the PDF gate is closed on 50 of 50.** See the note below.
 
 4. **OPEN - 13 of 14 gates are UNEVALUABLE** because no pipeline code exists yet.
-   That is the correct state at G1 and is the substance of Stage 3.
+   That is the correct state at G1 and is the substance of Stage 3. **But V4 and
+   V5 now carry FORMULAS** - they were one line naming a check, with no rule, no
+   threshold and no failure behaviour, which is the same defect as the missing
+   request payload in 7.2.0. Neither was implementable from the document alone.
 
-5. **CLOSED - the `attachments/` conflict**, plus VAULT-STRUCTURE.md's
+5. **CLOSED - `WPM_MAX` was too tight and `SPAN_EDGE_SEC` was 12.9x too loose.**
+   Both were gate thresholds carrying no evidence, and both were permissive or
+   fragile in the direction this project's unmarked constants always fail.
+
+   A full census - **all 42 lessons plus 5 calls, 47 units, 94 edges** - settled
+   them:
+
+   | | before | measured | now |
+   |---|---|---|---|
+   | `WPM_MIN` | 60, guessed | quietest unit 127.6 wpm | **60**, = 47% of it |
+   | `WPM_MAX` | 260, guessed | densest unit **251.7** wpm | **300**, = 1.19x |
+   | `SPAN_EDGE_SEC` | **60**, guessed | largest edge anywhere **4.64 s** | **10**, = 2.15x |
+
+   `WPM_MAX` at 260 sat **8.3 wpm** above the densest measured unit, with two
+   lessons already inside 15 wpm of it. It would not have failed today; it was
+   one dense lecture from failing a correct note.
+
+   `SPAN_EDGE_SEC` at 60 sat **12.9x above the largest edge ever measured** - a
+   note missing its first **55 seconds** of speech would have passed the gate
+   whose entire job is to catch that.
+
+   A finding that had to be handled explicitly: **10 of the 47 units have a
+   NEGATIVE tail**, the last word ending *after* the declared duration by up to
+   1.00 s. That is the `pjFQiLQQ` class - the manifest duration is a claim, the
+   transcript extent is the measurement, and the measurement can exceed the
+   claim. It is not a failure, V5's `tail_gap > SPAN_EDGE_SEC` cannot trigger on
+   a negative value, and it is written down because a future reader would
+   otherwise try to "fix" it.
+
+   Cost: **$8.79**, which the budget already carried for the lessons - and the
+   transcripts and remuxed media are cached, so the run reuses them rather than
+   paying twice.
+
+6. **CLOSED - the `attachments/` conflict**, plus VAULT-STRUCTURE.md's
    verbatim-vs-clean naming conflict and its index-note conflict. All three
    resolved in the master's favour, recorded in a table at the top of
    VAULT-STRUCTURE.md, whose status moved from "proposed, pending operator
