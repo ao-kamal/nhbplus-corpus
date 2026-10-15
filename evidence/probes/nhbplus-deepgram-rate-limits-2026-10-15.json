@@ -1,0 +1,56 @@
+{
+ "probe": "Deepgram rate-limit table - LIVE FETCH, 2026-10-15",
+ "url": "https://developers.deepgram.com/reference/api-rate-limits",
+ "why_this_probe_exists": [
+  "[R4-8.57] named this the WEAKEST LOAD-BEARING CLAIM in the plan outside the",
+  "stereo share. Section 2 cited it as 'fetched 2026-10-15' but no artifact",
+  "recorded the fetch or its contents, and stt-concurrency had already recorded",
+  "that the table MOVED ONCE. A ceiling already caught moving, pinned exactly,",
+  "at zero headroom, on a 5% sample. Fetched to settle it."
+ ],
+ "VERDICT": "CONFIRMED - 25 is correct. The spec's figure stands.",
+ "confirmed_rows": {
+  "endpoint": "api.eu.deepgram.com (Europe)",
+  "model_row": "Nova-3  Pre-Recorded  Up to 50 concurrent requests",
+  "diarization_row": "Speaker Diarization  Pre-Recorded  Up to 25 concurrent requests",
+  "rule": "If multiple services are used in one API call (e.g Speech to Text + Sentiment Analysis), the lower of the rate limits is applied.",
+  "binding": "min(50, 25) = 25, because diarize=true is NON-OPTIONAL (10.1 needs diarisation clusters; Rule 3 forbids removing it)",
+  "prior_error": "the earlier '16 -> 50 CORRECTION' was wrong - it read the MODEL row and substituted it for the DIARIZATION row. The 25 stands."
+ },
+ "the_finding_that_matters_more_multi_account_is_explicitly_detected": {
+  "_note": "verbatim quotes from the fetched page, in Deepgram's own words",
+  "verbatim": {
+   "per_project": "Rate limits apply per project, not per account or API key. Creating additional projects under the same account will not grant you additional concurrency. Secondary projects created on a self-serve account are limited to a single concurrent stream by design. Bypassing rate limits by spreading traffic across multiple projects violates our Terms of Service.",
+   "scaling": "Rate limits are scoped to a project. One customer maps to one project for the purposes of these limits. Multiple API keys inside a single project all draw from that project's concurrency pool. Adding more projects under the same account does not increase the concurrency available to you.",
+   "what_not_to_do": "Do not create additional projects, additional accounts, or otherwise distribute traffic across projects to work around per-project limits. These setups are detected. Secondary projects on a self-serve account are restricted to 1 concurrent stream, and bypassing rate limits this way violates our Terms of Service.",
+   "fix_if_hitting_limits": "Consolidate your traffic into a single project, then contact sales about moving to a Growth or Enterprise agreement with a higher concurrency allocation."
+  },
+  "consequence_for_the_plan": [
+   "The operator's hypothesis - split the corpus in half across two accounts to",
+   "double throughput - is not merely a ToS grey area. The page names it under",
+   "'What not to do', says the setups are DETECTED, and states that secondary",
+   "projects on a self-serve account are throttled to ONE concurrent stream.",
+   "",
+   "That last clause is decisive and was not previously known: a second",
+   "self-serve project does not merely fail to help, it is capped at 1 concurrent",
+   "stream. The throughput hypothesis would not have been slower - it would have",
+   "been 25x WORSE, because the carrier request would have had to run alone.",
+   "",
+   "The plan's existing rule is CONFIRMED and now sourced rather than inferred:",
+   "the second key is A WALLET, NOT A WORKER. Sequential failover on 402 only,",
+   "never concurrent. Two keys inside ONE project draw from the SAME concurrency",
+   "pool, which is why a second key adds budget and zero throughput."
+  ]
+ },
+ "still_not_resolved_by_this_probe": [
+  "This confirms the CEILING. It does not measure the ceiling in use.",
+  "[W0-CONCURRENCY25] measured 25/25 HTTP 200, zero 429s, 1.022x degradation -",
+  "but that was a ~3-minute burst, not a sustained run at 25-way, and that",
+  "artifact's own limits section says so.",
+  "",
+  "Also unresolved: the corpus-wide stereo share. 10 of 188 sampled, all",
+  "bit-identical dual-mono; n too small to bound the share. The 25-way run does",
+  "not speak to it."
+ ],
+ "note_on_region": "The plan targets api.eu.deepgram.com. North America would give 50 on the diarization row - double the ceiling - but region choice is not a free switch: it changes data residency, and nothing here has measured or approved an EU-to-NA move. NOT RECOMMENDED without an explicit operator decision."
+}
