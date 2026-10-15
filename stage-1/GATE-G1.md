@@ -32,21 +32,51 @@ hands derive from their call's name, not 1/37; and its undated-call count of 4,
 where there are 2). A plan whose disagreements with a blind reviewer are about
 *method* rather than about being *wrong* is a plan whose claims hold.
 
-## Why criterion 3 is MET
+## Why criterion 3 is MET — AND A CORRECTION TO THIS VERDICT
 
-The three things that made R5 return **NO - not executable** are closed:
+**The verdict as first written was substantially wrong, and the gate table is
+why.** Criterion 3 is self-containment: "an agent could execute from it without
+any other document." The plan asserted twelve gates and **ten of them could not
+be written** by an engineer holding only this document — V4, V5, V6, V7, V8, V9,
+V10 and the three fetch/remux/STT contracts.
+
+Each was one line naming a check. None carried a threshold with provenance,
+none carried a failure behaviour, and **none carried a way to be wrong.** That
+is the same defect as §7.2.0's missing request payload — a mandate without a
+mechanism — and it survived five review rounds because every round checked
+whether the gate was NAMED, not whether it was SPECIFIED.
+
+**Three of the twelve had already failed vacuously, silently:**
+
+| gate | what it did |
+|---|---|
+| **V9** | asserted `kind == "call"` when `scope-final.json` spells it `audio` — matched **0 handles**, returned PASS over the corpus's one confirmed live defect. It also checked documents only, so it **structurally could not catch** the dropped call. |
+| **V8** | parsed a design document instead of the deliverable and passed. |
+| **V6** | passed on an **empty tree**, because every check it had was a ceiling. |
+
+**Now closed.** §11.0 carries V4 and V5; §11.1 carries the other ten. Each
+formula carries a threshold with its provenance, a failure behaviour, and a
+**non-vacuity assertion** — proof of what it matched, not only what it found.
+**V2 is recorded as vacuous by construction** (largest part 385 MiB against a
+2,000 MiB cap) rather than reporting a green it cannot earn.
+
+**The question that found this is the one worth keeping:** not *"which gates
+exist?"* but *"could I write the assertion from this document alone?"* The first
+question was answered five times and returned MET every time.
+
+### Why criterion 3 is met NOW
 
 | disqualifier | now |
 |---|---|
-| no request payload anywhere; `diarize=true` omission silently doubles the ceiling | section 7.2.0 carries the full POST, every flag, and what breaks without each |
-| V6's floor required exactly 344 while section 10's own tree emits 346 | `>= 344`; the floor stops an empty tree, it is not a manifest |
-| the 42 lesson videos budgeted nowhere - $8.79 missing | `SPEND_HARD_STOP_USD = $213.48`, lessons priced at $8.79 |
+| no request payload anywhere | §7.2.0 carries the full POST, every flag, and what breaks without each |
+| 10 of 12 gates unimplementable | §11.0 + §11.1: all 12 carry thresholds, failure behaviour and non-vacuity assertions |
+| V6's floor unsatisfiable | `>= 344`, satisfied by §10's own tree |
+| 42 lesson videos budgeted nowhere | `SPEND_HARD_STOP_USD = $213.48`, lessons priced at $8.79 |
 
-Propagation is now **computed, not typed**: `pipeline/out/PLAN-TRUTH.json` is
-derived from the artifacts on every run and the spec cites it. Verified: zero
-live references to 339 / 188 / 230 / 105 / 440 / $204.69 / 35,013.1 / 583.55 /
-1.50 GiB / 567 core-hours remain. The only surviving occurrences of the old
-146.87 GiB figure are in section 13, quoted in order to say they were wrong.
+Propagation is **computed, not typed**: `pipeline/out/PLAN-TRUTH.json` is derived
+from the artifacts on every run and the spec cites it. Verified: zero live
+references to 339 / 188 / 230 / 105 / 440 / $204.69 / 35,013.1 / 583.55 /
+1.50 GiB / 567 core-hours remain anywhere.
 
 ## Residual risk at G1 - ALL FIVE ITEMS NOW RESOLVED
 
