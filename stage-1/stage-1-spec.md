@@ -652,6 +652,13 @@ MP4 container and **cannot hold an MP3 elementary stream** — it fails rc=234
 *"Could not write header (incorrect codec parameters)"* for **97 of 230 units**.
 `.mka` (Matroska audio) carried every sample, MP3 and AAC alike.
 
+> **[B23] NOW VERIFIED AT THE VENDOR, which is where it mattered.** The only
+> `.mka` ever *submitted* had been AAC, so the container that rescues **97 MP3
+> units** was unverified at the Deepgram boundary — and under Constraint 7 an
+> HTTP 400 class there is 97 paid-and-unrecoverable failures. A 5-minute slice of
+> a real corpus MP3, remuxed to `.mka`, submitted: **HTTP 200, 911 words, 300.0 s.**
+> **$0.03 to close.**
+
 > **THE REMUX IS MANDATORY, NOT AN OPTIMISATION `[R2]`.** Submitting the **raw
 > 1,539 MB MP4** of the corpus's longest call **did not complete** — it timed out
 > after >1,800 s. The remuxed 280.7 MB `.mka` of the same audio completed in
@@ -734,6 +741,14 @@ channels == 1  -> MONO.  No test, no second pass, commit once.
 
 delta <= -60   -> BIT_IDENTICAL.   -map_channel 0.0 -c:a copy.  LOSSLESS, keeps
                                          §7.1's bit-exactness claim. Saves money.
+                                         [B24] VERIFIED: SHA-256 of the decoded
+                                         PCM is IDENTICAL before and after -
+                                         994.6 MB both sides. The standing worry
+                                         was that a copy codec cannot extract a
+                                         channel from JOINT-STEREO MP3; on the
+                                         corpus's own joint-stereo file it does
+                                         exactly that, losslessly. The worry was
+                                         wrong and is withdrawn.
 delta <= -40   -> EFFECTIVELY_DUAL_MONO.  -ac 1 RE-ENCODES (a copy codec cannot
                                          change channel count).  §7.1's
                                          bit-exactness claim is WITHDRAWN for
@@ -785,11 +800,29 @@ submitted on its own and timed:
 unit        dvcEDToK, 204.3 min, 280.7 MB remuxed .mka
                         *** NOT THE WORST CASE. [B1] 46 calls are LONGER. ***
                         The longest is wiUyTRZb at 275.9 min / 16,556 s.
+                        MEASURED ON THE REAL ONE - see below. 3.8x, not 5.7x.
 upload      1.9 s at 150.8 MB/s
 response    HTTP 200 in 103.2 s
 total       105.1 s   against a 600 s ceiling
-MARGIN      5.7x
+MARGIN      5.7x  <- WRONG UNIT, superseded below
 ```
+
+**THE REAL WORST CASE, measured 2026-10-15 — W0-SyncCeiling genuinely CLOSED.**
+
+`dvcEDToK` had been picked because its manifest `dur_s` is `None`, so it never
+appeared in the duration-sorted list used to choose the worst case.
+
+```
+unit       wiUyTRZb, 275.9 min, the corpus maximum
+declared   397,410,304 B (0.37 GiB) - NOT a sentinel, within 77 KB of actual
+remuxed    383.7 MiB .mka   <- also the largest remuxed unit ever submitted
+response   HTTP 200 in 156.2 s against the 600 s ceiling
+MARGIN     3.8x        realtime 106x        words 51,787
+```
+
+**3.8× is the true margin.** The scaled prediction was 4.2×, so the method was
+sound and only the unit was wrong — but a margin measured on anything other than
+the worst case is not a margin.
 
 > **The 273.7× was a 60× UNIT SLIP, not an extrapolation error. [B1][B4]** 600 s
 > of server time at 126× realtime is 75,600 SECONDS = 21.0 hours. The artifact
