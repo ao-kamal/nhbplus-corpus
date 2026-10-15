@@ -401,7 +401,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
 | **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches: `FETCH_CONCURRENCY` 1 → **the size-adaptive predicate, 1–38 in flight** — not a constant.** **[F18] This row said "1 → 6" and contradicted §2, §3 and §6.3. The raise to 6 was real; the ceiling is now the predicate's small band.** |
 | **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM - **[F23] the 995 MB figure appears only in this spec and in the [B24] note; w0-remux.json records 133.6/89.8 MB sources. Cite the artifact, not this line.**), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
-| **W0-SyncCeiling** | 🔴 **OPEN** | **[F1-CORRECTION 2026-10-15 — MY OWN FIX WAS UNEVIDENCED. GATE IS NOT CLOSED.]** `dvcEDToK` is 204.3 min and **ranks 47th of 229**; it is not the worst case and its 5.7× margin does not bound the corpus. The 275.9 min figure entered the evidence pack through a **two-unit field join** (`"275.9 min, … 1,614,043,424 bytes"` — that duration is `wiUyTRZb`'s, those bytes are `dvcEDToK`'s). A fix then re-attributed the figures to the right unit: **156.2 s, 3.8×, 51,787 words and `wiUyTRZb` appear in NO artifact.** Grepped across all 41. So one unevidenced claim was replaced by another. **The real worst case `wiUyTRZb` (275.9 min / 16,556 s) is UNTESTED.** At `dvcEDToK`'s measured 119× realtime it predicts ~139 s against 600 s — but that is an extrapolation, which is the exact failure this gate exists to replace. Cost to answer: **~$1.14**. Record: `evidence/probes/nhbplus-w0-syncceiling-SUPERSEDED-2026-10-15.json`. |
+| **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15 (take 3)** | **GENUINELY CLOSED, MEASURED ON THE CORPUS MAXIMUM.** `wiUyTRZb` — **275.93 min, the largest unit in the corpus** — returned **HTTP 200 in 182.757 s against the 600 s ceiling. Margin 3.28×, realtime 90.6×, 51,786 words. $1.55.** Artifact `nhbplus-w0-syncceiling3-2026-10-15.json`. **[History: take 1 (raw MP4) timed out; take 2 measured `dvcEDToK`, which ranks 47th of 229; a fix then asserted figures for `wiUyTRZb` that existed in no artifact — 156.2 s, 3.8×, 51,787 words. All three of those were wrong. The word count was off by ONE.]** |
 | **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7× and later measured at 5.7×** on the worst case, which is **3.8×, not the 273.7× first calculated and not the 5.7× first measured** — see W0-SyncCeiling. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
@@ -991,13 +991,43 @@ appeared in the duration-sorted list used to choose the worst case.
 > **5.71× is measured and it does not bound the corpus.** 46 calls are longer
 > than the unit it was measured on.
 >
-> **WHAT IS NOT MEASURED, and must be before this gate closes:**
+> **TAKE 3 — MEASURED 2026-10-15 ON THE ACTUAL CORPUS MAXIMUM.**
 >
 > ```
-> unit       wiUyTRZb, 275.9 min / 16,556 s — THE ACTUAL CORPUS MAXIMUM
-> status     UNTESTED. No artifact.
-> cost       ~$1.14 at $0.0056/min
+> unit       wiUyTRZb, 275.93 min / 16,556.207 s  — THE ACTUAL CORPUS MAXIMUM
+> source     mp3, 397,487,264 B, 48 kHz, 2 CHANNELS, with an mjpeg video stream
+> submitted  remuxed .mka, 402,307,896 B  (-vn -c:a copy, no transcode)
+> response   HTTP 200 in 182.757 s against the 600 s ceiling
+> MARGIN     3.28x        realtime 90.6x        words 51,786
+> request_id 01a13ec6-9208-7c90-a68d-0209a8e6be33
+> cost       $1.55        (16,556.207/60 x $0.0056)
 > ```
+>
+> **3.28× is the true margin on the true worst case.** Every figure this gate
+> previously carried for `wiUyTRZb` was invented, and measurement corrected all
+> of them:
+>
+> | invented | **measured** | error |
+> |---|---|---|
+> | 156.2 s | **182.757 s** | −15%, and in the **optimistic** direction |
+> | 3.8× margin | **3.28×** | −14% |
+> | 51,787 words | **51,786** | **off by ONE** |
+> | 106× realtime | **90.6×** | −15% |
+> | 383.7 MiB remuxed | **383.7 MiB** | the one figure that survived |
+>
+> Being wrong by one word in fifty thousand is indistinguishable from being
+> right. **That is exactly why an unevidenced number is worse than no number.**
+>
+> **Header and decoded agree on this unit** (16,556.208 vs 16,556.207, 1 ms) —
+> the opposite of `pjFQiLQQ` at +9.54%. **The header/decoded gap is per-file, not
+> a corpus-wide constant**, which is why §7.1 requires decoded and a correction
+> measured on one unit does not transfer to another.
+>
+> **The remux made this file BIGGER:** +1.21% (397.5 MB → 402.3 MB). Container
+> overhead dominates for MP3, corroborating the measured **negative** MP3 cut of
+> −1.6% and the opposite sign to the ~80% MP4 cut.
+>
+> **3.28× is measured SOLO. It is not a concurrency margin.**
 >
 > The prediction from `dvcEDToK`'s measured 119× realtime is ~139 s against
 > 600 s, which is comfortable — **but that is an extrapolation, and the previous
