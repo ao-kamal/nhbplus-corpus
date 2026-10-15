@@ -2,9 +2,12 @@
 
 > **Status:** G0 **PASSED** — operator sign-off 2026-10-15. Stage 1 may begin.
 >
-> **Repository:** `Content OS/nhbplus-corpus/`, a sibling of `content-os/` in the same
-> git repo. A separate build on a separate corpus, consuming `cut30-vault/` not at all.
-> `content-os/stage-0-intent.md` governs a different build and confers no authority here.
+> **Repository:** `Kamal/nhbplus-corpus/` — **its own git repository**, a sibling of
+> `Content OS/` (operator decision 2026-10-15). Nothing in this build is tracked in
+> the Content OS repo and nothing there is tracked here. The two share no code and no
+> architecture. `Content OS/stage-0-intent.md` governs a different build and confers
+> no authority here. If a future stage ever feeds these transcripts into Content OS,
+> that is an edge to draw explicitly, not an assumption.
 
 Every figure below is a current measurement with a dated evidence artifact under
 `evidence/probes/`. A number that could not be measured is written

@@ -4,15 +4,47 @@ One file, every agent type reads it. Read it fully before touching anything.
 
 ---
 
+## 0. This is its own repository
+
+```
+Kamal/
+├─ Content OS/          the CUT30 extraction — a DIFFERENT build, different corpus
+└─ nhbplus-corpus/      this build
+```
+
+**Separate git repository, operator decision 2026-10-15.** Nothing here is tracked
+in the Content OS repo and nothing there is tracked here. The two builds share no
+code, no artifacts and no architecture. Do not reach across. If a future stage ever
+feeds these transcripts into Content OS, that is an edge to draw explicitly.
+
+The parent project's rules are inherited wholesale (`Content OS/AGENTS.md`) but its
+corpus, its beads and its build output have **no bearing on this work**. The
+`.beads/` graph there tracks the finished CUT30 extraction. **There are no beads
+for this build, and none until Stage 2.**
+
+```
+nhbplus-corpus/
+├─ AGENTS.md              this file
+├─ CLAUDE.md              imports this file
+├─ stage-0/
+│  └─ stage-0-intent.md   INTENT (G0) — PASSED 2026-10-15
+├─ stage-1/
+│  └─ VAULT-STRUCTURE.md  the vault shape — reviewed, unsigned
+├─ evidence/probes/       28 dated evidence artifacts
+├─ pipeline/
+│  ├─ scripts/            sweep -> normalise -> scope -> reconcile
+│  └─ out/                manifest-v3.json, scope-final.json, logs
+└─ vault/                 build output; attachments are committed
+```
+
+---
+
 ## 1. What this project is
 
 Transcribe the **"Alen Sultanic — NHB+ — Nothing held back Plus (Up to 02.2025)"**
 archive — a MEGA public share — into a **call-shaped vault**, without downloading
-anything to the operator's PC.
-
-**This is a separate build from `content-os/`.** Different corpus, different
-deliverable, no shared architecture. Read `content-os/AGENTS.md` for the parent
-project's rules — they are inherited wholesale — and this file for what differs.
+anything media-shaped to the operator's PC. **The finished vault does land on the
+operator's PC — it is the deliverable.**
 
 **What is already known, do not re-derive:** **188 calls** (557.39 h) and **42 bonus
 lesson videos** (26.16 h) — **583.55 h** across 230 audio units. **339 fetch
@@ -27,23 +59,14 @@ structured video courses**, 42 lesson videos. Every figure has a dated artifact 
 
 ---
 
-## 2. Where the work lives
+## 2. The arc
 
-```
-nhbplus-corpus/
-├─ AGENTS.md          this file
-├─ stage-0/
-│  └─ stage-0-intent.md   INTENT (G0) — awaiting operator sign-off
-└─ stage-1/
-   └─ VAULT-STRUCTURE.md  the vault shape — reviewed, not yet signed
-```
+`INTENT → PLAN → BEADS → EXECUTE → HARDEN`, in that order. **G0 passed 2026-10-15**,
+so Stage 1 (PLAN) is open. The skill's G1 gate requires **≥4 refinement rounds in
+fresh conversations** before beads exist — a plan that has not cleared that gate is
+not a plan.
 
-The arc is `INTENT → PLAN → BEADS → EXECUTE → HARDEN`, and it runs in that order.
-**G0 is not yet passed, so Stage 1 has not legitimately begun.**
-
-**There are no beads.** No `.beads/` directory here, and none until Stage 2. The
-parent's `.beads/` tracks the *finished* CUT30 extraction — do not create beads
-there.
+**No beads exist in this repository, and none until Stage 2.**
 
 ---
 
