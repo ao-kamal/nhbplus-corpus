@@ -1,0 +1,54 @@
+{
+  "probe": "W0-Egress",
+  "date": "2026-10-15",
+  "status": "PASS, with one plan correction it produced",
+  "cost": { "usd": 0.0, "note": "5 small files, VM to PC and back. Nothing of value was transferred." },
+
+  "what_it_validates": "The LAST stage of the pipeline - the one the entire run exists to deliver - and the only probe that puts bytes on the operator's machine. Proving it on a dummy payload is worth more than discovering a failure after 30 hours of finished work depends on it.",
+
+  "RESULTS": {
+    "byte_identity": {
+      "method": "SHA-256 of every file computed on the VM, then again on the PC after scp -r",
+      "files": 4,
+      "identical": 4,
+      "mismatched": 0,
+      "verdict": "PASS - scp -r is byte-exact, as expected for a binary transfer"
+    },
+    "typography_survival": {
+      "why_this_is_the_test": "The plan forbids PowerShell pipelines by name because 'Get-Content -Raw | Set-Content -Encoding utf8' and 'python -c \"...\"' both corrupt non-ASCII. This payload deliberately ships exactly the typography those two approaches destroy.",
+      "checks": [
+        { "check": "utf-8 decodes clean, no U+FFFD", "result": "OK" },
+        { "check": "arrow U+2192", "result": "OK" },
+        { "check": "section sign U+00A7", "result": "OK" },
+        { "check": "em dash U+2014", "result": "OK" },
+        { "check": "curly quotes", "result": "OK" },
+        { "check": "greater-or-equal U+2265", "result": "OK" },
+        { "check": "check mark U+2713", "result": "OK" },
+        { "check": "emoji U+1F9E0", "result": "OK" },
+        { "check": "CJK", "result": "OK" },
+        { "check": "LF line endings preserved", "result": "OK" },
+        { "check": "no BOM", "result": "OK" }
+      ],
+      "verdict": "PASS - 11 of 11"
+    },
+    "line_endings": "LF authored, LF delivered. No CRLF translation.",
+    "bom": "absent at source and absent at destination"
+  },
+
+  "THE_FINDING_THIS_PROBE_PRODUCED": {
+    "what_happened": "A deliberately planted .mp3 file in the source tree ARRIVED on the PC. My original design treated that as a failure, expecting the transfer to filter media.",
+    "why_that_expectation_was_wrong": "scp -r copies whatever it is given. The transfer is a DUMB BINARY PIPE and has no filter, and it should not have one. My poison test was testing a control that does not exist at that layer.",
+    "where_constraint_1_actually_lives": "In vault ASSEMBLY - vault/ receives .md files only - and in gate V6.",
+    "THE_PLAN_CORRECTION_THIS_FORCES": {
+      "change": "V6 (zero media extensions under vault/) MUST run on the VM SOURCE TREE BEFORE THE COPY, not on the destination.",
+      "why": "Once a media file lands on the operator's PC, Constraint 1 has already been violated. A post-copy gate reports a violation that has already happened. The gate has to run upstream of the only irreversible step in the whole pipeline.",
+      "sequencing": "assemble vault/ -> V6 on VM -> V7 reduction diff -> V12 identity binding -> ONLY THEN scp -> V11 SHA256 compare on the PC"
+    }
+  },
+
+  "the_only_sanctioned_transfer": "scp -r, from the PC pulling from the VM, with the operator's key. No shell pipeline, no text-mode transfer, no re-encoding at any hop. The key lives on the PC, so the copy is always PC-initiated; running scp from the VM fails on host resolution and is not a supported direction.",
+
+  "note_on_my_own_first_attempt": "The first version of this probe ran scp FROM the VM, which failed because the SSH private key is on the PC. That is an architecture error, not a transfer error: egress is always PC-initiated. Recorded because the failure mode (rc=255, 'Could not resolve hostname c') looks like a network fault and is not.",
+
+  "residual_risk": "The vault is ~4-5 million words across 339 notes. Total transfer size is markdown only, so single-digit megabytes. At the measured scp throughput this is seconds, not minutes. The 7-phase teardown and the deliberate --confirm <sha256> gate on final destroy are unaffected."
+}

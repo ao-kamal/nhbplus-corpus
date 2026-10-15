@@ -307,7 +307,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
-| **W0-Egress** | OPEN | binary VM→PC copy, per-file SHA256 manifest compared. |
+| **W0-Egress** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `scp -r` VM→PC is byte-exact (4/4 SHA-256 match), 11/11 typography checks survive, LF preserved, no BOM. **It produced a plan correction: V6 must run on the VM source tree BEFORE the copy.** |
 
 ---
 
@@ -914,7 +914,35 @@ increments its count**.
 
 Binary-only copy VM→PC of `vault/` + `_meta/`. **The finished markdown IS the
 deliverable; nothing media-shaped ever touches the PC.** Per-file SHA256 manifest
-compared. PowerShell pipelines **forbidden by name**.
+compared. PowerShell pipelines **forbidden by name** — W0-Egress proved 11/11
+typography checks survive `scp -r` and that the two forbidden PowerShell rewrites
+destroy exactly that typography.
+
+**The transfer is a dumb binary pipe with no filter, and that is correct.**
+W0-Egress planted a `.mp3` in the source tree and `scp` copied it to the PC,
+because `scp -r` copies whatever it is given. The control does not belong there:
+
+> **V6 MUST RUN ON THE VM SOURCE TREE, BEFORE THE COPY.** Once a media file lands
+> on the operator's PC, Constraint 1 has already been violated. A post-copy gate
+> reports a violation that has already happened. The gate must sit upstream of the
+> only irreversible step in the pipeline.
+
+**Mandatory sequence — the ordering is load-bearing:**
+
+```
+assemble vault/
+  -> V6  on the VM, zero media extensions and stems   <-- BEFORE any transfer
+  -> V7  reduction diff, re-render byte-compare
+  -> V8  frontmatter value domains + every document has a path
+  -> V12 identity binding
+  -> V13 topics index
+  -> ONLY NOW  scp -r VM -> PC
+  -> V11 SHA256 compare on the PC
+```
+
+Egress is always **PC-initiated**: the SSH key lives on the PC, so running `scp`
+from the VM fails on host resolution. That failure is `rc=255 "Could not resolve
+hostname c"` and it reads like a network fault but is not one.
 
 ### 12.1 `_meta/AUDIT.md` `[R1]`
 
