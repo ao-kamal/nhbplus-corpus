@@ -338,3 +338,47 @@ document, or a commit message in this repository.**
     processed audio, a header-derived cost gate is under-reserved by exactly the
     header's error, per part, silently. Derive cost from **decoded PCM bytes ÷ (rate ×
     channels × 2)**.
+
+
+---
+
+## BR IS RUN WITH `--no-db`. THE AUTHORITY DIRECTION INVERTED.
+
+**Symptom, six times in one day:**
+```
+SYNC_CONFLICT: automatic WAL index recovery already failed for this exact
+database family at stage private-recovery (I/O error: WAL-index quarantine is
+not supported on this platform) ... retryable: false
+```
+
+**Cause.** `frankensqlite` 0.4.4's WAL-index recovery is unsupported on Windows.
+Every mutation eventually wedges the DB; `br doctor` reports healthy and then the
+next write fails. The parent project blames NTFS-through-9p `0777` sidecar modes;
+this is native NTFS, so that is not it here.
+
+**Remedy. Run `br` with `--no-db` on every command.** It works for reads AND
+writes. Verified: `list`, `show`, `dep cycles`, `lint`, `ready`, `q`, `delete`.
+
+**TWO RULES THAT FOLLOW, AND THE SECOND ONE BITS:**
+
+1. **`--no-db` SKIPS AUTO-FLUSH.** After any `--no-db` write, the change is in
+   the JSONL but not durable until something flushes. Verify the JSONL directly,
+   do not assume the write took.
+2. **NEVER run `br sync` while in `--no-db` mode.** `br sync --flush-only` hits
+   the DB, fails, and then RE-CLOBBERS the JSONL with the DB's stale contents -
+   undoing a `--no-db` delete that had already succeeded. A scratch bead came
+   back from the dead this way and had to be removed twice.
+
+**THE AUTHORITY DIRECTION INVERTED.** Normally the DB is authoritative and the
+JSONL is derived, so editing the JSONL directly is lost. **In `--no-db` mode the
+JSONL is authoritative and the DB is a broken cache** - so direct JSONL edits are
+correct, and the DB must simply be left alone. Do not "recover" it. Do not run
+the quarantine / `br init` / `br sync --import-only` sequence on this failure;
+it has been run six times and failed six times.
+
+**IF THE DB MUST BE REVIVED ANYWAY:** quarantine the family, `br init`,
+`br sync --import-only`, and then **verify bead count, edge count and cycle count
+immediately after import and BEFORE any further change.** That verification step
+is what proves a recovery lost nothing, and it is missing from the parent
+project's procedure. Also check the 12 tracked `.beads.vacuum.*.tmp-lock-*`
+files survive a quarantine glob, and restore with `git checkout --` if not.
