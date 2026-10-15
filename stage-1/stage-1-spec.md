@@ -1851,10 +1851,10 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 
 | Gate | Status | Assertion |
 |---|---|---|
-| V0 | worklist integrity: **344** rows, never a glob |
-| V1 | fetch caps: ENOSPC proven; **no kill fired on a sentinel `declared`** |
-| V2 | remux/segment: no part ≥ `CAP_BYTES` |
-| V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required |
+| V0 | worklist integrity: **344** rows, never a glob — **formula in §11.1** |
+| V1 | fetch caps: ENOSPC proven; **no kill fired on a sentinel `declared`** — **formula in §11.1** |
+| V2 | remux/segment: no part ≥ `CAP_BYTES` — **formula in §11.1** |
+| V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required — **formula in §11.1** |
 | V4 | **three-way duration reconcile** — formula in §11.0 |
 | V5 | **span coverage** — formula in §11.0 |
 | V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) >= 344 and every note matches section 10's tree
@@ -1862,7 +1862,7 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
      # >= not ==, and this is CORRECTION: section 10's own tree also names
      # `00 Home.md` and `00 Topics.md`, so a flawless run emits 346 and an
      # equality test would fail it. The floor's job is to stop an EMPTY tree
-     # reading as PASS; it is not a manifest of the whole vault.`.** Until that floor exists, V6 green means nothing. |
+     # reading as PASS; it is not a manifest of the whole vault.`.** Until that floor exists, V6 green means nothing. — **formula in §11.1** |
 > **AND EVERY CORPUS FORMAT IS CURRENTLY UNCATCHABLE BY V6.** The corpus
 > contains `pdf, docx, pptx, txt, xlsx, png, zip`. None is in the extension list,
 > none matches the stem regex, and a `.pdf` or `.docx` under `vault/` would pass
@@ -1884,11 +1884,11 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 > conflicts are resolved in the same direction, and all three are recorded at
 > the top of `VAULT-STRUCTURE.md`.
 
-| V7 | reduction diff: re-render from receipts, byte-compare |
-| V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** |
-| V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (193 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. ** V9 previously checked documents only, so it **structurally could not catch the dropped call** |
-| V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** |
-| V11 | egress SHA256 per-file match |
+| V7 | reduction diff: re-render from receipts, byte-compare — **formula in §11.1** |
+| V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** — **formula in §11.1** |
+| V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (193 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. ** V9 previously checked documents only, so it **structurally could not catch the dropped call** — **formula in §11.1** |
+| V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** — **formula in §11.1** |
+| V11 | egress SHA256 per-file match — **formula in §11.1** |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
 | **V13** | **`00 Topics.md` — NEW. POPULATION IS 230, NOT 225.** **re-scoped it to what measurement supports; found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from 's clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. |
 | **V13** (population note) | 's own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `235 − 221 =` **9** units, but the same row says "4 of 235". The **group count** is 4; the **units inside them** is 9. **** |
@@ -2024,6 +2024,7 @@ V4(d_manifest, d_header, d_decoded) :=
     FAIL if ratio > DURATION_TOLERANCE    # 0.10, i.e. 10%
     WARN and record if ratio > 0.02       # 2%: worth a human glance
     PASS otherwise
+    NON_VACUOUS iff d_decoded is not None
 
     # A sentinel d_manifest is EXCLUDED from the spread entirely. It is a
     # display value; including it manufactures disagreement that is not there.
@@ -2054,6 +2055,7 @@ V5(transcript_words, d_manifest) :=
     FAIL if tail_gap > SPAN_EDGE_SEC       # last minutes of speech missing
     FAIL if span_ratio < MIN_SPAN_RATIO   # (last_s - first_s) / d_manifest
     PASS otherwise
+    NON_VACUOUS iff len(transcript_words) > 0 and d_manifest > 0
 ```
 
 **`SPAN_EDGE_SEC` IS MEASURED, NOT GUESSED.** It read **60 for five review
@@ -2087,6 +2089,297 @@ with no words is a **fetch or decode failure**. A unit whose words are present
 but span too little is an **assembly failure**. The first costs money to retry;
 the second means the transcript is being built wrong and retrying will produce
 the same wrong answer. Both are FAIL, and they are reported with different names.
+
+### 11.1 The ten remaining gate formulas
+
+**Rev 0's gate table was twelve one-line assertions and no formulas. V4 and V5
+now have one (§11.0); the other ten are written here.** Each carries a threshold
+with its provenance, a failure behaviour, and a **non-vacuity assertion**.
+
+**THE NON-VACUITY ASSERTION IS THE PART THIS PROJECT KEEPS NEEDING.** A gate
+that matches nothing returns PASS. V9 asserted `kind == "call"` when
+`scope-final.json` spells it `audio`, hit **0 handles**, and returned PASS over
+the one confirmed live defect in the corpus. **Every formula below asserts what
+it matched, not only what it found.**
+
+---
+
+#### V0 — worklist integrity: 344 rows, never a glob
+
+```
+V0(scope_final, manifest_v3) :=
+    rows = scope_final.rows                      # NEVER a glob over disk
+    FAIL if len(rows) != 344                     # 193 calls + 42 lessons + 109 docs
+    FAIL if len({r.handle for r in rows}) != 344 # handles are unique
+    FAIL if {r.handle for r in rows} !=
+            {u.media.handle for u in manifest_v3.units}
+
+    # NON-VACUITY. A glob over an empty or partial directory satisfies a
+    # count derived from that same directory. The worklist is only meaningful
+    # if it was CONSTRUCTED, not discovered.
+    NON_VACUOUS iff len(rows) == 344 == len(manifest_v3.units)
+```
+
+**Why "never a glob":** every gate below is checked against this row set. A glob
+derives its population from whatever is on disk, so a fetch that silently
+produced nothing yields an empty worklist, and every downstream count agrees
+with it. **The population must be declared, then checked — never discovered.**
+
+---
+
+#### V1 — fetch caps, and the sentinel exemption
+
+```
+V1(free_bytes, declared_bytes) :=
+
+    # the cap is real and kernel-enforced; W0-Cap proved ENOSPC at 4 GiB
+    FAIL if free_bytes < FETCH_IMG_BYTES          # FETCH_IMG_BYTES = 4 GiB
+
+    # the KILL. A declared size that is KiB-exact is a DISPLAY value, not a
+    # measurement, so a threshold derived from it is meaningless.
+    sentinel(b) := (b % 1024) == 0                # NOT % (1<<30)
+
+    if sentinel(declared_bytes):
+        # NO KILL. The threshold would be derived from a display value.
+        record("sentinel_declared", declared_bytes)
+        # the cap that actually binds is the LOOPBACK, which measures ACTUAL
+        # bytes on disk - asserted here, not in section 6.4
+        FAIL if actual_bytes_on_disk < FETCH_IMG_BYTES
+    else:
+        FAIL if declared_bytes > declared_bytes + 0.5 * quantum
+
+    # NON-VACUITY. If no unit is ever a sentinel, the exemption is dead code
+    # and this gate is not testing what it claims to.
+    NON_VACUOUS iff sentinel_count > 0
+```
+
+**Measured: `sentinel(b)` is true for 335 of 335 declared sizes, carrying 75.4%
+of all bytes.** So the kill branch is unreachable for this corpus and the loopback
+is what actually enforces the cap. That is recorded rather than hidden.
+
+---
+
+#### V2 — no part reaches `CAP_BYTES`
+
+```
+V2(parts) :=
+    FAIL if any(p.bytes >= CAP_BYTES for p in parts)     # CAP_BYTES = 2e9
+    PASS otherwise
+
+    # NON-VACUITY, and this gate must carry it more loudly than most:
+    # SEGMENT_SEC = 1500 is UNREACHABLE for this corpus. The largest declared
+    # part is 385 MiB against a 2,000 MiB cap. V2 therefore passes trivially
+    # on the corpus as it stands and CANNOT FAIL unless a future fetch exceeds
+    # 2 GB. It is a guard against a surprise, not a check on current work.
+    NON_VACUOUS iff any(p.bytes >= 0.5 * CAP_BYTES for p in parts)
+```
+
+**This gate is currently vacuous by construction and says so.** Reporting it as a
+meaningful pass would be the same error as V9 in a different costume.
+
+---
+
+#### V3 — STT contracts: the one sync path, and `sent` before the socket
+
+```
+V3(parts, receipts) :=
+    FAIL if any(r.transport != "sync" for r in receipts)
+    # there is no async path. 7.2 deleted it. A receipt naming an async job is
+    # a receipt from a plan that no longer exists.
+
+    # ORDER IS THE CONTRACT. `sent` is persisted BEFORE the socket opens,
+    # because a process death between submit and record leaves the money spent
+    # and nothing on disk to prove it.
+    for r in receipts:
+        FAIL if not r.has("sent") or not r.has("http_status")
+        FAIL if r.sent_ts >= r.socket_open_ts     # inverted = contract broken
+
+    # BOTH required. A 200 with response_complete false is a truncated file.
+    FAIL if any(r.http_status != 200 for r in receipts)
+    FAIL if any(not r.response_complete for r in receipts)
+
+    NON_VACUOUS iff len(receipts) > 0
+```
+
+**`PAID_UNKNOWN`, never a clean zero.** A `queued` part was never sent: not
+settled, not counted in `committed`, not `PAID_UNKNOWN`. A `sent` part with no
+response **is** `PAID_UNKNOWN` and is never auto-resubmitted — the operator
+decides. This branch table is in §5.2; V3 asserts it holds.
+
+---
+
+#### V6 — nothing media-shaped, AND a floor so an empty tree cannot pass
+
+```
+V6(vault_dir) :=
+    BANNED = mp3|mp4|mp4v|mov|m4a|wav|flac|mka|aac|opus|ogg|mpga|mkv|webm
+             | pdf|docx|doc|rtf|odt|pptx|ppt|xlsx|xls|csv|txt
+             | png|jpg|jpeg|gif|svg|bmp|tif|tiff|webp
+
+    FAIL if any(p.suffix.lstrip(".").lower() in BANNED
+                for p in vault_dir.rglob("*"))
+    FAIL if any(re.search(r"\.(mp3|mp4|mov|m4a|wav|flac|mka)$", p.name, re.I)
+                for p in vault_dir.rglob("*"))
+    FAIL if (vault_dir / "attachments").exists()   # C1: does not ship
+
+    # THE FLOOR. Every check above is a CEILING. An EMPTY tree satisfies all
+    # of them and returns PASS - this project's own empty-vs-empty trap.
+    n = len(list(vault_dir.rglob("*.md")))
+    FAIL if n < 344          # >= not ==: section 10's tree also names
+                             # `00 Home.md` and `00 Topics.md`, so a flawless
+                             # run emits 346 and equality would fail it.
+    NON_VACUOUS iff n >= 344
+```
+
+**V6 MUST RUN ON THE VM SOURCE TREE, BEFORE THE COPY TO THE PC.** Once a media
+file lands on the operator's PC, Constraint 1 has already been violated. A
+post-copy gate reports the violation after it is irreversible.
+
+---
+
+#### V7 — reduction diff: re-render from receipts, byte-compare
+
+```
+V7(receipts, vault_dir) :=
+    # Re-render each note FROM THE RECEIPT, not from the vault, then compare.
+    # Rendering from the vault compares the vault with itself and always passes.
+    for r in receipts:
+        rendered = render(r)                      # receipt is the ONLY input
+        on_disk  = (vault_dir / r.relpath).read_bytes()
+        FAIL if sha256(rendered) != sha256(on_disk)
+        FAIL if rendered != on_disk               # byte-compare, not "close"
+    NON_VACUOUS iff len(receipts) > 0
+```
+
+**The point of a reduction diff is that the vault is a pure function of the
+receipts.** If it is not, the receipts are decorative and V10's spend arithmetic
+is built on the same fiction.
+
+---
+
+#### V8 — frontmatter value DOMAINS, not a field count
+
+```
+V8(notes, scope_final) :=
+    for n in notes:
+        fm = parse_frontmatter(n)                 # REAL --- delimiters. V8 once
+                                                 # parsed a design doc, not the
+                                                 # deliverable, and passed.
+        FAIL if set(fm) != {"date","duration","speakers","type","title"}
+        FAIL if not re.match(r"^\d{4}-\d{2}-\d{2}$", fm.date) and fm.date != "unknown"
+        FAIL if not (fm.duration.isdigit() and int(fm.duration) >= 0)
+        FAIL if not (fm.speakers.isdigit() and int(fm.speakers) >= 1)
+        FAIL if fm.type not in {theory,guest,coaching,training,mastermind,other}
+        FAIL if fm.title != Path(n).stem
+        FAIL if fm.duration == "0" and r.word_count == 0   # FLAGGED not accepted
+
+    FAIL if any("None" in Path(n).name for n in notes)
+    FAIL if any(d.path is None for d in scope_final.documents)  # 109 documents
+
+    NON_VACUOUS iff all(fm is not None for fm in fronts) and len(notes) >= 344
+```
+
+**`unknown`, never `null`.** In Obsidian a null frontmatter value renders as an
+empty field, indistinguishable from missing — a recorded absence becomes an
+omission. **`duration: 0` is allowed and is truthful**: 2 of 235 units are
+sub-minute. A `>= 1` domain rejects real units. What is *not* allowed is
+`duration: 0` **with** zero words — that is 50 s of audio transcribing to an
+empty note, and it is flagged.
+
+---
+
+#### V9 — counts AND one-note-per-call, with the vacuity that hid a real defect
+
+```
+V9(scope_final, manifest_v3, vault_dir) :=
+    counts = {"written_hand":37, "course_doc":36, "orphan_doc":36}
+    FAIL if actual_document_counts != counts
+    FAIL if sum(counts.values()) != 109
+
+    # THE PART THAT WAS STRUCTURALLY IMPOSSIBLE BEFORE. V9 checked documents
+    # only, so it COULD NOT catch a dropped call - and it did not.
+    for u in manifest_v3.units where u.kind == "calls":       # 193 rows
+        matches = [n for n in notes if n.unit_handle == u.media.handle]
+        FAIL if len(matches) == 0      # dropped - e.g. the 10-31-2022 Mindstream
+        FAIL if len(matches) > 1       # duplicated
+
+    # THE SPELLING THAT MADE IT VACUOUS. scope-final.json uses
+    # audio/written_hand/course_doc/orphan_doc. The old matcher asked for
+    # kind == "call", matched 0 handles, and returned PASS.
+    NON_VACUOUS iff set(real_kinds) == {"audio","written_hand","course_doc","orphan_doc"}
+                   and all(kinds_actually_seen) and matched_calls == 193
+```
+
+**This is the project's signature failure and it is written into the gate.** A
+gate that matches nothing returns PASS; V9 did, over the corpus's one confirmed
+live defect.
+
+---
+
+#### V10 — the spend gate, from receipts, with the SAME settle quantity as §7.2
+
+```
+V10(receipts) :=
+    # SETTLE_FROM is defined once and used twice, identically:
+    #     settle = duration_seconds x INPUT_CHANNEL_COUNT
+    # NOT the response's channel array - Deepgram returns channels=1 for a
+    # stereo input WHILE BILLING 2x.
+    # NOT the pre-downmix part - the 7.1a BIT_IDENTICAL branch re-runs
+    # -map_channel and produces a MONO part, so reading the pre-downmix count
+    # would settle every downmixed unit at 2x and double-count the saving.
+
+    committed = sum(settle_from(r) * RATE for r in receipts if r.state == "settled")
+    lost      = LOSS_ALLOWANCE_USD            # 10.00
+    total     = committed + lost
+
+    FAIL if total > SPEND_HARD_STOP_USD       # 213.48
+    FAIL if any(r.settle_quantity is None for r in receipts)  # undefined = fail
+
+    # PAID_UNKNOWN counts AGAINST the stop. It is money already spent whose
+    # amount is unknown. Excluding it would make the gate pass by not knowing.
+    total_including_unknown = total + sum(
+        upper_bound(r) for r in receipts if r.state == "PAID_UNKNOWN")
+
+    NON_VACUOUS iff len(receipts) > 0 and
+                   committed > 0 and
+                   every(r.settle_quantity == settle_from(r) for r in receipts)
+```
+
+---
+
+#### V11 — egress SHA256, per file, against the manifest
+
+```
+V11(manifest_json, pc_copy) :=
+    # W0-Egress proved PowerShell pipelines corrupt typography:
+    # 11/11 spot-checks differed, 256 match. So NO shell pipeline touches the copy.
+    for f in manifest_json.files:
+        FAIL if sha256((pc_copy / f.relpath).read_bytes()) != f.sha256
+        FAIL if (pc_copy / f.relpath).stat().st_size != f.bytes
+    FAIL if extra_files(pc_copy) - {f.relpath for f in manifest_json.files}
+    NON_VACUOUS iff len(manifest_json.files) >= 344
+```
+
+---
+
+#### What these ten had in common
+
+Nine of the twelve gates were **one line naming a check**. None carried a
+threshold with provenance, none carried a failure behaviour, and **none carried
+a non-vacuity assertion** — which is why a gate that matched nothing could
+return PASS and be believed.
+
+The three that bit hardest in practice were not the ones with the vaguest
+wording. They were the ones with **no way to be wrong**:
+
+- **V9** matched 0 handles and passed over a dropped call.
+- **V8** parsed a design document instead of the deliverable and passed.
+- **V6** passed on an empty tree, because every one of its checks was a ceiling.
+
+**A gate that cannot fail is not a gate.** Each formula above now states what it
+matched. Where a gate genuinely cannot fail on this corpus — **V2, which is
+vacuous by construction** because the largest part is 385 MiB against a 2 GB
+cap — it says so rather than reporting a green.
 
 ## 12. Egress and teardown
 
