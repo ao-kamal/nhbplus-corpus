@@ -144,13 +144,27 @@ argument is search: without it the corpus spells its own programme name
 MEGA_URL_TMPL  = "https://mega.nz/folder/<PH>#<KEY>/file/<HANDLE>"
      PROVEN. Peak disk 2.00 GB, never 320 GB.
 
-FETCH_CONCURRENCY      = 6        RAISED from 1, 2026-10-15. W0-Cap PASSED: the
+FETCH_CONCURRENCY      = SIZE-ADAPTIVE, not a constant. See 6.3.
+FETCH_CONCURRENCY_CEILING = 39   RAISED from 1, 2026-10-15. W0-Cap PASSED: the
                                 4 GiB loopback is a real, exact, timely stop.
                                 Expected saving 40-65 min. The cap costs 1.7%
                                 throughput (169 vs 172 MB/s) against a network
                                 fetch ceiling of 41-53 MB/s, so it is free.
 REMUX_CONCURRENCY      = 2
-TRANSCRIBE_CONCURRENCY = 16       HELD AT 16, deliberately NOT raised.
+TRANSCRIBE_CONCURRENCY = 16       BINDING CEILING IS 25, not 50. Authoritative
+                                source, fetched 2026-10-15:
+                                developers.deepgram.com/reference/api-rate-limits.md
+                                  Nova-3            | EU | Pre-Recorded  up to 50
+                                  Speaker Diarization | EU | Pre-Recorded  up to 25
+                                  "If multiple services are used in one API call...
+                                   the lower of the rate limits is applied."
+                                diarize=true is NON-OPTIONAL (10.1 needs diarisation
+                                clusters; Rule 3 forbids removing it), so the LOWER
+                                limit binds: min(50, 25) = 25. 16 leaves 60% headroom.
+                                THE 16 -> 50 'CORRECTION' WAS WRONG: it read the
+                                MODEL row and substituted it for the DIARIZATION row.
+                                The original 25 was right and was doubted because a
+                                newer-looking number existed.
                                 Round 2 caught that the 16 -> 50 correction fixed
                                 the MODEL row (nova-3 pre-recorded EU) and
                                 silently substituted it for the BINDING row,
@@ -190,8 +204,10 @@ PER_REQUEST_MINIMUM   = NONE      Proven: true per-second billing, no minimum,
                                    no rounding. The pessimistic ceil was deleted.
 
 COMMIT_COST           = billed_seconds(part) * (RATE + KEYTERM_RATE)
-SETTLE_FROM           = raw metadata.duration seconds, IDENTICALLY in the 7b gate
-                        and in V10
+SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
+                        IDENTICALLY in the 7.2 gate and in V10. [T5 #3]
+                        NOT the response's channel array: Deepgram returns
+                        channels=1 for a stereo input while BILLING 2x.
 
 SPEND_HARD_STOP_USD   = 207.35    OPERATOR-SET, measured, not estimated
 LOSS_ALLOWANCE_USD    = 10.00     covers a 5% failure rate across 3,611 parts
@@ -499,7 +515,30 @@ so a full loopback never produces partial audio.
   receipt; concurrency is bounded by the admission arithmetic below, not by
   serialising the lane.
 - **Gate fetch admission** on
-  `free(fetch_mnt) >= Σ(in_flight declared) + declared_next + 64 MiB`.
+  `free(fetch_mnt) >= Σ(in_flight REAL bytes) + REAL bytes(next) + 64 MiB`.
+
+  **And this IS the concurrency control `[R2]`.** Round 2 showed a fixed
+  `2 ×` was unsatisfiable; measuring the real population showed a fixed constant
+  is too, and worse:
+
+  ```
+  usable loopback 3,936 MiB (W0-Cap, measured)
+  a 2 GiB sentinel's true size is unknown to a ±0.5 quantum band, up to 2,560 MiB
+
+    small  (<100 MiB)            max 39 in flight
+    mid    (100-512 MiB)         max  7
+    large  (512-1536 MiB)        max  2
+    2 GiB sentinel (1536-2560)   max  1
+  ```
+
+  `FETCH_CONCURRENCY = 6` would need 6 × 2,560 = 15,360 MiB for six large units.
+  **W0-Cap proved the cap EXISTS. It never proved that any fixed concurrency is
+  ADMISSIBLE across a corpus spanning 20 MiB to 2 GiB.** One predicate yields 1
+  for large units and up to 39 for small ones.
+
+  **Admission must use REAL bytes.** For the 73 sentinels the real size is unknown
+  until fetched — `dvcEDToK` declared 2 GiB and is actually 1.50 GiB — so reserve
+  the display band's **upper bound**, never the declared value.
 
   **The `2 ×` was wrong and made a named unit permanently unfetchable.** Usable
   loopback measures 3,936 MiB, so `2 ×` capped admissible `declared` at 1,936 MiB
@@ -596,6 +635,13 @@ use FLAC or Opus, never WAV.
 
 > `-ac 1 -ar 16000` are **output** options and must follow `-i`. Placed before it
 > they parse as input options and ffmpeg fails *"Option sample_rate not found"*.
+
+**Size guard on the remuxed output `[T5 #5]`.** The proven submission is
+**280.7 MB**. The largest remuxed unit in scope is estimated at **~400 MB**
+(a 2 GiB sentinel source less the measured ~80% MP4 cut) and has **not** been
+submitted. Upload runs at 150.8 MB/s so 400 MB is ~2.7 s of transfer, and the
+proven case held 5.7× time headroom — but this is **bounded, not closed**, and is
+recorded as such.
 
 **Segment** when remuxed ≥ `CAP_BYTES` → `ffmpeg -f segment -segment_time
 SEGMENT_SEC`. Single-part otherwise. **Every part gets its own receipt entry.**
@@ -791,6 +837,26 @@ discarded for filing 7 readable documents as degraded and discarding real text.
 | `raster` | **0** | needs OCR; none is proven free, so it would ship `empty_extraction` and **never be OCR-billed**. Vacuous. |
 
 **65,985 recoverable words. Zero documents require OCR.**
+
+**Stereo billing, measured 2026-10-15 `[T5 #3]`.** A 120 s stereo clip and a
+120 s mono clip of the same audio were submitted identically:
+
+| | true | reported | ratio | channels in response |
+|---|---|---|---|---|
+| stereo | 120.00 s | 120.00 s | **1.00×** | **1** |
+| mono | 120.00 s | 120.00 s | 1.00× | 1 |
+
+**Good news:** stereo reports 1× true duration, so `COMMIT_COST` and
+`SETTLE_FROM` agree and V12's 2% reconcile holds. Round 2 predicted 2× reporting
+and that prediction is **not confirmed**.
+
+**The residual round 2 missed:** Deepgram's own pricing says stereo bills 2×, so
+**the response reports 1× while the card is charged 2×.** The receipt therefore
+**under-records the bill** on any kept-stereo unit. `SETTLE_FROM` multiplies by
+the **input** channel count read from the local part, never from the response.
+Bounded by measurement — 3 of 3 stereo files were dual-mono, so the keep branch
+fired 0 of 3 — but the gate must be correct on it. §2.2 carries an explicit
+keep-stereo line.
 
 **Links: `/Annots` is the ONLY authoritative link layer.** *Swipe* carries 400
 raw annotations, **201 distinct** — half boilerplate. Text-layer URLs are mangled
