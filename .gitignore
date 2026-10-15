@@ -25,3 +25,7 @@ pipeline/scripts/_*.js
 Thumbs.db
 desktop.ini
 .DS_Store
+# ad-hoc agent scratch dirs (never evidence; findings live in the spec + evidence/)
+.verify/
+.scratch/
+
