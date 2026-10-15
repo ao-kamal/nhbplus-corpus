@@ -35,9 +35,9 @@
   {
    "handle": "oyMwQTBb",
    "verbatim": "5-30-2022 FF Guest Call - Ron-Lynch, Uncensored Call",
-   "path": "calls/2022/05 May/2022-05-30 Ron - Lynch, Uncensored.md",
+   "path": "calls/2022/05 May/2022-05-30 Ron-Lynch, Uncensored Call.md",
    "date": "2022-05-30",
-   "topic": "Ron - Lynch, Uncensored",
+   "topic": "Ron-Lynch, Uncensored Call",
    "type": "guest"
   },
   {
@@ -99,9 +99,9 @@
   {
    "handle": "huFgSRaZ",
    "verbatim": "7-16-2022 FF_NHB+ Secrets of The Game Mindset Call",
-   "path": "calls/2022/07 July/2022-07-16 Secrets of The Game Mindset.md",
+   "path": "calls/2022/07 July/2022-07-16 Secrets of The Game Mindset Call.md",
    "date": "2022-07-16",
-   "topic": "Secrets of The Game Mindset",
+   "topic": "Secrets of The Game Mindset Call",
    "type": "other"
   },
   {
@@ -123,9 +123,9 @@
   {
    "handle": "pqcQXL4C",
    "verbatim": "7-21-2022 FF_NHB+ Training Call - Evaluative Call Booking Models",
-   "path": "calls/2022/07 July/2022-07-21 Evaluative Booking Models.md",
+   "path": "calls/2022/07 July/2022-07-21 Evaluative Call Booking Models.md",
    "date": "2022-07-21",
-   "topic": "Evaluative Booking Models",
+   "topic": "Evaluative Call Booking Models",
    "type": "training"
   },
   {
@@ -171,9 +171,9 @@
   {
    "handle": "U2dCxTzb",
    "verbatim": "8-11-2022 NHB+ Integration Call Part 1",
-   "path": "calls/2022/08 August/2022-08-11 Integration Part 1.md",
+   "path": "calls/2022/08 August/2022-08-11 Integration Call Part 1.md",
    "date": "2022-08-11",
-   "topic": "Integration Part 1",
+   "topic": "Integration Call Part 1",
    "type": "other"
   },
   {
@@ -187,9 +187,9 @@
   {
    "handle": "83MgETiC",
    "verbatim": "8-25-2022 FF_NHB+ Training Call - Integration Call Part 2",
-   "path": "calls/2022/08 August/2022-08-25 Integration Part 2.md",
+   "path": "calls/2022/08 August/2022-08-25 Integration Call Part 2.md",
    "date": "2022-08-25",
-   "topic": "Integration Part 2",
+   "topic": "Integration Call Part 2",
    "type": "training"
   },
   {
@@ -203,9 +203,9 @@
   {
    "handle": "h3NkxBqD",
    "verbatim": "9-7-2022 FF_NHB+ Guest Speaker Call - Sam Park YT Ads Masterclass",
-   "path": "calls/2022/09 September/2022-09-07 Guest Speaker - Sam Park YT Ads Masterclass.md",
+   "path": "calls/2022/09 September/2022-09-07 Guest Speaker Call - Sam Park YT Ads Masterclass.md",
    "date": "2022-09-07",
-   "topic": "Guest Speaker - Sam Park YT Ads Masterclass",
+   "topic": "Guest Speaker Call - Sam Park YT Ads Masterclass",
    "type": "guest"
   },
   {
@@ -227,9 +227,9 @@
   {
    "handle": "FmFgnJrJ",
    "verbatim": "9-19-2022 FF_NHB+ Guest Speaker Call - Jordan Hall",
-   "path": "calls/2022/09 September/2022-09-19 Guest Speaker - Jordan Hall.md",
+   "path": "calls/2022/09 September/2022-09-19 Guest Speaker Call - Jordan Hall.md",
    "date": "2022-09-19",
-   "topic": "Guest Speaker - Jordan Hall",
+   "topic": "Guest Speaker Call - Jordan Hall",
    "type": "guest"
   },
   {
@@ -243,9 +243,9 @@
   {
    "handle": "c7EERbbS",
    "verbatim": "9-29-2022 FF_NHB+ Training Call - CMO-CRO Roles",
-   "path": "calls/2022/09 September/2022-09-29 CMO - CRO Roles.md",
+   "path": "calls/2022/09 September/2022-09-29 CMO-CRO Roles.md",
    "date": "2022-09-29",
-   "topic": "CMO - CRO Roles",
+   "topic": "CMO-CRO Roles",
    "type": "training"
   },
   {
@@ -281,6 +281,14 @@
    "type": "training"
   },
   {
+   "handle": "93Ug2R5I",
+   "verbatim": "10-31-2022 NHB+ Mindstream Call",
+   "path": "calls/2022/10 October/2022-10-31 Mindstream Call.md",
+   "date": "2022-10-31",
+   "topic": "Mindstream Call",
+   "type": "other"
+  },
+  {
    "handle": "s2FUxZAB",
    "verbatim": "11-2-2022 FF_NHB+ Fireside Chat - Offer Creation",
    "path": "calls/2022/11 November/2022-11-02 Fireside Chat - Offer Creation.md",
@@ -299,17 +307,17 @@
   {
    "handle": "gidiDR5T",
    "verbatim": "11-10-2022 FF_NHB+ Training Call - The Biz-Op Blueprint",
-   "path": "calls/2022/11 November/2022-11-10 Biz - Op Blueprint.md",
+   "path": "calls/2022/11 November/2022-11-10 Biz-Op Blueprint.md",
    "date": "2022-11-10",
-   "topic": "Biz - Op Blueprint",
+   "topic": "Biz-Op Blueprint",
    "type": "training"
   },
   {
    "handle": "t2diXBiT",
    "verbatim": "11-17-2022 FF_NHB+ Training Call - The Mechanism of Fear & Optimism.mp4",
-   "path": "calls/2022/11 November/2022-11-17 Mechanism of Fear & Optimism.mp4.md",
+   "path": "calls/2022/11 November/2022-11-17 Mechanism of Fear & Optimism.md",
    "date": "2022-11-17",
-   "topic": "Mechanism of Fear & Optimism.mp4",
+   "topic": "Mechanism of Fear & Optimism",
    "type": "training"
   },
   {
@@ -331,25 +339,25 @@
   {
    "handle": "QmVGhTpL",
    "verbatim": "12-8-2022 NHB+ Theory Call - December Integration Call #1_watermarked",
-   "path": "calls/2022/12 December/2022-12-08 December Integration #1.md",
+   "path": "calls/2022/12 December/2022-12-08 December Integration Call #1.md",
    "date": "2022-12-08",
-   "topic": "December Integration #1",
+   "topic": "December Integration Call #1",
    "type": "theory"
   },
   {
    "handle": "Y6NG3Rja",
    "verbatim": "12-15-2022 NHB+ Theory Call - NHB+ December Integration Call #2_watermarked",
-   "path": "calls/2022/12 December/2022-12-15 December Integration #2.md",
+   "path": "calls/2022/12 December/2022-12-15 December Integration Call #2.md",
    "date": "2022-12-15",
-   "topic": "December Integration #2",
+   "topic": "December Integration Call #2",
    "type": "theory"
   },
   {
    "handle": "wzVwCRyC",
    "verbatim": "12-22-2022 NHB+ Theory Call - December Integration Call #3_watermarked",
-   "path": "calls/2022/12 December/2022-12-22 December Integration #3.md",
+   "path": "calls/2022/12 December/2022-12-22 December Integration Call #3.md",
    "date": "2022-12-22",
-   "topic": "December Integration #3",
+   "topic": "December Integration Call #3",
    "type": "theory"
   },
   {
@@ -451,17 +459,17 @@
   {
    "handle": "orUWQBKC",
    "verbatim": "3-9-2023 NHB+ Call - Creating Rationalizations",
-   "path": "calls/2023/03 March/2023-03-09 Creating Rationalizations.md",
+   "path": "calls/2023/03 March/2023-03-09 Call - Creating Rationalizations.md",
    "date": "2023-03-09",
-   "topic": "Creating Rationalizations",
+   "topic": "Call - Creating Rationalizations",
    "type": "other"
   },
   {
    "handle": "YnEkFBrT",
    "verbatim": "3-16-2023 NHB+ Theory Call - TSL Structures.mp4",
-   "path": "calls/2023/03 March/2023-03-16 TSL Structures.mp4.md",
+   "path": "calls/2023/03 March/2023-03-16 TSL Structures.md",
    "date": "2023-03-16",
-   "topic": "TSL Structures.mp4",
+   "topic": "TSL Structures",
    "type": "theory"
   },
   {
@@ -523,9 +531,9 @@
   {
    "handle": "EiVEXR7A",
    "verbatim": "5-4-2023 NHB+ Theory Call - Reading Data Call 1.0",
-   "path": "calls/2023/05 May/2023-05-04 Reading Data 1.0.md",
+   "path": "calls/2023/05 May/2023-05-04 Reading Data Call 1.0.md",
    "date": "2023-05-04",
-   "topic": "Reading Data 1.0",
+   "topic": "Reading Data Call 1.0",
    "type": "theory"
   },
   {
@@ -691,9 +699,9 @@
   {
    "handle": "xmNG3D4L",
    "verbatim": "01. 10-5-2023 NHB+ Call - Selling To Women Part 2",
-   "path": "calls/2023/10 October/2023-10-05 Selling To Women Part 2.md",
+   "path": "calls/2023/10 October/2023-10-05 Call - Selling To Women Part 2.md",
    "date": "2023-10-05",
-   "topic": "Selling To Women Part 2",
+   "topic": "Call - Selling To Women Part 2",
    "type": "other"
   },
   {
@@ -779,17 +787,17 @@
   {
    "handle": "E7U2hBKC",
    "verbatim": "12. 12-21-2023 NHB+ Theory Call - Clean Biz-Ops",
-   "path": "calls/2023/12 December/2023-12-21 Clean Biz - Ops.md",
+   "path": "calls/2023/12 December/2023-12-21 Clean Biz-Ops.md",
    "date": "2023-12-21",
-   "topic": "Clean Biz - Ops",
+   "topic": "Clean Biz-Ops",
    "type": "theory"
   },
   {
    "handle": "0vEyQTjI",
    "verbatim": "13. 12-28-2023 NHB+ Year End Roundtable Call",
-   "path": "calls/2023/12 December/2023-12-28 Year End Roundtable.md",
+   "path": "calls/2023/12 December/2023-12-28 Year End Roundtable Call.md",
    "date": "2023-12-28",
-   "topic": "Year End Roundtable",
+   "topic": "Year End Roundtable Call",
    "type": "other"
   },
   {
@@ -835,9 +843,9 @@
   {
    "handle": "17ESRbBJ",
    "verbatim": "01-31-2024 NHB Coaching Call - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez",
-   "path": "calls/2024/01 January/2024-01-31 NHB - The CRO Audit Accelerator Pt. 2 - With Brandon Vasquez.md",
+   "path": "calls/2024/01 January/2024-01-31 NHB - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez.md",
    "date": "2024-01-31",
-   "topic": "NHB - The CRO Audit Accelerator Pt. 2 - With Brandon Vasquez",
+   "topic": "NHB - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez",
    "type": "coaching"
   },
   {
@@ -851,9 +859,9 @@
   {
    "handle": "gncA0DZZ",
    "verbatim": "02-08-2024 NHB+ Theory Call - Criteria of Markets Implementation Call",
-   "path": "calls/2024/02 February/2024-02-08 Criteria of Markets Implementation.md",
+   "path": "calls/2024/02 February/2024-02-08 Criteria of Markets Implementation Call.md",
    "date": "2024-02-08",
-   "topic": "Criteria of Markets Implementation",
+   "topic": "Criteria of Markets Implementation Call",
    "type": "theory"
   },
   {
@@ -955,7 +963,7 @@
   {
    "handle": "MmMmABhJ",
    "verbatim": "Selling To Women 3.0",
-   "path": "calls/2024/05 May/None Selling To Women 3.0.md",
+   "path": "calls/2024/05 May/Selling To Women 3.0.md",
    "date": null,
    "topic": "Selling To Women 3.0",
    "type": "other"
@@ -963,7 +971,7 @@
   {
    "handle": "x3Mi0JJL",
    "verbatim": "The Mechanism Of Will Power",
-   "path": "calls/2024/05 May/None Mechanism Of Will Power.md",
+   "path": "calls/2024/05 May/Mechanism Of Will Power.md",
    "date": null,
    "topic": "Mechanism Of Will Power",
    "type": "other"
@@ -1083,17 +1091,17 @@
   {
    "handle": "dnc0BDSa",
    "verbatim": "08-15-2024 NHB+ Theory Call - Call of Duty Biz-Ops",
-   "path": "calls/2024/08 August/2024-08-15 of Duty Biz - Ops.md",
+   "path": "calls/2024/08 August/2024-08-15 Call of Duty Biz-Ops.md",
    "date": "2024-08-15",
-   "topic": "of Duty Biz - Ops",
+   "topic": "Call of Duty Biz-Ops",
    "type": "theory"
   },
   {
    "handle": "xidizZIL",
    "verbatim": "08-22-2024 NHB+ Theory Call - Call of Duty Biz Ops Part 2",
-   "path": "calls/2024/08 August/2024-08-22 of Duty Biz Ops Part 2.md",
+   "path": "calls/2024/08 August/2024-08-22 Call of Duty Biz Ops Part 2.md",
    "date": "2024-08-22",
-   "topic": "of Duty Biz Ops Part 2",
+   "topic": "Call of Duty Biz Ops Part 2",
    "type": "theory"
   },
   {
@@ -1115,9 +1123,9 @@
   {
    "handle": "IqVSkD5Z",
    "verbatim": "2024-09-27 FF.NHB Coffee Room Impromptu Call",
-   "path": "calls/2024/09 September/None FF.NHB Coffee Room Impromptu.md",
+   "path": "calls/2024/09 September/FF.NHB Coffee Room Impromptu Call.md",
    "date": null,
-   "topic": "FF.NHB Coffee Room Impromptu",
+   "topic": "FF.NHB Coffee Room Impromptu Call",
    "type": "other"
   },
   {
@@ -1131,9 +1139,9 @@
   {
    "handle": "A6dgCLpT",
    "verbatim": "09-12-2024 NHB+ Theory Call - September 2024 Reading Offers Call",
-   "path": "calls/2024/09 September/2024-09-12 September 2024 Reading Offers.md",
+   "path": "calls/2024/09 September/2024-09-12 September 2024 Reading Offers Call.md",
    "date": "2024-09-12",
-   "topic": "September 2024 Reading Offers",
+   "topic": "September 2024 Reading Offers Call",
    "type": "theory"
   },
   {
@@ -1155,9 +1163,9 @@
   {
    "handle": "03UW2LCY",
    "verbatim": "10-03-2024 NHB+ Call - October Reading Offers Call",
-   "path": "calls/2024/10 October/2024-10-03 October Reading Offers.md",
+   "path": "calls/2024/10 October/2024-10-03 Call - October Reading Offers Call.md",
    "date": "2024-10-03",
-   "topic": "October Reading Offers",
+   "topic": "Call - October Reading Offers Call",
    "type": "other"
   },
   {
@@ -1179,9 +1187,9 @@
   {
    "handle": "JiFyiBiZ",
    "verbatim": "10-24-2024 NHB+ Theory Call - Pre-Openings",
-   "path": "calls/2024/10 October/2024-10-24 Pre - Openings.md",
+   "path": "calls/2024/10 October/2024-10-24 Pre-Openings.md",
    "date": "2024-10-24",
-   "topic": "Pre - Openings",
+   "topic": "Pre-Openings",
    "type": "theory"
   },
   {
@@ -1195,9 +1203,9 @@
   {
    "handle": "J7MWlT6R",
    "verbatim": "11-07-2024 NHB+ Theory - November Reading Offers Call",
-   "path": "calls/2024/11 November/2024-11-07 Theory - November Reading Offers.md",
+   "path": "calls/2024/11 November/2024-11-07 Theory - November Reading Offers Call.md",
    "date": "2024-11-07",
-   "topic": "Theory - November Reading Offers",
+   "topic": "Theory - November Reading Offers Call",
    "type": "theory"
   },
   {
@@ -1275,9 +1283,9 @@
   {
    "handle": "9vNiSZ4T",
    "verbatim": "01-16-2025 NHB+ Call - Mechanism Of Comprehension",
-   "path": "calls/2025/01 January/2025-01-16 Mechanism Of Comprehension.md",
+   "path": "calls/2025/01 January/2025-01-16 Call - Mechanism Of Comprehension.md",
    "date": "2025-01-16",
-   "topic": "Mechanism Of Comprehension",
+   "topic": "Call - Mechanism Of Comprehension",
    "type": "other"
   },
   {
@@ -1537,14 +1545,14 @@
    "handle": "s6NCULIB",
    "verbatim": "2.5 Call Booking Page",
    "course": "7-Figure Sales Funnel",
-   "path": "courses/7-Figure Sales Funnel/05 5 Booking Page.md",
+   "path": "courses/7-Figure Sales Funnel/05 5 Call Booking Page.md",
    "lesson_no": 5
   },
   {
    "handle": "c3EwRbYY",
    "verbatim": "2.6 Call Booking Confirmation",
    "course": "7-Figure Sales Funnel",
-   "path": "courses/7-Figure Sales Funnel/06 6 Booking Confirmation.md",
+   "path": "courses/7-Figure Sales Funnel/06 6 Call Booking Confirmation.md",
    "lesson_no": 6
   },
   {
@@ -1614,14 +1622,14 @@
    "handle": "crcS2LSZ",
    "verbatim": "8. OUR 7-FIGURE SALES FUNNEL",
    "course": "Advanced Acquisition Theory Course",
-   "path": "courses/Advanced Acquisition Theory Course/08 OUR 7 - FIGURE SALES FUNNEL.md",
+   "path": "courses/Advanced Acquisition Theory Course/08 OUR 7-FIGURE SALES FUNNEL.md",
    "lesson_no": 8
   },
   {
    "handle": "Y3UQjTpL",
    "verbatim": "9. THE 7-FIGURE AUTOMATIC CLIENTS FORMULA",
    "course": "Advanced Acquisition Theory Course",
-   "path": "courses/Advanced Acquisition Theory Course/09 THE 7 - FIGURE AUTOMATIC CLIENTS FORMULA.md",
+   "path": "courses/Advanced Acquisition Theory Course/09 THE 7-FIGURE AUTOMATIC CLIENTS FORMULA.md",
    "lesson_no": 9
   },
   {
@@ -1712,14 +1720,14 @@
    "handle": "xydEFD5J",
    "verbatim": "4. 7-Figure Fill-In-The-Blank Sales Letter",
    "course": "Plug & Play High Converting Sales Letter",
-   "path": "courses/Plug & Play High Converting Sales Letter/01 7 - Figure Fill - In - The - Blank Sales Letter.md",
+   "path": "courses/Plug & Play High Converting Sales Letter/01 7-Figure Fill-In-The-Blank Sales Letter.md",
    "lesson_no": 1
   },
   {
    "handle": "8yF0lLSY",
    "verbatim": "1. 7-FIGURE MATH & AC FORMULA",
    "course": "7-Day Fast Start",
-   "path": "courses/7-Day Fast Start/01 7 - FIGURE MATH & AC FORMULA.md",
+   "path": "courses/7-Day Fast Start/01 7-FIGURE MATH & AC FORMULA.md",
    "lesson_no": 1
   },
   {
@@ -1798,661 +1806,771 @@
    "handle": "s2MGiDJb",
    "verbatim": "NHB+ Converting Audiences",
    "kind": "written_hand",
-   "clean": "Converting Audiences"
+   "clean": "Converting Audiences",
+   "path": "written-hands/2024/03 March/Converting Audiences.md"
   },
   {
    "handle": "x7Ug3TwT",
    "verbatim": "NHB+ Market Assumptions 2.0",
    "kind": "written_hand",
-   "clean": "Market Assumptions 2.0"
+   "clean": "Market Assumptions 2.0",
+   "path": "written-hands/2024/03 March/Market Assumptions 2.0.md"
   },
   {
    "handle": "M2E2lZxb",
    "verbatim": "NHB+ Conceptual God Model",
    "kind": "written_hand",
-   "clean": "Conceptual God Model"
+   "clean": "Conceptual God Model",
+   "path": "written-hands/2024/03 March/Conceptual God Model.md"
   },
   {
    "handle": "kyVGRJTB",
    "verbatim": "NHB+ Argumentative Resistance",
    "kind": "written_hand",
-   "clean": "Argumentative Resistance"
+   "clean": "Argumentative Resistance",
+   "path": "written-hands/2024/03 March/Argumentative Resistance.md"
   },
   {
    "handle": "ciEG3TRT",
    "verbatim": "NHB+ Perfect Launch Sequence",
    "kind": "written_hand",
-   "clean": "Perfect Launch Sequence"
+   "clean": "Perfect Launch Sequence",
+   "path": "written-hands/2024/04 April/Perfect Launch Sequence.md"
   },
   {
    "handle": "M2FigTzL",
    "verbatim": "NHB+ Momentum Marketing",
    "kind": "written_hand",
-   "clean": "Momentum Marketing"
+   "clean": "Momentum Marketing",
+   "path": "written-hands/2024/04 April/Momentum Marketing.md"
   },
   {
    "handle": "03U0GLIL",
    "verbatim": "NHB+ Symbolic Language",
    "kind": "written_hand",
-   "clean": "Symbolic Language"
+   "clean": "Symbolic Language",
+   "path": "written-hands/2024/04 April/Symbolic Language.md"
   },
   {
    "handle": "c2MSVJ6Y",
    "verbatim": "01. NHB+ Reading Offers #2",
    "kind": "written_hand",
-   "clean": "Reading Offers #2"
+   "clean": "Reading Offers #2",
+   "path": "written-hands/2024/07 July/Reading Offers #2.md"
   },
   {
    "handle": "lqVWBTyB",
    "verbatim": "02. NHB+ Engineering Commitment",
    "kind": "written_hand",
-   "clean": "Engineering Commitment"
+   "clean": "Engineering Commitment",
+   "path": "written-hands/2024/07 July/Engineering Commitment.md"
   },
   {
    "handle": "t6FQCLSI",
    "verbatim": "3. NHB+ Short Term vs Long Term Thinking Audiences",
    "kind": "written_hand",
-   "clean": "Short Term vs Long Term Thinking Audiences"
+   "clean": "Short Term vs Long Term Thinking Audiences",
+   "path": "written-hands/2024/07 July/Short Term vs Long Term Thinking Audiences.md"
   },
   {
    "handle": "wzdU0BaD",
    "verbatim": "9-7-2023 NHB+ Theory Call - The Hidden Architecture Of Quiz Funnels",
    "kind": "written_hand",
-   "clean": "9 - 7 - 2023 - The Hidden Architecture Of Quiz Funnels"
+   "clean": "9-7-2023 - The Hidden Architecture Of Quiz Funnels",
+   "path": "written-hands/2023/09 September/9-7-2023 - The Hidden Architecture Of Quiz Funnels.md"
   },
   {
    "handle": "BmM0UZQR",
    "verbatim": "9-14-2023 NHB+ Theory Call - The POV Process",
    "kind": "written_hand",
-   "clean": "9 - 14 - 2023 - The POV Process"
+   "clean": "9-14-2023 - The POV Process",
+   "path": "written-hands/2023/09 September/9-14-2023 - The POV Process.md"
   },
   {
    "handle": "5rUmXDIL",
    "verbatim": "01. NHB+ Selling To Women 2",
    "kind": "written_hand",
-   "clean": "Selling To Women 2"
+   "clean": "Selling To Women 2",
+   "path": "written-hands/2023/10 October/Selling To Women 2.md"
   },
   {
    "handle": "FuF0TRqA",
    "verbatim": "02. NHB+ Creating An Awareness Bridge",
    "kind": "written_hand",
-   "clean": "Creating An Awareness Bridge"
+   "clean": "Creating An Awareness Bridge",
+   "path": "written-hands/2023/10 October/Creating An Awareness Bridge.md"
   },
   {
    "handle": "omVQnbwb",
    "verbatim": "03. NHB+ Cause For Arguments",
    "kind": "written_hand",
-   "clean": "Cause For Arguments"
+   "clean": "Cause For Arguments",
+   "path": "written-hands/2023/10 October/Cause For Arguments.md"
   },
   {
    "handle": "87cSnTyZ",
    "verbatim": "04. NHB+ Requirements",
    "kind": "written_hand",
-   "clean": "Requirements"
+   "clean": "Requirements",
+   "path": "written-hands/2023/10 October/Requirements.md"
   },
   {
    "handle": "k6VSwZQa",
    "verbatim": "01-11-2024 NHB Theory Call - Thoughts Into Emotions",
    "kind": "written_hand",
-   "clean": "01 - 11 - 2024 NHB - Thoughts Into Emotions"
+   "clean": "01-11-2024 NHB - Thoughts Into Emotions",
+   "path": "written-hands/2024/01 January/01-11-2024 NHB - Thoughts Into Emotions.md"
   },
   {
    "handle": "FqckHZoL",
    "verbatim": "01-25-2024 NHB+ Theory Call - Criteria of Markets & Offers",
    "kind": "written_hand",
-   "clean": "01 - 25 - 2024 - Criteria of Markets & Offers"
+   "clean": "01-25-2024 - Criteria of Markets & Offers",
+   "path": "written-hands/2024/01 January/01-25-2024 - Criteria of Markets & Offers.md"
   },
   {
    "handle": "RuMAnBKJ",
    "verbatim": "10. NHB+ Truth vs Trust",
    "kind": "written_hand",
-   "clean": "Truth vs Trust"
+   "clean": "Truth vs Trust",
+   "path": "written-hands/2023/12 December/Truth vs Trust.md"
   },
   {
    "handle": "FmFSxb6Q",
    "verbatim": "11. NHB+ Objection Handling",
    "kind": "written_hand",
-   "clean": "Objection Handling"
+   "clean": "Objection Handling",
+   "path": "written-hands/2023/12 December/Objection Handling.md"
   },
   {
    "handle": "l7dGgZLL",
    "verbatim": "12. NHB+ Clean Biz-Ops",
    "kind": "written_hand",
-   "clean": "Clean Biz - Ops"
+   "clean": "Clean Biz-Ops",
+   "path": "written-hands/2023/12 December/Clean Biz-Ops.md"
   },
   {
    "handle": "BzVAwJrA",
    "verbatim": "13. NHB+ Year End Roundtable Call",
    "kind": "written_hand",
-   "clean": "Year End Roundtable"
+   "clean": "Year End Roundtable Call",
+   "path": "written-hands/2023/12 December/Year End Roundtable Call.md"
   },
   {
    "handle": "InVgWDgb",
    "verbatim": "05. NHB+ The Catalog Model",
    "kind": "written_hand",
-   "clean": "Catalog Model"
+   "clean": "Catalog Model",
+   "path": "written-hands/2023/11 November/Catalog Model.md"
   },
   {
    "handle": "FuF2kBxa",
    "verbatim": "06. NHB+ Market Positions",
    "kind": "written_hand",
-   "clean": "Market Positions"
+   "clean": "Market Positions",
+   "path": "written-hands/2023/11 November/Market Positions.md"
   },
   {
    "handle": "BiEmBRQQ",
    "verbatim": "07. NHB+ The Go Back Mechanism",
    "kind": "written_hand",
-   "clean": "Go Back Mechanism"
+   "clean": "Go Back Mechanism",
+   "path": "written-hands/2023/11 November/Go Back Mechanism.md"
   },
   {
    "handle": "NqF2yRKB",
    "verbatim": "09. NHB+ The Architecture of Awareness",
    "kind": "written_hand",
-   "clean": "Architecture of Awareness"
+   "clean": "Architecture of Awareness",
+   "path": "written-hands/2023/11 November/Architecture of Awareness.md"
   },
   {
    "handle": "hmdGiTJL",
    "verbatim": "6-16-2022 FF Guest Call - Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS",
    "kind": "written_hand",
-   "clean": "6 - 16 - 2022 - Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS"
+   "clean": "6-16-2022 - Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS",
+   "path": "written-hands/2022/06 June/6-16-2022 - Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS.md"
   },
   {
    "handle": "pzF02Bza",
    "verbatim": "NHB+ Criteria Of Markets Implementation Call",
    "kind": "written_hand",
-   "clean": "Criteria Of Markets Implementation"
+   "clean": "Criteria Of Markets Implementation Call",
+   "path": "written-hands/2024/02 February/Criteria Of Markets Implementation Call.md"
   },
   {
    "handle": "gvdyxZhB",
    "verbatim": "NHB+ Creating Moat",
    "kind": "written_hand",
-   "clean": "Creating Moat"
+   "clean": "Creating Moat",
+   "path": "written-hands/2024/02 February/Creating Moat.md"
   },
   {
    "handle": "43cWVRzD",
    "verbatim": "NHB+ Organic Content Structures",
    "kind": "written_hand",
-   "clean": "Organic Content Structures"
+   "clean": "Organic Content Structures",
+   "path": "written-hands/2024/02 February/Organic Content Structures.md"
   },
   {
    "handle": "Nvcw0brR",
    "verbatim": "NHB+ Selling To Women 3.0",
    "kind": "written_hand",
-   "clean": "Selling To Women 3.0"
+   "clean": "Selling To Women 3.0",
+   "path": "written-hands/undated/undated/Selling To Women 3.0.md"
   },
   {
    "handle": "xuViWLbC",
    "verbatim": "01-31-2024 NHB Coaching Call - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez V1",
    "kind": "written_hand",
-   "clean": "01 - 31 - 2024 NHB - The CRO Audit Accelerator Pt. 2 - With Brandon Vasquez V1"
+   "clean": "01-31-2024 NHB - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez V1",
+   "path": "written-hands/2024/01 January/01-31-2024 NHB - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez.md"
   },
   {
    "handle": "BjEQyTza",
    "verbatim": "8-31-2023 NHB+ Theory Call - Marketing Measures",
    "kind": "written_hand",
-   "clean": "8 - 31 - 2023 - Marketing Measures"
+   "clean": "8-31-2023 - Marketing Measures",
+   "path": "written-hands/2023/08 August/8-31-2023 - Marketing Measures.md"
   },
   {
    "handle": "omUw2BwC",
    "verbatim": "02. NHB+ Reading Offers",
    "kind": "written_hand",
-   "clean": "Reading Offers"
+   "clean": "Reading Offers",
+   "path": "written-hands/2024/06 June/Reading Offers.md"
   },
   {
    "handle": "wqFAAbbB",
    "verbatim": "03. NHB+ Creating And Spotting Opportunities",
    "kind": "written_hand",
-   "clean": "Creating And Spotting Opportunities"
+   "clean": "Creating And Spotting Opportunities",
+   "path": "written-hands/2024/06 June/Creating And Spotting Opportunities.md"
   },
   {
    "handle": "ZuMCiBgL",
    "verbatim": "04. NHB+ _The Right Now Process_",
    "kind": "written_hand",
-   "clean": "_The Right Now Process_"
+   "clean": "_The Right Now Process_",
+   "path": "written-hands/2024/06 June/_The Right Now Process_.md"
   },
   {
    "handle": "x2U2VJjK",
    "verbatim": "06. NHB+ Increasing Beliefs",
    "kind": "written_hand",
-   "clean": "Increasing Beliefs"
+   "clean": "Increasing Beliefs",
+   "path": "written-hands/2024/06 June/Increasing Beliefs.md"
   },
   {
    "handle": "YvNyGbqS",
    "verbatim": "Sales Funnel Template Links",
    "kind": "course_doc",
-   "clean": "Sales Funnel Template Links"
+   "clean": "Sales Funnel Template Links",
+   "path": "courses/7 Figure Sales Funnel/Sales Funnel Template Links.md"
   },
   {
    "handle": "1rV0yDDB",
    "verbatim": "1. Automatic Clients Step",
    "kind": "course_doc",
-   "clean": "Automatic Clients Step"
+   "clean": "Automatic Clients Step",
+   "path": "courses/Automatic Clients Course/Automatic Clients Step.md"
   },
   {
    "handle": "snViEZ6C",
    "verbatim": "2. AC eBook",
    "kind": "course_doc",
-   "clean": "AC eBook"
+   "clean": "AC eBook",
+   "path": "courses/Automatic Clients Course/AC eBook.md"
   },
   {
    "handle": "dnUm0DCA",
    "verbatim": "3. Economics Calculator",
    "kind": "course_doc",
-   "clean": "Economics Calculator"
+   "clean": "Economics Calculator",
+   "path": "courses/Automatic Clients Course/Economics Calculator.md"
   },
   {
    "handle": "RnVC1LCR",
    "verbatim": "4. 2,498 Niches Spreadsheet",
    "kind": "course_doc",
-   "clean": "2,498 Niches Spreadsheet"
+   "clean": "2,498 Niches Spreadsheet",
+   "path": "courses/Automatic Clients Course/2,498 Niches Spreadsheet.md"
   },
   {
    "handle": "tnE0XTqB",
    "verbatim": "4.1 2,498 Automatic Client Niche Markets",
    "kind": "course_doc",
-   "clean": "1 2,498 Automatic Client Niche Markets"
+   "clean": "1 2,498 Automatic Client Niche Markets",
+   "path": "courses/Automatic Clients Course/1 2,498 Automatic Client Niche Markets.md"
   },
   {
    "handle": "1mcEVBLS",
    "verbatim": "5. $200,000 Ad Template",
    "kind": "course_doc",
-   "clean": "$200,000 Ad Template"
+   "clean": "$200,000 Ad Template",
+   "path": "courses/Automatic Clients Course/$200,000 Ad Template.md"
   },
   {
    "handle": "46cEGZpD",
    "verbatim": "6. 7-Figure VSL Script Template",
    "kind": "course_doc",
-   "clean": "7 - Figure VSL Script Template"
+   "clean": "7-Figure VSL Script Template",
+   "path": "courses/Automatic Clients Course/7-Figure VSL Script Template.md"
   },
   {
    "handle": "A2Mk1DQC",
    "verbatim": "Background Graphics",
    "kind": "course_doc",
-   "clean": "Background Graphics"
+   "clean": "Background Graphics",
+   "path": "courses/Million Dollar Branding/Background Graphics.md"
   },
   {
    "handle": "hqFWhZLL",
    "verbatim": "Graphics - 2D Book Mockup Landscape",
    "kind": "course_doc",
-   "clean": "Graphics - 2D Book Mockup Landscape"
+   "clean": "Graphics - 2D Book Mockup Landscape",
+   "path": "courses/Million Dollar Branding/Graphics - 2D Book Mockup Landscape.md"
   },
   {
    "handle": "wmEU2ZqJ",
    "verbatim": "Graphics - Image Collage",
    "kind": "course_doc",
-   "clean": "Graphics - Image Collage"
+   "clean": "Graphics - Image Collage",
+   "path": "courses/Million Dollar Branding/Graphics - Image Collage.md"
   },
   {
    "handle": "RmEw2ZjY",
    "verbatim": "Graphics - Open Book Landscape",
    "kind": "course_doc",
-   "clean": "Graphics - Open Book Landscape"
+   "clean": "Graphics - Open Book Landscape",
+   "path": "courses/Million Dollar Branding/Graphics - Open Book Landscape.md"
   },
   {
    "handle": "47E2RLzK",
    "verbatim": "Graphics - Process Graphic",
    "kind": "course_doc",
-   "clean": "Graphics - Process Graphic"
+   "clean": "Graphics - Process Graphic",
+   "path": "courses/Million Dollar Branding/Graphics - Process Graphic.md"
   },
   {
    "handle": "5mUCkRhL",
    "verbatim": "Graphics - Product Stack - Singles",
    "kind": "course_doc",
-   "clean": "Graphics - Product Stack - Singles"
+   "clean": "Graphics - Product Stack - Singles",
+   "path": "courses/Million Dollar Branding/Graphics - Product Stack - Singles.md"
   },
   {
    "handle": "hqU0BRhR",
    "verbatim": "Graphics - Product Stack",
    "kind": "course_doc",
-   "clean": "Graphics - Product Stack"
+   "clean": "Graphics - Product Stack",
+   "path": "courses/Million Dollar Branding/Graphics - Product Stack.md"
   },
   {
    "handle": "N3UkQBiQ",
    "verbatim": "Graphics - Testimonials",
    "kind": "course_doc",
-   "clean": "Graphics - Testimonials"
+   "clean": "Graphics - Testimonials",
+   "path": "courses/Million Dollar Branding/Graphics - Testimonials.md"
   },
   {
    "handle": "guNkBLaZ",
    "verbatim": "Pick Primary Color",
    "kind": "course_doc",
-   "clean": "Pick Primary Color"
+   "clean": "Pick Primary Color",
+   "path": "courses/Million Dollar Branding/Pick Primary Color.md"
   },
   {
    "handle": "VvVSGbhJ",
    "verbatim": "Resources Links",
    "kind": "course_doc",
-   "clean": "Resources Links"
+   "clean": "Million Dollar Branding Resources Links",
+   "path": "courses/Million Dollar Branding/Million Dollar Branding Resources Links.md"
   },
   {
    "handle": "4nV2SRCA",
    "verbatim": "Converting-Ads",
    "kind": "course_doc",
-   "clean": "Converting - Ads"
+   "clean": "Converting-Ads",
+   "path": "courses/Converting ads/Converting-Ads.md"
   },
   {
    "handle": "56MQ3RLZ",
    "verbatim": "Fill In The Blank Sales Letter",
    "kind": "course_doc",
-   "clean": "Fill In The Blank Sales Letter"
+   "clean": "Fill In The Blank Sales Letter",
+   "path": "courses/Plug & Play High Converting Sales Letter/Fill In The Blank Sales Letter.md"
   },
   {
    "handle": "knMmWRSD",
    "verbatim": "Resources Links",
    "kind": "course_doc",
-   "clean": "Resources Links"
+   "clean": "Plug & Play High Converting Sales Letter Resources Links",
+   "path": "courses/Plug & Play High Converting Sales Letter/Plug & Play High Converting Sales Letter Resources Links.md"
   },
   {
    "handle": "FqMUwRJQ",
    "verbatim": "1. AC Calculator",
    "kind": "course_doc",
-   "clean": "AC Calculator"
+   "clean": "AC Calculator",
+   "path": "courses/7 Day Fast Start/AC Calculator.md"
   },
   {
    "handle": "pqEyEBQZ",
    "verbatim": "2. Automatic Clients Market Selection Matrix",
    "kind": "course_doc",
-   "clean": "Automatic Clients Market Selection Matrix"
+   "clean": "Automatic Clients Market Selection Matrix",
+   "path": "courses/7 Day Fast Start/Automatic Clients Market Selection Matrix.md"
   },
   {
    "handle": "UiUWQDrY",
    "verbatim": "3. Automatic Clients Offer Name Generator",
    "kind": "course_doc",
-   "clean": "Automatic Clients Offer Name Generator"
+   "clean": "Automatic Clients Offer Name Generator",
+   "path": "courses/7 Day Fast Start/Automatic Clients Offer Name Generator.md"
   },
   {
    "handle": "1ydGXbCL",
    "verbatim": "5. Our Best Ads",
    "kind": "course_doc",
-   "clean": "Our Best Ads"
+   "clean": "Our Best Ads",
+   "path": "courses/7 Day Fast Start/Our Best Ads.md"
   },
   {
    "handle": "wvMgBJoA",
    "verbatim": "OTO 1 Downsell",
    "kind": "course_doc",
-   "clean": "OTO 1 Downsell"
+   "clean": "OTO 1 Downsell",
+   "path": "courses/Converting Upsells/OTO 1 Downsell.md"
   },
   {
    "handle": "F2Mw1LxR",
    "verbatim": "OTO 1",
    "kind": "course_doc",
-   "clean": "OTO 1"
+   "clean": "OTO 1",
+   "path": "courses/Converting Upsells/OTO 1.md"
   },
   {
    "handle": "hjUGmDrQ",
    "verbatim": "OTO 2",
    "kind": "course_doc",
-   "clean": "OTO 2"
+   "clean": "OTO 2",
+   "path": "courses/Converting Upsells/OTO 2.md"
   },
   {
    "handle": "M3UyRZhJ",
    "verbatim": "OTO 2 Downsell",
    "kind": "course_doc",
-   "clean": "OTO 2 Downsell"
+   "clean": "OTO 2 Downsell",
+   "path": "courses/Converting Upsells/OTO 2 Downsell.md"
   },
   {
    "handle": "ErdCVRgJ",
    "verbatim": "Resources Links",
    "kind": "course_doc",
-   "clean": "Resources Links"
+   "clean": "Converting Upsells Resources Links",
+   "path": "courses/Converting Upsells/Converting Upsells Resources Links.md"
   },
   {
    "handle": "M7FCAJCD",
    "verbatim": "1-Retarget-BOOK-Non-Buyers-Email-Template",
    "kind": "course_doc",
-   "clean": "1 - Retarget - BOOK - Non - Buyers - Email - Template"
+   "clean": "1-Retarget-BOOK-Non-Buyers-Email-Template",
+   "path": "courses/Revenue Generating Emails/1-Retarget-BOOK-Non-Buyers-Email-Template.md"
   },
   {
    "handle": "tvdywBBR",
    "verbatim": "2-BOOK-Fulfillment-Email-Template",
    "kind": "course_doc",
-   "clean": "2 - BOOK - Fulfillment - Email - Template"
+   "clean": "2-BOOK-Fulfillment-Email-Template",
+   "path": "courses/Revenue Generating Emails/2-BOOK-Fulfillment-Email-Template.md"
   },
   {
    "handle": "0idwVDSb",
    "verbatim": "3-OTO-1-Email-Templates",
    "kind": "course_doc",
-   "clean": "3 - OTO - 1 - Email - Templates"
+   "clean": "3-OTO-1-Email-Templates",
+   "path": "courses/Revenue Generating Emails/3-OTO-1-Email-Templates.md"
   },
   {
    "handle": "c7UyXTgQ",
    "verbatim": "4-Book-A-Call-Email-Templates",
    "kind": "course_doc",
-   "clean": "4 - Book - A - - Email - Templates"
+   "clean": "4-Book-A-Call-Email-Templates",
+   "path": "courses/Revenue Generating Emails/4-Book-A-Call-Email-Templates.md"
   },
   {
    "handle": "FzdgmLQD",
    "verbatim": "Resources Links",
    "kind": "course_doc",
-   "clean": "Resources Links"
+   "clean": "Revenue Generating Emails Resources Links",
+   "path": "courses/Revenue Generating Emails/Revenue Generating Emails Resources Links.md"
   },
   {
    "handle": "c7Ew1TaQ",
    "verbatim": "Resources Links",
    "kind": "course_doc",
-   "clean": "Resources Links"
+   "clean": "Get Ready To Launch Resources Links",
+   "path": "courses/Get Ready To Launch/Get Ready To Launch Resources Links.md"
   },
   {
    "handle": "g2U0UDLb",
    "verbatim": "500-page-swipe-file-clayton-makepeace_compress_1",
    "kind": "orphan_doc",
-   "clean": "500 - page - swipe - file - clayton - makepeace_compress_1"
+   "clean": "500-page-swipe-file-clayton-makepeace_compress_1",
+   "path": "library/500-page-swipe-file-clayton-makepeace_compress_1.md"
   },
   {
    "handle": "52c22T5D",
    "verbatim": "AC_Book",
    "kind": "orphan_doc",
-   "clean": "AC_Book"
+   "clean": "AC_Book",
+   "path": "library/AC_Book.md"
   },
   {
    "handle": "0vNQlbDK",
    "verbatim": "fourdaycashmachine",
    "kind": "orphan_doc",
-   "clean": "fourdaycashmachine"
+   "clean": "fourdaycashmachine",
+   "path": "library/fourdaycashmachine.md"
   },
   {
    "handle": "lqdiWBqD",
    "verbatim": "Swipe",
    "kind": "orphan_doc",
-   "clean": "Swipe"
+   "clean": "Swipe",
+   "path": "library/Swipe.md"
   },
   {
    "handle": "BnFAzBJL",
    "verbatim": "AB Testing Template sheet",
    "kind": "orphan_doc",
-   "clean": "AB Testing Template sheet"
+   "clean": "AB Testing Template sheet",
+   "path": "library/AB Testing Template sheet.md"
   },
   {
    "handle": "sjVmURCT",
    "verbatim": "AC Book Writing Worksheet",
    "kind": "orphan_doc",
-   "clean": "AC Book Writing Worksheet"
+   "clean": "AC Book Writing Worksheet",
+   "path": "library/AC Book Writing Worksheet.md"
   },
   {
    "handle": "IydkmDxS",
    "verbatim": "AC Design Tempalte",
    "kind": "orphan_doc",
-   "clean": "AC Design Tempalte"
+   "clean": "AC Design Tempalte",
+   "path": "library/AC Design Tempalte.md"
   },
   {
    "handle": "wqdCCZ6Q",
    "verbatim": "AC Economics Calculator",
    "kind": "orphan_doc",
-   "clean": "AC Economics Calculator"
+   "clean": "AC Economics Calculator",
+   "path": "library/AC Economics Calculator.md"
   },
   {
    "handle": "0yVUnbiC",
    "verbatim": "AC EMAIL TEMPLATES",
    "kind": "orphan_doc",
-   "clean": "AC EMAIL TEMPLATES"
+   "clean": "AC EMAIL TEMPLATES",
+   "path": "library/AC EMAIL TEMPLATES.md"
   },
   {
    "handle": "kiUCxbgD",
    "verbatim": "AC Figma File Template",
    "kind": "orphan_doc",
-   "clean": "AC Figma File Template"
+   "clean": "AC Figma File Template",
+   "path": "library/AC Figma File Template.md"
   },
   {
    "handle": "Y2NiwTRB",
    "verbatim": "AC funnel on Groovefunnels",
    "kind": "orphan_doc",
-   "clean": "AC funnel on Groovefunnels"
+   "clean": "AC funnel on Groovefunnels",
+   "path": "library/AC funnel on Groovefunnels.md"
   },
   {
    "handle": "EydWFb5J",
    "verbatim": "AC Lever Analysis",
    "kind": "orphan_doc",
-   "clean": "AC Lever Analysis"
+   "clean": "AC Lever Analysis",
+   "path": "library/AC Lever Analysis.md"
   },
   {
    "handle": "cudC0bTR",
    "verbatim": "AC Product MockUp",
    "kind": "orphan_doc",
-   "clean": "AC Product MockUp"
+   "clean": "AC Product MockUp",
+   "path": "library/AC Product MockUp.md"
   },
   {
    "handle": "N7EUWTab",
    "verbatim": "AC Template on ClickFunnels",
    "kind": "orphan_doc",
-   "clean": "AC Template on ClickFunnels"
+   "clean": "AC Template on ClickFunnels",
+   "path": "library/AC Template on ClickFunnels.md"
   },
   {
    "handle": "MyVUBRAA",
    "verbatim": "AC Upsells",
    "kind": "orphan_doc",
-   "clean": "AC Upsells"
+   "clean": "AC Upsells",
+   "path": "library/AC Upsells.md"
   },
   {
    "handle": "xmUGELxa",
    "verbatim": "AC VIDEO TEMPLATE",
    "kind": "orphan_doc",
-   "clean": "AC VIDEO TEMPLATE"
+   "clean": "AC VIDEO TEMPLATE",
+   "path": "library/AC VIDEO TEMPLATE.md"
   },
   {
    "handle": "suVyAZgT",
    "verbatim": "Alex Hormozi",
    "kind": "orphan_doc",
-   "clean": "Alex Hormozi"
+   "clean": "Alex Hormozi",
+   "path": "library/Alex Hormozi.md"
   },
   {
    "handle": "xjMwXLSY",
    "verbatim": "Automatic Clients Funnel Template for Go High Level",
    "kind": "orphan_doc",
-   "clean": "Automatic Clients Funnel Template for Go High Level"
+   "clean": "Automatic Clients Funnel Template for Go High Level",
+   "path": "library/Automatic Clients Funnel Template for Go High Level.md"
   },
   {
    "handle": "0nMyjbpS",
    "verbatim": "Beating Controls Template",
    "kind": "orphan_doc",
-   "clean": "Beating Controls Template"
+   "clean": "Beating Controls Template",
+   "path": "library/Beating Controls Template.md"
   },
   {
    "handle": "0jEmzTRL",
    "verbatim": "Billable Hours Calculator",
    "kind": "orphan_doc",
-   "clean": "Billable Hours Calculator"
+   "clean": "Billable Hours Calculator",
+   "path": "library/Billable Hours Calculator.md"
   },
   {
    "handle": "E6VmnLCT",
    "verbatim": "Bullet Based Upsell1",
    "kind": "orphan_doc",
-   "clean": "Bullet Based Upsell1"
+   "clean": "Bullet Based Upsell1",
+   "path": "library/Bullet Based Upsell1.md"
   },
   {
    "handle": "grFSERJQ",
    "verbatim": "Call Watch History Sheet",
    "kind": "orphan_doc",
-   "clean": "Watch History Sheet"
+   "clean": "Call Watch History Sheet",
+   "path": "library/Call Watch History Sheet.md"
   },
   {
    "handle": "xuVggTRJ",
    "verbatim": "ClickFunnels Resetting Timer",
    "kind": "orphan_doc",
-   "clean": "ClickFunnels Resetting Timer"
+   "clean": "ClickFunnels Resetting Timer",
+   "path": "library/ClickFunnels Resetting Timer.md"
   },
   {
    "handle": "Y6VgARAC",
    "verbatim": "CMO CRO Proposal Templates",
    "kind": "orphan_doc",
-   "clean": "CMO CRO Proposal Templates"
+   "clean": "CMO CRO Proposal Templates",
+   "path": "library/CMO CRO Proposal Templates.md"
   },
   {
    "handle": "UnECnJab",
    "verbatim": "Economics Spreadsheet Template",
    "kind": "orphan_doc",
-   "clean": "Economics Spreadsheet Template"
+   "clean": "Economics Spreadsheet Template",
+   "path": "library/Economics Spreadsheet Template.md"
   },
   {
    "handle": "AvdWgDSK",
    "verbatim": "Editing AC template on Figma",
    "kind": "orphan_doc",
-   "clean": "Editing AC template on Figma"
+   "clean": "Editing AC template on Figma",
+   "path": "library/Editing AC template on Figma.md"
   },
   {
    "handle": "ovMAUJ7Q",
    "verbatim": "Evergreen Webinars",
    "kind": "orphan_doc",
-   "clean": "Evergreen Webinars"
+   "clean": "Evergreen Webinars",
+   "path": "library/Evergreen Webinars.md"
   },
   {
    "handle": "M2cwyRhQ",
    "verbatim": "Go High Level Appointment Funnel",
    "kind": "orphan_doc",
-   "clean": "Go High Level Appointment Funnel"
+   "clean": "Go High Level Appointment Funnel",
+   "path": "library/Go High Level Appointment Funnel.md"
   },
   {
    "handle": "dmUUjLJJ",
    "verbatim": "Graphics for mockup1",
    "kind": "orphan_doc",
-   "clean": "Graphics for mockup1"
+   "clean": "Graphics for mockup1",
+   "path": "library/Graphics for mockup1.md"
   },
   {
    "handle": "x6FiTJJI",
    "verbatim": "Graphics For Mockups",
    "kind": "orphan_doc",
-   "clean": "Graphics For Mockups"
+   "clean": "Graphics For Mockups",
+   "path": "library/Graphics For Mockups.md"
   },
   {
    "handle": "xyUQhDAa",
    "verbatim": "Lazy Loading Code",
    "kind": "orphan_doc",
-   "clean": "Lazy Loading Code"
+   "clean": "Lazy Loading Code",
+   "path": "library/Lazy Loading Code.md"
   },
   {
    "handle": "U7VGXLJL",
    "verbatim": "Low Ticket Ecom Sales Page",
    "kind": "orphan_doc",
-   "clean": "Low Ticket Ecom Sales Page"
+   "clean": "Low Ticket Ecom Sales Page",
+   "path": "library/Low Ticket Ecom Sales Page.md"
   },
   {
    "handle": "MuF0iLBZ",
    "verbatim": "Stripe or Paypal screenshot templates",
    "kind": "orphan_doc",
-   "clean": "Stripe or Paypal screenshot templates"
+   "clean": "Stripe or Paypal screenshot templates",
+   "path": "library/Stripe or Paypal screenshot templates.md"
   },
   {
    "handle": "0yVk3b4I",
    "verbatim": "The sheet I use to track split tests",
    "kind": "orphan_doc",
-   "clean": "sheet I use to track split tests"
+   "clean": "sheet I use to track split tests",
+   "path": "library/sheet I use to track split tests.md"
   },
   {
    "handle": "U7UQmRCJ",
    "verbatim": "Ultimate Copywriting Library",
    "kind": "orphan_doc",
-   "clean": "Ultimate Copywriting Library"
+   "clean": "Ultimate Copywriting Library",
+   "path": "library/Ultimate Copywriting Library.md"
   },
   {
    "handle": "BvdgBBqR",
    "verbatim": "Vimeo gif thumbnail custom code",
    "kind": "orphan_doc",
-   "clean": "Vimeo gif thumbnail custom code"
+   "clean": "Vimeo gif thumbnail custom code",
+   "path": "library/Vimeo gif thumbnail custom code.md"
   }
  ],
  "collisions": {
   "calls": 0,
   "lessons": 0,
-  "documents": 1
+  "documents": 1,
+  "document_paths": 0
  },
  "decision": "2026-10-15 operator: clean names, NOT verbatim MEGA filenames. Verbatim preserved in _meta/manifest.json for every unit."
 }
