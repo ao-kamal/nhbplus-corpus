@@ -22,7 +22,7 @@ These outrank every mechanism here. Nothing below may trade one away.
 
 | # | Constraint | Enforcement |
 |---|---|---|
-| 1 | **Nothing media-shaped touches the operator's PC.** | The vault (markdown) is the deliverable and *does* land there. Gate V6. |
+| 1 | **Nothing media-shaped touches the operator's PC.** | The vault (markdown) is the deliverable and *does* land there. Gate V6. **AMENDED 2026-10-15, by the operator's explicit instruction: the 109 SOURCE DOCUMENTS ship as ONE archive beside `vault/` — see §0.0.1. This is a ROUTE CHANGE under Constraint 3, not a relaxation: `vault/` stays pure markdown and V6 still passes on it unchanged.** |
 | 2 | **Pay nothing**, outside recorded waivers. | **Two waivers, not one ``:** Deepgram STT (~$150), **and Azure compute** (metered VM on a $200 credit, ~$0.21/day idle — operator-approved, `evidence/probes/operator-decision-compute-azure-2026-10-14.json`). §0 previously said "sole waiver: Deepgram" and was **wrong**. Report VM-days alongside STT spend. |
 | 3 | **Remove nothing.** Where a route is blocked, the route changes. | The 2 sparse PDFs are extracted, not dropped. 100 MP4 alternates are never fetched — a route change, not a removal. |
 | 4 | **Evidence, not assertion.** | W0 probes. Ten claims withdrawn during planning; kept visible in §13.2. |
@@ -90,6 +90,72 @@ line I claimed. The *concurrency* case for 25 was never an Azure-cost case: 16 i
 inside one project with no contract question, 25 is the documented ceiling, and
 the measured degradation was 1.022×. That is still the whole argument. The
 sentence "paid for itself in the first line" was wrong and is withdrawn.
+
+### 0.0.1 The source-document archive — the operator keeps the originals
+
+**The operator asked for the source `pdf` / `docx` / `pptx` / `xlsx` alongside the
+markdown.** Constraint 1 says nothing media-shaped touches the PC, and V6 enforces
+it by banning those extensions under `vault/`. **The two are reconciled by
+changing the route, per Constraint 3's own rule**— *"Where a route is blocked, the
+route changes. The capability does not."* Nothing is removed and nothing is
+relaxed.
+
+**What ships:**
+
+```
+vault/           pure markdown, 344+ notes. UNCHANGED. V6 still gates this.
+_meta/           manifest.json, AUDIT.md, copy-verification.json, SOURCE-ARCHIVE.md
+nhbplus-source-documents.zip     109 members, beside vault/, NOT inside it
+```
+
+**The archive sits beside the vault, never inside it.** That is the whole reason
+V6 needs no change: V6 scans `vault_dir`, and the archive is not in it.
+
+**THE OPERATOR'S REQUIREMENT: *"if I ask an agent to find the original it should be
+easily able to."*** Discoverability is a first-class requirement here, not a
+nice-to-have, and it has to be satisfied **without breaking §10.1's five-field
+rule** — a pointer cannot be a sixth frontmatter key. Three mechanisms cover it:
+
+**1. Every document-derived note carries a source line IN THE BODY.**
+   The body is where §10.1 already puts the speaker-cluster caveat, for the same
+   reason: the five keys are a closed set.
+
+```
+> **Source:** `nhbplus-source-documents.zip` · member `2024/03-07-2024 NHB+ Theory
+> Call - Converting Audiences.pdf` · sha256-12 `a3f1c9d08b2e` · 140,509,184 B
+```
+
+   The line is emitted for the 109 document targets and for the 37 written hands,
+   whose source is their call's own transcript rather than an archive member.
+**A note with no source line is a failed note, not an unremarked one.**
+
+**2. `_meta/SOURCE-ARCHIVE.md` is the one file to read first.** It names the
+   archive, its own sha256, the member count, the member layout, and the three
+   mechanisms on this page. An agent that opens the repository and finds this file
+   knows the whole scheme in one read.
+
+**3. Member paths are DERIVED from the vault's declared paths, not invented.**
+   The mapping is a function, so no lookup table can drift:
+
+```
+vault note : library/swipes/6. 7-Figure VSL Script Template.md
+member     : library/swipes/6. 7-Figure VSL Script Template.pdf
+                         ^ the declared path, with .md swapped for the real ext
+```
+
+   `scope-final.json` carries each target's real source extension and
+   `manifest.json` carries its sha256, so the swap is mechanical and both sides
+   are already recorded. **`07-31-2022 NHB+ Mindstream Call` and the 42 lessons
+   carry no source line because they have no document source** — their provenance
+   is the audio, recorded in AUDIT.md.
+
+**What this does NOT change:**
+
+- **V6's formula.** Untouched. It scans `vault_dir` and the archive is not in it.
+- **`attachments/` does not come back.** That was 109 loose binaries inside the
+  vault, mandated by a subordinate document. This is one archive outside it.
+- **Egress copies three things, not two:** `vault/`, `_meta/`, and the archive.
+  `dgu` and `r0k` carry the archive in their manifest and hash checks.
 
 ### 0.1 Blocking decisions for the operator
 
@@ -1786,7 +1852,9 @@ empty field, indistinguishable from missing — the absence stops being a record
 fact and becomes an omission. That is exactly what the §11 constraint exists to
 prevent.
 
-A speaker count carries its caveat in the note **body**, not a sixth field:
+A speaker count carries its caveat in the note **body**, not a sixth field, and
+a document-derived note carries its **source line** in the body for the same
+reason — see §0.0.1. The five keys stay closed.
 > Speaker labels are algorithmically derived clusters, not identified people. A
 > single label on a multi-hour call usually means diarisation failed to separate
 > participants, not that one person spoke.
@@ -2513,8 +2581,11 @@ cap — it says so rather than reporting a green.
 
 ## 12. Egress and teardown
 
-Binary-only copy VM→PC of `vault/` + `_meta/`. **The finished markdown IS the
-deliverable; nothing media-shaped ever touches the PC.** Per-file SHA256 manifest
+Binary-only copy VM→PC of `vault/`, `_meta/`, **and
+`nhbplus-source-documents.zip`** (§0.0.1). **The finished markdown IS the
+deliverable; nothing media-shaped enters `vault/`, and the one archive beside
+it ships by the operator's explicit instruction — a route change, not a
+relaxation.** Per-file SHA256 manifest
 compared. PowerShell pipelines **forbidden by name** — W0-Egress proved 11/11
 typography checks survive `scp -r` and that the two forbidden PowerShell rewrites
 destroy exactly that typography.
@@ -2542,7 +2613,7 @@ assemble vault/
   -> V10 settled + lost <= hard stop, from receipts
   -> V12 identity binding
   -> V13 topics index        [CONDITIONAL on the 00 Topics.md decision, §15]
-  -> EMIT the SHA256 manifest of vault/ + _meta/  (no step produced this before)
+  -> EMIT the SHA256 manifest of vault/ + _meta/ + the source archive
   -> ONLY NOW  scp -r VM -> PC
   -> V11 SHA256 compare on the PC
 ```
@@ -2566,6 +2637,12 @@ of "None for EVERY submission"; two later dated artifacts carry a non-null
 value (`syncceiling3`: `01a13ec6-...`, `deepgram-eu-limits`: `01a13cfc-...`).
 Recorded as measured, blank if absent — never invented.
 with totals in the header, linked from `00 Home.md`.
+
+**`_meta/SOURCE-ARCHIVE.md` — generated, and the one file an agent should read
+first** (§0.0.1). It names the archive, its sha256, the member count, the
+path→member derivation, and the source-line convention. Generated from
+`manifest.json`, never hand-written: a hand-written index is a claim, and an
+index that disagrees with the archive it describes is worse than none.
 
 **No note gains a field. No note gains a provenance section. The operator's cut is
 respected exactly** — the audit simply becomes reachable from the tool the
@@ -2697,7 +2774,7 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 
 | # | Open item | Status | Blocking |
 |---|---|---|---|
-| **O1** | **`00 Topics.md` and the 30-minute transcript headings — wanted, or not** (§10.3). $0.00, ~2.5 h combined. R4 objects to a vault without them. | **OPEN, operator decision.** `5ir`→`dgu` edge is drawn for the spec's sequence and is the only edge to remove if the answer is no. | P1, conditional |
+| **O1** | **`00 Topics.md` and the 30-minute transcript headings.** §10.3. $0.00, ~2.5 h combined. | **SETTLED 2026-10-15 — WANTED. The operator confirmed both.** The `dgu → 5ir` edge STAYS; nothing to remove. | P1 |
 | **O2** | **Corpus-wide stereo share** — 3 of 235 sampled. Not a corpus figure. | **OPEN, unmeasured** - nothing paid yet. | `geo`'s five branches; D3's $26.98 |
 | **O3** | **Azure VM-days for a 16-way run over 605.61 h.** | **OPEN, unmeasured** - nothing paid yet. | `md5`'s report (presence asserted, value not) |
 | **O4** | **Decoded-vs-header durations** — 228 of 235 are container headers, only 7 decoded. | **OPEN, unmeasured.** §14 marks `SEGMENT_SEC` and the WPM band provisional for the same reason. | `pcp` (V4) and the settle quantity |
@@ -2761,6 +2838,23 @@ personal MEGA account. Only the operator can delete it.
 > completeness hole**, which under Rule 1 is the one kind of hole that is not
 > allowed to stand.
 >
-> **Either re-run both books without the cap, or label the note
-> `partial_extraction` with pages 201–340 named as unread.** The note's status is
-> not yet chosen; what is not permitted is calling a 59%-read book complete.
+> **DECIDED: re-run both books without the cap.** The note is not permitted
+> to be called complete while 41% is unread, and the cap is free to remove.
+> **SETTLED 2026-10-15, on the orchestrator's recommendation and the operator's
+> agreement** — the three unmeasured items resolve by RUNNING, not by deciding.
+> §9's ordering (documents, one lesson-sized smoke test, then the 16 longest)
+> is what converts them, and none costs anything extra. The two document items
+> were decided as follows:
+>
+> - **The two sparse books: RAISE THE CAP.** Both are 59% read and 41% never
+>   opened, `page_cap: 200` against 340 pages, **≈ 565 words unaccounted**. A
+>   label saying `partial_extraction` is a completeness hole with a sign on it,
+>   and §8.2's own heading is *"decided, not deferred"*. Raising the cap is free
+>   (pypdf is installed, extraction is local). **The former instruction "label it
+>   partial" is withdrawn in favour of reading the whole book.**
+> - **`7-Figure VSL Script Template`: AUDIT IT.** It was classified degraded and
+>   missed the fallback audit on a name mismatch, yet measured 814 words/page —
+>   **80× the sparse threshold**. Readable by the same metric, never separately
+>   audited. The two passes must match on **handle**, not filename.
+
+
