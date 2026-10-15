@@ -287,7 +287,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | Dispute | Decision | Why |
 |---|---|---|
 | Fetch concurrency | **1** | Serialising the only unkillable operation costs ~1 h *measured*. Parallelism multiplies the hazard. |
-| Async policy | **all-async, gated on W0-AsyncContract** | **Premise corrected `[R1]`:** it is *not* that "async is free to re-GET" — Constraint 7 says **nothing is stored**. Both paths are single-shot; what differs is crash exposure, not recovery. |
+| Async policy | **RESOLVED — no async exists** | `ASYNC_ALLOWED = False` measured. The dispute was *"which of two single-shot paths?"* — and the answer is there is only one. The whole sync/async branch, its poll loop and its retention question are deleted. |
 | State authority | **receipts on disk**; journal derived | Two independent truths is a desync waiting to happen. |
 | Parts | **primary abstraction** | 2 GB cap, 504 recovery and tail segmentation become one code path. |
 | Ordering | **docs shakedown → 1 lesson smoke test → 16 longest → cheapest** `[R1]` | A lesson-sized STT costs ~$0.16 and de-risks the paid pipeline for almost nothing. |
@@ -303,7 +303,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches `FETCH_CONCURRENCY 1 → 6`.** |
 | **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
 | **W0-SyncCeiling** | OPEN | calibrate sync at `SYNC_SEG_SEC`. **Must not** raise the cutoff. |
-| **W0-AsyncContract** | OPEN, **GO/NO-GO** | outbound-only async, and **does a GET after N minutes actually return a transcript?** Constraint 7 says retention is none. This is now the highest-value probe in the plan. |
+| **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. **The 10-min 504 ceiling is unreachable: 273.7× margin** (it would need 1,259 hours of audio; the longest call is 4.6). §7b collapses to one sync path. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
@@ -569,37 +569,69 @@ are auditable together.
 > level, so every reading silently returns `-inf` — indistinguishable from a silent
 > input. This cost one probe run and is recorded in the evidence artifact.
 
-### 7.2 Submit
+### 7.2 Submit — ONE path, sync. The async branch is withdrawn.
 
-Preflight under the §5.3 lock. Commit pessimistically (`COMMIT_COST`). Persist
-`sent` + the placeholder in **one atomic write before the socket opens**. Then a
-Python-streamed POST — **never `curl --data-binary`, which OOMs at 1.4 GB**.
+**W0-AsyncContract FAILED 2026-10-15: `ASYNC_ALLOWED = False`.**
+`evidence/probes/nhbplus-w0-asynccontract-2026-10-15.json`
 
-**Primary (W0 passes) — async.** Poll 30 s, GET, **save the raw response body
-immediately**. Assert **both** paths: `results.utterances` non-empty **and**
+```
+POST /v1/listen, 2-min clip  -> keys ['metadata','results'], request_id None,  1.6s
+POST /v1/listen, 68-min clip -> keys ['metadata','results'], request_id None, 32.4s
+```
+
+Both sizes return **inline results with no `request_id`**. Short-file inline
+behaviour was tested and excluded — a 68-minute file behaves identically. **There
+is no async job, therefore no re-GET, therefore no free recovery on any path.**
+
+**The larger finding: the 10-minute 504 ceiling is unreachable by this corpus.**
+
+```
+measured solo realtime factor          126x
+504 fires at                    600 s of server time
+=> only at              75,525 min of audio  (1,259 hours)
+longest call in corpus       275.9 min  (4.6 hours)
+MARGIN                                273.7x
+```
+
+| Dissolved | Was | Now |
+|---|---|---|
+| the sync-cutoff problem | 155 of 188 calls (82.4% of minutes) exceeded the cutoff | **0** exceed it |
+| `SYNC_SEG_SEC` segmentation | introduced because 155 calls needed it | unnecessary for all 230 |
+| request count | ~3,611 | **~230**, one per unit |
+| per-request overhead | open risk in two rounds | moot — no minimum exists |
+| R1's $163.30 fallback ceiling | would have stopped the run ~49 h short | **withdrawn** |
+
+**So: one path.** Preflight under the §5.3 lock → commit `COMMIT_COST` → persist
+`sent` + placeholder in **one atomic write before the socket opens** → a
+Python-streamed POST to `/v1/listen` (**never `curl --data-binary`**, which OOMs at
+1.4 GB) → **stream the response body straight to disk**.
+
+Assert **both** paths on arrival: `results.utterances` non-empty **and**
 `results.channels[0].alternatives[0].paragraphs` present. Proven shapes:
 `metadata.duration` is a plain float; **`paragraphs` lives under `alternatives[0]`,
 not `channels[0]`.**
 
-**Fallback (W0 fails) — sync.** Parts ≤ `SYNC_CUTOFF_SEC (8580)` via
-`/v1/listen`; anything longer is segmented at **`SYNC_SEG_SEC (600)`** and sent
-sync. This covers **155 of 188 calls** — it is a main plan, not a contingency,
-and must carry the same precision as the primary.
+`SYNC_SEG_SEC` is retained **only** as a defensive trigger for a unit whose server
+time approaches 600 s. On the measured margin it should never fire. If it does, that
+is a finding, not a routine path — log it and report it.
 
-### 7.3 Response durability — the single-shot rule `[R1]`
+> **One measurement would convert the analytical margin into a measured one:**
+> submit the longest call in the corpus (275.9 min) alone and record its server
+> time. Expected ~138 s against the 600 s ceiling. **$1.54.**
 
-> **Constraint 7: Deepgram does not store transcripts. The API response is the
-> only opportunity to retrieve it.**
+### 7.3 Response durability — the single-shot rule, now proven
+
+> **Constraint 7, CONFIRMED BY PROBE:** Deepgram stores nothing. No async job, no
+> `request_id`, no re-GET. **Every submission in this pipeline is single-shot.**
 
 Therefore:
 
-- **The response body must stream to disk as it arrives**, never buffer fully in
-  memory, never exist only in a pipe.
+- **The response body must stream to disk as it arrives** — never buffered fully
+  in memory, never left only in a pipe. It is the only copy that will ever exist.
 - **A 504 or a truncated stream is paid-and-unrecoverable.** Not pending.
-  `PAID_UNKNOWN` is **loss acceptance**, not recovery. Rev 0's "crashed async is
-  free via `request_id` re-GET" was **false** and rested on this contradiction.
-- Quarantine-then-operator is a correct **anti-double-bill** control. It is
-  **not** a spend control — the money is gone before the quarantine exists.
+  `PAID_UNKNOWN` is **loss acceptance**, not recovery.
+- Quarantine-then-operator is a correct **anti-double-bill** control. It is **not**
+  a spend control — the money is gone before the quarantine exists.
 
 Assembly: concatenate utterances with part offsets, dedupe overlaps, three-way
 duration reconcile, span coverage, WPM band.

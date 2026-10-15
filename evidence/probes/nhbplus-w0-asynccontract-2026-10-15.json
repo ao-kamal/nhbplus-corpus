@@ -1,0 +1,61 @@
+{
+  "probe": "W0-AsyncContract",
+  "date": "2026-10-15",
+  "status": "FAIL — ASYNC_ALLOWED = False",
+  "cost": { "usd": 0.40, "note": "one 68-minute submission at 0.0056/min, plus one 2-minute" },
+
+  "the_gate_this_probe_existed_to_decide": "The plan made the entire STT architecture conditional on W0-AsyncContract. Three refinement rounds reasoned around it as though it were settled, and round 1 discovered that the premise behind it - 'a crashed async is free via request_id re-GET' - contradicted this repo's own evidence artifact. Nobody had probed it.",
+
+  "MEASUREMENT": {
+    "short_file": { "audio_s": 120.0, "bytes": 3.7, "elapsed_s": 1.6, "response_keys": ["metadata", "results"], "request_id": null, "words": 423, "duration_reported": 120.0, "shape": "SYNC inline results" },
+    "long_file": { "audio_s": 4078.3, "bytes": 124.5, "elapsed_s": 32.4, "response_keys": ["metadata", "results"], "request_id": null, "words": 15349, "duration_reported": 4078.336, "shape": "SYNC inline results" },
+    "solo_realtime_factor": 126,
+    "interpretation": "Both sizes returned INLINE results with no request_id. There is no async job on this endpoint. Short-file inline behaviour was tested and excluded as the explanation: a 68-minute file behaves identically."
+  },
+
+  "VERDICT": {
+    "ASYNC_ALLOWED": false,
+    "statement": "No async job exists, therefore no request_id, therefore no re-GET, therefore NO free recovery on ANY path. Every submission is single-shot, exactly as the evidence artifact said: 'Deepgram does not store transcripts. The API response is the only opportunity to retrieve it.'",
+    "the_plan_primary_path_is_withdrawn": "Section 7b's async primary and its sync fallback both disappear. There is only the sync path, and it is sufficient."
+  },
+
+  "THE_Much_LARGER_FINDING": {
+    "headline": "THE 10-MINUTE 504 CEILING CANNOT BE REACHED BY ANY UNIT IN THIS CORPUS.",
+    "arithmetic": {
+      "sync_504_fires_at_seconds_of_server_processing": 600,
+      "measured_solo_realtime_factor": 126,
+      "audio_that_would_take_600s_of_server_time_minutes": 75525,
+      "audio_that_would_take_600s_of_server_time_hours": 1259,
+      "longest_call_in_corpus_minutes": 275.9,
+      "longest_call_in_corpus_hours": 4.6,
+      "MARGIN": "273.7x"
+    },
+    "statement": "For a request to 504, it would have to contain roughly 1,259 hours of audio. The longest call in the corpus is 4.6 hours. No unit comes within two orders of magnitude of the ceiling."
+  },
+
+  "what_this_dissolves": [
+    { "item": "The sync cutoff problem", "was": "155 of 188 calls (82.4% of all call-minutes, 29,667 min) exceeded SYNC_CUTOFF_SEC and routed to 'segment smaller and sync', a phrase with no number attached that round 1 called a route rather than a plan", "now": "ZERO units exceed it. The fallback path was never needed." },
+    { "item": "SYNC_SEG_SEC = 600 segmentation", "was": "a constant introduced specifically because 155 calls had to be segmented", "now": "unnecessary for all 230 units. Retained only as a defensive trigger that should never fire." },
+    { "item": "Request count", "was": "~3,611 requests at 600 s segments", "now": "~230 requests, one per unit" },
+    { "item": "Per-request overhead", "was": "an open risk raised independently by round 1 and round 3", "now": "moot - Deepgram has no per-request minimum, and with 230 requests it could not matter" },
+    { "item": "R1's $163.30 fallback ceiling finding", "was": "segmenting 155 calls at 25 min raised the ceil basis to $163.30 and would have stopped the run ~49 h of audio short", "now": "WITHDRAWN. There is no fallback to trigger." },
+    { "item": "Async free recovery", "was": "the decisive argument for making all-async the primary path", "now": "never existed" }
+  ],
+
+  "what_this_simplifies": "Section 7b collapses from two paths with a go/no-go gate to ONE path. There is no SYNC/ASYNC branching, no poll loop, no retention window to establish, no callback configuration, and no conditional architecture. The plan's most complex section becomes its simplest, and the part that survives is the part that was measured rather than designed.",
+
+  "residual_risk_and_its_one_test": {
+    "concern": "The 126x realtime factor was measured at concurrency 1. At concurrency 50 the contention probe showed roughly 10x effective parallelism from 16 workers, so per-request server time does grow under load. If it grew by more than 273x, a 4.6-hour call could reach the 600 s ceiling.",
+    "assessment": "That would require a 273x per-request slowdown under load. The concurrency probe showed 732x aggregate at 16, which is consistent with per-request time growing only modestly.",
+    "one_test_that_closes_it": "Submit the longest call in the corpus (275.9 min, dvcEDToK) once, alone, and record its server time. Expected ~138 s against a 600 s ceiling. Cost 275.9 x 0.0056 = $1.54. That single measurement converts the 273x analytical margin into a measured one on the worst-case unit.",
+    "status": "RECOMMENDED, not yet run"
+  },
+
+  "instruments_and_method_notes": [
+    "The first run of this probe hard-coded a pass/fail on the PRESENCE of a request_id and exited early with 'STOP'. It was correct to stop, but it reported a gate failure rather than investigating whether inline behaviour was a short-file artifact. Take 2 tested 2 min and 68 min together, which is what actually settles it.",
+    "The long-file transcript sha (797c9e3996b3588c, 15,349 words) matches the keyterm A/B baseline exactly - an independent confirmation that the same audio produces the same transcript, and therefore that the remuxed mono 16 kHz wav is a faithful STT input."
+  ],
+
+  "artifacts": ["/home/azureuser/asynccontract.json"],
+  "local_copies": ["pipeline/out/asynccontract.json"]
+}
