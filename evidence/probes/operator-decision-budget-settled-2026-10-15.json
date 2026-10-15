@@ -1,0 +1,64 @@
+{
+  "record_type": "OPERATOR_DECISION_RECORD",
+  "recorded_at_utc": "2026-10-15",
+  "supersedes": "the $136.31 forecast figure in operator-decision-rule2-waiver-2026-10-14.json",
+  "decision": "BUDGET SETTLED AT MEASURED SCALE - $207.31 HARD STOP",
+
+  "why_this_record_exists": "Four blocking decisions (D1-D4) were open after refinement round 1. Three were resolved by measurement rather than by choice, which is why the figure moved from a $136.31 waiver to a $207.31 ceiling. Every component below is measured or sourced; none is an estimate.",
+
+  "settled_budget": {
+    "corpus_transcription": {
+      "usd": 150.56,
+      "derivation": "35,013.1 min x $0.0043/min",
+      "provenance": "rate SOURCED AND DATED from deepgram.com/pricing 2026-10-15, not derived from the forecast. The figure was correct all along; only its provenance was CUT30-era course material."
+    },
+    "previously_undated_units": {
+      "usd": 1.23,
+      "was": "~$1.31 estimated from the corpus mean",
+      "now": "MEASURED. Fetched and ffprobed 2026-10-15.",
+      "units": [
+        { "id": "2024-04-25-theory-4-dvcEDToK", "minutes": 204.3, "usd": 0.88, "media": "h264 video + aac MONO 48kHz", "real_bytes": 1614043424, "declared_bytes": 2147483648, "note": "DECLARED SIZE WAS A SENTINEL. Real size is 1.50 GiB, not 2 GiB." },
+        { "id": "2025-02-04-coaching-2-pjFQiLQQ", "minutes": 82.6, "usd": 0.36, "media": "mp3 STEREO 48kHz", "real_bytes": 94211784, "declared_bytes": 94371840 }
+      ]
+    },
+    "keyterm_prompting": {
+      "usd": 45.52,
+      "derivation": "35,013.1 min x $0.0013/min",
+      "decision": "ADOPTED - operator, 2026-10-15",
+      "justification": "A/B measured, not assumed. $0.761 spent on one 68-min unit transcribed twice, identical audio and parameters, keyterm the only variable. Result: 'Rohan' correct 12 -> 16, 'Ron' mangled 4 -> 3, 'Nothing Held Back' correct 0 -> 1, programme-name mangled variants 2 -> 1, word count 15349 -> 15347. No term lost, no words dropped.",
+      "deciding_argument": "SEARCHABILITY, not accuracy. The corpus spells its own programme name 'Nothing Elbach' without the hint, so Ctrl+F 'Nothing Held Back' returns nothing. A vault that cannot be searched by its own subject is not the deliverable.",
+      "implementation_note": "Per unit. The keyterm list is derived from that unit's media.name and topic - capitalised content words, stop-words and brand tokens removed, nothing invented. topic strings in manifest-v3.json are normalised to LOWERCASE, so capitalisation must come from media.name; reading topic yields an empty list and the feature silently no-ops."
+    },
+    "loss_allowance": {
+      "usd": 10.0,
+      "rationale": "Sized against the worst-case request count. The sync fallback at SYNC_SEG_SEC=600 produces ~3,611 requests at $0.043 each. A 1% failure rate costs $1.55; a 5% rate costs $7.76. $10 covers 5% with margin. A larger figure would imply a failure rate nobody believes."
+    },
+    "TOTAL_HARD_STOP_USD": 207.31
+  },
+
+  "credit_position": {
+    "payment_card_on_file": false,
+    "reported_by": "operator, 2026-10-15",
+    "independently_verified": false,
+    "why_not_verifiable": "GET /v1/balances returns 404 and the project-scoped variants return 403 INSUFFICIENT_PERMISSIONS. The key is deliberately scoped away from billing, so the balance is not observable through this credential. Recorded as operator-reported, never as measured.",
+    "consequence_that_IS_in_our_favour": "With no card attached, exhausting the credit returns HTTP 402 and processing halts. That is a HARD, VENDOR-ENFORCED stop, which is strictly stronger than SPEND_HARD_STOP_USD - our own code, which can be wrong. The 402 is the safety system; the ledger is the refinement. No budget bug in our accounting can become a real bill.",
+    "funding_split": "Not an engineering concern. The operator determines which account carries which portion."
+  },
+
+  "other_decisions_closed_this_round": {
+    "D2_price": "CLOSED - $0.0043/min sourced and dated. The circular RATE = FORECAST/35013 is gone. Also proven from the same page: TRUE PER-SECOND BILLING, no per-request minimum, no rounding - which withdrew round 1's $151.01 overspend finding as a ceil artifact.",
+    "D3_channels": "CLOSED - every stereo file measured is DUAL-MONO (2 of 3 bit-identical, difference -inf). No per-participant channel separation exists. -ac 1 is lossless and worth $26.98. Applied PER FILE via the (L-R) difference signal, not corpus-wide, so a per-participant file anywhere is detected and preserved. Rev 1 had quoted a $150.56 worst-case exposure; measured, only 17.9% of minutes are stereo."
+  },
+
+  "standing_conditions": [
+    "Budget is spent against MEASURED duration, never a planning estimate.",
+    "Forecast and actual spend are recorded separately in every report.",
+    "Receipts are written PER UNIT as the run proceeds, never batched at the end.",
+    "Work STOPS at $207.31. There is no auto-recharge: no card is on file, so the credit is finite and the 402 is the stop."
+  ],
+
+  "not_affected": {
+    "compute": "Azure VM remains under operator-decision-compute-azure-2026-10-14.json, drawing on Azure signup credit. Unchanged.",
+    "other_vendors": "Still not waived. Nothing outside Deepgram STT and the Azure compute box is authorised."
+  }
+}

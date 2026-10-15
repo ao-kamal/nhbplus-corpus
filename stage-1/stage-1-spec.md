@@ -49,11 +49,14 @@ billing the corpus costs `35,013.1 min × $0.0043 = $150.56` — the forecast.
 
 **Residual, all three need an operator value:**
 
-| Item | Value |
-|---|---|
-| 2 units with **no duration** (`dvcEDToK`, `pjFQiLQQ`) | unbudgeted; ~$1.31 at the corpus mean |
-| loss allowance for 504s | paid-and-unrecoverable, currently $0 allowed |
-| `SPEND_HARD_STOP_USD` | must sit **above** $150.56 + those two. Not below. |
+**SETTLED 2026-10-15.** Both items are now measured, not estimated. See 2.2 for the
+full budget table and `SPEND_HARD_STOP_USD = $207.31`.
+
+| Item | Was | Now |
+|---|---|---|
+| 2 units with no duration | ~$1.31 estimated | **$1.23 measured** |
+| loss allowance for 504s | unset | **$10.00** |
+| `SPEND_HARD_STOP_USD` | unresolved | **$207.31** |
 
 **D2 — price: RESOLVED 2026-10-15.** `RATE_USD_PER_MIN = 0.0043`, now sourced and
 dated from the price page instead of derived from the forecast. The figure was
@@ -88,10 +91,10 @@ saving                  $26.98
 nothing at scale — the measurement is applied to all 230 units, so a single
 per-participant file anywhere is *detected and preserved* rather than downmixed.
 
-**D4 — keyterm prompting: operator's call, not adopted.** $0.0013/min add-on, so
-roughly **+$45.56** across the run. A jargon-heavy mentorship corpus would plausibly
-benefit on proper nouns and named methods. It *increases* spend, so it is surfaced,
-not taken.
+**D4 — keyterm prompting: ADOPTED 2026-10-15** (operator). $0.0013/min,
+**+$45.52**. Justified by a measured A/B, not an opinion — see 2.2.1. The deciding
+argument is search: without it the corpus spells its own programme name
+"Nothing Elbach", and `Ctrl+F "Nothing Held Back"` returns nothing.
 
 ---
 
@@ -163,41 +166,71 @@ carrying **29,667 of 35,013 call-minutes**. If W0-AsyncContract fails, this
 fallback is not a contingency — it is the main plan, and it must be as precise
 as the primary.
 
-### 2.2 Spend constants — sourced, not circular `[R1 corrected 2026-10-15]`
+### 2.2 Spend constants — sourced, settled, and measured `[settled 2026-10-15]`
 
 ```
 RATE_USD_PER_MIN      = 0.0043    nova-3 monolingual, PRE-RECORDED, Pay As You Go.
-                                   SOURCED + DATED 2026-10-15. Diarization is
-                                   INCLUDED on pre-recorded (priced separately only
-                                   on streaming), so diarize=true adds $0.00.
-                                   was FORECAST_USD/35013 - circular.
+                                   Sourced + dated. Diarization INCLUDED on
+                                   pre-recorded, so diarize=true costs $0.00.
 
-PER_REQUEST_MINIMUM   = NONE      PROVEN from the price page FAQ. No minimum,
-                                   no rounding, true per-second billing.
-                                   R1 and R3 both raised this as an open risk; closed.
+KEYTERM_RATE_USD/MIN  = 0.0013    ADOPTED - operator decision 2026-10-15,
+                                   justified by a measured A/B, see 2.2.1
+KEYTERM               = ON, per unit, list built from that unit's OWN vocabulary
 
-COMMIT_COST           = billed_seconds(part) * RATE
-                        billed_seconds is the EXACT duration - no ceil, no slack.
-                        was ceil(minutes) x RATE + PER_REQUEST_OVERHEAD.
-                        The pessimism solved a problem the vendor does not have.
+PER_REQUEST_MINIMUM   = NONE      Proven: true per-second billing, no minimum,
+                                   no rounding. The pessimistic ceil was deleted.
 
-SETTLE_FROM           = raw metadata.duration seconds, IDENTICALLY in the §7b gate
-                        and in V10. Proven correct because billing is per-second.
+COMMIT_COST           = billed_seconds(part) * (RATE + KEYTERM_RATE)
+SETTLE_FROM           = raw metadata.duration seconds, IDENTICALLY in the 7b gate
+                        and in V10
 
-SPEND_HARD_STOP_USD   = OPERATOR (D1 residual)   must EXCEED 150.56 + ~1.31 + loss
-LOSS_ALLOWANCE_USD    = OPERATOR (D1 residual)
+SPEND_HARD_STOP_USD   = 207.31    OPERATOR-SET, measured, not estimated
+LOSS_ALLOWANCE_USD    = 10.00     covers a 5% failure rate across 3,611 parts
 ```
 
-Corpus cost under these constants: `35,013.1 min × $0.0043 = $150.556`.
+**The settled budget — every line measured, none estimated:**
 
-**Funding note.** The price page states a new account receives **$200 credit ≈
-43,000 minutes**. The corpus is 35,013 minutes, so it fits inside the credit. This
-is the **already-waived** Deepgram exception
-(`evidence/probes/operator-decision-rule2-waiver-2026-10-14.json`) and opens nothing.
+| | |
+|---|---|
+| corpus 35,013.1 min × $0.0043 | **$150.56** |
+| 2 previously-undated units, **measured today** | **$1.23** |
+| 504 loss allowance | **$10.00** |
+| keyterm 35,013.1 min × $0.0013 | **$45.52** |
+| **`SPEND_HARD_STOP_USD`** | **$207.31** |
 
-**Excluded, recorded so it is not re-litigated:** the Growth plan is 20% cheaper
-($0.0036/min) but requires a **$4,000/year prepay** and a credit card for +10%
-overages — a paid tier, excluded by Rule 2.
+**Credit position: no payment card on file.** So the vendor itself enforces the
+ceiling — exhausting the credit returns **HTTP 402** and processing stops. That is
+a *hard*, external stop, which is strictly stronger than `SPEND_HARD_STOP_USD`,
+which is our own code and can be wrong. The 402 is the safety system; the ledger
+is the refinement. This removes the only path by which a bug in our spend
+accounting becomes a real bill.
+
+### 2.2.1 Why keyterm — the measurement, not the opinion
+
+`$0.761` A/B, one 68-min unit, identical audio and parameters, keyterm as the only
+variable:
+
+| | baseline | with keyterm |
+|---|---|---|
+| "Rohan" correct | 12 | **16** |
+| "Ron" mangled | 4 | **3** |
+| "Nothing Held Back" correct | 0 | **1** |
+| programme-name mangled variants | 2 | **1** |
+| word count | 15,349 | 15,347 |
+
+It fixed the speaker's surname and **"Nothing Elbach" → "nothing held back"** —
+the programme's own name, rendered phonetically for want of a hint.
+
+**The decisive argument is search, not accuracy.** This vault exists to be
+searched. A corpus that spells its own programme name "Nothing Elbach" returns
+nothing for `Ctrl+F "Nothing Held Back"`. No term was lost and no words dropped.
+
+**Implementation, per unit — not one global list.** The keyterm list is derived
+from *that unit's* `media.name` and `topic`: capitalised content words, stop-words
+and brand tokens removed, no invented terms. `topic` strings are normalised to
+lowercase in `manifest-v3.json`, so **capitalisation must come from
+`media.name`** — reading `topic` yields an empty list, which is a silent no-op.
+A `keyterm` request parameter costs nothing extra to send when empty.
 
 ### 2.3 PDF calibration — RE-MEASURED, do not inherit
 
@@ -824,15 +857,19 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 
 ## 15. Open
 
-**Blocking, operator-owned — three values remain:**
+**None. All four operator decisions are settled:**
 
-| | Value needed | Context |
-|---|---|---|
-| **D1a** | loss allowance for 504s | paid-and-unrecoverable; currently $0 allowed |
-| **D1b** | `SPEND_HARD_STOP_USD` **above** $150.56 + ~$1.31 (2 undated units) + the allowance | must exceed, not equal |
-| **D4** | keyterm prompting, +$45.56? | improves jargon accuracy; increases spend |
+| | Outcome |
+|---|---|
+| D1 | **settled** - $207.31, every line measured |
+| D2 | **closed** - $0.0043/min, sourced and dated |
+| D3 | **closed** - dual-mono, per-file rule, $26.98 |
+| D4 | **adopted** - keyterm on, +$45.52, A/B-measured |
 
-D2 (price) and D3 (channels) are **resolved and closed**.
+**The largest remaining risk is not a decision, it is work:** the naming repair in
+10.2 spans 67 of 296 names plus a dropped call, three undated calls and five
+collisions. It must land before the first STT dollar, because 9 puts documents
+first as the shakedown. That repair is the next thing to build.
 
 **Naming repair** — §10.2 lists 10 defect classes across 67 names, plus the
 dropped call and 3 undated calls. Not three defects. This is the largest single

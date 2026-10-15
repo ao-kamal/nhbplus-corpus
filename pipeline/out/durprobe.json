@@ -1,0 +1,110 @@
+{
+ "probe": "undated-durations-and-keyterm-candidate",
+ "date": "2026-10-15",
+ "rate": 0.0043,
+ "keyterm_rate": 0.0013,
+ "measured_undated": [
+  {
+   "id": "2024-04-25-theory-4-dvcEDToK",
+   "handle": "dvcEDToK",
+   "fetched_as": "04-25-2024 NHB Theory Call - Complaints To Conversions on Vimeo.mp4",
+   "duration_s": 12258.539,
+   "bytes": 1614043424,
+   "codec": "h264",
+   "channels": null,
+   "sample_rate": null,
+   "minutes": 204.31,
+   "cost_usd": 0.8785,
+   "declared_was_sentinel": true,
+   "real_size_genuine": true
+  },
+  {
+   "id": "2025-02-04-coaching-2-pjFQiLQQ",
+   "handle": "pjFQiLQQ",
+   "fetched_as": "02-04-2025 NHB+ Coaching Call - Offer Fundamentals - With Kevin Sheerin.mp3",
+   "duration_s": 4958.743311,
+   "bytes": 94211784,
+   "codec": "mp3",
+   "channels": 2,
+   "sample_rate": "48000",
+   "minutes": 82.65,
+   "cost_usd": 0.3554,
+   "declared_was_sentinel": false,
+   "real_size_genuine": true
+  }
+ ],
+ "undated_total_minutes": 286.96,
+ "undated_total_usd": 1.2339,
+ "keyterm_candidates": [
+  {
+   "jargon_hits": 0,
+   "minutes": 16.6,
+   "id": "undated-other-None-QqEkwLDJ",
+   "handle": "QqEkwLDJ",
+   "topic": "rapid launch stack"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 17.1,
+   "id": "undated-other-None-E7EmGLbJ",
+   "handle": "E7EmGLbJ",
+   "topic": "when ads stop working"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 19.8,
+   "id": "undated-other-None-wzVQyTra",
+   "handle": "wzVQyTra",
+   "topic": "private invitation to the automatic clients program"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 20.6,
+   "id": "undated-other-None-hjE23DTQ",
+   "handle": "hjE23DTQ",
+   "topic": "why everything we do is mobile first"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 23.6,
+   "id": "undated-other-None-UrMGjLiS",
+   "handle": "UrMGjLiS",
+   "topic": "sales velocity"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 23.9,
+   "id": "undated-other-None-V7U0mT4Q",
+   "handle": "V7U0mT4Q",
+   "topic": "3 levels of customers"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 36.1,
+   "id": "undated-other-None-UmEwTTYR",
+   "handle": "UmEwTTYR",
+   "topic": "dominating facebook, google and youtube"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 36.5,
+   "id": "undated-other-None-4mdSwL5J",
+   "handle": "4mdSwL5J",
+   "topic": "things to consider when creating ads"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 39.1,
+   "id": "undated-other-None-Njc0DL4a",
+   "handle": "Njc0DL4a",
+   "topic": "1 tech integration"
+  },
+  {
+   "jargon_hits": 0,
+   "minutes": 43.4,
+   "id": "undated-other-None-wycSkJ5R",
+   "handle": "wycSkJ5R",
+   "topic": "3 brand graphics"
+  }
+ ]
+}
