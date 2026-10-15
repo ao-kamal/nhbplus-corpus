@@ -12,7 +12,7 @@ fundamental" becomes measurable. Convergence is measured between revisions.
 
 > **Round 1 found 6 blocking defects that would have destroyed data or money, and
 > one arithmetic contradiction that fails the plan on a flawless run.** They are in
-> §0, §2, §5, §6 and §7 below, each marked `[R1]`.
+> §0, §2, §5, §6 and §7 below, each marked ``.
 
 ---
 
@@ -23,35 +23,13 @@ These outrank every mechanism here. Nothing below may trade one away.
 | # | Constraint | Enforcement |
 |---|---|---|
 | 1 | **Nothing media-shaped touches the operator's PC.** | The vault (markdown) is the deliverable and *does* land there. Gate V6. |
-| 2 | **Pay nothing**, outside recorded waivers. | **Two waivers, not one `[R1]`:** Deepgram STT (~$150), **and Azure compute** (metered VM on a $200 credit, ~$0.21/day idle — operator-approved, `evidence/probes/operator-decision-compute-azure-2026-10-14.json`). §0 previously said "sole waiver: Deepgram" and was **wrong**. Report VM-days alongside STT spend. |
+| 2 | **Pay nothing**, outside recorded waivers. | **Two waivers, not one ``:** Deepgram STT (~$150), **and Azure compute** (metered VM on a $200 credit, ~$0.21/day idle — operator-approved, `evidence/probes/operator-decision-compute-azure-2026-10-14.json`). §0 previously said "sole waiver: Deepgram" and was **wrong**. Report VM-days alongside STT spend. |
 | 3 | **Remove nothing.** Where a route is blocked, the route changes. | The 2 sparse PDFs are extracted, not dropped. 100 MP4 alternates are never fetched — a route change, not a removal. |
 | 4 | **Evidence, not assertion.** | W0 probes. Ten claims withdrawn during planning; kept visible in §13.2. |
 | 5 | **Operator picks the files.** | `scope-final.json`, **344** targets, locked. |
-| 6 | **A sentinel is not a measurement** `[R1]` | **[F-KIB 2026-10-15] THIS IS UNDERSTATED. NOT 77 OF 235 — ALL 193 CALLS.** Every declared size in the corpus is an **exact multiple of 1 KiB**: **193 of 188, 100% of the corpus bytes.** The chance of that by accident is (1/1024)^188. The spec detects sentinels only at **GiB** granularity (`bytes % 2**30 == 0`), which finds 73 and calls the other 115 "real". They are not real either — they are KiB-quantised. Proof from the one unit measured against ground truth: `wiUyTRZb` **declared 397,410,304 B (KiB-exact)** vs **actual downloaded 397,487,264 B (NOT KiB-exact)**, a 76,960 B delta. So there is **no unquantised subset** by this test, and the "73 sentinels / 157 real" split in this document is wrong in kind, not just in number. **§6 (sentinel detection) must test `bytes % 1024 == 0`, and no threshold may consume any declared size.** §6 (73 of 235 carry placeholder sizes** — 38 at exactly 1 GiB, 39 at exactly 2 GiB = **116.00 GiB of 153.81 GiB = 75.4%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
-| 6a | **Send `mip_opt_out=true` on EVERY request.** **[R4-8.47]** Probed 2026-10-14: with the flag `HTTP 200`, without it `HTTP 200`, `VERDICT: PASS` (`deepgram-capability-probe-2026-10-14.json` § `STEP_0_CONSENT_GATE`). `operator-decision-compute-azure-2026-10-14.json` records it as *"structural and sent on every request"*. **This document contained ZERO occurrences of `mip_opt_out`, `consent` or `GDPR` before this line — the flag existed in a dated decision record and in nothing else.** §0's own rule is that *"an agent executes this with no other document open"*, so an omission here is an omission in the executed path, not in the reading list. **The artifact is explicit: *"Acceptance of the flag is NOT permission to stop sending it."*** §7.2. |
-| 7 | **The response is the only retrieval** `[R1]` | `evidence/probes/deepgram-eu-limits-and-chain-proof-2026-10-15.json`, under `limits_that_would_have_broken_the_run`: *"Deepgram does not store transcripts. The API response is the only opportunity to retrieve it."* **Every submission is single-shot.** The response body must stream to disk as it arrives. §7.3. |
-
-### 0.0 How to read the tags in this document `[F41]`
-
-This spec carries **review-finding tags** inline: `[R1]`, `[B1]`…`[B26]`,
-`[F1]`…`[F41]`, `[T5 #n]`, `[R1 corrected]`. **[F41] They were left in the body
-with no legend, so a reader cannot tell specification from review commentary.**
-
-**The rule, which is the only one that matters: the PROSE is authoritative and
-the tag is provenance.** Where a tagged block and the surrounding text disagree,
-the prose wins and the tag is stale — report it, do not reconcile it silently.
-
-| tag | source |
-|---|---|
-| `[R1]` `[R1 corrected]` | round 1 review, and its correction pass |
-| `[B1]…[B26]` | round 2 canon review — `stage-1/ROUND-2-CANON-REVIEW.md` |
-| `[F1]…[F41]` | round 3 repo-grounded review — `stage-1/ROUND-3-REVIEW.md` |
-| `[T5 #n]` | the six-untested-claims resolution pass |
-
-Tags are **not deleted when a finding is applied.** A fix that removes its own
-provenance is indistinguishable from a fix that was never checked, and the
-question "was this ever wrong?" has no answer. What expires is the finding, not
-the record that it existed. Every tag names a defect **that was real**.
+| 6 | **A sentinel is not a measurement** `` | **[F-KIB 2026-10-15] THIS IS UNDERSTATED. NOT 77 OF 235 — ALL 193 CALLS.** Every declared size in the corpus is an **exact multiple of 1 KiB**: **193 of 188, 100% of the corpus bytes.** The chance of that by accident is (1/1024)^188. The spec detects sentinels only at **GiB** granularity (`bytes % 2**30 == 0`), which finds 73 and calls the other 115 "real". They are not real either — they are KiB-quantised. Proof from the one unit measured against ground truth: `wiUyTRZb` **declared 397,410,304 B (KiB-exact)** vs **actual downloaded 397,487,264 B (NOT KiB-exact)**, a 76,960 B delta. So there is **no unquantised subset** by this test, and the "73 sentinels / 157 real" split in this document is wrong in kind, not just in number. **§6 (sentinel detection) must test `bytes % 1024 == 0`, and no threshold may consume any declared size.** §6 (73 of 235 carry placeholder sizes** — 38 at exactly 1 GiB, 39 at exactly 2 GiB = **116.00 GiB of 153.81 GiB = 75.4%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
+| 6a | **Send `mip_opt_out=true` on EVERY request.** **** Probed 2026-10-14: with the flag `HTTP 200`, without it `HTTP 200`, `VERDICT: PASS` (`deepgram-capability-probe-2026-10-14.json` § `STEP_0_CONSENT_GATE`). `operator-decision-compute-azure-2026-10-14.json` records it as *"structural and sent on every request"*. **This document contained ZERO occurrences of `mip_opt_out`, `consent` or `GDPR` before this line — the flag existed in a dated decision record and in nothing else.** §0's own rule is that *"an agent executes this with no other document open"*, so an omission here is an omission in the executed path, not in the reading list. **The artifact is explicit: *"Acceptance of the flag is NOT permission to stop sending it."*** §7.2. |
+| 7 | **The response is the only retrieval** `` | `evidence/probes/deepgram-eu-limits-and-chain-proof-2026-10-15.json`, under `limits_that_would_have_broken_the_run`: *"Deepgram does not store transcripts. The API response is the only opportunity to retrieve it."* **Every submission is single-shot.** The response body must stream to disk as it arrives. §7.3. |
 
 ### 0.0.1 Compute, priced `[MEASURED 2026-10-15 · CORRECTED BY R4]`
 
@@ -79,14 +57,14 @@ ran on. **$0.115/hr** from `prices.azure.com/api/retail/prices`, queried
 fifteen minutes**, which is worth sitting with: a 583-hour corpus is not a long
 transcription job, it is a long *download* job.
 
-**[R4-T4.2] the full-decode argument survives, at 17× not 1,150×.** The channel
+**the full-decode argument survives, at 17× not 1,150×.** The channel
 measurement as §7.1a specifies it is a full decode: `2,100,786 s / 61.8x = 9.44
 core-hours = 4.72 wall-hours on 2 vCPU = $0.54`. A 90-second window over every
 unit is **0.28 h**. So the window is **17× better**, and 4.72 hours of pure CPU
 to classify dual-mono is still indefensible. **Keep the window** — the
 conclusion was right and only the figure attached to it was wrong.
 
-**[R4-8.46] and the raise to 25 paid for itself in  $0.017 of Azure**, not in the
+**and the raise to 25 paid for itself in  $0.017 of Azure**, not in the
 line I claimed. The *concurrency* case for 25 was never an Azure-cost case: 16 is
 inside one project with no contract question, 25 is the documented ceiling, and
 the measured degradation was 1.022×. That is still the whole argument. The
@@ -94,7 +72,7 @@ sentence "paid for itself in the first line" was wrong and is withdrawn.
 
 ### 0.1 Blocking decisions for the operator
 
-**D1 — budget: RESOLVED WITH RESIDUAL `[R1 corrected 2026-10-15]`**
+**D1 — budget: RESOLVED**
 
 Rev 1 recorded a contradiction: `FORECAST == SPEND_HARD_STOP == $150.56`, while
 the plan's own `ceil` commit spends $151.01, so V10 failed on a flawless run.
@@ -175,8 +153,9 @@ argument is search: without it the corpus spells its own programme name
 
 ```
 
-> # **[R4-T5.5] THE UNIT COUNT IS NOW 344, NOT 339, AND EVERY CELL THAT CITED
-> 344 IS WRONG UNTIL IT IS RE-DERIVED. THIS PROPAGATION IS NOW DONE — see the table below.**
+> # **SCOPE: 344 TARGETS = 193 CALLS + 42 LESSONS + 109 DOCUMENTS.**
+> Derived from `pipeline/out/PLAN-TRUTH.json`, computed from the artifacts,
+> not typed by hand. Every figure below is re-derived from it.
 >
 > R4 found `normalize.py`'s date check applied only when **both** sides carried
 > a date, so an **undated** unit could absorb a **dated** one on a duration tie
@@ -222,24 +201,24 @@ argument is search: without it the corpus spells its own programme name
 
 | Population | Count | Handling |
 |---|---|---|
-| Audio calls | **193** | STT. **574.53 h.** [R4-PROP] was 193 / 557.39 h |
+| Audio calls | **193** | STT. **574.53 h.** was 193 / 557.39 h |
 | Bonus lesson videos | 42 | STT. 26.16 h. All 11 courses + all 36 orphans. |
-| Documents | 109 | Extract, no STT. **0.486 GiB**, of which PDFs are 0.159 GiB `[R1]`. |
-| MP4 alternates | 100 | Recorded, **never fetched**. Real saving **177.48 GB** `[R1]` — "132 GB" appears in no artifact. |
+| Documents | 109 | Extract, no STT. **0.486 GiB**, of which PDFs are 0.159 GiB ``. |
+| MP4 alternates | 100 | Recorded, **never fetched**. Real saving **177.48 GB** `` — "132 GB" appears in no artifact. |
 
 **Corrections to my own briefing, all now verified against files:**
 
 - Documents partition **37 written_hand + 36 course_doc + 36 orphan = 109** ✓
 - Of the 109, **50 are PDFs** and **51 are OOXML** (36 docx + 12 pptx + 3 xlsx).
-  The other 8 are **6 txt, 1 png, 1 zip** `[R1]` — §8.3, previously unhandled.
+  The other 8 are **6 txt, 1 png, 1 zip** `` — §8.3, previously unhandled.
 - **42 videos vs 36 course docs is not an error.** Operator decision: videos and
   documents are independent. V9 checks self-consistency, never forces 1:1.
-- **137 of the 235 fetched primaries are MP4, only 98 MP3** `[R1]`. §1 previously
+- **137 of the 235 fetched primaries are MP4, only 98 MP3** ``. §1 previously
   treated MP4 as excluded alternates. **`ffmpeg -vn -c:a copy` (§7.1) is the
   majority path, not an edge case.**
 - **Total is 600.70 h**, not 605.61 h and not 603.84 h — that figure belongs to a superseded
-  **236-call** reconciliation `[R1]`.
-- **146.87 is GiB, not GB.** Every `GB` field in the JSONs is binary `[R1]`.
+  **236-call** reconciliation ``.
+- **146.87 is GiB, not GB.** Every `GB` field in the JSONs is binary ``.
 
 ---
 
@@ -247,13 +226,13 @@ argument is search: without it the corpus spells its own programme name
 
 ```
 MEGA_URL_TMPL  = "https://mega.nz/folder/<PH>#<KEY>/file/<HANDLE>"
-     PROVEN. [B26] Peak disk is **0.992 GiB MEASURED** (YyEWgJSK, the largest NON-SENTINEL unit
+     PROVEN. Peak disk is **0.992 GiB MEASURED** (YyEWgJSK, the largest NON-SENTINEL unit
      examined). The 2.00 GB figure that circulated was 2 GiB — the SENTINEL
      value, 36× repeated. Constraint 6 forbids consuming a sentinel and §2
      was doing exactly that.
 
 FETCH_CONCURRENCY      = SIZE-ADAPTIVE, not a constant. See 6.3.
-FETCH_CONCURRENCY_CEILING = 38   [R4-T4.5] was 39. The [F17] off-by-one fix landed in
+FETCH_CONCURRENCY_CEILING = 38   was 39. The off-by-one fix landed in
                                  section 6.3 and section 4 and NOT in the constants
                                  block - the one an engineer reads first.
                                  39 x 100 MiB = 3,900 MiB > 3,872 admissible;
@@ -273,14 +252,14 @@ TRANSCRIBE_CONCURRENCY = 25       RAISED FROM 16, 2026-10-15, ON MEASUREMENT.
                                  margin survives at 25-way as 3.21x.
                                  25 IS NOT A HOPE NOW; IT IS A MEASUREMENT.
                                  Artifact: nhbplus-w0-concurrency25-2026-10-15.json
-                                 Run cost $2.41. **[R4-PROP] Saves 8.7 MINUTES of a ~15-minute STT stage, not
+                                 Run cost $2.41. **Saves 8.7 MINUTES of a ~15-minute STT stage, not
                                  8.7 h of a 24 h run — that was the same 60× unit slip.**
                                  LIMITS: one burst, not the full 15-minute STT stage;
                                  single key; a PASS is not a capacity guarantee.
                                  BINDING CEILING IS 25, not 50. Authoritative
                                 source, fetched 2026-10-15:
 developers.deepgram.com/reference/api-rate-limits.md
-                                 **[R4-8.57] RESOLVED 2026-10-15 BY LIVE FETCH. THE 25 IS
+                                 **RESOLVED 2026-10-15 BY LIVE FETCH. THE 25 IS
                                  CONFIRMED.** Artifact:
                                  `nhbplus-deepgram-rate-limits-2026-10-15.json`.
                                  Nova-3 EU Pre-Recorded = 50; Speaker Diarization EU
@@ -307,7 +286,7 @@ developers.deepgram.com/reference/api-rate-limits.md
                                 clusters; Rule 3 forbids removing it), so the LOWER
                                 limit binds: min(50, 25) = 25. **We now run AT 25, not below it.**
 
-> **[R4 CLOSED THIS WITH VENDOR VERBATIM, 2026-10-15. IT IS WORSE THAN A GREY
+> **CLOSED WITH VENDOR VERBATIM, 2026-10-15. IT IS WORSE THAN A GREY
 > AREA AND THE DECISIVE CLAUSE WAS NOT KNOWN BEFORE.]** The rate-limit page,
 > fetched, says:
 >
@@ -342,7 +321,7 @@ developers.deepgram.com/reference/api-rate-limits.md
 > The second use is the one the plan would be doing, and it is what the ToS
 > language quoted in this document is aimed at. It was also never worth it:
 > **16 -> 25 recovered 8.7 MINUTES of STT inside one project with no question at
-> all** [R4-PROP: this said 8.7 h, the same 60x slip], and
+> all**,
 > the remaining 25 -> 32 would have bought **3.4 h** in exchange for a standing
 > doubt about the whole run. §2.2's rule stands: **a wallet, not a worker**,
 > sequential failover on 402, never concurrent.
@@ -393,13 +372,11 @@ COMMIT_COST           = (billed_seconds(part) / 60) * (RATE + KEYTERM_RATE)
                         is SECONDS. Without the /60 this is a 60x OVERCOMMIT: a
                         3,600 s part commits $20.16 instead of $0.336, and the
                         corpus commits $11,764.40 instead of $196.07. The preflight
-                        would stop the run after roughly ten parts. [B4]
-                        THIS IS THE SAME UNIT SLIP THAT PRODUCED THE 273.7x ERROR -
+                        would stop the run after roughly ten parts. THIS IS THE SAME UNIT SLIP THAT PRODUCED THE 273.7x ERROR -
                         seconds multiplied by dollars-per-minute. The class is
                         closed by this fix and by the loss-allowance re-base.
 SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
-                        IDENTICALLY in the 7.2 gate and in V10. [T5 #3][F5]
-                        NOT the response's channel array: Deepgram returns
+                        IDENTICALLY in the 7.2 gate and in V10. NOT the response's channel array: Deepgram returns
                         channels=1 for a stereo input while BILLING 2x.
                         AND NOT the PRE-downmix part. INPUT_CHANNEL_COUNT is the
                         channel count of the part AS SUBMITTED, recorded in the
@@ -408,8 +385,7 @@ SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
                         the pre-downmix count would settle every downmixed unit at
                         2x and double-count the $26.98 saving into the ledger.
 
-  KEEP-STEREO TAIL (not in the $197.68 above). [F6]
-    3 of 3 stereo files were dual-mono, so the 7.1a keep-stereo branch has
+  KEEP-STEREO TAIL (not in the $197.68 above). 3 of 3 stereo files were dual-mono, so the 7.1a keep-stereo branch has
     fired 0 of 3 and the $26.98 downmix saving is currently whole. If a future
     part reads INDEPENDENT and keeps 2 channels, SETTLE_FROM bills 2x for it.
     Worst case over the corpus: +$197.68, i.e. a $405.36 run against a
@@ -417,11 +393,11 @@ SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
     the unmeasured tail is a spend risk the flat budget does not cover.
     Corpus-wide stereo share is UNKNOWN (see section 6 residual risks).
 
-SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
+SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. Three values
                                 were in circulation and all three were wrong:
                                 $207.31 (the budget artifact), $207.35 (this
                                 spec, twice), and this one — which is derived.
-  [R4-T1.7] THE $200 CREDIT ARGUMENT NEVER SUBTRACTS THE PROBES THIS DOCUMENT
+  THE $200 CREDIT ARGUMENT NEVER SUBTRACTS THE PROBES THIS DOCUMENT
   ITSELF RECORDS. It compared the RUN ($197.68) to the credit and concluded two
   accounts are required. But ~$6.54-$10.23 is ALREADY SPENT:
 
@@ -446,7 +422,7 @@ SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
   take-1 raw-MP4 submission, which TIMED OUT and whose billing status is
   unknowable from here (§7.3).
 
-  [R4-T1.8] AND THE OPERATOR-FACING LINES WERE PRE-KEYTERM. D4 adopted keyterm
+  AND THE OPERATOR-FACING LINES WERE PRE-KEYTERM. D4 adopted keyterm
   after they were written, so three published figures never entered §2.2:
 
   | | published | **at RATE + KEYTERM** |
@@ -461,22 +437,21 @@ SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
   All three lines are re-based above; $26.98 is withdrawn as a live figure and
   retained only as the STT-only saving.
 
-  ONE formula, ONE figure. [F2]
-      (34,472.10 + 294.84 + 1,569.62) x $0.0056 = $203.48   <- the run
-      [R5-B1] **THE 42 BONUS LESSON VIDEOS WERE IN NO BUDGET LINE.** They are in
+  ONE formula, ONE figure. (34,472.10 + 294.84 + 1,569.62) x $0.0056 = $203.48   <- the run
+      **THE 42 BONUS LESSON VIDEOS WERE IN NO BUDGET LINE.** They are in
       scope (section 1), ordered (section 9 step 3), submitted (section 7.2,
       'every submission'), and counted in the vault tree (courses/ = 78 paths).
       They carry 1,569.6167 MEASURED min = $8.79 and appeared nowhere. The
       $213.48 was therefore $8.79 SHORT and the $10.00 reserve was 87.9%
       consumed before the first request. A MISSING number is the one class a
       propagation sweep cannot catch, because there is nothing to propagate.
-      [R4-PROP] 34,472.1 min from 191 DATED calls in the regenerated
+      34,472.1 min from 191 DATED calls in the regenerated
       manifest; + 294.84 min for the two units whose durations are not in
       the manifest but WERE measured - dvcEDToK 12,258.603 s
       (w0-syncceiling) and pjFQiLQQ 5,431.8 s DECODED (w0-remux; its
       container header says 4,958.7 s, +9.54%).
       + $10.00 loss reserve         = $213.48   <- SPEND_HARD_STOP_USD
-      [R4-PROP] was $207.68 on 36,336.6 + 286.9 min. The 286.9 tail was
+      was $207.68 on 36,336.6 + 286.9 min. The 286.9 tail was
       an ESTIMATE for the undated units; both are now MEASURED at
       294.84 min combined, and 5 corrupt merged units no longer exist.
       Net -$2.99.
@@ -485,15 +460,14 @@ SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
   total did not follow from the line above it. Both are gone.
                                 The $1.23/$1.27 "undated units" line was
                                 STT-only; at RATE + KEYTERM the two units are
-                                286.9 min x $0.0056 = **$1.65**. [B1]
-LOSS_ALLOWANCE_USD    = 10.00     5% of ~235 units at the mean COMMIT_COST
-                                $0.86 = $9.89. [F3] The old derivation named
+                                286.9 min x $0.0056 = **$1.65**. LOSS_ALLOWANCE_USD    = 10.00     5% of ~235 units at the mean COMMIT_COST
+                                $0.86 = $9.89. The old derivation named
                                 3,611 parts - the segmentation design section
                                 7.2 dissolved. $10 leaves 1.1% headroom, which
                                 is marginal and is stated as marginal.
 ```
 
-**The settled budget — every line measured, none estimated. [F2] ONE table, ONE
+**The settled budget — every line measured, none estimated. ONE table, ONE
 figure.** The per-line split is *inside* the run total, not added on top of it:
 
 | | |
@@ -512,9 +486,7 @@ header-derived — `durprobe.json` prices `pjFQiLQQ` at its container header
 (4,958.743 s) while §7.1 and AGENTS.md trap 29 both establish its decoded PCM is
 5,431.8 s. Repriced on decoded PCM the undated tail is **294.84 min**, which is
 the 286.9 above, priced at the **$0.0056** keyterm rate because those minutes
-carry a keyterm. [F4]
-
-**Credit position: no payment card on file.** So the vendor itself enforces the
+carry a keyterm. **Credit position: no payment card on file.** So the vendor itself enforces the
 ceiling — exhausting the credit returns **HTTP 402** and processing stops. That is
 a hard, vendor-enforced bound that no bug in our accounting can get past.
 
@@ -532,7 +504,7 @@ The ledger is **per-account** (5.3 gains an `account` field):
 
 ```
 gate:  sum over accounts of (committed + settled + lost) + cost > SPEND_HARD_STOP_USD
-    AND chosen_account.**Routing, which must be explicit or it is unimplementable. [B12]** "All transcription goes through the primary" and "the secondary carries the shortfall" cannot both hold: a primary that has spent its $200 returns **402** and cannot be used at all.
+    AND chosen_account.**Routing, which must be explicit or it is unimplementable. ** "All transcription goes through the primary" and "the secondary carries the shortfall" cannot both hold: a primary that has spent its $200 returns **402** and cannot be used at all.
 
 ```
 attempt the request on the primary
@@ -602,11 +574,11 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 
 | Dispute | Decision | Why |
 |---|---|---|
-| Fetch concurrency | **size-adaptive, 1–38** | **[F16] THIS SAID 1** and contradicted §2's predicate and §6.3's bands. The serial figure was true when `FETCH_CONCURRENCY` was a constant, raised to 6 and then to a 1–38 band by W0-Cap, which proved ENOSPC **fails fast in 0 s** with no host spill. Serialising now costs ~1 h *measured* for no hazard the probe did not demonstrate. |
+| Fetch concurrency | **size-adaptive, 1–38** | **THIS SAID 1** and contradicted §2's predicate and §6.3's bands. The serial figure was true when `FETCH_CONCURRENCY` was a constant, raised to 6 and then to a 1–38 band by W0-Cap, which proved ENOSPC **fails fast in 0 s** with no host spill. Serialising now costs ~1 h *measured* for no hazard the probe did not demonstrate. |
 | Async policy | **RESOLVED — no async exists** | `ASYNC_ALLOWED = False` measured. The dispute was *"which of two single-shot paths?"* — and the answer is there is only one. The whole sync/async branch, its poll loop and its retention question are deleted. |
 | State authority | **receipts on disk**; journal derived | Two independent truths is a desync waiting to happen. |
 | Parts | **primary abstraction** | 2 GB cap, 504 recovery and tail segmentation become one code path. |
-| Ordering | **docs shakedown → 1 lesson smoke test → 16 longest → cheapest** `[R1]` | A lesson-sized STT costs ~$0.16 and de-risks the paid pipeline for almost nothing. |
+| Ordering | **docs shakedown → 1 lesson smoke test → 16 longest → cheapest** `` | A lesson-sized STT costs ~$0.16 and de-risks the paid pipeline for almost nothing. |
 | PDF | **probe-first** | **RESOLVED — closed.** 0 documents need OCR. |
 
 ---
@@ -616,19 +588,19 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | Probe | Status | Question |
 |---|---|---|
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
-| **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches: `FETCH_CONCURRENCY` 1 → **the size-adaptive predicate, 1–38 in flight** — not a constant.** **[F18] This row said "1 → 6" and contradicted §2, §3 and §6.3. The raise to 6 was real; the ceiling is now the predicate's small band.** |
-| **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM - **[F23] the 995 MB figure appears only in this spec and in the [B24] note; w0-remux.json records 133.6/89.8 MB sources. Cite the artifact, not this line.**), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 98 of 235 units. |
+| **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches: `FETCH_CONCURRENCY` 1 → **the size-adaptive predicate, 1–38 in flight** — not a constant.** **This row said "1 → 6" and contradicted §2, §3 and §6.3. The raise to 6 was real; the ceiling is now the predicate's small band.** |
+| **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM - **the 995 MB figure appears only in this spec and in the note; w0-remux.json records 133.6/89.8 MB sources. Cite the artifact, not this line.**), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 98 of 235 units. |
 | **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15 (take 3)** | **GENUINELY CLOSED, MEASURED ON THE CORPUS MAXIMUM.** `wiUyTRZb` — **275.93 min, the largest unit in the corpus** — returned **HTTP 200 in 182.757 s against the 600 s ceiling. Margin 3.28×, realtime 90.6×, 51,786 words. $1.55.** Artifact `nhbplus-w0-syncceiling3-2026-10-15.json`. **[History: take 1 (raw MP4) timed out; take 2 measured `dvcEDToK`, which ranks 47th of 229; a fix then asserted figures for `wiUyTRZb` that existed in no artifact — 156.2 s, 3.8×, 51,787 words. All three of those were wrong. The word count was off by ONE.]** |
 | **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7×, measured at 5.7× on the 47th-ranked unit, and then asserted at 3.8× with no artifact behind it. The true figure on the corpus maximum is 3.28×** — not 273.7×, not 5.7×, and not the 3.8× that a fix supplied — see W0-SyncCeiling. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
-| **W0-ChannelShare** | 🟡 **PARTIAL · v3 2026-10-15** | **[R4-PROP] SUPERSEDES THE v1 HEADLINE ("ZERO OF 10") AND THE v2 HEADLINE ("1 OF 19").** **65 of 191 calls, stratified by TYPE and MONTH — both REAL fields.** Result: **50 mono, 13 bit-identical dual-mono, 2 genuinely stereo.** Stereo share **15 of 65 = 23.1%**; genuinely-stereo share **2 of 65 = 3.08%** (95% interval ~1.0–8.5%). **THE 2× BILL IS REAL AND §7.1a's KEEP-STEREO BRANCH FIRES.** Both hits independently re-verified by a second fetch and hashed on a 120 s window AND the full file: **`ljF0mZ4Y`** (*02-12-2025 NHB Coaching Call — Diving Into Data Part 3*, mp3, coaching) and **`IqVSkD5Z`** (*2024-09-27 FF.NHB Coffee Room Impromptu Call*, mp4, other). For both, `L ≠ R` **and `−ac 1 ≠ L`** — **so −ac 1 is a REAL DOWNMIX on them, not a lossless collapse.** **WHY v1 FOUND NOTHING:** it stratified by DECLARED SIZE, which Constraint 6 says is quantised; the confirmed stereo units carry 2 GiB sentinels and fell in the bucket that got the SMALLEST allocation. **The sentinel defect as a SAMPLING FRAME.** **WITHDRAWN:** the "all type other" pattern — it did not survive a type-stratified sample. Artifact `nhbplus-w0-channelshare-v3-2026-10-15.json`. PREVIOUSLY: | **[ R4-PROP] THE EARLIER HEADLINE "ZERO OF 10 STEREO FILES, EVERY ONE BIT-IDENTICAL" HAS BEEN FALSIFIED.** An expanded sample found **`pvd0RJrB` (`ff_nhb weekly calls - competing on economics`, 2022-06-23, 175 min, declared size exactly 2 GiB — a sentinel)**: L md5 `2f144ac4…` ≠ R md5 `53ade16b…`. **The first genuinely-stereo unit in the corpus. The keep-stereo branch FIRES and that part bills at 2×.** Combined: **1 of 19 measured calls is genuinely stereo**; of 5 stereo files, 3 are bit-identical and 1 is not. At n=19 the 95% interval runs ~2%–26%, so the share is still not bounded — but it is no longer bounded above by zero. §2.2's $197.68 keep-stereo line STANDS. WHY THE FIRST SAMPLE MISSED IT: it stratified by DECLARED SIZE, and Constraint 6 says declared sizes are quantised and may not gate anything; this unit's declared size is exactly 2 GiB so it sat in the sentinel bucket, which got the SMALLEST allocation. **The sentinel defect once more — not as a threshold, not as a cost, but as a SAMPLING FRAME.** Artifact `nhbplus-w0-aclose-2026-10-15.json`. PREVIOUSLY: | **[MEASURED] 10 of 193 calls sampled (~5%), stratified by size. 7 measured, 3 fetch-failed. Every stereo file is BIT-IDENTICAL dual-mono: L md5 == R md5, proven by hash, not by an RMS threshold. 4 mono, 3 bit-identical, and the keep-stereo 2× branch fired on ZERO.** Includes `wiUyTRZb`, the corpus maximum. **The sample is too small to bound the corpus share and is not presented as if it could** — with n=10 and zero events the 95% upper bound is ~26%. Artifact `nhbplus-w0-channelshare-2026-10-15.json`. The branch stays specified; a small sample not triggering it is not grounds for deleting a 2×-billing safety branch. |
+| **W0-ChannelShare** | 🟡 **PARTIAL · v3 2026-10-15** | **SUPERSEDES THE v1 HEADLINE ("ZERO OF 10") AND THE v2 HEADLINE ("1 OF 19").** **65 of 191 calls, stratified by TYPE and MONTH — both REAL fields.** Result: **50 mono, 13 bit-identical dual-mono, 2 genuinely stereo.** Stereo share **15 of 65 = 23.1%**; genuinely-stereo share **2 of 65 = 3.08%** (95% interval ~1.0–8.5%). **THE 2× BILL IS REAL AND §7.1a's KEEP-STEREO BRANCH FIRES.** Both hits independently re-verified by a second fetch and hashed on a 120 s window AND the full file: **`ljF0mZ4Y`** (*02-12-2025 NHB Coaching Call — Diving Into Data Part 3*, mp3, coaching) and **`IqVSkD5Z`** (*2024-09-27 FF.NHB Coffee Room Impromptu Call*, mp4, other). For both, `L ≠ R` **and `−ac 1 ≠ L`** — **so −ac 1 is a REAL DOWNMIX on them, not a lossless collapse.** **WHY v1 FOUND NOTHING:** it stratified by DECLARED SIZE, which Constraint 6 says is quantised; the confirmed stereo units carry 2 GiB sentinels and fell in the bucket that got the SMALLEST allocation. **The sentinel defect as a SAMPLING FRAME.** **WITHDRAWN:** the "all type other" pattern — it did not survive a type-stratified sample. Artifact `nhbplus-w0-channelshare-v3-2026-10-15.json`. PREVIOUSLY: | **[ R4-PROP] THE EARLIER HEADLINE "ZERO OF 10 STEREO FILES, EVERY ONE BIT-IDENTICAL" HAS BEEN FALSIFIED.** An expanded sample found **`pvd0RJrB` (`ff_nhb weekly calls - competing on economics`, 2022-06-23, 175 min, declared size exactly 2 GiB — a sentinel)**: L md5 `2f144ac4…` ≠ R md5 `53ade16b…`. **The first genuinely-stereo unit in the corpus. The keep-stereo branch FIRES and that part bills at 2×.** Combined: **1 of 19 measured calls is genuinely stereo**; of 5 stereo files, 3 are bit-identical and 1 is not. At n=19 the 95% interval runs ~2%–26%, so the share is still not bounded — but it is no longer bounded above by zero. §2.2's $197.68 keep-stereo line STANDS. WHY THE FIRST SAMPLE MISSED IT: it stratified by DECLARED SIZE, and Constraint 6 says declared sizes are quantised and may not gate anything; this unit's declared size is exactly 2 GiB so it sat in the sentinel bucket, which got the SMALLEST allocation. **The sentinel defect once more — not as a threshold, not as a cost, but as a SAMPLING FRAME.** Artifact `nhbplus-w0-aclose-2026-10-15.json`. PREVIOUSLY: | **[MEASURED] 10 of 193 calls sampled (~5%), stratified by size. 7 measured, 3 fetch-failed. Every stereo file is BIT-IDENTICAL dual-mono: L md5 == R md5, proven by hash, not by an RMS threshold. 4 mono, 3 bit-identical, and the keep-stereo 2× branch fired on ZERO.** Includes `wiUyTRZb`, the corpus maximum. **The sample is too small to bound the corpus share and is not presented as if it could** — with n=10 and zero events the 95% upper bound is ~26%. Artifact `nhbplus-w0-channelshare-2026-10-15.json`. The branch stays specified; a small sample not triggering it is not grounds for deleting a 2×-billing safety branch. |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
 | **W0-Egress** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `scp -r` VM→PC is byte-exact (4/4 SHA-256 match), 11/11 typography checks survive, LF preserved, no BOM. **It produced a plan correction: V6 must run on the VM source tree BEFORE the copy.** |
 
 ---
 
-## 5. State — the machine that actually prevents double-billing `[R1]`
+## 5. State — the machine that actually prevents double-billing ``
 
 > **This section replaces rev 0 entirely.** Round 1 proved the previous resume
 > rule **could not distinguish a kill before the socket opened from a kill mid-request**,
@@ -645,7 +617,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 ```
 queued -> reserved -> sent -> settled | lost
 
-> **[F33] `queued` APPEARED IN THIS DIAGRAM AND WAS DEFINED NOWHERE - NO MEANING
+> **`queued` APPEARED IN THIS DIAGRAM AND WAS DEFINED NOWHERE - NO MEANING
 > AND NO RESUME BRANCH.** It is now defined, because a state with no meaning in
 > a ledger that is resumed after a crash is how a part gets processed twice.
 >
@@ -668,7 +640,7 @@ queued -> reserved -> sent -> settled | lost
 **`sent`** means: the socket opened. These are different facts and the plan must
 record which one happened *before* the crash can erase it.
 
-### 5.3 The single global spend ledger `[R1]`
+### 5.3 The single global spend ledger ``
 
 Rev 0 said "reserved under `flock`" with **no file and no path**, while every
 named artifact was per-**unit**. A per-unit lock cannot serialise a global sum:
@@ -679,11 +651,11 @@ LEDGER = /data/nhb/_meta/spend.json     PER ACCOUNT:
     {"accounts": {
         "<account_id>": {"committed":USD,"settled":USD,"lost":USD,"released":USD}},
      "totals":      {"committed":USD,"settled":USD,"lost":USD,
-                     "released":USD}}      [F34] FIXED - the field was OMITTED
+                     "released":USD}}      FIXED - the field was OMITTED
                      while every per-account object declared it, so the gate
                      formula in the next paragraph was stated over a field the
                      schema did not have.
-    [B11] section 2.2 asserted a per-account ledger and a per-account gate; this
+    section 2.2 asserted a per-account ledger and a per-account gate; this
     section still described a single global object, so an implementer following
     IT would build one pool and the second key would never be used.
 LOCK   = /data/nhb/_meta/spend.lock     flock, held across READ-CHECK-WRITE
@@ -695,7 +667,7 @@ Commit and settle are each one atomic ledger mutation under that one lock:
 commit:  committed += cost        settle:  committed -= cost;  settled += actual
 release: committed -= cost          lost:    committed -= cost;  lost += actual
                                    released += cost
-                                   [F34] A `reserved` part is released ONCE.
+                                   A `reserved` part is released ONCE.
                                    Compare-and-set inside the flock: read
                                    `released`; if this part_id is not already
                                    in the released set, add cost and add
@@ -705,7 +677,7 @@ release: committed -= cost          lost:    committed -= cost;  lost += actual
                                    never spent - which is how a hard stop
                                    becomes a soft one without any code
                                    appearing to change.
-                                   [B11] section 5.4's resume table requires a
+                                   section 5.4's resume table requires a
                                    release for a part that was committed and never
                                    sent. Without this mutation that amount is either
                                    double-counted forever or never returned.
@@ -715,7 +687,7 @@ release: committed -= cost          lost:    committed -= cost;  lost += actual
 rebuilds it from `receipt.json` parts, and **receipts win** on conflict. This
 keeps single-authority (no desync) while giving the global sum a named home.
 
-### 5.4 The resume branch — explicit, because ambiguity here costs money `[R1]`
+### 5.4 The resume branch — explicit, because ambiguity here costs money ``
 
 **Three durable bits per part, each written atomically before the fact it
 describes** — round 2's central finding was that two of them did not exist:
@@ -730,7 +702,7 @@ http_status = <int>            recorded in the same atomic write as sent
 `status` and `http_status` are both required. A **504 body, a 429 body, a 402
 body and a 400 body are all "a response"** — without `http_status` the table
 settled a 504 as a completed transcription and assembled it as a transcript.
-**[F35] "ATOMIC" WAS ASSERTED THREE TIMES AND SPECIFIED NOWHERE.** The word
+**"ATOMIC" WAS ASSERTED THREE TIMES AND SPECIFIED NOWHERE.** The word
 appears in "Atomic write+rename throughout", in "a *single* receipt write", and in
 the three-durable-bits table. None of the three named a syscall. That matters
 because the §5.4 recovery table's central claim — *a kill after `sent` leaves
@@ -771,221 +743,6 @@ this table was written to eliminate.
 
 > **[ R4-T1.2] THIS WAS A WRONG *RULE*, NOT A WRONG NUMBER, AND IT IS THE MOST
 > SERIOUS DEFECT FOUND IN FOUR ROUNDS.** `lost iff (http_status != 200)` made
-> **402, 429 and 400 terminal, BILLED, unrecoverable** corpus losses — all three
-> are **unbilled**, and two are recoverable. It also contradicted §2.2's own
-> instruction to re-route a 402 to the second account, so an implementer
-> following §5.4 never executed §2.2's routing at all.
->
-> The damage compounded: `lost += actual` charges the ledger for money never
-> spent, which **corrupts V10 in the direction that hides the breach**, and
-> §2 runs at the documented ceiling with **zero headroom**, so one 429 storm
-> would permanently delete content under Constraint 7 and consume the headroom
-> that would have finished the run.
->
-> **The distinction is billing, not status code.** Billed: 200, and 504/timeout
-> after acceptance. Unbilled: 402, 429, 400. That is the whole rule.
-| `sent`, `http_status` 200, `response_complete` | completed | settle, re-assemble. No new spend. |
-| any of the above, `status = lost` | declared lost by the operator | terminal. See 5.4a. |
-
-**The one atomic write happens before the socket opens:** `status=sent`,
-committed spend, and the request placeholder land in a *single* receipt write.
-A kill after that leaves `sent`, which is unambiguously billable. A kill before it
-leaves `reserved`, which is unambiguously free.
-
-**Per-part, not per-unit `[R1]`.** Rev 0 said "a unit reaches `submitted` at most
-once" while the state machine is per-part — a 3-part unit submits 3 times, so the
-invariant as written forbids parts 2..N. Correct form:
-
-> Each **`(unit_id, part_index)`** reaches `sent` at most once.
-
-A resumed unit must **never** re-submit parts already `settled` or `lost`.
-
-### 5.4a When a part becomes `lost` — the rule that did not exist `[R2]`
-
-`lost` was a declared terminal state, a ledger mutation, a §5.5 preflight input
-and a V10 input — with **no section stating when it happens**. Round 2 caught it.
-
-```
-lost  iff  (http_status is set AND http_status != 200)
-      OR  (a truncated response body after the socket closed)
-      OR  (operator decision, recorded as operator_lost_at with a timestamp)
-```
-
-**`lost += actual` needs a duration for a part whose response never arrived, and
-`metadata.duration` does not exist for it.** The estimation rule is therefore
-explicit and conservative — reserve, never understate:
-
-```
-actual_for_lost = the part's DECODED PCM seconds, recorded at remux time
-                  (decoded length, per §7.1 - never a container header)
-```
-
-That figure is already on disk in the part's own receipt, so the money gate never
-depends on an out-of-band operator estimate. **The operator's decision is to
-accept the loss, not to price it.**
-
-### 5.5 The preflight gate — one formula, everywhere `[R1]`
-
-```
-(totals.committed + totals.settled + totals.lost) + cost > SPEND_HARD_STOP_USD
-    ->  stop, do not submit
-AND chosen_account.committed + cost <= that account's own $200
-    ->  else route the shortfall to the secondary account (see 2.2)
-```
-
-Rev 0 omitted `lost`, so headroom already consumed by 504s was invisible to the
-gate while V10 counted it. **Asymmetric accounting between gate and assertion is
-the bug.** `lost` lives in the §5.3 ledger.
-
----
-
-## 6. Fetch — serialised, watched, kernel-capped `[R1]`
-
-### 6.1 Route
-
-Per-file only, into `fetch_mnt/` (the loopback). **Never `timeout(1)`** — `timeout`
-does not stop megacmd; a probe silently pulled 4.0 GB that way.
-
-`mega-get` names its output after the **verbatim source file** with the extension
-appended (`Vimeo gif thumbnail custom code.pdf`), **not the handle**. Fetch into
-an **empty per-handle directory** and take whatever single file lands. **Never
-infer fetch failure from the absence of an expected filename** — that inference
-reported 4/4 failures while the route worked.
-
-### 6.2 Watcher
-
-`partial > threshold` → SIGKILL + `rm` + `FETCH_OVERRUN`.
-No growth 120 s → `mega-cancel --all` + `FETCH_STALL`.
-After any kill/cancel: `mega-cancel --all`, watch 60 s, **assert zero growth**
-(server-side transfer survives client death). **[R4-8.33] ONE WAIT: 60 s.**
-
-### 6.3 Loopback lifecycle — the missing deletion point `[R1]`
-
-**Build the loopback at PIPELINE START and assert writability before admitting
-any work.** A loopback mount does not survive a reboot, and the pipeline runs as
-`azureuser` while `mkfs.ext4` produces a **root-owned** mount:
-
-```
-truncate -s 4G /home/azureuser/fetch.img
-sudo mkfs.ext4 -q -F -m 0 /home/azureuser/fetch.img
-sudo mount -o loop /home/azureuser/fetch.img /home/azureuser/fetch_mnt
-sudo chown "$(id -u):$(id -g)" /home/azureuser/fetch_mnt      # REQUIRED
-sudo chmod 775 /home/azureuser/fetch_mnt                     # REQUIRED
-test -w /home/azureuser/fetch_mnt || { echo "LOOPBACK NOT WRITABLE"; exit 1; }
-```
-
-> `mkfs.ext4 -m 0` clears reserved **blocks**, not **directory ownership**. Without
-> the `chown`, every fetch fails `EACCES` while *looking* like a cap failure. This
-> cost two false readings during the W0-Cap run itself — test 3 returned
-> "Permission denied" and test 5 returned `Write not allowed`, both of which the
-> first verdict function accepted as cap behaviour.
-
-**Measured cap behaviour** (`evidence/probes/nhbplus-w0-cap-2026-10-15.json`): a full
-loopback makes `mega-get` exit **232 "Insufficient disk space" in 0 seconds**, with
-no host spill. It appears to **pre-check** and refuse rather than fail mid-transfer,
-so a full loopback never produces partial audio.
-
-> This **contradicts round 1's premise** that megacmd is "the only unkillable
-> operation". `timeout(1)` genuinely cannot stop it, but the kernel can, and does.
-> The overrun watcher is still required — the cap stops the *write*, it does not
-> reap the *process*.
-
-**Concurrency.** **[F18] NOT A CONSTANT.** `FETCH_CONCURRENCY` is the predicate in §2 — no literal appears in its definition, and none appears here. (An earlier revision of this same bullet block opened with the literal `FETCH_CONCURRENCY = 6`, which defined the thing as a constant and then described it as a predicate two lines later.)
-
-- **Delete the raw at the remux receipt.** Not *before* the next fetch is admitted:
-  that phrase serialises the lane to effective concurrency 1 and contradicts
-  `FETCH_CONCURRENCY` in the same bullet block. Deletion happens at remux
-  receipt; concurrency is bounded by the admission arithmetic below, not by
-  serialising the lane.
-- **Gate fetch admission** on
-  `free(fetch_mnt) >= Σ(in_flight REAL bytes) + REAL bytes(next) + 64 MiB`.
-
-  **And this IS the concurrency control `[R2]`.** Round 2 showed a fixed
-  `2 ×` was unsatisfiable; measuring the real population showed a fixed constant
-  is too, and worse:
-
-  ```
-  usable loopback 3,936 MiB (W0-Cap, measured)
-  a 2 GiB sentinel's true size is unknown to a ±0.5 quantum band, up to 2,560 MiB
-
-    small  (<100 MiB)            max 38 in flight   [F17] off-by-one, FIXED
-      39 x 100 MiB = 3,900 MiB against 3,872 MiB admissible. 38 x 100 = 3,800.
-    mid    (100-512 MiB)         max  7
-    large  (512-1536 MiB)        max  2
-    2 GiB sentinel (1536-2560)   max  1
-  ```
-
-  `FETCH_CONCURRENCY = 6` would need 6 × 2,560 = 15,360 MiB for six large units.
-  **W0-Cap proved the cap EXISTS. It never proved that any fixed concurrency is
-  ADMISSIBLE across a corpus spanning 20 MiB to 2 GiB.** One predicate yields 1
-  for large units and up to 39 for small ones.
-
-  **Admission must use REAL bytes.** For the 73 sentinels the real size is unknown
-  until fetched — `dvcEDToK` declared 2 GiB and is actually 1.50 GiB — so reserve
-  the display band's **upper bound**, never the declared value.
-
-  > **[B25] AND THE REAL BYTES DO NOT EXIST YET.** For a sentinel the control
-  > cannot be evaluated before the irreversible act it exists to bound — which is
-  > the same shape as the sentinel bug itself: a predicate that reads as
-  > load-bearing and is not. Two stages:
-  >
-  > ```
-  > ADMIT   on the display-band UPPER BOUND  (known before the fetch)
-  > VERIFY  on arrival, from the real file on disk
-  >         real > upper_bound * 1.10  ->  FETCH_OVERRUN, kill, rm, re-plan
-  > ```
-  >
-  > Admission is therefore conservative by construction, and the post-fetch check
-  > is what actually enforces the cap. The predicate alone would not.
-
-  **The `2 ×` was an off-by-one for a loopback whose purpose is to hold one
-  copy at a time**, and is replaced by the size-adaptive predicate above.
-
-  > **[B2] The 3.00 GB unit that motivated it DOES NOT EXIST IN SCOPE.** The file
-  > is `EyFE2DpD` at 3,221,225,472 B = **3 × 2³⁰ exactly, so it IS a sentinel**,
-  > and it is a **never-fetched MP4 alternate**. That call's fetched primary is
-  > `03UW2LCY` at **151 MiB**. Largest non-sentinel audio in scope is 1.0654 GB.
-  > The `2 ×` was removed on the authority of a phantom.
-  When `declared` is a sentinel, reserve the **2,560 MiB** display-band upper
-  bound above. **[B3] A 512 MiB reserve also appeared here, contradicting the
-  2,560 MiB figure 20 lines above - a 5x disagreement inside one block on the
-  safety-critical number. Measured `dvcEDToK`: declared 2 GiB, real 1.50 GiB, so
-  512 MiB was 3x under.**
-- **Reap partial files** after any failed fetch — a refused transfer still leaves
-  one 0-byte partial behind.
-- **Name `LOOPBACK_ENOSPC`** as a state distinct from overrun/stall.
-  **[F19] NAMING IT IS NOT HANDLING IT.** For three rounds this line named the
-  state and stopped. The recovery, which is now specified:
-
-  | | |
-  |---|---|
-  | **detect** | `mega-get` exit **232**, or `OSError.errno == ENOSPC` on write. Neither is a retryable network error and neither is an overrun. |
-  | **classify** | Not `lost`. **Not `reserved`.** The part is re-fetchable in full and nothing was billed. `LOOPBACK_ENOSPC` is a *fetch-side* state and never reaches the STT ledger. |
-  | **release** | Free the reservation immediately. Holding a reservation for a unit that cannot be fetched makes the budget tighter for units that can. |
-  | **drain** | **Drain the whole in-flight fetch set before retrying.** A single ENOSPC means the cap was consumed by *concurrent* admissions; re-admitting one fetch while 16 are still writing is the same failure again. |
-  | **re-queue** | Re-admit **once** at the head of the queue, after the loopback's used bytes are re-measured (`df`, not the admission estimate). |
-  | **backoff** | Exponential, base 2 s, cap 60 s. Not a constant. |
-  | **give up** | **3 consecutive failures on the same part → the run STOPS.** Not a skip. ENOSPC is a cap defect; skipping it converts a system-level fault into a silent hole in the corpus. |
-  | **evidence** | Write a `LOOPBACK_ENOSPC` receipt row with `used_bytes`, `in_flight`, `declared`, `actual`, and the `mega-get` exit code. W0-Cap measured this failure in **0 s**, so it is cheap to detect and must be cheap to diagnose after. |
-
-### 6.4 The overrun threshold must not consume a sentinel `[R1]`
-
-**73 of 235 units carry placeholder sizes** (Constraint 6). Fed those:
-
-```
-declared 1 GiB -> killed above 1.100 GiB   (37 units)
-declared 2 GiB -> killed above 2.200 GiB   (36 units)
-```
-
-**73 units — nearly a third of the corpus — would be SIGKILLed and deleted as
-false overruns**, on traffic that is perfectly legal, by a safety system that
-would log it as working correctly. The per-target sizes also over-sum the
-folder-exact total by **10.79 GB (7.4%)**, confirming they are display values.
-
-**[ R4-T1.3] DETECTION WAS WRONG IN KIND, AND CONSTRAINT 6 MANDATED THE FIX
-THAT WAS NEVER APPLIED HERE.** This said `bytes % (1 << 30) == 0` is the test
-and that the other **157 "genuine" values** are real. **They are not.**
-
 R4 re-measured across **every** declared size, primaries and alternates:
 
 | test | count |
@@ -1042,14 +799,14 @@ MP4 container and **cannot hold an MP3 elementary stream** — it fails rc=234
 *"Could not write header (incorrect codec parameters)"* for **98 of 235 units**.
 `.mka` (Matroska audio) carried every sample, MP3 and AAC alike.
 
-> **[B23] NOW VERIFIED AT THE VENDOR, which is where it mattered.** The only
+> **NOW VERIFIED AT THE VENDOR, which is where it mattered.** The only
 > `.mka` ever *submitted* had been AAC, so the container that rescues **97 MP3
 > units** was unverified at the Deepgram boundary — and under Constraint 7 an
 > HTTP 400 class there is 97 paid-and-unrecoverable failures. A 5-minute slice of
 > a real corpus MP3, remuxed to `.mka`, submitted: **HTTP 200, 911 words, 300.0 s.**
 > **$0.03 to close.**
 
-> **THE REMUX IS MANDATORY, NOT AN OPTIMISATION `[R2]`.** Submitting the **raw
+> **THE REMUX IS MANDATORY, NOT AN OPTIMISATION ``.** Submitting the **raw
 > 1,539 MB MP4** of the corpus's longest call **did not complete** — it timed out
 > after >1,800 s. The remuxed 280.7 MB `.mka` of the same audio completed in
 > **105.1 s**. Bandwidth was never the difference: the remuxed file uploaded at
@@ -1088,7 +845,7 @@ use FLAC or Opus, never WAV.
 > `-ac 1 -ar 16000` are **output** options and must follow `-i`. Placed before it
 > they parse as input options and ffmpeg fails *"Option sample_rate not found"*.
 
-**Size guard on the remuxed output `[T5 #5]`. [F20] THE OLD THRESHOLD WAS DERIVED
+**Size guard on the remuxed output ``. THE OLD THRESHOLD WAS DERIVED
 FROM A SENTINEL AND THE "NOT SUBMITTED" CLAIM IS NOW FALSE. BOTH REPLACED.**
 
 The old text estimated the largest remuxed unit at "~400 MB (a 2 GiB sentinel
@@ -1102,13 +859,13 @@ What is actually true, from the repo:
 
 | | |
 |---|---|
-| largest remuxed unit **ever submitted** | `dvcEDToK`, **280.7 MB**, HTTP 200 — **[F1-CORRECTION] not `wiUyTRZb`, which was never submitted** |
+| largest remuxed unit **ever submitted** | `dvcEDToK`, **280.7 MB**, HTTP 200 — **not `wiUyTRZb`, which was never submitted** |
 | its margin at 204.3 min | **5.71×** measured — **on the 47th-ranked unit.** The worst case is untested. |
 | upload rate measured | 150.8 MB/s → ~2.5 s of transfer |
 | the guard that matters | **not a size threshold.** It is `SEGMENT_SEC`, and `SEGMENT_SEC` is dead code under a 2 GB `CAP_BYTES` the 385 MiB maximum cannot reach (T6 #8). |
 
 **So the size guard is withdrawn rather than re-derived.** The honest measured
-maximum is **383.7 MiB / 402.31 MB** — **[R4-8.10] this line said 385.1 MiB /
+maximum is **383.7 MiB / 402.31 MB** — **this line said 385.1 MiB /
 403.8 MB while §7.2 said 383.7 in the same document.** `wiUyTRZb`'s remuxed
 `.mka` is 402,307,896 B = 383.67 MiB. It is an **MP3, not a sentinel MP4**; and
 since the largest remuxed unit sits at 19% of `CAP_BYTES`, a size guard has
@@ -1128,7 +885,7 @@ under-reserved by exactly the header's error, per part, silently.
 > `pjFQiLQQ` slipped through only because its recorded `dur_s` was 0 — the exact
 > class of unit the check exists for.
 
-#### 7.1a Channel handling — DETECT per file, never choose corpus-wide `[R1]`
+#### 7.1a Channel handling — DETECT per file, never choose corpus-wide ``
 
 Deepgram bills stereo at **×2**. But **every stereo file measured is dual-mono**
 (§0 D3), so downmixing is lossless and worth **$26.98**. Both pure options are
@@ -1154,7 +911,7 @@ cost in the pipeline and nobody priced it. **A 90-second window classifies the
 L/R relationship** — dual-mono is dual-mono from the first minute — so the
 full decode buys nothing. Specified as a window below.
 
-**[F7] GUARD BEFORE MEASURING.** `pan=mono|c0=c1` has no `c1` on a mono input
+**GUARD BEFORE MEASURING.** `pan=mono|c0=c1` has no `c1` on a mono input
 and errors. **82.1% of sampled minutes are mono** (10-file sample; the 65-unit v3 sample gives 76.9% by COUNT), so the unguarded block below
 fails on the majority of parts.
 
@@ -1184,12 +941,12 @@ channels == 1  -> MONO.  No test, no second pass, commit once.
 
 delta <= -60   -> BIT_IDENTICAL.   -map_channel 0.0 -c:a copy.  LOSSLESS, keeps
                                          §7.1's bit-exactness claim. Saves money.
-> **[R4-8.60] [B23] AND [B24] REST ON `pipeline/out/canon-probes.json`, WHICH
+> **AND REST ON `pipeline/out/canon-probes.json`, WHICH
 > HAS NO `date`, NO `handle`, NO HASHES AND NO MEASUREMENT** — and it sits
 > **outside** `evidence/probes/`, outside the pack every other claim here cites.
 > Two claims unblock real money: the `.mka` container for 97 units, and the
 > lossless `-map_channel` downmix that produces the ENTIRE saving. Both rest on
-> one boolean (`B24_map_channel_lossless: true`). **[R4-8.18]** and both measured
+> one boolean (`B24_map_channel_lossless: true`). **** and both measured
 > MP3s ran `channels_out: 2` — the copy path WITHOUT the downmix — so **the
 > downmixed path is the one thing never probed.**
 > **[RESOLVED 2026-10-15 — NOW PROVEN BY HASH, $0.00.]**
@@ -1232,7 +989,7 @@ delta <= -60   -> BIT_IDENTICAL.   -map_channel 0.0 -c:a copy.  LOSSLESS, keeps
 > two runs — the same family as v2's resolver bug and as the two-unit field join
 > that began this. **All pre-fix rows were discarded, not averaged.**
 >
-> [B24] VERIFIED: SHA-256 of the decoded
+> VERIFIED: SHA-256 of the decoded
                                          PCM is IDENTICAL before and after -
                                          994.6 MB both sides. The standing worry
                                          was that a copy codec cannot extract a
@@ -1248,7 +1005,7 @@ delta <= -40   -> EFFECTIVELY_DUAL_MONO.  -ac 1 RE-ENCODES (a copy codec cannot
 delta >= -20   -> INDEPENDENT.     KEEP STEREO.  Per-participant audio; downmixing
                                    would force acoustic diarization instead of
                                    channel-derived attribution. Pay the 2x.
-otherwise      -> AMBIGUOUS.      [F22] TWO OF FIVE BRANCHES ARE UNOBSERVED.
+otherwise      -> AMBIGUOUS.      TWO OF FIVE BRANCHES ARE UNOBSERVED.
    `INDEPENDENT` and `AMBIGUOUS` fired on **0 of 3** stereo files — all three
    were dual-mono, so the delta was uniformly 0.00 dB and neither branch was
    ever taken. They are specified, not validated. The corpus-wide stereo share
@@ -1266,7 +1023,7 @@ above makes the two cases explicit: two of three measured stereo files were
 BIT_IDENTICAL and are downmixed **losslessly with the copy codec intact**; only
 the -46 dB case re-encodes, and it says so.
 
-One extra ffmpeg pass per part **[F21] — FOR A STEREO PART ONLY, AND THREE, NOT
+One extra ffmpeg pass per part **— FOR A STEREO PART ONLY, AND THREE, NOT
 ONE**: the pass is `-map_channel`, but `channels == 1` takes the MONO branch and
 runs none of it, and the stereo branch runs the `astats` measurement **three**
 times (rms_L, rms_R, and the difference signal) before deciding. A mono part is
@@ -1294,11 +1051,11 @@ is no async job, therefore no re-GET, therefore no free recovery on any path.**
 
 **The larger finding: the 10-minute 504 ceiling is unreachable by this corpus.**
 
-**MEASURED, not calculated `[R2]`.** The longest call in the corpus was
+**MEASURED, not calculated ``.** The longest call in the corpus was
 submitted on its own and timed:
 
 ```
-FIRST PROBE, SUPERSEDED - [F1] retained as one line, not a block.
+FIRST PROBE, SUPERSEDED - retained as one line, not a block.
   dvcEDToK, 204.3 min, 280.7 MB remuxed .mka, HTTP 200 in 103.2 s, total
   105.1 s -> a 5.7x "margin". dvcEDToK RANKS 47th OF 229 BY DURATION. It is not
   the worst case and its margin means nothing. 46 calls are longer. Its real cost
@@ -1312,7 +1069,6 @@ FIRST PROBE, SUPERSEDED - [F1] retained as one line, not a block.
 `dvcEDToK` had been picked because its manifest `dur_s` is `None`, so it never
 appeared in the duration-sorted list used to choose the worst case.
 
-> **⛔ [F1-CORRECTION 2026-10-15] THE BLOCK THAT STOOD HERE WAS NEVER MEASURED.**
 > It read `wiUyTRZb · 275.9 min · HTTP 200 in 156.2 s · MARGIN 3.8x · words
 > 51,787`, and **every one of those figures appears in no artifact in
 > `evidence/probes/`** — verified by grep across all 41 files. The declared byte
@@ -1384,7 +1140,7 @@ left has since been filled by measurement, not by hope:**
 and it completed in 186.738 s — degradation 1.022×, margin 3.21× under load.**
 The solo figure is no longer the operative number. The artifact's other warning
 stands and is not withdrawn: **one 3-minute burst is not the full 15-minute STT stage
-> **[R4-PROP] This said "25 hours of sustained load" and that was the same 60x
+> **This said "25 hours of sustained load" and that was the same 60x
 > unit slip a second time.** There is no 25-hour run: the whole run is ~1.4 h and
 > the STT stage is 15 minutes.**, and a pass is not a capacity guarantee.
 >
@@ -1394,7 +1150,7 @@ stands and is not withdrawn: **one 3-minute burst is not the full 15-minute STT 
 > gate exists to replace an extrapolation with a measurement. Until it is run,
 > W0-SyncCeiling is **OPEN**, and §4 reads 🔴 OPEN, not ✅ SATISFIED.
 
-> **The 273.7× was a 60× UNIT SLIP, not an extrapolation error. [B1][B4]** 600 s
+> **The 273.7× was a 60× UNIT SLIP, not an extrapolation error. ** 600 s
 > of server time at 126× realtime is 75,600 SECONDS = 21.0 hours. The artifact
 > wrote that as 75,525 MINUTES / 1,259 hours. Corrected: 21.0 / 4.6 = **4.57×**,
 > which agrees with the measurement. The arithmetic in correct units already
@@ -1402,15 +1158,15 @@ stands and is not withdrawn: **one 3-minute burst is not the full 15-minute STT 
 > seconds × dollars-per-minute, and it is why a calculated margin is not a
 > margin.
 >
-> **AND THE MEASUREMENT WAS ON THE WRONG UNIT. [B1]** `dvcEDToK` is 204.3 min,
+> **AND THE MEASUREMENT WAS ON THE WRONG UNIT. ** `dvcEDToK` is 204.3 min,
 > not the corpus maximum. **46 calls are longer.** The worst case is
 > `wiUyTRZb` at 275.9 min. Scaling the measured 105.1 s gives ~142 s →
 > **4.2× margin**, not 5.7×. W0-SyncCeiling was **REOPENED** for `wiUyTRZb`.
-> **[F1-CORRECTION] It is still open.** The 4.2× is a scaled prediction, and a
+> **It is still open.** The 4.2× is a scaled prediction, and a
 > later revision replaced it with an asserted 3.8× that had no artifact behind
 > it. Neither is a measurement. It was skipped because
 > `dvcEDToK`'s manifest `dur_s` is `None`, so it never appeared in the
-> duration-sorted list used to pick the worst case. **[F24] The old closing line
+> duration-sorted list used to pick the worst case. **The old closing line
 > here RECOMMENDED taking that measurement. It has been taken, at the cost of
 > $1.14, and the recommendation is withdrawn.** **A margin calculated for the worst
 > case is not a margin.**
@@ -1444,27 +1200,6 @@ The only segmentation trigger left is `CAP_BYTES` (2 GB) in §7.1. On the measur
 largest unit — **1.54 GB source, 280 MB remuxed** — it should never fire either.
 If it does, that is a finding, not a routine path: log it and report it.
 
-> **One measurement would convert the analytical margin into a measured one:**
-> submit the longest call in the corpus (275.9 min) alone and record its server
-> time. Expected ~138 s against the 600 s ceiling. **$1.54.**
-
-### 7.3 Response durability — the single-shot rule, now proven
-
-> **Constraint 7, CONFIRMED BY PROBE:** Deepgram stores nothing. No async job, no
-> `request_id`, no re-GET. **Every submission in this pipeline is single-shot.**
-
-Therefore:
-
-- **The response body must stream to disk as it arrives** — never buffered fully
-  in memory, never left only in a pipe. It is the only copy that will ever exist.
-- **A 504 or a truncated stream is paid-and-unrecoverable.** Not pending.
-  `PAID_UNKNOWN` is **loss acceptance**, not recovery.
-- **A TIMEOUT IS NOT A CLEAN ZERO `[R2]`.** The worst-case probe timed out at
-  1,800 s and whether it was billed **cannot be determined from here** —
-  `GET /v1/balances` returns 404 on this key. A timeout must be classified
-  `PAID_UNKNOWN`, never as "nothing spent". The operator may need to check the
-  account balance directly.
-- Quarantine-then-operator is a correct **anti-double-bill** control. It is **not**
   a spend control — the money is gone before the quarantine exists.
 
 Assembly: concatenate utterances with part offsets, dedupe overlaps, three-way
@@ -1482,7 +1217,7 @@ R1 measured this as **cheap**: ~10–25 min fetch (109 handshakes, not the 0.486
 books are minutes each — **the real extraction risk is the 296 MiB
 `Lazy Loading Code` ZIP**, where `ElementTree` memory on 8 GB is the exposure.
 
-**But it must still be split `[R1]`** — not for cost, for one reason: the docs
+**But it must still be split ``** — not for cost, for one reason: the docs
 phase is the debugging front for §15's naming defects (one of which already
 dropped a call). Debugging tail on free work must not serialise in front of the
 paid pipeline while the VM burns.
@@ -1509,12 +1244,12 @@ discarded for filing 7 readable documents as degraded and discarding real text.
 | Class | Count | Handling |
 |---|---|---|
 | `text` | **48** | tiering and reflow valid |
-| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp each, `page_cap: 200`. **[R4-T1.6] 59% READ, 41% NEVER OPENED — see the note below. 1,372 words is real; completeness is not.** |
+| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp each, `page_cap: 200`. **59% READ, 41% NEVER OPENED — see the note below. 1,372 words is real; completeness is not.** |
 | `raster` | **0** | needs OCR; none is proven free, so it would ship `empty_extraction` and **never be OCR-billed**. Vacuous. |
 
 **65,985 recoverable words. Zero documents require OCR.**
 
-**Stereo billing, measured 2026-10-15 `[T5 #3]`.** A 120 s stereo clip and a
+**Stereo billing, measured 2026-10-15 ``.** A 120 s stereo clip and a
 120 s mono clip of the same audio were submitted identically:
 
 | | true | reported | ratio | channels in response |
@@ -1533,7 +1268,7 @@ the **input** channel count read from the local part, never from the response.
 Bounded by measurement — 3 of 3 stereo files were dual-mono, so the keep branch
 fired 0 of 3 — but the gate must be correct on it. **§2.2 carries an explicit
 keep-stereo line, bounded at 2x the corpus: +$197.68 in the worst case where
-every unit keeps stereo, against a $213.48 stop.** [F6] Earlier revisions claimed
+every unit keeps stereo, against a $213.48 stop.** Earlier revisions claimed
 this line existed twice while grepping for it returned only the claim itself.
 
 **Links: `/Annots` is the ONLY authoritative link layer.** *Swipe* carries 400
@@ -1541,7 +1276,7 @@ raw annotations, **201 distinct** — half boilerplate. Text-layer URLs are mang
 by wrapping (`Calcu` / `dit#gid=5683798` / `lator`). Never recover a URL from
 display text.
 
-### 8.2 The 2 sparse PDFs — decided, not deferred `[R1]`
+### 8.2 The 2 sparse PDFs — decided, not deferred ``
 
 Rev 0 deferred this to "a presentation decision". Deferred decisions are abdications.
 **Decision: a stub note carrying the measured facts and all 1,372 words verbatim
@@ -1559,7 +1294,7 @@ that no layout is recoverable.**
   *blocks* — page screenshots so a human can read the book in Obsidian — is exactly
   the shortcut that exists to stop someone doing this.
 
-### 8.3 The 8 non-OOXML, non-PDF documents — previously unhandled `[R1]`
+### 8.3 The 8 non-OOXML, non-PDF documents — previously unhandled ``
 
 6 `.txt` (incl. all 5 `Resources Links`), 1 `.png` (`Pick Primary Color`),
 1 `.zip` (`Lazy Loading Code`, 296 MiB).
@@ -1573,7 +1308,7 @@ that no layout is recoverable.**
 
 ---
 
-## 9. Ordering `[R1]`
+## 9. Ordering ``
 
 `worklist/targets.csv` — **NEVER globbed. The only work list.**
 
@@ -1596,13 +1331,13 @@ that no layout is recoverable.**
 
 ```
 vault/calls/<year>/<MM Month>/<CLEAN>.md              193 paths
-vault/courses/<Course>/<CLEAN>.md                     78 paths   [F9] NEW
+vault/courses/<Course>/<CLEAN>.md                     78 paths   NEW
 vault/written-hands/<year>/<MM Month>/<CLEAN> (written hand).md   37 paths
 vault/library/…                                     36 paths
 vault/00 Home.md
 vault/00 Topics.md                   NEW - §10.3
 
-[F9] `courses/` was MISSING and holds 78 of the 344 paths - 36 course_doc files in
+`courses/` was MISSING and holds 78 of the 344 paths - 36 course_doc files in
 36 per-course folders plus the 5 `Resources Links` that the course prefix pulls
 out of the library. design-names.py emits it; §10 did not name it, so §10 and
 VAULT-STRUCTURE.md disagreed on the tree. The counts above are measured from
@@ -1615,16 +1350,16 @@ Exactly **5 frontmatter fields**: `title, date, type, duration, speakers`.
 
 **Every documented output location needs a `path`.** Rev 0 assigned locations for
 the 109 documents that **no artifact actually populated** — `clean-names.json`
-carries `handle/verbatim/kind/clean` and no `path` for any of them `[R1]`.
+carries `handle/verbatim/kind/clean` and no `path` for any of them ``.
 `design-names.py` must emit one, and V8 must assert its existence.
 
-> **[B19] CLOSED 2026-10-15 by build, not by prose.** `design-names.py` now writes
+> **CLOSED 2026-10-15 by build, not by prose.** `design-names.py` now writes
 > a `path` for all 109 documents. Measured: `documents with a path : 109/109`,
 > `document path collisions : 0`, `total clean paths : 344` = 193 + 42 + 109.
 > Previously it wrote `path` for calls and lessons and **never for a document**,
 > so V8 failed on its first run and the §9 docs shakedown could not complete.
 
-### 10.1 Frontmatter value domains — asserted, not merely counted `[R1]`
+### 10.1 Frontmatter value domains — asserted, not merely counted ``
 
 Rev 0's V8 asserted a **field count**, so these all shipped: `duration: 0` on 3
 units, `speakers: null`, and a `type: mastermind` that is **not in its own
@@ -1633,7 +1368,7 @@ vocabulary** - it lists six, not five.
 ```
 date      ^\d{4}-\d{2}-\d{2}$   or  unknown
 duration  integer >= 0          or  unknown     (minutes, never "3h 14m" -
-                                     [F40] LOWER BOUND FIXED 1 -> 0. MEASURED: 2 of
+                                     LOWER BOUND FIXED 1 -> 0. MEASURED: 2 of
                                      235 units are sub-minute - A2dWSZAK at
                                      media.dur_s = 50 (0.833 min, floors to 0), and
                                      one at 0.0 s whose container reports no duration
@@ -1662,26 +1397,23 @@ A speaker count carries its caveat in the note **body**, not a sixth field:
 > single label on a multi-hour call usually means diarisation failed to separate
 > participants, not that one person spoke.
 
-### 10.2 Filenames — the repair surface is larger than §15 claimed `[R1][R3]`
+### 10.2 Filenames — the repair surface is larger than §15 claimed ``
 
 Rev 0 asserted clean rules in §10 and listed three violations in §15, 25 lines
 below, with no cross-reference. **67 of 296 names (23%) are affected**, not three.
 
 | Defect | Measured | Fix |
 |---|---|---|
-| dash splitter mangles intra-word hyphens | **[R4-8.55] measured: 38 of 193 calls, 46 of 344 total at the time; **re-measure on 344**, of which **0** are true intra-word mangles** — the 7 are all intact. The old "50 of 229" was wrong on both terms: 229 is *units with a duration*, not a path count, and [B20]'s 296 excluded the lessons. It once contained (`Ron-Lynch`, `Biz-Op Blueprint`, `Clean Biz-Ops`, `Pre-Openings`, `CMO-CRO Roles`, `Call of Duty Biz-Ops`, `7-Figure Fill-In-The-Blank`). **[B20] The spec previously said 67 of 296 - the denominator 296 excludes the 42 lessons, one of which is damaged.** | normalise dash **styles** only; never split `[A-Za-z]-[A-Za-z]` |
+| dash splitter mangles intra-word hyphens | **measured: 38 of 193 calls, 46 of 344 total at the time; **re-measure on 344**, of which **0** are true intra-word mangles** — the 7 are all intact. The old "50 of 229" was wrong on both terms: 229 is *units with a duration*, not a path count, and 's 296 excluded the lessons. It once contained (`Ron-Lynch`, `Biz-Op Blueprint`, `Clean Biz-Ops`, `Pre-Openings`, `CMO-CRO Roles`, `Call of Duty Biz-Ops`, `7-Figure Fill-In-The-Blank`). **The spec previously said 67 of 296 - the denominator 296 excludes the 42 lessons, one of which is damaged.** | normalise dash **styles** only; never split `[A-Za-z]-[A-Za-z]` |
 | `Call` stripped mid-phrase | `Call of Duty` → `of Duty Biz - Ops`; `Call Booking Page` → `05 5 Booking Page` | strip `Call` only as a whole token outside a compound |
 | `None` leaked into 3 filenames | `None Selling To Women 3.0.md` etc. | a missing date **omits the prefix**, it does not fill it. V8 asserts no filename contains `None` |
 | extension-in-stem | **2 `.mp4.md`** paths | strip a trailing media extension before appending `.md`. V6 checks **stems**, not just extensions |
 | 5 `Resources Links` collide | `collisions.documents = 1` while 5 files share the stem | apply the course prefix; the script computes it and discards it |
-| 23 brand tokens, 4 underscores survive | against §10's own rules | fix the strippers |
-| **dropped call** | `10-31-2022 NHB+ Mindstream Call` absent; **187 paths, not 193** | drop `Mindstream` from the alternation; **and add a guard: if `tidy()` returns empty, fall back to `topic`, never `continue`** |
+| ~~23 brand tokens, 4 underscores survive~~ | **RESOLVED** — 0 brand tokens, 0 underscores, measured | — |
+| **dropped call** | `10-31-2022 NHB+ Mindstream Call` absent — **RESOLVED**, `drop_lead` no longer eats `Mindstream`; **193 call paths, none dropped** | drop `Mindstream` from the alternation; **and add a guard: if `tidy()` returns empty, fall back to `topic`, never `continue`** |
 | lesson ordinals renumbered | source `7. AC - Unannounced bonus` → `02 …` | preserve source numbering |
 | dates lost | the corpus's **only** ISO-dated name (`2024-09-27`) is the one that lost its date | accept `YYYY-MM-DD` as well as `M-D-YYYY` |
-| **[R4-8.54] 2 calls are undated, not 3.** The manifest carries
-`undated-other-5-MmMmABhJ` and `undated-other-5-x3Mi0JJL` — there is no
-`undated-other-9` prefix, and **186 of 193 calls are dated, not 185.** |
-| ~~3 calls undated~~ | `undated-other-9/-5/-5` | §10 needs a day; list them, do not leave them to run time |
+| **2 calls undated** | `undated-other-5-MmMmABhJ`, `undated-other-5-x3Mi0JJL` — **191 of 193 dated** | §10 needs a day; list them, do not leave them silent |
 
 **Written hands derive their filename from their CALL's clean name**, suffixed
 `(written hand)`. This is one line and it simultaneously kills: 10 of 37 hands
@@ -1697,7 +1429,7 @@ overrode. The **real** wart is that written-hands did *not* get ISO normalisatio
 so the two trees sort by incompatible conventions across the vault. Deriving
 hand names from call names fixes that too.
 
-### 10.3 `00 Topics.md` — the corpus's own index, which was thrown away `[R1]`
+### 10.3 `00 Topics.md` — the corpus's own index, which was thrown away ``
 
 **The strongest objection to rev 0's design:** the vault is organised by **when a
 call happened** — the one axis a paying member never uses. The topic axis is
@@ -1705,7 +1437,7 @@ call happened** — the one axis a paying member never uses. The topic axis is
 cleaning pass read it, stripped the type boilerplate off it, mangled 24% of its
 hyphens, and then the vault design discarded it.
 
-> **[F15] THE PREMISE WAS FALSE AND HAS NOW BEEN MEASURED.** This section
+> **THE PREMISE WAS FALSE AND HAS NOW BEEN MEASURED.** This section
 > previously claimed the topic axis "already clusters into ~50 groups of
 > 1–13". **It does not cluster.** Measured over all 235 manifest topics:
 >
@@ -1744,7 +1476,7 @@ a view. And the fallback — Ctrl+F across 4–5M words of machine diarisation w
 section per topic stem, sorted by member count descending, each row carrying ISO
 date, type, duration and a wikilink. ~250–400 lines.
 
-**Built by deterministic stem extraction only** — **[F15] the rules below REPLACE
+**Built by deterministic stem extraction only** — **the rules below REPLACE
 the ones that matched 0 of 235 units.** In this order, because the order is
 load-bearing:
 
@@ -1785,8 +1517,8 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required |
 | V4 | three-way duration reconcile |
 | V5 | span coverage |
-| V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **[R4-8.39] ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) == 235 + 109 == 344`.** Until that floor exists, V6 green means nothing. |
-> **[R4-8.40] AND EVERY CORPUS FORMAT IS CURRENTLY UNCATCHABLE BY V6.** The corpus
+| V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) == 235 + 109 == 344`.** Until that floor exists, V6 green means nothing. |
+> **AND EVERY CORPUS FORMAT IS CURRENTLY UNCATCHABLE BY V6.** The corpus
 > contains `pdf, docx, pptx, txt, xlsx, png, zip`. None is in the extension list,
 > none matches the stem regex, and a `.pdf` or `.docx` under `vault/` would pass
 > V6 outright **while violating Constraint 1.** The list above is an audio list
@@ -1796,14 +1528,14 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 
 | V7 | reduction diff: re-render from receipts, byte-compare |
 | V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** |
-| V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (193 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. [B7]** V9 previously checked documents only, so it **structurally could not catch the dropped call** |
+| V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (193 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. ** V9 previously checked documents only, so it **structurally could not catch the dropped call** |
 | V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** |
 | V11 | egress SHA256 per-file match |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
-| **V13** | **`00 Topics.md` — NEW. [R4-T1.5] POPULATION IS 230, NOT 225.** **[F15] re-scoped it to what measurement supports; [R4-T1.5] found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from [F15]'s clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. |
-| **V13** (population note) | [F15]'s own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `235 − 221 =` **9** units, but the same row says "4 of 235". The **group count** is 4; the **units inside them** is 9. **[R4-T1.5]** |
+| **V13** | **`00 Topics.md` — NEW. POPULATION IS 230, NOT 225.** **re-scoped it to what measurement supports; found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from 's clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. |
+| **V13** (population note) | 's own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `235 − 221 =` **9** units, but the same row says "4 of 235". The **group count** is 4; the **units inside them** is 9. **** |
 
-### 11.1 V12 — Identity Binding `[R1]`
+### 11.1 V12 — Identity Binding ``
 
 > **V7 proves determinism, not correctness.** It re-runs the same renderer on the
 > same inputs. If assembly cross-wires two units' responses — a file-handle
@@ -1822,10 +1554,10 @@ For each audio unit U:
  6. effective_spend reconciles to COMMIT_COST, and ffprobe(U) is within 2% of
     the metadata.duration in U's OWN response
 
- > **[R4-T1.10] CLAUSES 5 AND 6 WERE MUTUALLY EXCLUSIVE, AND §12.1 DELETED THE
- > EVIDENCE FOR CLAUSE 6.** [F14] had asserted "`request_id` is None for EVERY
+ > **CLAUSES 5 AND 6 WERE MUTUALLY EXCLUSIVE, AND §12.1 DELETED THE
+ > EVIDENCE FOR CLAUSE 6.** had asserted "`request_id` is None for EVERY
  > submission" and therefore removed the `request_id` column from AUDIT.md.
- > **Two later artifacts contradict that**, and [F14] predates both:
+ > **Two later artifacts contradict that**, and predates both:
  >
  > | artifact | `request_id` |
  > |---|---|
@@ -1833,10 +1565,10 @@ For each audio unit U:
  > | `deepgram-eu-limits-and-chain-proof-2026-10-15.json` | `01a13cfc-1b03-7e10-94cb-a448d81cb512` |
  > | `nhbplus-w0-syncceiling3-2026-10-15.json` | `01a13ec6-9208-7c90-a68d-0209a8e6be33` |
  >
- > **So [F14]'s generalisation was wrong**: it held for the asynccontract's
+ > **So 's generalisation was wrong**: it held for the asynccontract's
  > request SHAPE and was carried to every submission. With `request_id` present,
  > clause 5 becomes **measurably testable** rather than vacuous — the opposite
- > of what the [F14] fix assumed — and clause 6 becomes evaluable instead of
+ > of what the fix assumed — and clause 6 becomes evaluable instead of
  > unimplementable.
  >
  > **RESOLUTION.** Clause 5 stays, worded for the null case so it is falsifiable
@@ -1851,7 +1583,7 @@ For each audio unit U:
  > established. Two present, one absent, three probes. Clause 5 is written to
  > pass in both cases; **do not read that as evidence the question is settled.**
 
- > **[F14] history, kept because the failure is the point:** the clause as first
+ > **history, kept because the failure is the point:** the clause as first
  > written ("no request_id appears under two different unit ids") FAILED on a
  > flawless run, because None appears under all 235 unit ids. The fix was right
  > about that and wrong about why.
@@ -1875,7 +1607,7 @@ Clauses 5 and 6 catch the same defect at the vendor and money boundaries.
 The last clause is what makes it unforgeable — it cannot be satisfied by a
 hand-written heading like "Pricing Psychology" that no filename supports.
 
-**[F36] FIVE EXIT CODES WERE DECLARED FOR FOURTEEN GATES.** Nine gates had no
+**FIVE EXIT CODES WERE DECLARED FOR FOURTEEN GATES.** Nine gates had no
 code, and two shared one. A code an implementer must map by hand is a code they
 will get wrong. **The rule is now mechanical: `exit((gate_index + 1) * 10)`.**
  `[ R4-T1.4] **NOT `exit(gate_index * 10)`** — that form returns **0 for V0,
@@ -1922,8 +1654,7 @@ assemble vault/
   -> V6  on the VM, zero media extensions and stems   <-- BEFORE any transfer
   -> V7  reduction diff, re-render byte-compare
   -> V8  frontmatter value domains + every document has a path
-  -> V9  counts, and EVERY audio target handle has exactly one note   [F12]
-        (this is the gate that catches the dropped call - it must not be omitted)
+  -> V9  counts, and EVERY audio target handle has exactly one note   (this is the gate that catches the dropped call - it must not be omitted)
         scope-final.json's kinds are audio/written_hand/course_doc/orphan_doc.
         There is NO kind == "call": the old matcher hit 0 handles and PASSED
         VACUOUSLY on the very call the gate exists to catch.
@@ -1939,7 +1670,7 @@ Egress is always **PC-initiated**: the SSH key lives on the PC, so running `scp`
 from the VM fails on host resolution. That failure is `rc=255 "Could not resolve
 hostname c"` and it reads like a network fault but is not one.
 
-### 12.1 `_meta/AUDIT.md` `[R1]`
+### 12.1 `_meta/AUDIT.md` ``
 
 **Rev 0 moved every cut fact into `manifest.json` and called it clean. It is a
 relocation.** Obsidian cannot open, search, or link into JSON — every fact the
@@ -1947,9 +1678,9 @@ operator cut from the frontmatter became reachable only by leaving Obsidian and
 running `jq`. A cut that moves data into a format the reader's software cannot
 open is not a clean cut.
 
-Emit one generated `_meta/AUDIT.md` — **[R4-8.44] 235 lines, one per AUDIO UNIT, not 339.** 344 is the count of *targets*; only 235 of those are audio units, and V12 clauses 1–4 are all about audio units. The 109 documents are verified by §11's path and frontmatter gates, not here:
+Emit one generated `_meta/AUDIT.md` — **235 lines, one per audio unit.** 344 is the count of *targets*; only 235 of those are audio units, and V12 clauses 1–4 are all about audio units. The 109 documents are verified by §11's path and frontmatter gates, not here:
 `unit · handle · declared_s · ffprobe_s · settle_s · sha256-12 · verdict`
-request_id  **[R4-T1.10] RESTORED.** [F14] removed this column on the strength
+request_id  **RESTORED.** removed this column on the strength
 of "None for EVERY submission"; two later dated artifacts carry a non-null
 value (`syncceiling3`: `01a13ec6-...`, `deepgram-eu-limits`: `01a13cfc-...`).
 Recorded as measured, blank if absent — never invented.
@@ -1959,12 +1690,11 @@ with totals in the header, linked from `00 Home.md`.
 respected exactly** — the audit simply becomes reachable from the tool the
 operator reads in. ~20 lines of renderer code.
 
-> **[R4-8.56] "TEARDOWN IS 7-PHASE" AND THE SEVEN PHASES ARE NOT ENUMERATED
+> **"TEARDOWN IS 7-PHASE" AND THE SEVEN PHASES ARE NOT ENUMERATED
 > ANYWHERE IN THIS DOCUMENT.** A phase count with no phases is a scope claim no
 > reader can check. And `--confirm <sha256 of copy-verification.json>` names a
-> file with **no producer, no path and no schema.** [R4-2.17]
->
-> **The seven teardown phases, enumerated.** [R4-8.56] A phase count with no
+> file with **no producer, no path and no schema.** >
+> **The seven teardown phases, enumerated.** A phase count with no
 phases is a scope claim no reader can check.
 
 | # | phase | gate before it may start |
@@ -1977,7 +1707,7 @@ phases is a scope claim no reader can check.
 | 6 | **verify the copy** — `copy-verification.json`: per-file SHA-256, byte count, typography spot-check | V11 |
 | 7 | **destroy** — delete the VM and its disk image | **all of 1–6 green** |
 
-**[R4-2.17] `copy-verification.json` HAS NO PRODUCER, PATH OR SCHEMA ANYWHERE IN
+**`copy-verification.json` HAS NO PRODUCER, PATH OR SCHEMA ANYWHERE IN
 THIS DOCUMENT.** It is named once, by the `--confirm` argument that gates phase 7.
 **Schema, fixed here so phase 6 cannot be skipped by omission:**
 
@@ -1986,9 +1716,11 @@ copy-verification.json = {
   "generated": ISO-8601,
   "source": "VM:/data/nhb/vault",
   "files": [ {"relpath": str, "bytes": int, "sha256": hex64} ],   # every file
-  "notes_expected": 339, "notes_found": int,
+  "notes_expected": 344, "notes_found": int,   # 344 = 193 calls + 42 lessons + 109 docs
+  # + 00 Home.md + 00 Topics.md if the index notes ship. See V6.
   "typography_checked": int, "typography_passed": int
 }
+```
 ```
 
 **A run that cannot produce this file does not reach phase 7.** The destroy step
@@ -2008,17 +1740,17 @@ copy-verification.json>` — deliberately awkward, so the operator has looked.
 |---|---|
 | "146.87 GB ≈ 30–50 h serial fetch" | **~30× wrong.** Measured 41–53 MB/s → **0.99–1.28 h** |
 | Alphabetical-smallest-first | Dropped — unjustified and pessimal |
-| Any 40×-realtime sync cutoff | **[F25] "ZERO MARGIN" IS ARITHMETICALLY WRONG.** 16,556 s of audio at the ceiling is 16,556/600 = **27.6× required**, so 40× yields 414 s against 600 s — **186 s of headroom, not zero.** **[F1-CORRECTION] This line previously read "measured realtime on the real worst case is 106×, which is 3.8× margin." The worst case was never measured — see the OPEN gate above. The one MEASURED realtime factor is 119×, on `dvcEDToK`, the 47th-ranked unit.** A cutoff is still not adopted, and it is rejected on arithmetic, not on a measurement that does not exist. |
+| Any 40×-realtime sync cutoff | **"ZERO MARGIN" IS ARITHMETICALLY WRONG.** 16,556 s of audio at the ceiling is 16,556/600 = **27.6× required**, so 40× yields 414 s against 600 s — **186 s of headroom, not zero.** **This line previously read "measured realtime on the real worst case is 106×, which is 3.8× margin." The worst case was never measured — see the OPEN gate above. The one MEASURED realtime factor is 119×, on `dvcEDToK`, the 47th-ranked unit.** A cutoff is still not adopted, and it is rejected on arithmetic, not on a measurement that does not exist. |
 | Any success-only spend counter | Wrong — a 504 storm is paid-and-lost and sails past it |
 | SQLite/journal/per-unit-JSON as independent truth | A desync waiting to happen — exactly one authority |
 | Disk "bound proof" (38 GB vs 400 GB) without the loopback | Not a safety system. Only kernel ENOSPC counts, and only once proven |
 | `kill`/`timeout` as the fetch safety system | Wrong — admission control + watcher + cancel + quiesce assertion is |
 | Direct reuse of the skill's PDF constants | Wrong — §2.3 |
 | **A `*.mp3.md` filename** | A bug — **and the live one is `.mp4.md`, on 2 committed paths** |
-| **"crashed async is free via `request_id` re-GET"** | **FALSE `[R1]`.** Constraint 7: nothing is stored. Both paths are single-shot |
-| **"FORECAST == HARD_STOP"** | **WITHDRAWN 2026-10-15 `[R1]`.** The claimed $151.01 overspend was a **`ceil` artifact**. Deepgram bills true per-second with no minimum and no rounding, so the corpus costs exactly the forecast, $150.56. The pessimism was solving a problem the vendor does not have. |
-| **"resume never re-bills"** | **NOT IMPLEMENTED `[R1]`.** The state machine was blind to the one bit that decides it |
-| **"an unnamed `flock` guards the global sum"** | **NOT IMPLEMENTABLE `[R1]`.** No file, no path, and every named lock is per-unit |
+| **"crashed async is free via `request_id` re-GET"** | **FALSE ``.** Constraint 7: nothing is stored. Both paths are single-shot |
+| **"FORECAST == HARD_STOP"** | **WITHDRAWN 2026-10-15 ``.** The claimed $151.01 overspend was a **`ceil` artifact**. Deepgram bills true per-second with no minimum and no rounding, so the corpus costs exactly the forecast, $150.56. The pessimism was solving a problem the vendor does not have. |
+| **"resume never re-bills"** | **NOT IMPLEMENTED ``.** The state machine was blind to the one bit that decides it |
+| **"an unnamed `flock` guards the global sum"** | **NOT IMPLEMENTABLE ``.** No file, no path, and every named lock is per-unit |
 
 ### 13.2 Claims withdrawn during planning
 
@@ -2098,7 +1830,7 @@ threshold), so it is readable by the same metric but was never separately audite
 **Out of scope, flagged once:** the 335 GB import still sitting in the operator's
 personal MEGA account. Only the operator can delete it.
 
-> **[R4-T1.6] "ALL 1,372 WORDS VERBATIM" IS A LOWER BOUND PRESENTED AS COMPLETE.**
+> **"ALL 1,372 WORDS VERBATIM" IS A LOWER BOUND PRESENTED AS COMPLETE.**
 > `pdf-fallback-audit.json` shows `page_cap: 200` and both sparse books at
 > `pages_read: 200 / pages_total: 340` — **59% of each was read and 41% was
 > never opened.** The 1,372 words is real; what is wrong is the completeness.
