@@ -1,0 +1,15 @@
+{
+ "remuxed .mka  (what the PLAN submits)": {
+  "http": 200,
+  "upload_s": 1.9,
+  "upload_mbps": 150.8,
+  "response_s": 103.2,
+  "body_bytes": 6145035,
+  "mb": 280.7,
+  "duration_s": 12258.603,
+  "words": 37372,
+  "sha": "86d9c007a48e0630",
+  "xrt": 119,
+  "total_s": 105.1
+ }
+}

@@ -308,8 +308,8 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
 | **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches `FETCH_CONCURRENCY 1 → 6`.** |
 | **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
-| **W0-SyncCeiling** | **OPEN — TRACKED, was untracked `[R2]`** | The async artifact named this test and said *"RECOMMENDED, not yet run"*; it appeared in no probe table, no provisional list, no open list. **Submit the 275.9-min unit (dvcEDToK) alone and record its server time against the 600 s ceiling.** $1.54. The 273.7× margin is measured at concurrency 1 while the plan runs above that. **Blocks the first call over 150 min.** |
-| **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. **The 10-min 504 ceiling is unreachable: 273.7× margin** (it would need 1,259 hours of audio; the longest call is 4.6). §7.2 collapses to one sync path. |
+| **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15** | **CLOSED, MEASURED.** The longest call in the corpus — 204.3 min, 280.7 MB remuxed — completed in **105.1 s against the 600 s ceiling. Margin 5.7×, measured, not calculated.** $1.54. Take 1 (the raw 1,539 MB MP4) **timed out**; see §7.1. |
+| **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7× and later measured at 5.7×** on the worst case — see W0-SyncCeiling. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
@@ -558,6 +558,15 @@ MP4 container and **cannot hold an MP3 elementary stream** — it fails rc=234
 *"Could not write header (incorrect codec parameters)"* for **97 of 230 units**.
 `.mka` (Matroska audio) carried every sample, MP3 and AAC alike.
 
+> **THE REMUX IS MANDATORY, NOT AN OPTIMISATION `[R2]`.** Submitting the **raw
+> 1,539 MB MP4** of the corpus's longest call **did not complete** — it timed out
+> after >1,800 s. The remuxed 280.7 MB `.mka` of the same audio completed in
+> **105.1 s**. Bandwidth was never the difference: the remuxed file uploaded at
+> **150.8 MB/s**, so 1,539 MB is ~10 s of transfer. What differs is that `-vn`
+> strips the **h264 video track**. 133 of 230 units are MP4; under Constraint 7 a
+> failed submission is **paid and unrecoverable**, so this is a correctness
+> requirement, not a size one.
+
 > The plan did not specify a container at all. `.m4a` is the conventional
 > audio-only extension, so an implementer would reach for it and fail 42% of the
 > corpus with an error that reads like a codec fault rather than a container fault.
@@ -668,13 +677,21 @@ is no async job, therefore no re-GET, therefore no free recovery on any path.**
 
 **The larger finding: the 10-minute 504 ceiling is unreachable by this corpus.**
 
+**MEASURED, not calculated `[R2]`.** The longest call in the corpus was
+submitted on its own and timed:
+
 ```
-measured solo realtime factor          126x
-504 fires at                    600 s of server time
-=> only at              75,525 min of audio  (1,259 hours)
-longest call in corpus       275.9 min  (4.6 hours)
-MARGIN                                273.7x
+unit        dvcEDToK, 204.3 min, 280.7 MB remuxed .mka
+upload      1.9 s at 150.8 MB/s
+response    HTTP 200 in 103.2 s
+total       105.1 s   against a 600 s ceiling
+MARGIN      5.7x
 ```
+
+> **The earlier 273.7× was a CALCULATED margin and it was wrong by 48×.** It
+> extrapolated a 126× realtime factor measured on a 68-minute, 124.5 MB file to a
+> unit 4× longer and 12× larger. **A margin calculated for the worst case is not a
+> margin.** $1.54 bought the real number; nothing else could.
 
 | Dissolved | Was | Now |
 |---|---|---|
@@ -720,6 +737,11 @@ Therefore:
   in memory, never left only in a pipe. It is the only copy that will ever exist.
 - **A 504 or a truncated stream is paid-and-unrecoverable.** Not pending.
   `PAID_UNKNOWN` is **loss acceptance**, not recovery.
+- **A TIMEOUT IS NOT A CLEAN ZERO `[R2]`.** The worst-case probe timed out at
+  1,800 s and whether it was billed **cannot be determined from here** —
+  `GET /v1/balances` returns 404 on this key. A timeout must be classified
+  `PAID_UNKNOWN`, never as "nothing spent". The operator may need to check the
+  account balance directly.
 - Quarantine-then-operator is a correct **anti-double-bill** control. It is **not**
   a spend control — the money is gone before the quarantine exists.
 
