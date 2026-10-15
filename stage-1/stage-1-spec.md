@@ -719,6 +719,45 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 
 ---
 
+### 5.0 Fetch concurrency — THE LEVER, FOUND IN THE DOCUMENTATION
+
+**The run is ~95% fetch, and fetch concurrency was configured by accident.**
+`mega-get` is a two-line shell wrapper — `mega-exec get "$@"` — over
+**`megacmd` 2.6.0**, a persistent daemon that owns the transfer queue. Its
+client surface includes a documented control that is not on `mega-get --help`
+at all:
+
+```
+mega-speedlimit --download-connections
+  --download-connections   Set/Read max number of connections for a download transfer
+mega-speedlimit --upload-connections
+```
+
+**Set to 16. It read EMPTY before, which is not the same as reading a number.**
+This document therefore does not claim what the default was — only that the
+limit is now explicit rather than implicit. A setting that reads back as
+nothing is a setting nobody is looking at.
+
+**Two independent axes, and the run should use both.**
+
+| axis | knob | value |
+|---|---|---|
+| chunk connections **per transfer** | `mega-speedlimit --download-connections` | **16** |
+| transfers **in flight** | the fetch pool | 4 |
+
+4 transfers x 16 connections = **64 parallel chunk streams**, against 4 x
+whatever the unset default was. Raising the in-flight count multiplies sockets;
+raising per-transfer connections does it without multiplying `mega-get`
+processes or API folders.
+
+**WHAT THIS IS NOT.** The throughput gain is **NOT MEASURED.** Scaling is not
+linear and was not assumed here: MEGA may rate-limit per account, and the VM's
+NIC may cap below 100 MB/s. The measured rate at 4 in-flight was **15.8 MB/s**,
+which put the 153.81 GiB fetch at **2.90 h**. The lever is in place and the
+before-number is recorded; the after-number is **measured during the run, not
+asserted here**, and if it does not improve, the finding is that the bottleneck
+was never concurrency.
+
 ## 5. State — the machine that actually prevents double-billing ``
 
 > **This section replaces rev 0 entirely.** Round 1 proved the previous resume
