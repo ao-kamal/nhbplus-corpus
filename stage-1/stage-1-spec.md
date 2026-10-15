@@ -1558,15 +1558,31 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 | D3 | **closed** - dual-mono, per-file rule, $26.98 |
 | D4 | **adopted** - keyterm on, +$45.52, A/B-measured |
 
-**The largest remaining risk is not a decision, it is work:** the naming repair in
-10.2 spans 67 of 296 names plus a dropped call, three undated calls and five
-collisions. It must land before the first STT dollar, because 9 puts documents
-first as the shakedown. That repair is the next thing to build.
+**[UPDATED 2026-10-15 — THE NAMING REPAIR IS BUILT, NOT PENDING.]** This section
+previously read "the naming repair … spans 67 of 296 names … That repair is the
+next thing to build." It landed. Re-measured from `pipeline/out/clean-names.json`:
 
-**Naming repair** — §10.2 lists 10 defect classes across 67 names, plus the
-dropped call and 3 undated calls. Not three defects. This is the largest single
-piece of work left and it must land **before** the first STT dollar, because §9
-puts documents first as the shakedown.
+| | |
+|---|---|
+| paths emitted | **339** (188 calls + 42 lessons + 109 documents) |
+| casefold-unique | **True** |
+| documents carrying a `path` | **109 / 109** (was **0** — V8 could never pass) |
+| document path collisions | **0** |
+| brand tokens surviving | **0** (was 22) |
+| `None` in a path | **0** |
+| media extensions in a stem | **0** |
+| intra-word hyphen mangles | **7 / 7 intact** |
+| source lesson ordinals carried | **42 / 42** |
+| written hands linked to their call | **37 / 37** |
+
+`check-frontmatter.py` returns **PASS on 0 domain violations**, and can now fail.
+
+**What remains is not naming. It is measurement, and it is unmeasured because
+nothing has been paid for yet:** the corpus-wide stereo share (3 of 230 sampled),
+Azure VM-days for a 16-way run over 583.55 h, and decoded-vs-header durations
+(228 of 230 are container headers). §14 marks `SEGMENT_SEC` and the WPM band
+provisional for the same reason. §9's ordering — documents, one lesson-sized
+smoke test, then the 16 longest — is what converts them.
 
 **Content decisions still open:** whether `00 Topics.md` and the 30-minute
 transcript headings are wanted (§10.3) — both $0.00, ~2.5 h combined, and R4's
