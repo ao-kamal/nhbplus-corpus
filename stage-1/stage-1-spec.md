@@ -27,7 +27,7 @@ These outrank every mechanism here. Nothing below may trade one away.
 | 3 | **Remove nothing.** Where a route is blocked, the route changes. | The 2 sparse PDFs are extracted, not dropped. 105 MP4 alternates are never fetched — a route change, not a removal. |
 | 4 | **Evidence, not assertion.** | W0 probes. Ten claims withdrawn during planning; kept visible in §13.2. |
 | 5 | **Operator picks the files.** | `scope-final.json`, 339 targets, locked. |
-| 6 | **A sentinel is not a measurement** `[R1]` | **73 of 230 units carry placeholder sizes** — 37 at exactly 1 GiB, 36 at exactly 2 GiB = **109.00 GiB of 146.39 GiB = 74.5%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
+| 6 | **A sentinel is not a measurement** `[R1]` | **[F-KIB 2026-10-15] THIS IS UNDERSTATED. NOT 73 OF 230 — ALL 188 CALLS.** Every declared size in the corpus is an **exact multiple of 1 KiB**: **188 of 188, 100% of the corpus bytes.** The chance of that by accident is (1/1024)^188. The spec detects sentinels only at **GiB** granularity (`bytes % 2**30 == 0`), which finds 73 and calls the other 115 "real". They are not real either — they are KiB-quantised. Proof from the one unit measured against ground truth: `wiUyTRZb` **declared 397,410,304 B (KiB-exact)** vs **actual downloaded 397,487,264 B (NOT KiB-exact)**, a 76,960 B delta. So there is **no unquantised subset** by this test, and the "73 sentinels / 157 real" split in this document is wrong in kind, not just in number. **§6 (sentinel detection) must test `bytes % 1024 == 0`, and no threshold may consume any declared size.** §6 (73 of 230 carry placeholder sizes** — 37 at exactly 1 GiB, 36 at exactly 2 GiB = **109.00 GiB of 146.39 GiB = 74.5%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
 | 7 | **The response is the only retrieval** `[R1]` | `evidence/probes/deepgram-eu-limits-and-chain-proof-2026-10-15.json`, under `limits_that_would_have_broken_the_run`: *"Deepgram does not store transcripts. The API response is the only opportunity to retrieve it."* **Every submission is single-shot.** The response body must stream to disk as it arrives. §7.3. |
 
 ### 0.0 How to read the tags in this document `[F41]`
@@ -51,6 +51,24 @@ Tags are **not deleted when a finding is applied.** A fix that removes its own
 provenance is indistinguishable from a fix that was never checked, and the
 question "was this ever wrong?" has no answer. What expires is the finding, not
 the record that it existed. Every tag names a defect **that was real**.
+
+### 0.0.1 Compute, priced `[MEASURED 2026-10-15]`
+
+`Standard_D2s_v5`, `austriaeast`, Linux, Consumption — the VM the probes actually
+ran on. **$0.115/hr** from `prices.azure.com/api/retail/prices`, queried
+2026-10-15. **$2.76/day.**
+
+| phase | wall clock | basis |
+|---|---|---|
+| STT at concurrency **25** | **15.5 h** | 35,030 min / 25 / **90.6x measured realtime** |
+| fetch 146.87 GiB | 0.89 h | measured 47 MB/s network ceiling, single stream |
+| remux `-c:a copy` | 0.26 h | stream copy, **no decode** |
+| channel measurement, **90 s window** | 0.08 h | the full-decode alternative is **284 h = 11.8 days** |
+| **total** | **≈ 16.7 h** | **≈ $1.92** |
+
+**That is under 10% of the STT budget and it is no longer an open question.**
+At concurrency 16 the same arithmetic gives 25.3 h and $2.91 — the raise to 25
+paid for itself in the first line.
 
 ### 0.1 Blocking decisions for the operator
 
@@ -176,7 +194,20 @@ FETCH_CONCURRENCY_CEILING = 39   RAISED from 1, 2026-10-15. W0-Cap PASSED: the
                                 throughput (169 vs 172 MB/s) against a network
                                 fetch ceiling of 41-53 MB/s, so it is free.
 REMUX_CONCURRENCY      = 2
-TRANSCRIBE_CONCURRENCY = 16       BINDING CEILING IS 25, not 50. Authoritative
+TRANSCRIBE_CONCURRENCY = 25       RAISED FROM 16, 2026-10-15, ON MEASUREMENT.
+                                 **[W0-CONCURRENCY25] 25 CONCURRENT REQUESTS
+                                 FIRED SIMULTANEOUSLY: 25/25 HTTP 200, ZERO
+                                 429s, and the corpus's LARGEST call completed
+                                 in 186.738 s against the 600 s ceiling.**
+                                 Its SOLO time was 182.757 s, so
+                                 DEGRADATION = 1.022x - 2.2%. The 3.28x
+                                 margin survives at 25-way as 3.21x.
+                                 25 IS NOT A HOPE NOW; IT IS A MEASUREMENT.
+                                 Artifact: nhbplus-w0-concurrency25-2026-10-15.json
+                                 Run cost $2.41. Saves 8.7 h of a ~24 h run.
+                                 LIMITS: one burst, not a 25-hour sustained load;
+                                 single key; a PASS is not a capacity guarantee.
+                                 BINDING CEILING IS 25, not 50. Authoritative
                                 source, fetched 2026-10-15:
                                 developers.deepgram.com/reference/api-rate-limits.md
                                   Nova-3            | EU | Pre-Recorded  up to 50
@@ -185,7 +216,25 @@ TRANSCRIBE_CONCURRENCY = 16       BINDING CEILING IS 25, not 50. Authoritative
                                    the lower of the rate limits is applied."
                                 diarize=true is NON-OPTIONAL (10.1 needs diarisation
                                 clusters; Rule 3 forbids removing it), so the LOWER
-                                limit binds: min(50, 25) = 25. 16 leaves 60% headroom.
+                                limit binds: min(50, 25) = 25. **We now run AT 25, not below it.**
+
+> **ON THE SECOND DEEPGRAM ACCOUNT - A QUESTION THAT WAS ASKED AND ANSWERED.**
+> Splitting the corpus across two accounts WOULD roughly double throughput:
+> concurrency is scoped per project, so two projects are two pools, and 32-way
+> would take the run from 15.5 h to 12.1 h. **It is refused anyway**, and the
+> distinction is worth stating because it is the whole contract question:
+>
+> | use | what it does | verdict |
+> |---|---|---|
+> | second key for **budget** | you pay for more service ($207.68 > the $200 credit) | legitimate |
+> | second key for **throughput** | you obtain concurrency above the ceiling | circumvention |
+>
+> The second use is the one the plan would be doing, and it is what the ToS
+> language quoted in this document is aimed at. It was also never worth it:
+> **16 -> 25 recovered 8.7 h inside one project with no question at all**, and
+> the remaining 25 -> 32 would have bought **3.4 h** in exchange for a standing
+> doubt about the whole run. §2.2's rule stands: **a wallet, not a worker**,
+> sequential failover on 402, never concurrent.
                                 THE 16 -> 50 'CORRECTION' WAS WRONG: it read the
                                 MODEL row and substituted it for the DIARIZATION row.
                                 The original 25 was right and was doubted because a
@@ -867,6 +916,25 @@ Deepgram bills stereo at **×2**. But **every stereo file measured is dual-mono*
 worse than measuring: unconditional `-ac 1` would destroy channel separation on
 any per-participant file; unconditional stereo pays 2× on files that gain nothing.
 
+**[F-MEASURE 2026-10-15] THE CHANNEL MEASUREMENT IS A FULL DECODE AND AT CORPUS
+SCALE IT IS THE WHOLE RUN.** Measured in take 3: `astats` over the complete
+275.93-min unit took **4m28s of 111% CPU on one core = 61.8x realtime.** The
+corpus is 35,300 min of audio:
+
+| | |
+|---|---|
+| corpus-wide full decode at 61.8x | **567 core-hours** |
+| on this 2-vCPU VM | **284 wall-hours = 11.8 DAYS** |
+| Azure cost of that alone | **$32.61** |
+| same measurement over a **90 s window** | **4.6 minutes** |
+| section 7.1a remux (`-c:a copy`, stream copy, no decode) | 0.26 h |
+
+**The window is the entire difference between 11.8 days and nothing.** §7.1a
+calls this "one extra ffmpeg pass per part"; on the corpus it is the dominant
+cost in the pipeline and nobody priced it. **A 90-second window classifies the
+L/R relationship** — dual-mono is dual-mono from the first minute — so the
+full decode buys nothing. Specified as a window below.
+
 **[F7] GUARD BEFORE MEASURING.** `pan=mono|c0=c1` has no `c1` on a mono input
 and errors. **82.1% of sampled minutes are mono**, so the unguarded block below
 fails on the majority of parts.
@@ -875,6 +943,16 @@ fails on the majority of parts.
 channels == 1  ->  MONO.  No measurement, no second pass, commit once.
 
 rms_L  = ffmpeg -i part  -af "pan=mono|c0=c0,astats"        -f null -
+# [F-MEASURE] ^ THE pan FILTERS BELOW ARE THE BUG, AND I REPRODUCED IT.
+# Running `pan=mono|c0=c0` BEFORE astats collapses the stream to mono, so
+# "RMS difference dB" has no second channel left to differ from and reports
+# 0.0 - which then reads as INDEPENDENT on a file whose L and R are
+# bit-identical. It happened to me: pjFQiLQQ showed L = R = -28.585805 dB and
+# the parse returned INDEPENDENT_KEEP_STEREO_2x. The correct classifier is:
+#   -t 90 -i part -af astats                      (read RMS difference dB)
+#   -t 90 -i part -af "pan=mono|c0=c0-c1,astats"  (read RMS level of L-R)
+# and branch on whether L-R carries ANY signal at all, which does not depend
+# on dB rounding the way a difference-in-dB comparison does.
 rms_R  = ffmpeg -i part  -af "pan=mono|c0=c1,astats"        -f null -
 rms_D  = ffmpeg -i part  -af "pan=mono|c0=c0-c1,astats"     -f null -
 delta  = rms_D - rms_L        (dB)

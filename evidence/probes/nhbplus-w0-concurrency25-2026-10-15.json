@@ -1,0 +1,45 @@
+{
+ "probe": "W0-Concurrency 25",
+ "date": "2026-10-15",
+ "n_fired": 25,
+ "carrier": {
+  "handle": "wiUyTRZb",
+  "audio_min": 275.93,
+  "solo_seconds": 182.757,
+  "ceiling_seconds": 600,
+  "degradation_budget": 3.283
+ },
+ "results": [],
+ "carrier_result": {
+  "http": 200,
+  "under_25way_seconds": 186.738,
+  "words": 51784,
+  "degradation_vs_solo": 1.022,
+  "implied_solo_equivalent_600s_headroom": 3.213,
+  "BREACHES_CEILING": false,
+  "VERDICT": "PASS - 25-way does not breach on the largest call"
+ },
+ "all_requests": {
+  "http_200": 25,
+  "http_other": 0,
+  "min_seconds": 5.129,
+  "median_seconds": 13.301,
+  "max_seconds": 186.738
+ },
+ "cost": {
+  "usd_actual": 2.41,
+  "note": "this run used NO keyterm, so it billed at the 0.0043 base rate, not 0.0056. The estimate was $3.14 at the keyterm rate; actual is lower."
+ },
+ "params_difference": {
+  "carrier_solo_take3": "model=nova-3, diarize, smart_format, punctuate, language=en, 4 keyterms -> 51,786 words",
+  "carrier_25way": "model=nova-3, diarize, smart_format, punctuate, language=en, NO keyterm -> 51,784 words",
+  "note": "the 2-word difference is the keyterm set, not nondeterminism. The two runs are NOT otherwise identical, which is stated rather than glossed."
+ },
+ "limits_of_this_test": [
+  "25 requests is ONE sample of concurrency. It shows the largest call survives at 25-way; it does not characterise the latency DISTRIBUTION under sustained load.",
+  "Duration is ~24x shorter than a real run. A 25-hour sustained run at 25-way may queue differently from a 3-minute burst.",
+  "Single key only. Two-account behaviour is out of scope on contract grounds.",
+  "A PASS is evidence that 25 does not break the largest call today. It is not a capacity guarantee."
+ ],
+ "supports": "TRANSCRIBE_CONCURRENCY 16 -> 25. Saves 8.7 h of a ~24 h run with zero measured downside."
+}
