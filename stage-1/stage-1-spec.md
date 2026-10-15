@@ -516,7 +516,44 @@ attempt the request on the primary
 
 **The secondary is a wallet, not a worker.** Deepgram scopes concurrency per project, so a second key adds zero throughput, and distributing traffic *concurrently* across accounts is a documented ToS violation. Sequential failover on 402 is not load distribution — it is one account finishing before the next begins.
 
-### 2.2.1 Why keyterm — the measurement, not the opinion
+### 2.2.1 Why keyterm — and what the measurement actually shows
+
+**The A/B that is on disk did not measure what the table below used to claim.**
+`pipeline/out/keyterm-ab.json` records:
+
+| | baseline | keyterm |
+|---|---|---|
+| hits | `Guest, Speaker, Rohan, Event, Model` | **identical** |
+| missed | `Sheth` | **`Sheth`** |
+| gained | — | **`[]`** |
+| lost | — | **`[]`** |
+| cost | — | **$0.7613** |
+
+**Zero gain. Zero loss. The same five terms hit, the same one missed.** Any
+table claiming `Rohan 12→16`, `Ron 4→3` or `Nothing Held Back 0→1` is not in this
+artifact, and `Nothing Held Back` is not in the keyterm list at all.
+
+**What that does and does not mean.** It does **not** show keyterm is useless.
+It shows **this A/B did not measure it** — one 68-minute unit, term-level hit/miss
+rather than occurrence counts, and the target surname missed in both arms.
+**D4's `+$45.52` is therefore UNEVIDENCED by the only A/B on disk.**
+
+**What keyterm is, and why it is still ON.** It is a vocabulary hint: it raises
+the prior on proper nouns, and its benefit is entirely on **rare** names. Both
+arms hitting five of six terms is a *ceiling effect* — the unit's vocabulary was
+too common for the hint to have anything to work on. The hypothesis is
+reasonable; **the evidence is not yet in hand.**
+
+**ACTION, before the run, or D4 is withdrawn:**
+re-run the A/B on a unit that actually contains a rare surname, with
+**occurrence-level** counts (how many times each term was recognised, not whether
+it appeared at all), and record `gained`/`lost` as counts. At $0.76 per arm this
+is cheap. **If the re-run shows no gain, keyterm comes off and the budget falls
+by $45.52.** Until then it stays on and this section says so.
+
+**The decision is NOT the A/B's: the operator adopted keyterm on 2026-10-15 and
+that decision stands.** What is withdrawn is the claim that a measurement
+supports it.
 
 `$0.761` A/B, one 68-min unit, identical audio and parameters, keyterm as the only
 variable:
@@ -763,14 +800,6 @@ boundary — 30 bits coarser than the test assumed.
 sentinel(b) := (b % 1024) == 0        # NOT (b % (1<<30)) == 0
 ```
 
-**The `max()` in this section's threshold is dead code and is deleted.**
-`threshold = max(1.10 * declared, declared + 0.5 * quantum)` takes the `1.10x`
-arm only when `declared >= 5 * quantum`. For ZERO non-sentinel units
-`declared < 5 * quantum`, so **the band arm always wins**. For `pjFQiLQQ`
-(90 MiB declared, 512 MiB quantum) the effective threshold is **353 MiB — 3.9×
-its declared size**, while the table below says `×1.10` and describes a branch
-that never executes. **One threshold, stated once: the band arm.**
-
 ```
 if declared is sentinel:
     disable the overrun check for this unit entirely
@@ -781,7 +810,21 @@ else:
                 MEGA shows "1 GB"/"2 GB"/"3 GB" for a range of true sizes; the
                 rounding band is +/- 0.5 of the displayed quantum. 1 GB files use
                 512 MiB, 2 GB and 3 GB files use 1 GiB.
-threshold    = max(1.10 x declared, declared + 0.5 x display_unit)
+threshold    = declared + 0.5 x quantum          # ONE rule, no max()
+
+# WHY THE max() IS GONE. `max(1.10 x declared, declared + 0.5 x quantum)`
+# selects the 1.10x arm only when declared >= 5 x quantum. EVERY unit in this
+# corpus is KiB-exact, so `sentinel(b)` is TRUE for 335 of 335 declared sizes
+# and the `else` arm below is UNREACHABLE. It is deleted rather than left
+# describing a regime that cannot occur. See section 6.4.
+
+if sentinel(declared):  -> the overrun check is DISABLED for this unit
+   # correct and intended: the declared size is a display value, so a kill
+   # threshold derived from it is meaningless. The cap is enforced by the
+   # LOOPBACK, which measures ACTUAL bytes on disk - see 6.2.
+else:                    -> threshold as above
+   # REACHABLE FOR ZERO UNITS TODAY. Retained only so a future corpus with
+   # genuinely unquantised sizes has a rule; it must be re-validated then.
 ```
 
 **Never kill on a rounded baseline.**
@@ -1037,6 +1080,45 @@ are auditable together.
 
 ### 7.2 Submit — ONE path, sync. The async branch is withdrawn.
 
+#### 7.2.0 THE REQUEST, IN FULL
+
+Eight separate sections each mandate one flag and **no section listed them
+together**, so an engineer holding only this document could not write the POST
+at all — and the 25-concurrency ceiling is derived from exactly one of them.
+Omitting `diarize=true` silently doubles the ceiling to 50 with no gate to
+notice. **This is the complete request:**
+
+```
+POST https://api.eu.deepgram.com/v1/listen
+     ?model=nova-3
+     &diarize=true            <- BINDS THE CONCURRENCY CEILING at 25, not 50
+     &smart_format=true
+     &punctuate=true
+     &utterances=true         <- section 5.1's assembled.json is built from
+                                 results.utterances; without it there is nothing
+                                 to hash for V12
+     &language=en
+     &mip_opt_out=true        <- Constraint 6a. NOT optional, NOT conditional.
+                                 Sent on EVERY request including retries.
+
+Authorization: Token $DEEPGRAM_API_KEY
+Content-Type:  audio/x-matroska      <- the .mka remux, never .m4a
+Body:           the remuxed part, streamed from disk
+```
+
+| flag | section that requires it | if omitted |
+|---|---|---|
+| `model=nova-3` | §0 D2, §2 | different model, different rate |
+| `diarize=true` | §0 D3, §10.1, §11.1 | **ceiling silently 25 → 50**, and no diarisation clusters |
+| `utterances=true` | §5.1, §11.1 V12 | `assembled.json` has nothing to build from; V12 unevaluable |
+| `smart_format` + `punctuate` | §7.3 response shape | word/utterance counts shift |
+| `language=en` | §0 | auto-detect, non-deterministic on 2-channel files |
+| `mip_opt_out=true` | Constraint 6a | **a data-protection flag is dropped from every request** |
+| `keyterm=…` | §2.2.1 | optional; costs $0.0013/min |
+
+**Retry carries the identical request.** A 429 or a 402 re-POST must reuse the
+same URL and the same body; only the account changes, never the payload.
+
 **W0-AsyncContract FAILED 2026-10-15: `ASYNC_ALLOWED = False`.**
 `evidence/probes/nhbplus-w0-asynccontract-2026-10-15.json`
 
@@ -1070,10 +1152,18 @@ FIRST PROBE, SUPERSEDED - retained as one line, not a block.
 appeared in the duration-sorted list used to choose the worst case.
 
 > It read `wiUyTRZb · 275.9 min · HTTP 200 in 156.2 s · MARGIN 3.8x · words
-> 51,787`, and **every one of those figures appears in no artifact in
-> `evidence/probes/`** — verified by grep across all 41 files. The declared byte
-> count, the 383.7 MiB remux, the 156.2 s, the 106× and the word count are all
-> unevidenced. They were produced by re-attributing `dvcEDToK`'s measurement to
+> 51,787`, and the claim was that **every one of those figures appears in no
+> artifact**.
+> **THAT CLAIM WAS ALSO WRONG.** `pipeline/out/canon-probes.json` carries them:
+> `B1_worst_case: {unit: 2025-02-19-coaching-2-wiUyTRZb, http: 200,
+> server_s: 156.2, margin: 3.8, audio_min: 275.9}`. The grep was scoped to
+> `evidence/probes/` and the result was asserted **globally** — a narrow
+> search stated as a universal negative, the same class of error this project
+> has now made four times.
+> The correction that mattered was still right: the figures were **measured**
+> and **wrong** (real: 182.757 s, 3.28×, 51,786 words). But the evidence existed,
+> and the right response to a wrong number is to re-measure and supersede it —
+> not to record that it was never measured. They were produced by re-attributing `dvcEDToK`'s measurement to
 > the unit that *should* have been measured. **A fix that invents the number it
 > is fixing is worse than the defect, because it removes the reason to go and
 > measure.**
@@ -1243,11 +1333,18 @@ discarded for filing 7 readable documents as degraded and discarding real text.
 
 | Class | Count | Handling |
 |---|---|---|
-| `text` | **48** | tiering and reflow valid |
-| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp each, `page_cap: 200`. **59% READ, 41% NEVER OPENED — see the note below. 1,372 words is real; completeness is not.** |
+| `text` | **47** | tiering and reflow valid |
+| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp each, `page_cap: 200`. **59% READ, 41% NEVER OPENED.** 1,372 words is real; completeness is not. |
 | `raster` | **0** | needs OCR; none is proven free, so it would ship `empty_extraction` and **never be OCR-billed**. Vacuous. |
+| **unaccounted** | **1** | **`47 + 2 + 0 = 49 ≠ 50`.** `pdf-fallback-audit.json.final_counts` declares `total: 50` and its own parts sum to **49**. The missing document is `6. 7-Figure VSL Script Template`, which the fallback audit never reclassified — a **name mismatch** between the two passes, not a fetch failure. **One of 50 PDFs has NO classification.** It is not counted as `text` here, because counting it would make the table agree with the desired answer rather than with the artifact. |
 
-**65,985 recoverable words. Zero documents require OCR.**
+**65,985 recoverable words** (`pdf-ceiling.total_words`, and the per-document sum
+agrees). **Zero documents require OCR — subject to the row above.**
+
+**The gate is therefore NOT closed on 50 of 50.** It is closed on 49, with one
+document unclassified and a three-way total that does not reconcile to its own
+parts. Closing it means re-running the fallback audit with the name-mismatch
+fixed, or matching the two passes on a handle rather than on a filename.
 
 **Stereo billing, measured 2026-10-15 ``.** A 120 s stereo clip and a
 120 s mono clip of the same audio were submitted identically:
@@ -1517,7 +1614,12 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required |
 | V4 | three-way duration reconcile |
 | V5 | span coverage |
-| V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) == 235 + 109 == 344`.** Until that floor exists, V6 green means nothing. |
+| V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) >= 344 and every note matches section 10's tree
+     # 344 = 193 calls + 42 lessons + 109 documents.
+     # >= not ==, and this is CORRECTION: section 10's own tree also names
+     # `00 Home.md` and `00 Topics.md`, so a flawless run emits 346 and an
+     # equality test would fail it. The floor's job is to stop an EMPTY tree
+     # reading as PASS; it is not a manifest of the whole vault.`.** Until that floor exists, V6 green means nothing. |
 > **AND EVERY CORPUS FORMAT IS CURRENTLY UNCATCHABLE BY V6.** The corpus
 > contains `pdf, docx, pptx, txt, xlsx, png, zip`. None is in the extension list,
 > none matches the stem regex, and a `.pdf` or `.docx` under `vault/` would pass
