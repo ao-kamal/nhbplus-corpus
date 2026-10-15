@@ -29,3 +29,7 @@ desktop.ini
 .verify/
 .scratch/
 
+
+# subagent scratch (agents write here while running; findings go in stage-1/)
+pipeline/out/_r*/
+
