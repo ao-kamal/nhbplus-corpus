@@ -174,7 +174,50 @@ argument is search: without it the corpus spells its own programme name
 ## 1. Scope — locked
 
 ```
-339 targets · 146.8731 GiB (= 157.70 decimal GB) · 603.84 h is SUPERSEDED [R1]
+
+> # **[R4-T5.5] THE UNIT COUNT IS NOW 344, NOT 339, AND EVERY CELL THAT CITED
+> 339 IS WRONG UNTIL IT IS RE-DERIVED. THIS PROPAGATION IS NOT YET DONE.**
+>
+> R4 found `normalize.py`'s date check applied only when **both** sides carried
+> a date, so an **undated** unit could absorb a **dated** one on a duration tie
+> alone. It did, six times, and every one was wrong:
+>
+> | undated | absorbed | |
+> |---|---|---|
+> | `market efficiency ratios` | `2025-01-16 … mechanism of comprehension` | different calls |
+> | `selling to women 3.0` | `2022-07-07 … the philosophy of offers` | different calls |
+> | `the mechanism of will power` | `2024-12-12 … value matrix` | different calls |
+> | `the next 5 years` | `2025-01-20 … introduction to google ads` | different calls |
+>
+> **A 2025 call folded into an undated unit, and three different years into one
+> note** \u2014 a wrong note, a wrong date and a wrong written-hand link, produced
+> silently by a rule nobody gated.
+>
+> **The guard now REFUSES a merge when exactly one side carries a date.** A wrong
+> merge is silent and corrupts; a wrong non-merge is visible and costs one extra
+> unit. Measured consequence:
+>
+> | | was | **now** |
+> |---|---|---|
+> | calls | 188 | **193** |
+> | lessons | 42 | 42 |
+> | documents | 109 | 109 |
+> | **targets** | **339** | **344** |
+> | merges applied | 18 | **12** |
+> | audio minutes | 35,013.1 | **34,472.1** |
+> | `SPEND_HARD_STOP_USD` | $207.68 | **$203.04** (34,472.1 \xd7 $0.0056 + $10) |
+>
+> **THE MONEY FELL $4.64 BECAUSE FIVE CORRUPT UNITS NO LONGER EXIST.** The
+> offsetting omission: the two remaining undated calls have **no measured
+> duration and so contribute $0.00**. The previous budget carried a **286.9-minute
+> tail** for exactly this case and **it is not in $203.04.** It must be re-added
+> from a measurement of those two units, not from the old figure.
+>
+> **STILL TO PROPAGATE** \u2014 each of these still cites 339 / 188 / 35,013.1 and is
+> now wrong: \u00a71 totals \u00b7 \u00a72 `SPEND_HARD_STOP_USD` and `FORECAST` \u00b7 \u00a74 W0-PDF
+> target count \u00b7 \u00a77.2 AUDIT row count \u00b7 \u00a710 vault-tree counts \u00b7 \u00a711 V0
+> "339 rows" and V6's floor \u00b7 \u00a712 egress manifest \u00b7 \u00a713.2 \u00b7 \u00a714 \u00b7 AGENTS.md.
+> **Recorded as an open propagation rather than hand-edited into a false green.**
 ```
 
 | Population | Count | Handling |
@@ -235,7 +278,19 @@ TRANSCRIBE_CONCURRENCY = 25       RAISED FROM 16, 2026-10-15, ON MEASUREMENT.
                                  single key; a PASS is not a capacity guarantee.
                                  BINDING CEILING IS 25, not 50. Authoritative
                                 source, fetched 2026-10-15:
-                                developers.deepgram.com/reference/api-rate-limits.md
+developers.deepgram.com/reference/api-rate-limits.md
+                                 **[R4-8.57] THIS TABLE WAS NEVER PROBED IN THIS
+                                 PROJECT AND IS THE WEAKEST LOAD-BEARING CLAIM OUTSIDE
+                                 THE STEREO SHARE.** "fetched 2026-10-15" cites a URL,
+                                 not an artifact: no dated evidence file records the fetch
+                                 or what it said. WORSE, `stt-concurrency-2026-10-15.json`
+                                 already records this table **moved once** - "the 25
+                                 figure predates Deepgram's February 2026 3x concurrency
+                                 increase". A ceiling the project has already caught moving,
+                                 pinned exactly, at ZERO headroom, on a 5% sample.
+                                 ACTION BEFORE THE RUN: fetch it, write the page to
+                                 evidence/probes/ with a date and a hash, re-confirm 25.
+                                 Until then 25 is DOCUMENTED, not MEASURED.
                                   Nova-3            | EU | Pre-Recorded  up to 50
                                   Speaker Diarization | EU | Pre-Recorded  up to 25
                                   "If multiple services are used in one API call...
@@ -1082,7 +1137,18 @@ channels == 1  -> MONO.  No test, no second pass, commit once.
 
 delta <= -60   -> BIT_IDENTICAL.   -map_channel 0.0 -c:a copy.  LOSSLESS, keeps
                                          §7.1's bit-exactness claim. Saves money.
-                                         [B24] VERIFIED: SHA-256 of the decoded
+> **[R4-8.60] [B23] AND [B24] REST ON `pipeline/out/canon-probes.json`, WHICH
+> HAS NO `date`, NO `handle`, NO HASHES AND NO MEASUREMENT** — and it sits
+> **outside** `evidence/probes/`, outside the pack every other claim here cites.
+> Two claims unblock real money: the `.mka` container for 97 units, and the
+> lossless `-map_channel` downmix that produces the ENTIRE saving. Both rest on
+> one boolean (`B24_map_channel_lossless: true`). **[R4-8.18]** and both measured
+> MP3s ran `channels_out: 2` — the copy path WITHOUT the downmix — so **the
+> downmixed path is the one thing never probed.**
+> ACTION BEFORE THE RUN: move it into the evidence pack with a date, a handle
+> and the two PCM hashes it claims. Until then `-ac 1` is ASSERTED lossless.
+>
+> [B24] VERIFIED: SHA-256 of the decoded
                                          PCM is IDENTICAL before and after -
                                          994.6 MB both sides. The standing worry
                                          was that a copy codec cannot extract a
@@ -1806,6 +1872,42 @@ with totals in the header, linked from `00 Home.md`.
 **No note gains a field. No note gains a provenance section. The operator's cut is
 respected exactly** — the audit simply becomes reachable from the tool the
 operator reads in. ~20 lines of renderer code.
+
+> **[R4-8.56] "TEARDOWN IS 7-PHASE" AND THE SEVEN PHASES ARE NOT ENUMERATED
+> ANYWHERE IN THIS DOCUMENT.** A phase count with no phases is a scope claim no
+> reader can check. And `--confirm <sha256 of copy-verification.json>` names a
+> file with **no producer, no path and no schema.** [R4-2.17]
+>
+> **The seven teardown phases, enumerated.** [R4-8.56] A phase count with no
+phases is a scope claim no reader can check.
+
+| # | phase | gate before it may start |
+|---|---|---|
+| 1 | **stop intake** — no new unit admitted, in-flight parts drain | V10 within stop |
+| 2 | **settle** — every `sent`/`reserved` part resolves to `settled`, `lost` or an explicit `PAID_UNKNOWN` | ledger has no `queued` |
+| 3 | **assemble** — `assembled.json` per unit, then the rendered note | V12 clauses 1–4 |
+| 4 | **audit** — emit `_meta/AUDIT.md` (230 rows) and the SHA-256 manifest | V12 clause 4 |
+| 5 | **egress** — `scp -r` vault + `_meta` to the PC, media-free | V6 (with its floor), V7, V11 |
+| 6 | **verify the copy** — `copy-verification.json`: per-file SHA-256, byte count, typography spot-check | V11 |
+| 7 | **destroy** — delete the VM and its disk image | **all of 1–6 green** |
+
+**[R4-2.17] `copy-verification.json` HAS NO PRODUCER, PATH OR SCHEMA ANYWHERE IN
+THIS DOCUMENT.** It is named once, by the `--confirm` argument that gates phase 7.
+**Schema, fixed here so phase 6 cannot be skipped by omission:**
+
+```
+copy-verification.json = {
+  "generated": ISO-8601,
+  "source": "VM:/data/nhb/vault",
+  "files": [ {"relpath": str, "bytes": int, "sha256": hex64} ],   # every file
+  "notes_expected": 339, "notes_found": int,
+  "typography_checked": int, "typography_passed": int
+}
+```
+
+**A run that cannot produce this file does not reach phase 7.** The destroy step
+is the only irreversible one in the plan and it is gated on the artifact that was
+previously unnameable.
 
 Teardown is 7-phase. Final destroy requires `--confirm <sha256 of
 copy-verification.json>` — deliberately awkward, so the operator has looked.

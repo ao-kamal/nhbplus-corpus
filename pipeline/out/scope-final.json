@@ -8,23 +8,23 @@
   "E_orphans": "Swipes + Templates, all 36 files"
  },
  "totals": {
-  "audio_units": 230,
-  "calls": 188,
+  "audio_units": 235,
+  "calls": 193,
   "lessons": 42,
-  "audio_hours": 583.55,
-  "audio_GB": 146.39,
+  "audio_hours": 600.7,
+  "audio_GB": 153.81,
   "documents": 109,
   "document_GB": 0.486,
-  "total_GB": 146.87,
-  "stt_forecast_usd": 150.56,
+  "total_GB": 154.29,
+  "stt_forecast_usd": 154.98,
   "peak_disk_GiB_declared_sentinel": 2.0,
   "peak_disk_GiB": 0.992,
   "sentinel_test": "bytes % 1024 == 0 qualifies ALL 440 declared sizes; GiB-exactness (bytes % (1<<30) == 0) finds only 156. No threshold may consume a declared size."
  },
  "by_kind": {
   "audio": {
-   "count": 230,
-   "GB": 146.387
+   "count": 235,
+   "GB": 153.808
   },
   "course_doc": {
    "count": 36,
@@ -39,10 +39,10 @@
    "GB": 0.017
   }
  },
- "calls_without_written_hand": 151,
- "mp4_alternates_never_fetched": 105,
+ "calls_without_written_hand": 156,
+ "mp4_alternates_never_fetched": 100,
  "unreconciled": [
-  "G0 §1 claims '84 calls (42%) have no written half'. Measured: 151 of 188 have no written hand under decision C. The two figures are not reconciled and neither has been adopted over the other.",
+  "G0 §1 claims '84 calls (42%) have no written half'. Measured: 156 of 193 have no written hand under decision C. The two figures are not reconciled and neither has been adopted over the other.",
   "G0 Q8 says five bonus courses; measured 11 carry video. The 42 videos / 26.16 h figure agrees exactly with the independent bonuses census, so the video count is sound and the course count is a grouping-level difference.",
   "0 calls have no recoverable year - all 188 resolved from name or folder.  # [F30] was 6. Resolvable from the transcript once transcribed - flagged, not guessed."
  ],
@@ -1240,8 +1240,7 @@
    "bytes": 152043520,
    "dur_s": 12682,
    "alternates_not_fetched": [
-    "FnMkFLQD",
-    "QmcWhTwJ"
+    "FnMkFLQD"
    ]
   },
   {
@@ -1976,9 +1975,7 @@
    "ext": "mp4",
    "bytes": 2147483648,
    "dur_s": 14301,
-   "alternates_not_fetched": [
-    "prdyUB7b"
-   ]
+   "alternates_not_fetched": []
   },
   {
    "kind": "audio",
@@ -2834,6 +2831,20 @@
   },
   {
    "kind": "audio",
+   "unit": "undated-other-5-prdyUB7b",
+   "date": null,
+   "label": "2024-05 May*",
+   "type": "other",
+   "topic": "market efficiency ratios",
+   "handle": "prdyUB7b",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/prdyUB7b",
+   "ext": "mp4",
+   "bytes": 2147483648,
+   "dur_s": 14314,
+   "alternates_not_fetched": []
+  },
+  {
+   "kind": "audio",
    "unit": "undated-other-5-MmMmABhJ",
    "date": null,
    "label": "2024-05 May*",
@@ -2845,9 +2856,7 @@
    "bytes": 136314880,
    "dur_s": 11318,
    "alternates_not_fetched": [
-    "86MQHbaA",
-    "V6US2DRJ",
-    "B7dgiDpA"
+    "V6US2DRJ"
    ]
   },
   {
@@ -2872,10 +2881,21 @@
    "ext": "mp4",
    "bytes": 2147483648,
    "dur_s": 11582,
-   "alternates_not_fetched": [
-    "FmFGgRoJ",
-    "QvcAyRIZ"
-   ]
+   "alternates_not_fetched": []
+  },
+  {
+   "kind": "audio",
+   "unit": "undated-other-5-QmcWhTwJ",
+   "date": null,
+   "label": "2024-05 May*",
+   "type": "other",
+   "topic": "the next 5 years",
+   "handle": "QmcWhTwJ",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QmcWhTwJ",
+   "ext": "mp4",
+   "bytes": 2147483648,
+   "dur_s": 12655,
+   "alternates_not_fetched": []
   },
   {
    "kind": "audio",
@@ -2903,6 +2923,20 @@
    "ext": "mp4",
    "bytes": 2147483648,
    "dur_s": 7491,
+   "alternates_not_fetched": []
+  },
+  {
+   "kind": "audio",
+   "unit": "2022-07-14-other-7-FmFGgRoJ",
+   "date": "2022-07-14",
+   "label": "2022-07 July",
+   "type": "other",
+   "topic": "ff_nhb weekly calls - market based funnel architecture & design",
+   "handle": "FmFGgRoJ",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FmFGgRoJ",
+   "ext": "mp4",
+   "bytes": 1073741824,
+   "dur_s": 11745,
    "alternates_not_fetched": []
   },
   {
@@ -3119,6 +3153,20 @@
   },
   {
    "kind": "audio",
+   "unit": "2024-12-12-other-12-QvcAyRIZ",
+   "date": "2024-12-12",
+   "label": "2024-12 December",
+   "type": "other",
+   "topic": "nhb call - value matrix",
+   "handle": "QvcAyRIZ",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QvcAyRIZ",
+   "ext": "mp4",
+   "bytes": 2147483648,
+   "dur_s": 11707,
+   "alternates_not_fetched": []
+  },
+  {
+   "kind": "audio",
    "unit": "2024-12-12-theory-12-wmEwhJoD",
    "date": "2024-12-12",
    "label": "2024-12 December",
@@ -3317,6 +3365,22 @@
    "dur_s": 12221,
    "alternates_not_fetched": [
     "xzc2FRIS"
+   ]
+  },
+  {
+   "kind": "audio",
+   "unit": "2025-01-20-other-1-86MQHbaA",
+   "date": "2025-01-20",
+   "label": "2025-01 January",
+   "type": "other",
+   "topic": "nhb introduction to google ads - with charles kirkland",
+   "handle": "86MQHbaA",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/86MQHbaA",
+   "ext": "mp3",
+   "bytes": 451936256,
+   "dur_s": 11296,
+   "alternates_not_fetched": [
+    "B7dgiDpA"
    ]
   },
   {

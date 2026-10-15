@@ -227,7 +227,9 @@ dur = {}
 for i, ((d, typ, topic), g) in enumerate(items):
     ds = [p["dur_s"] for p in (g["mp3"] + g["mp4"]) if p["dur_s"]]
     dur[i] = max(ds) if ds else None
-merged_pairs = []          # (index_i, index_j) with j merged into i
+merged_pairs = []
+# (i, j) with j merged into i
+mixed_date_pairs = []   # [R4-T5.5] REFUSED: exactly one side carried a date
 
 def _kind_of(g):
     for fh in g["folder"]:
@@ -250,6 +252,27 @@ for i in range(len(items)):
         # 'Selling To Women 3.0 Part 1' and 'Selling To Women 3.0' (both 11318 s)
         # through as two calls.
         if di is not None and dj is not None and di != dj: continue
+        # [R4-T5.5] IF EXACTLY ONE CARRIES A DATE, DO NOT MERGE.
+        # The check above only fires when BOTH are dated, so an UNDATED unit was
+        # free to absorb a DATED one on a duration tie. It did, twice, and both
+        # are visible in this script's own audit output:
+        #   None other selling to women 3.0 part 1
+        #      - Selling To Women 3.0
+        #      - 01-20-2025 NHB Introduction To Google Ads - With Charles Kirkland
+        #   None other the mechanism of will power
+        #      - 7-14-2022 FF_NHB+ Weekly Calls ...
+        #      - 12-12-2024 NHB Call - Value Matrix
+        # A 2025 call folded into an undated unit, and three different years into
+        # one. That is a wrong note, a wrong date and a wrong written-hand link,
+        # produced silently by a rule nobody gated.
+        #
+        # A wrong merge is silent and corrupts; a wrong NON-merge is visible and
+        # only costs an extra unit. Refuse, and report.
+        if (di is None) != (dj is None):
+            # items[i] is (key, group); the topic is items[i][0][2]
+            mixed_date_pairs.append((items[i][0][2], items[j][0][2], di, dj,
+                                     dur[i], dur[j]))
+            continue
         if abs(dur[i] - dur[j]) / max(dur[i], dur[j]) <= 0.02:
             merged_pairs.append((i, j))
             _union(i, j)
@@ -493,4 +516,18 @@ man = {"source": "handle sweep 59/59 folders, normalised (manifest-v3)",
        "units": units}
 out = os.path.join(OD, "manifest-v3.json")
 json.dump(man, open(out, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+
+print("\n=== [R4-T5.5] MERGES REFUSED: exactly one side carried a date ===")
+if not mixed_date_pairs:
+    print("  none - every duration-tie merge had compatible dates")
+else:
+    n = len(mixed_date_pairs)
+    print("  %d refused. Each was a silent corruption: a dated call folded into" % n)
+    print("  an undated unit on a duration tie alone, producing a wrong note, a")
+    print("  wrong date and a wrong written-hand link.")
+    for _a, _b, _da, _db, _sa, _sb in mixed_date_pairs:
+        print("    UNDATED %-46r + %s %-44r  (%ss / %ss)" % (_a[:46], _db, _b[:44], _sa, _sb))
+    print("  A wrong merge is silent and corrupts. A wrong NON-merge is visible")
+    print("  and costs one extra unit. These are reported, not silently taken.")
+
 print(f"\nWRITTEN {out}")

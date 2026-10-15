@@ -2,13 +2,13 @@
  "source": "handle sweep 59/59 folders, normalised (manifest-v3)",
  "counts": {
   "files": 335,
-  "calls": 188,
+  "calls": 193,
   "lessons": 42,
-  "call_hours": 557.39,
+  "call_hours": 574.53,
   "lesson_hours": 26.16,
-  "mp3_served": 97,
-  "mp4_served": 133,
-  "not_billed_alternates": 105
+  "mp3_served": 98,
+  "mp4_served": 137,
+  "not_billed_alternates": 100
  },
  "units": [
   {
@@ -2365,13 +2365,6 @@
       "ext": "mp4",
       "bytes": 2147483648,
       "dur_s": 12681
-     },
-     {
-      "handle": "QmcWhTwJ",
-      "name": "The Next 5 Years",
-      "ext": "mp4",
-      "bytes": 2147483648,
-      "dur_s": 12655
      }
     ]
    },
@@ -3748,15 +3741,7 @@
     "ext": "mp4",
     "bytes": 2147483648,
     "dur_s": 14301,
-    "alternates": [
-     {
-      "handle": "prdyUB7b",
-      "name": "Market Efficiency Ratios",
-      "ext": "mp4",
-      "bytes": 2147483648,
-      "dur_s": 14314
-     }
-    ]
+    "alternates": []
    },
    "has_mp3": false,
    "has_mp4": true
@@ -5419,6 +5404,35 @@
    "has_mp4": true
   },
   {
+   "id": "undated-other-5-prdyUB7b",
+   "slug": "Market Efficiency Ratios",
+   "date": null,
+   "kind": "calls",
+   "year": 2024,
+   "month": 5,
+   "type": "other",
+   "topic": "market efficiency ratios",
+   "folder_label": "2024-05 May*",
+   "folder_month": 5,
+   "folder_year": null,
+   "folder_month_matches": true,
+   "dated_from": "folder_name",
+   "source_folder": "5. May",
+   "folder_handle": "liVUnbAT",
+   "title": "Market Efficiency Ratios",
+   "media": {
+    "handle": "prdyUB7b",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/prdyUB7b",
+    "name": "Market Efficiency Ratios",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 14314,
+    "alternates": []
+   },
+   "has_mp3": false,
+   "has_mp4": true
+  },
+  {
    "id": "undated-other-5-MmMmABhJ",
    "slug": "Selling To Women 3.0",
    "date": null,
@@ -5444,25 +5458,11 @@
     "dur_s": 11318,
     "alternates": [
      {
-      "handle": "86MQHbaA",
-      "name": "01-20-2025 NHB Introduction To Google Ads - With Charles Kirkland",
-      "ext": "mp3",
-      "bytes": 451936256,
-      "dur_s": 11296
-     },
-     {
       "handle": "V6US2DRJ",
       "name": "Selling To Women 3.0 Part 1",
       "ext": "mp4",
       "bytes": 2147483648,
       "dur_s": 11318
-     },
-     {
-      "handle": "B7dgiDpA",
-      "name": "01-20-2025 NHB Introduction To Google Ads - With Charles Kirkland",
-      "ext": "mp4",
-      "bytes": 2147483648,
-      "dur_s": 11296
      }
     ]
    },
@@ -5493,22 +5493,36 @@
     "ext": "mp4",
     "bytes": 2147483648,
     "dur_s": 11582,
-    "alternates": [
-     {
-      "handle": "FmFGgRoJ",
-      "name": "7-14-2022 FF_NHB+ Weekly Calls - Market Based Funnel Architecture & Design",
-      "ext": "mp4",
-      "bytes": 1073741824,
-      "dur_s": 11745
-     },
-     {
-      "handle": "QvcAyRIZ",
-      "name": "12-12-2024 NHB Call - Value Matrix",
-      "ext": "mp4",
-      "bytes": 2147483648,
-      "dur_s": 11707
-     }
-    ]
+    "alternates": []
+   },
+   "has_mp3": false,
+   "has_mp4": true
+  },
+  {
+   "id": "undated-other-5-QmcWhTwJ",
+   "slug": "The Next 5 Years",
+   "date": null,
+   "kind": "calls",
+   "year": 2024,
+   "month": 5,
+   "type": "other",
+   "topic": "the next 5 years",
+   "folder_label": "2024-05 May*",
+   "folder_month": 5,
+   "folder_year": null,
+   "folder_month_matches": true,
+   "dated_from": "folder_name",
+   "source_folder": "5. May",
+   "folder_handle": "liVUnbAT",
+   "title": "The Next 5 Years",
+   "media": {
+    "handle": "QmcWhTwJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QmcWhTwJ",
+    "name": "The Next 5 Years",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12655,
+    "alternates": []
    },
    "has_mp3": false,
    "has_mp4": true
@@ -5566,6 +5580,35 @@
     "ext": "mp4",
     "bytes": 2147483648,
     "dur_s": 7491,
+    "alternates": []
+   },
+   "has_mp3": false,
+   "has_mp4": true
+  },
+  {
+   "id": "2022-07-14-other-7-FmFGgRoJ",
+   "slug": "7-14-2022 FF_NHB+ Weekly Calls - Market Based Funnel Architecture & Design",
+   "date": "2022-07-14",
+   "kind": "calls",
+   "year": 2022,
+   "month": 7,
+   "type": "other",
+   "topic": "ff_nhb weekly calls - market based funnel architecture & design",
+   "folder_label": "2022-07 July",
+   "folder_month": 7,
+   "folder_year": null,
+   "folder_month_matches": true,
+   "dated_from": "call_name",
+   "source_folder": "7. July",
+   "folder_handle": "lnVyhBTR",
+   "title": "7-14-2022 FF_NHB+ Weekly Calls - Market Based Funnel Architecture & Design",
+   "media": {
+    "handle": "FmFGgRoJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FmFGgRoJ",
+    "name": "7-14-2022 FF_NHB+ Weekly Calls - Market Based Funnel Architecture & Design",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11745,
     "alternates": []
    },
    "has_mp3": false,
@@ -6012,6 +6055,35 @@
     ]
    },
    "has_mp3": true,
+   "has_mp4": true
+  },
+  {
+   "id": "2024-12-12-other-12-QvcAyRIZ",
+   "slug": "12-12-2024 NHB Call - Value Matrix",
+   "date": "2024-12-12",
+   "kind": "calls",
+   "year": 2024,
+   "month": 12,
+   "type": "other",
+   "topic": "nhb call - value matrix",
+   "folder_label": "2024-12 December",
+   "folder_month": 12,
+   "folder_year": null,
+   "folder_month_matches": true,
+   "dated_from": "call_name",
+   "source_folder": "11. December",
+   "folder_handle": "pnVWXDyY",
+   "title": "12-12-2024 NHB Call - Value Matrix",
+   "media": {
+    "handle": "QvcAyRIZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QvcAyRIZ",
+    "name": "12-12-2024 NHB Call - Value Matrix",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11707,
+    "alternates": []
+   },
+   "has_mp3": false,
    "has_mp4": true
   },
   {
@@ -6465,6 +6537,43 @@
       "ext": "mp4",
       "bytes": 2147483648,
       "dur_s": 12220
+     }
+    ]
+   },
+   "has_mp3": true,
+   "has_mp4": true
+  },
+  {
+   "id": "2025-01-20-other-1-86MQHbaA",
+   "slug": "01-20-2025 NHB Introduction To Google Ads - With Charles Kirkland",
+   "date": "2025-01-20",
+   "kind": "calls",
+   "year": 2025,
+   "month": 1,
+   "type": "other",
+   "topic": "nhb introduction to google ads - with charles kirkland",
+   "folder_label": "2025-01 January",
+   "folder_month": 1,
+   "folder_year": null,
+   "folder_month_matches": true,
+   "dated_from": "call_name",
+   "source_folder": "Jan.",
+   "folder_handle": "t2EigLBL",
+   "title": "01-20-2025 NHB Introduction To Google Ads - With Charles Kirkland",
+   "media": {
+    "handle": "86MQHbaA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/86MQHbaA",
+    "name": "01-20-2025 NHB Introduction To Google Ads - With Charles Kirkland",
+    "ext": "mp3",
+    "bytes": 451936256,
+    "dur_s": 11296,
+    "alternates": [
+     {
+      "handle": "B7dgiDpA",
+      "name": "01-20-2025 NHB Introduction To Google Ads - With Charles Kirkland",
+      "ext": "mp4",
+      "bytes": 2147483648,
+      "dur_s": 11296
      }
     ]
    },
