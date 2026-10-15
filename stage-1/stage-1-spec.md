@@ -144,11 +144,11 @@ argument is search: without it the corpus spells its own programme name
 MEGA_URL_TMPL  = "https://mega.nz/folder/<PH>#<KEY>/file/<HANDLE>"
      PROVEN. Peak disk 2.00 GB, never 320 GB.
 
-FETCH_CONCURRENCY      = 1        RAISE TO 4-8 once W0-Cap closes. This is the
-                                BOTTLENECK: fetch is 60-78 min serial at the
-                                measured 41-53 MB/s, against an STT stage of
-                                15-20 min. Throttled by our own safety choice,
-                                not by any vendor limit. Saves 40-65 min, $0.00.
+FETCH_CONCURRENCY      = 6        RAISED from 1, 2026-10-15. W0-Cap PASSED: the
+                                4 GiB loopback is a real, exact, timely stop.
+                                Expected saving 40-65 min. The cap costs 1.7%
+                                throughput (169 vs 172 MB/s) against a network
+                                fetch ceiling of 41-53 MB/s, so it is free.
 REMUX_CONCURRENCY      = 2
 TRANSCRIBE_CONCURRENCY = 50       RAISED from 16, measured 2026-10-15. The prior
                                 evidence said the EU+diarize ceiling was 25; the
@@ -300,7 +300,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | Probe | Status | Question |
 |---|---|---|
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
-| **W0-Cap** | OPEN | does a 5 GiB write into the 4 GiB loopback raise ENOSPC? An untested cap is not a cap. |
+| **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches `FETCH_CONCURRENCY 1 → 6`.** |
 | **W0-Remux** | OPEN | `ffmpeg -vn -c:a copy` audio-identical; log the **real** size cut (85% expected — measure). **The majority path**: 133/230 are MP4. |
 | **W0-SyncCeiling** | OPEN | calibrate sync at `SYNC_SEG_SEC`. **Must not** raise the cutoff. |
 | **W0-AsyncContract** | OPEN, **GO/NO-GO** | outbound-only async, and **does a GET after N minutes actually return a transcript?** Constraint 7 says retention is none. This is now the highest-value probe in the plan. |
@@ -411,13 +411,45 @@ After any kill/cancel: `mega-cancel --all`, watch 60 s, **assert zero growth**
 
 ### 6.3 Loopback lifecycle — the missing deletion point `[R1]`
 
-Rev 0 never said when a fetched raw is deleted. With fetch=1, remux=2 and
-transcribe=16, **2–17 raws are naturally co-resident — 5–32 GB against a 4 GiB
-cap.** Legal traffic hits ENOSPC, `mega-get` dies, the watcher sees no growth,
-and units fail one after another as `FETCH_STALL` with no cause named.
+**Build the loopback at PIPELINE START and assert writability before admitting
+any work.** A loopback mount does not survive a reboot, and the pipeline runs as
+`azureuser` while `mkfs.ext4` produces a **root-owned** mount:
 
-- **Delete the raw at the remux receipt**, before the next fetch is admitted.
-- **Gate fetch admission** on `free(fetch_mnt) >= 2 × declared + slack`.
+```
+truncate -s 4G /home/azureuser/fetch.img
+sudo mkfs.ext4 -q -F -m 0 /home/azureuser/fetch.img
+sudo mount -o loop /home/azureuser/fetch.img /home/azureuser/fetch_mnt
+sudo chown "$(id -u):$(id -g)" /home/azureuser/fetch_mnt      # REQUIRED
+sudo chmod 775 /home/azureuser/fetch_mnt                     # REQUIRED
+test -w /home/azureuser/fetch_mnt || { echo "LOOPBACK NOT WRITABLE"; exit 1; }
+```
+
+> `mkfs.ext4 -m 0` clears reserved **blocks**, not **directory ownership**. Without
+> the `chown`, every fetch fails `EACCES` while *looking* like a cap failure. This
+> cost two false readings during the W0-Cap run itself — test 3 returned
+> "Permission denied" and test 5 returned `Write not allowed`, both of which the
+> first verdict function accepted as cap behaviour.
+
+**Measured cap behaviour** (`evidence/probes/nhbplus-w0-cap-2026-10-15.json`): a full
+loopback makes `mega-get` exit **232 "Insufficient disk space" in 0 seconds**, with
+no host spill. It appears to **pre-check** and refuse rather than fail mid-transfer,
+so a full loopback never produces partial audio.
+
+> This **contradicts round 1's premise** that megacmd is "the only unkillable
+> operation". `timeout(1)` genuinely cannot stop it, but the kernel can, and does.
+> The overrun watcher is still required — the cap stops the *write*, it does not
+> reap the *process*.
+
+**Concurrency.** `FETCH_CONCURRENCY = 6`, gated on §6.3 admission:
+
+- **Delete the raw at the remux receipt**, before the next fetch is admitted. With
+  fetch=6, remux=2 and transcribe=50, unfettered admission keeps 5–58 raws
+  co-resident against a 4 GiB cap, and units fail one after another as
+  `FETCH_STALL` with no cause named.
+- **Gate fetch admission** on `free(fetch_mnt) >= 2 × declared + 64 MiB slack`.
+  When `declared` is a sentinel (Constraint 6) use a fixed 512 MiB reserve instead.
+- **Reap partial files** after any failed fetch — a refused transfer still leaves
+  one 0-byte partial behind.
 - **Name `LOOPBACK_ENOSPC`** as a state distinct from overrun/stall.
 
 ### 6.4 The overrun threshold must not consume a sentinel `[R1]`
