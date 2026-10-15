@@ -37,9 +37,9 @@
  },
  "limits_of_this_test": [
   "25 requests is ONE sample of concurrency. It shows the largest call survives at 25-way; it does not characterise the latency DISTRIBUTION under sustained load.",
-  "Duration is ~24x shorter than a real run. A 25-hour sustained run at 25-way may queue differently from a 3-minute burst.",
+  "CORRECTED 2026-10-15: this originally read 'Duration is ~24x shorter than a real run. A 25-hour sustained run at 25-way may queue differently from a 3-minute burst.' THAT WAS A 60x UNIT ERROR PROPAGATED FROM AN EARLIER TABLE. The real STT stage is 34,766.94 min / 90.6x / 25 = 15.46 MINUTES. The whole run is ~1.4 h. So the burst is ~5x shorter than the real STT stage, not 24x, and there is no 25-hour run to plan around. NO SUSTAINED TEST IS WARRANTED.",
   "Single key only. Two-account behaviour is out of scope on contract grounds.",
   "A PASS is evidence that 25 does not break the largest call today. It is not a capacity guarantee."
  ],
- "supports": "TRANSCRIBE_CONCURRENCY 16 -> 25. Saves 8.7 h of a ~24 h run with zero measured downside."
+ "supports": "TRANSCRIBE_CONCURRENCY 16 -> 25. Saves 8.7 MINUTES of a ~15-minute STT stage with zero measured downside. [CORRECTED 2026-10-15: this originally said '8.7 h of a ~24 h run' - the same 60x minutes-vs-hours slip, caught when the user questioned why a 25-hour test would be worth running.]"
 }

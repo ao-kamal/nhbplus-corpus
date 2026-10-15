@@ -273,8 +273,9 @@ TRANSCRIBE_CONCURRENCY = 25       RAISED FROM 16, 2026-10-15, ON MEASUREMENT.
                                  margin survives at 25-way as 3.21x.
                                  25 IS NOT A HOPE NOW; IT IS A MEASUREMENT.
                                  Artifact: nhbplus-w0-concurrency25-2026-10-15.json
-                                 Run cost $2.41. Saves 8.7 h of a ~24 h run.
-                                 LIMITS: one burst, not a 25-hour sustained load;
+                                 Run cost $2.41. **[R4-PROP] Saves 8.7 MINUTES of a ~15-minute STT stage, not
+                                 8.7 h of a 24 h run — that was the same 60× unit slip.**
+                                 LIMITS: one burst, not the full 15-minute STT stage;
                                  single key; a PASS is not a capacity guarantee.
                                  BINDING CEILING IS 25, not 50. Authoritative
                                 source, fetched 2026-10-15:
@@ -340,7 +341,8 @@ developers.deepgram.com/reference/api-rate-limits.md
 >
 > The second use is the one the plan would be doing, and it is what the ToS
 > language quoted in this document is aimed at. It was also never worth it:
-> **16 -> 25 recovered 8.7 h inside one project with no question at all**, and
+> **16 -> 25 recovered 8.7 MINUTES of STT inside one project with no question at
+> all** [R4-PROP: this said 8.7 h, the same 60x slip], and
 > the remaining 25 -> 32 would have bought **3.4 h** in exchange for a standing
 > doubt about the whole run. §2.2's rule stands: **a wallet, not a worker**,
 > sequential failover on 402, never concurrent.
@@ -1336,8 +1338,10 @@ left has since been filled by measurement, not by hope:**
 **[W0-CONCURRENCY25] 25 requests fired simultaneously, the same carrier included,
 and it completed in 186.738 s — degradation 1.022×, margin 3.21× under load.**
 The solo figure is no longer the operative number. The artifact's other warning
-stands and is not withdrawn: **one 3-minute burst is not 25 hours of sustained
-load**, and a pass is not a capacity guarantee.
+stands and is not withdrawn: **one 3-minute burst is not the full 15-minute STT stage
+> **[R4-PROP] This said "25 hours of sustained load" and that was the same 60x
+> unit slip a second time.** There is no 25-hour run: the whole run is ~1.4 h and
+> the STT stage is 15 minutes.**, and a pass is not a capacity guarantee.
 >
 > The prediction from `dvcEDToK`'s measured 119× realtime is ~139 s against
 > 600 s, which is comfortable — **but that is an extrapolation, and the previous
