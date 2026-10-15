@@ -1,0 +1,43 @@
+{
+ "pdf_count": 50,
+ "total_bytes": 170330112,
+ "by_folder": {
+  "?": 15,
+  "2. NHB+ Swipes": 4,
+  "3. Templates": 31
+ },
+ "probe_set": [
+  {
+   "handle": "BvdgBBqR",
+   "name": "Vimeo gif thumbnail custom code",
+   "ext": "pdf",
+   "bytes": 48128,
+   "folder": "3. Templates",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/BvdgBBqR"
+  },
+  {
+   "handle": "FqMUwRJQ",
+   "name": "1. AC Calculator",
+   "ext": "pdf",
+   "bytes": 56320,
+   "folder": null,
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FqMUwRJQ"
+  },
+  {
+   "handle": "lqdiWBqD",
+   "name": "Swipe",
+   "ext": "pdf",
+   "bytes": 800768,
+   "folder": "2. NHB+ Swipes",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lqdiWBqD"
+  },
+  {
+   "handle": "g2U0UDLb",
+   "name": "500-page-swipe-file-clayton-makepeace_compress_1",
+   "ext": "pdf",
+   "bytes": 70254592,
+   "folder": "2. NHB+ Swipes",
+   "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/g2U0UDLb"
+  }
+ ]
+}
