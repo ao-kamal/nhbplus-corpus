@@ -374,7 +374,18 @@ WPM_MIN, WPM_MAX = 60, 260          MEASURED 2026-10-15, wpm.json.
                                      V5 would fail a good note. Re-measure
                                      across the 42 lessons before the run;
                                      do not widen it to make a gate pass.
-SPAN_EDGE_SEC   = 60
+SPAN_EDGE_SEC   = 60      PROVISIONAL, NO MEASUREMENT, and unlike
+                         SEGMENT_SEC this one REACHES on every unit. It is
+                         the slack allowed between a transcript's first and
+                         last word and the unit's declared duration, in V5's
+                         span coverage. 60 s is a GUESS. Re-measure against
+                         the five units in nhbplus-wpm-2026-10-15.json: their
+                         response/manifest duration ratio is 1.0000, so the
+                         true edge may be far tighter - and a slack value
+                         that is too loose lets a TRUNCATED ASSEMBLY PASS.
+                         Named as a guess until it is measured, which is what
+                         the other three constants in this block already say
+                         about themselves.
 FORECAST_USD    = 203.48    WAS 150.56. That was the RATE-only figure before
                              keyterm was adopted. At RATE + KEYTERM the run is
                              $203.48 and the hard stop is $213.48. A forecast
@@ -1761,8 +1772,8 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 
 ## 11. Verification — gates
 
-| Gate | Assertion |
-|---|---|
+| Gate | Status | Assertion |
+|---|---|---|
 | V0 | worklist integrity: **344** rows, never a glob |
 | V1 | fetch caps: ENOSPC proven; **no kill fired on a sentinel `declared`** |
 | V2 | remux/segment: no part ≥ `CAP_BYTES` |
