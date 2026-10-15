@@ -53,7 +53,12 @@ def strip_junk(s):
 
 def drop_lead(s):
     """Ordinal prefix, redundant brand, and the word 'Call'."""
-    s = re.sub(r"^\s*\d{1,2}\s*[.)]\s*", "", s)                 # 65 files
+    # A DOTTED ordinal ("2.1", "10.3") must be stripped before the single form,
+    # or "2.1 Sales Funnel Assembly" loses only its "2." and becomes
+    # "1 Sales Funnel Assembly" - then the counter prepends "01" and the
+    # filename reads "01 1 Sales Funnel Assembly". 13 of 42 lessons were affected.
+    s = re.sub(r"^\s*\d{1,2}\s*\.\s*\d{1,2}\s*[.)]?\s*", "", s)   # 2.1 / 10.3
+    s = re.sub(r"^\s*\d{1,2}\s*[.)]\s*", "", s)                    # 65 files
     s = s.replace("FF_NHB+", "").replace("NHB+", "").replace("FF ", "")
     # `Mindstream` must NOT be in this alternation. With it, the regex ate the
     # whole phrase "NHB+ Mindstream Call" down to an empty stem, call_path
@@ -154,17 +159,47 @@ print("\n" + "=" * 78)
 print("CLEAN NAMES FOR COURSE LESSONS")
 print("=" * 78)
 lesson_rows, lpaths = [], defaultdict(list)
+renumbered = []
 for u in sorted(lessons, key=lambda x: x["source_folder"]):
     course, title = lesson_path(u)
-    n = sum(1 for r in lesson_rows if r["course"] == course) + 1
-    fn = f"{n:02d} {title}.md"
+    # [F10] The SOURCE ordinal, not a running counter. Renumbering to 01..NN
+    # silently closed the gap in the Converting ads course, whose source
+    # numbering runs 1,2,3,5,6,7,8,9 - there is no lesson 4, and renumbering
+    # made that invisible in the vault instead of visible in it. A missing
+    # source lesson must LOOK missing.
+    # The separator matters: "2.What advertising is not" carries NO space after
+    # the period and fell through to the zNN flag, hiding two real source
+    # ordinals. Require either a . or ) separator, or whitespace.
+    src = re.search(r"^\s*(\d{1,2}(?:\s*\.\s*\d{1,2})?)(?:\s*[.)]\s*|\s+)", u["media"]["name"])
+    n = src.group(1).replace(".", "-") if src else \
+        f"z{sum(1 for r in lesson_rows if r['course'] == course) + 1:02d}"
+    if not src:
+        renumbered.append((u["media"]["handle"], n))
+    fn = f"{n} {title}.md"
     p = f"courses/{course}/{fn}"
     lesson_rows.append({"handle": u["media"]["handle"], "verbatim": u["media"]["name"],
-                        "course": course, "path": p, "lesson_no": n})
+                        "course": course, "path": p, "lesson_no": n,
+                        "ordinal_is_source": bool(src)})
     lpaths[fn.casefold()].append(p)
 for r in lesson_rows[:16]:
     print(f"  {r['verbatim'][:44]:<46} ->  {r['path'][:56]}")
 print(f"  ... {len(lesson_rows)} lessons total")
+srcd = sum(1 for r in lesson_rows if r["ordinal_is_source"])
+print(f"\n  SOURCE ordinals carried: {srcd} of {len(lesson_rows)}  [F10]")
+if renumbered:
+    print(f"  NO source ordinal found, flagged zNN (recorded, NOT invented): "
+          f"{len(renumbered)}")
+    for h, n in renumbered[:8]:
+        print(f"    {n}  {h}")
+# a source numbering gap is now VISIBLE in the vault instead of closed by it
+seen = defaultdict(list)
+for r in lesson_rows:
+    seen[r["course"]].append(r["lesson_no"])
+for c, ns in seen.items():
+    nums = sorted({int(x) for x in ns if x.isdigit()})
+    if nums and nums != list(range(1, len(nums) + 1)):
+        gaps = [n for n in range(1, max(nums) + 1) if n not in nums]
+        print(f"  SOURCE GAP in {c!r}: no lesson {gaps}  <- preserved, not renumbered")
 lcoll = {k: v for k, v in lpaths.items() if len(v) > 1}
 print(f"\n  within-course filename collisions: {len(lcoll)}")
 
@@ -202,9 +237,40 @@ for t in drows:
 # D3: every document gets a REAL vault path. Without this, gate V8's assertion
 # "every document has a path" is unfalsifiable - it can never pass, and the
 # section 9 docs shakedown can never complete.
+# [F11] A written hand is the WRITTEN half of a call. Its name must come from
+# that call's clean name, not from its own MEGA name - the spec calls this "one
+# line", and it kills three defect classes at once: the hand inherits the call's
+# cleaned stem (no date prefix, no ordinal, no brand), the two notes can never
+# read as duplicates, and a search for the call finds both halves.
+# scope-final.json records the link as `unit`, e.g. "2024-03-07-theory-3-EqN2UTLK"
+# - the trailing 8 chars are the MEGA handle, which is the audio unit's id.
+_call_by_handle = {}
+for _u in man["units"]:
+    _hid = (_u.get("media") or {}).get("handle")
+    if _hid:
+        _call_by_handle[_hid] = _u
+_by_id = {u.get("id"): u for u in man["units"] if u.get("id")}
+_call_path_by_handle = {r["handle"]: r["path"] for r in call_rows}
+f11_linked = f11_unlinked = 0
+
 for t in drows:
     stem = re.sub(r"^\s*\d{1,2}\s*[.)]\s*", "", t["clean"]).strip()   # ordinal
     stem = re.sub(r"\s+(V\d+|v\d+)$", "", stem)                        # trailing version
+    if t["kind"] == "written_hand":
+        hid = None
+        m = re.search(r"([A-Za-z0-9]{7,8})$", t.get("unit") or "")
+        if m:
+            hid = m.group(1)
+        callp = _call_path_by_handle.get(hid)
+        if callp:
+            call_stem = callp.rsplit("/", 1)[-1][:-3]        # strip .md
+            base = re.sub(r"^\d{4}-\d{2}-\d{2}\s+", "", call_stem)  # drop date
+            stem = f"{base} (written hand)"
+            t["source_call"] = hid
+            f11_linked += 1
+        else:
+            f11_unlinked += 1
+            t["source_call"] = None
     stem = safe(stem) and stem or f"document {t['handle']}"
     if t["kind"] == "written_hand":
         # written_hand targets in scope-final.json have NO date field. The date
@@ -227,6 +293,10 @@ by_path = defaultdict(list)
 for t in drows: by_path[t["path"].casefold()].append(t)
 dpdups = {k: v for k, v in by_path.items() if len(v) > 1}
 print(f"  documents with a path        : {sum(1 for t in drows if t.get('path'))} of {len(drows)}")
+print(f"  written hands linked to a call: {f11_linked} linked, {f11_unlinked} unlinked  [F11]")
+for t in drows:
+    if t["kind"] == "written_hand" and not t.get("source_call"):
+        print(f"    UNLINKED  unit={t.get('unit')!r}  {t['verbatim'][:46]!r}")
 print(f"  document PATH collisions     : {len(dpdups)}")
 print(f"  distinct cleaned names: {len(by_name)} of {len(drows)}")
 print(f"  COLLISIONS: {len(dups)}")
@@ -251,9 +321,15 @@ for p in longest: print(f"    {len(p):>3}  {p}")
 out = {"calls": call_rows, "lessons": lesson_rows,
        "documents": [{"handle": t["handle"], "verbatim": t["name"],
                       "kind": t["kind"], "clean": t["clean"],
-                      "path": t["path"]} for t in drows],
+                      "path": t["path"], "source_call": t.get("source_call")} for t in drows],
+       # [F38] these two measure DIFFERENT things and the old block reported only
+       # the first under a key named "documents", so the JSON advertised a
+       # collision that no longer exists on PATH. `names_unprefixed` is the
+       # pre-prefix count that DECIDES whether a prefix is applied;
+       # `paths` is the post-prefix count that is actually load-bearing.
        "collisions": {"calls": len(coll), "lessons": len(lcoll),
-                      "documents": len(dups), "document_paths": len(dpdups)},
+                      "document_names_unprefixed": len(dups),
+                      "document_paths": len(dpdups)},
        "decision": "2026-10-15 operator: clean names, NOT verbatim MEGA filenames. "
                    "Verbatim preserved in _meta/manifest.json for every unit."}
 json.dump(out, open(os.path.join(OUT, "clean-names.json"), "w", encoding="utf-8"),

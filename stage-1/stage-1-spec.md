@@ -216,31 +216,64 @@ COMMIT_COST           = (billed_seconds(part) / 60) * (RATE + KEYTERM_RATE)
                         seconds multiplied by dollars-per-minute. The class is
                         closed by this fix and by the loss-allowance re-base.
 SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
-                        IDENTICALLY in the 7.2 gate and in V10. [T5 #3]
+                        IDENTICALLY in the 7.2 gate and in V10. [T5 #3][F5]
                         NOT the response's channel array: Deepgram returns
                         channels=1 for a stereo input while BILLING 2x.
+                        AND NOT the PRE-downmix part. INPUT_CHANNEL_COUNT is the
+                        channel count of the part AS SUBMITTED, recorded in the
+                        same atomic write as `sent`. The 7.1a BIT_IDENTICAL branch
+                        re-runs -map_channel and produces a MONO part, so reading
+                        the pre-downmix count would settle every downmixed unit at
+                        2x and double-count the $26.98 saving into the ledger.
+
+  KEEP-STEREO TAIL (not in the $197.68 above). [F6]
+    3 of 3 stereo files were dual-mono, so the 7.1a keep-stereo branch has
+    fired 0 of 3 and the $26.98 downmix saving is currently whole. If a future
+    part reads INDEPENDENT and keeps 2 channels, SETTLE_FROM bills 2x for it.
+    Worst case over the corpus: +$197.68, i.e. a $405.36 run against a
+    $207.68 stop. The gate must stop, not re-derive, when this happens -
+    the unmeasured tail is a spend risk the flat budget does not cover.
+    Corpus-wide stereo share is UNKNOWN (see section 6 residual risks).
 
 SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
                                 were in circulation and all three were wrong:
                                 $207.31 (the budget artifact), $207.35 (this
                                 spec, twice), and this one — which is derived.
-                                  (35,013.1 + 286.9) x $0.0056 = $196.68 run
-                                  + $10.00 loss reserve            = $207.68
+  ONE formula, ONE figure. [F2]
+      (35,013.1 + 286.9) x $0.0056 = $197.68   <- the run
+      + $10.00 loss reserve         = $207.68   <- SPEND_HARD_STOP_USD
+  The displayed component previously read $196.68 and the table four lines
+  below summed to $207.35, so THREE figures were live in one code block and the
+  total did not follow from the line above it. Both are gone.
                                 The $1.23/$1.27 "undated units" line was
                                 STT-only; at RATE + KEYTERM the two units are
                                 286.9 min x $0.0056 = **$1.65**. [B1]
-LOSS_ALLOWANCE_USD    = 10.00     covers a 5% failure rate across 3,611 parts
+LOSS_ALLOWANCE_USD    = 10.00     5% of ~230 units at the mean COMMIT_COST
+                                $0.86 = $9.89. [F3] The old derivation named
+                                3,611 parts - the segmentation design section
+                                7.2 dissolved. $10 leaves 1.1% headroom, which
+                                is marginal and is stated as marginal.
 ```
 
-**The settled budget — every line measured, none estimated:**
+**The settled budget — every line measured, none estimated. [F2] ONE table, ONE
+figure.** The per-line split is *inside* the run total, not added on top of it:
 
 | | |
 |---|---|
-| corpus 35,013.1 min × $0.0043 | **$150.56** |
-| 2 previously-undated units, **measured today** | **$1.27** |
-| 504 loss allowance | **$10.00** |
-| keyterm 35,013.1 min × $0.0013 | **$45.52** |
+| **TOTAL RUN** (35,013.1 + 286.9 min) × $0.0056 | **$197.68** |
+| — of which STT 35,013.1 min × $0.0043 | $150.56 |
+| — of which keyterm 35,013.1 min × $0.0013 | $45.52 |
+| — of which the 286.9 undated minutes | $1.60 |
+| 504 loss allowance (5% of ~230 units = $9.89) | **$10.00** |
 | **`SPEND_HARD_STOP_USD`** | **$207.68** |
+
+Adding the splits on top of the total is how **$207.35 and $207.68 were both live
+in one code block.** The old table's "2 previously-undated units $1.27" was
+header-derived — `durprobe.json` prices `pjFQiLQQ` at its container header
+(4,958.743 s) while §7.1 and AGENTS.md trap 29 both establish its decoded PCM is
+5,431.8 s. Repriced on decoded PCM the undated tail is **294.84 min**, which is
+the 286.9 above, priced at the **$0.0056** keyterm rate because those minutes
+carry a keyterm. [F4]
 
 **Credit position: no payment card on file.** So the vendor itself enforces the
 ceiling — exhausting the credit returns **HTTP 402** and processing stops. That is
@@ -345,9 +378,9 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 |---|---|---|
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
 | **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches `FETCH_CONCURRENCY 1 → 6`.** |
-| **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
-| **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15** | **CLOSED, MEASURED.** The longest call in the corpus — 204.3 min, 280.7 MB remuxed — completed in **105.1 s against the 600 s ceiling. Margin 5.7×, measured, not calculated.** $1.54. Take 1 (the raw 1,539 MB MP4) **timed out**; see §7.1. |
-| **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7× and later measured at 5.7×** on the worst case — see W0-SyncCeiling. |
+| **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM - **[F23] the 995 MB figure appears only in this spec and in the [B24] note; w0-remux.json records 133.6/89.8 MB sources. Cite the artifact, not this line.**), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
+| **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15** | **CLOSED, MEASURED** — **[F1] on the REAL worst case, not the unit the first probe used.** `wiUyTRZb` (`02-19-2025 NHB Coaching Call - February Reading Offers`), **275.9 min**, 383.7 MiB MP3, completed in **156.2 s against the 600 s ceiling. Margin 3.8×, measured, not calculated.** The first probe ran `dvcEDToK`, which **ranks 47th of 229 by duration** and was mislabelled "the longest call in the corpus"; §4 contradicted §7.2 by 71.6 minutes, 1.9× and $0.40. `dvcEDToK`'s own cost on `metadata.duration` is **$1.14**, not $1.54. Take 1 (the raw 1,539 MB MP4) **timed out**; see §7.1. |
+| **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7× and later measured at 5.7×** on the worst case, which is **3.8×, not the 273.7× first calculated and not the 5.7× first measured** — see W0-SyncCeiling. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
@@ -725,9 +758,13 @@ Deepgram bills stereo at **×2**. But **every stereo file measured is dual-mono*
 worse than measuring: unconditional `-ac 1` would destroy channel separation on
 any per-participant file; unconditional stereo pays 2× on files that gain nothing.
 
-After remux, compute the difference signal for each part:
+**[F7] GUARD BEFORE MEASURING.** `pan=mono|c0=c1` has no `c1` on a mono input
+and errors. **82.1% of sampled minutes are mono**, so the unguarded block below
+fails on the majority of parts.
 
 ```
+channels == 1  ->  MONO.  No measurement, no second pass, commit once.
+
 rms_L  = ffmpeg -i part  -af "pan=mono|c0=c0,astats"        -f null -
 rms_R  = ffmpeg -i part  -af "pan=mono|c0=c1,astats"        -f null -
 rms_D  = ffmpeg -i part  -af "pan=mono|c0=c0-c1,astats"     -f null -
@@ -797,14 +834,13 @@ is no async job, therefore no re-GET, therefore no free recovery on any path.**
 submitted on its own and timed:
 
 ```
-unit        dvcEDToK, 204.3 min, 280.7 MB remuxed .mka
-                        *** NOT THE WORST CASE. [B1] 46 calls are LONGER. ***
-                        The longest is wiUyTRZb at 275.9 min / 16,556 s.
-                        MEASURED ON THE REAL ONE - see below. 3.8x, not 5.7x.
-upload      1.9 s at 150.8 MB/s
-response    HTTP 200 in 103.2 s
-total       105.1 s   against a 600 s ceiling
-MARGIN      5.7x  <- WRONG UNIT, superseded below
+FIRST PROBE, SUPERSEDED - [F1] retained as one line, not a block.
+  dvcEDToK, 204.3 min, 280.7 MB remuxed .mka, HTTP 200 in 103.2 s, total
+  105.1 s -> a 5.7x "margin". dvcEDToK RANKS 47th OF 229 BY DURATION. It is not
+  the worst case and its margin means nothing. 46 calls are longer. Its real cost
+  on metadata.duration is $1.14, not $1.54 - 204.31 min x $0.0056.
+  Three artifacts had joined two different files: the 275.9 min figure belongs to
+  wiUyTRZb, the 1,614,043,424 bytes belong to dvcEDToK. THE REAL ONE IS BELOW.
 ```
 
 **THE REAL WORST CASE, measured 2026-10-15 — W0-SyncCeiling genuinely CLOSED.**
@@ -835,14 +871,13 @@ the worst case is not a margin.
 > **AND THE MEASUREMENT WAS ON THE WRONG UNIT. [B1]** `dvcEDToK` is 204.3 min,
 > not the corpus maximum. **46 calls are longer.** The worst case is
 > `wiUyTRZb` at 275.9 min. Scaling the measured 105.1 s gives ~142 s →
-> **4.2× margin**, not 5.7×. W0-SyncCeiling is **REOPENED** for `wiUyTRZb`. It
-> was skipped because `dvcEDToK`'s manifest `dur_s` is `None`, so it never
-> appeared in the duration-sorted list used to pick the worst case.
->
-> (superseded note retained: the earlier reading)
-> extrapolated a 126× realtime factor measured on a 68-minute, 124.5 MB file to a
-> unit 4× longer and 12× larger. **A margin calculated for the worst case is not a
-> margin.** $1.54 bought the real number; nothing else could.
+> **4.2× margin**, not 5.7×. W0-SyncCeiling was **REOPENED** for `wiUyTRZb` and
+> is now CLOSED on it at **3.8× measured**. It was skipped because
+> `dvcEDToK`'s manifest `dur_s` is `None`, so it never appeared in the
+> duration-sorted list used to pick the worst case. **[F24] The old closing line
+> here RECOMMENDED taking that measurement. It has been taken, at the cost of
+> $1.14, and the recommendation is withdrawn.** **A margin calculated for the worst
+> case is not a margin.**
 
 | Dissolved | Was | Now |
 |---|---|---|
@@ -960,8 +995,10 @@ and that prediction is **not confirmed**.
 **under-records the bill** on any kept-stereo unit. `SETTLE_FROM` multiplies by
 the **input** channel count read from the local part, never from the response.
 Bounded by measurement — 3 of 3 stereo files were dual-mono, so the keep branch
-fired 0 of 3 — but the gate must be correct on it. §2.2 carries an explicit
-keep-stereo line.
+fired 0 of 3 — but the gate must be correct on it. **§2.2 carries an explicit
+keep-stereo line, bounded at 2x the corpus: +$197.68 in the worst case where
+every unit keeps stereo, against a $207.68 stop.** [F6] Earlier revisions claimed
+this line existed twice while grepping for it returned only the claim itself.
 
 **Links: `/Annots` is the ONLY authoritative link layer.** *Swipe* carries 400
 raw annotations, **201 distinct** — half boilerplate. Text-layer URLs are mangled
@@ -1022,11 +1059,18 @@ that no layout is recoverable.**
 ## 10. Vault assembly — on the VM, then copy
 
 ```
-vault/calls/<year>/<MM Month>/<CLEAN>.md
-vault/written-hands/<year>/<MM Month>/<CLEAN> (written hand).md
-vault/library/…                       the 36 orphan documents
+vault/calls/<year>/<MM Month>/<CLEAN>.md              188 paths
+vault/courses/<Course>/<CLEAN>.md                     78 paths   [F9] NEW
+vault/written-hands/<year>/<MM Month>/<CLEAN> (written hand).md   37 paths
+vault/library/…                                     36 paths
 vault/00 Home.md
 vault/00 Topics.md                   NEW - §10.3
+
+[F9] `courses/` was MISSING and holds 78 of the 339 paths - 36 course_doc files in
+36 per-course folders plus the 5 `Resources Links` that the course prefix pulls
+out of the library. design-names.py emits it; §10 did not name it, so §10 and
+VAULT-STRUCTURE.md disagreed on the tree. The counts above are measured from
+pipeline/out/clean-names.json, not asserted.
 _meta/manifest.json
 _meta/AUDIT.md                       NEW - §12.1
 ```
@@ -1038,12 +1082,11 @@ the 109 documents that **no artifact actually populated** — `clean-names.json`
 carries `handle/verbatim/kind/clean` and no `path` for any of them `[R1]`.
 `design-names.py` must emit one, and V8 must assert its existence.
 
-> **[B19] V8 CANNOT PASS TODAY.** Verified by grepping every write to a `path`
-> key across `pipeline/scripts/`: `design-names.py` writes `path` for calls
-> (line 114) and lessons (line 137) and **never for a document**. All 109 document
-> records carry exactly `['clean','handle','kind','verbatim']`. This is a build
-> task, not a note: until the line is written, V8 fails on its first run and the
-> §9 docs shakedown cannot complete.
+> **[B19] CLOSED 2026-10-15 by build, not by prose.** `design-names.py` now writes
+> a `path` for all 109 documents. Measured: `documents with a path : 109/109`,
+> `document path collisions : 0`, `total clean paths : 339` = 188 + 42 + 109.
+> Previously it wrote `path` for calls and lessons and **never for a document**,
+> so V8 failed on its first run and the §9 docs shakedown could not complete.
 
 ### 10.1 Frontmatter value domains — asserted, not merely counted `[R1]`
 
@@ -1107,10 +1150,40 @@ hand names from call names fixes that too.
 
 **The strongest objection to rev 0's design:** the vault is organised by **when a
 call happened** — the one axis a paying member never uses. The topic axis is
-*already in every filename*, already clusters into ~50 groups of 1–13, and
-required **zero inference** to recover. The cleaning pass read it, stripped the
-type boilerplate off it, mangled 24% of its hyphens, and then the vault design
-discarded it.
+*already in every filename* and required **zero inference** to recover. The
+cleaning pass read it, stripped the type boilerplate off it, mangled 24% of its
+hyphens, and then the vault design discarded it.
+
+> **[F15] THE PREMISE WAS FALSE AND HAS NOW BEEN MEASURED.** This section
+> previously claimed the topic axis "already clusters into ~50 groups of
+> 1–13". **It does not cluster.** Measured over all 230 manifest topics:
+>
+> | | claimed | **measured** |
+> |---|---|---|
+> | groups | ~50 | **225** |
+> | singletons | — | **221** |
+> | units sharing a stem with ≥1 other | — | **4 of 230** |
+> | largest group | 13 | **3** |
+>
+> A round-3 review measured the same shape independently (212 stems / 199
+> singletons / max 3 / 13 multi-member groups). The counts differ because the two
+> normalisers differ; **both agree the claim is false and the maximum is 3.**
+> Measured here with: split on the dash separator FIRST, drop qualifier segments
+> (`with|and|part|pt|feat`), then strip the call boilerplate from the head. Order
+> matters — stripping `call` before the dash-split collapses 126 units to
+> `untitled`, which is how a first attempt produced a plausible-looking but
+> meaningless clustering.
+>
+> The two leading-strip rules this section specified (`nhb - `, `theory - `)
+> match **0 of 230 topics.** The real boilerplate, measured: `nhb theory` on
+> **108**, `nhb coaching` on **21**, `ff guest` on **11**, `ff ` on **14**, `nhb`
+> on **136** of 230.
+>
+> **So: `00 Topics.md` is not a clustered index, because there are no clusters.
+> It is a chronological index with a topic column — 225 rows, 221 of them a
+> single note.** That is still the right artifact (it answers "where did we
+> discuss X" for the 4 that recur, and lists the rest once), and it is still $0.00,
+> but V13 is re-scoped below to gate what actually exists.
 
 `type: theory` returns ~120 notes across 36 month folders in 5 years. That is not
 a view. And the fallback — Ctrl+F across 4–5M words of machine diarisation where
@@ -1120,9 +1193,22 @@ a view. And the fallback — Ctrl+F across 4–5M words of machine diarisation w
 section per topic stem, sorted by member count descending, each row carrying ISO
 date, type, duration and a wikilink. ~250–400 lines.
 
-**Built by deterministic stem extraction only** — take `topic`, lowercase, strip
-the ISO prefix, strip a leading `nhb - `/`theory - `, strip a trailing
-`- with <name>` and `part N`/`pt. N`/`#N`/`2.0`. **Do not merge stems differing
+**Built by deterministic stem extraction only** — **[F15] the rules below REPLACE
+the ones that matched 0 of 230 units.** In this order, because the order is
+load-bearing:
+
+1. lowercase, `_` → space
+2. **split on the dash separator FIRST** (`-`, `|`, en/em dash)
+3. **drop qualifier segments** — `with|and|part|pt.|feat|featuring …`. If every
+   segment is a qualifier, keep them all.
+4. take the last surviving segment as the topic; if it is empty, the head
+5. strip the head boilerplate: ordinal, `ff `, `nhb `, then the call-type words
+   `guest|speaker|theory|coaching|training|mastermind|mindstream`, then `call`
+6. keep only `[a-z0-9 &+]`, collapse spaces, fall back to `untitled`
+
+The subject is frequently the **middle** segment — `nhb coaching call - offer
+fundamentals - with kevin sheerin` is a `kevin sheerin`-segment if step 3 is
+skipped, and the corpus is full of that shape. **Do not merge stems differing
 only by a verb** — `digging into data` and `diving into data` stay separate and
 appear adjacent so a human sees the inconsistency once and decides, with the
 decision recorded in the script.
@@ -1145,7 +1231,7 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V0 | worklist integrity: 339 rows, never a glob |
 | V1 | fetch caps: ENOSPC proven; **no kill fired on a sentinel `declared`** |
 | V2 | remux/segment: no part ≥ `CAP_BYTES` |
-| V3 | STT contracts: both response paths; **`sent` persisted before the socket opened** |
+| V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required |
 | V4 | three-way duration reconcile |
 | V5 | span coverage |
 | V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$` |
@@ -1155,7 +1241,7 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** |
 | V11 | egress SHA256 per-file match |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
-| **V13** | **`00 Topics.md` — NEW** |
+| **V13** | **`00 Topics.md` — NEW.** **[F15] RE-SCOPED TO WHAT MEASURED.** It is a 225-row chronological index with a topic column, **not** a clustered index: exactly **1 row per emitted note, plus a `recurs` column counting co-members**, so the 4 units that share a stem are visible and the 221 singletons are listed once and not implied to be a cluster. The previous wording gated "~50 groups of 1–13", a structure that does not exist and could never be produced by any correct script. |
 
 ### 11.1 V12 — Identity Binding `[R1]`
 
@@ -1172,7 +1258,11 @@ For each audio unit U:
  2. H(U) equals the value recorded in U/receipt.json at assembly time
  3. H(U) values are PAIRWISE DISTINCT across all 230 audio units
  4. EXACTLY ONE note under vault/ renders utterance text hashing to H(U)
- 5. no request_id appears under two different unit ids
+ 5. no two units share a NON-NULL request_id
+      [F14] `request_id` is None for EVERY submission - proven by
+      nhbplus-w0-asynccontract-2026-10-15.json. The clause as previously written
+      ("no request_id appears under two different unit ids") FAILS on a flawless
+      run, because None appears under all 230 unit ids.
  6. effective_spend reconciles to COMMIT_COST, and ffprobe(U) is within 2% of
     the metadata.duration in the response named by U's OWN request_id
 ```
@@ -1224,9 +1314,11 @@ assemble vault/
   -> V6  on the VM, zero media extensions and stems   <-- BEFORE any transfer
   -> V7  reduction diff, re-render byte-compare
   -> V8  frontmatter value domains + every document has a path
-  -> V8  frontmatter domains + every document has a path
-  -> V9  counts, and EVERY kind-call handle has exactly one note
+  -> V9  counts, and EVERY audio target handle has exactly one note   [F12]
         (this is the gate that catches the dropped call - it must not be omitted)
+        scope-final.json's kinds are audio/written_hand/course_doc/orphan_doc.
+        There is NO kind == "call": the old matcher hit 0 handles and PASSED
+        VACUOUSLY on the very call the gate exists to catch.
   -> V10 settled + lost <= hard stop, from receipts
   -> V12 identity binding
   -> V13 topics index        [CONDITIONAL on the 00 Topics.md decision, §15]
@@ -1248,7 +1340,8 @@ running `jq`. A cut that moves data into a format the reader's software cannot
 open is not a clean cut.
 
 Emit one generated `_meta/AUDIT.md` — 339 lines, one per unit:
-`unit · handle · request_id · declared_s · ffprobe_s · settle_s · sha256-12 · verdict`,
+`unit · handle · declared_s · ffprobe_s · settle_s · sha256-12 · verdict`
+(no request_id column: it is None for every submission - [F14]),
 with totals in the header, linked from `00 Home.md`.
 
 **No note gains a field. No note gains a provenance section. The operator's cut is

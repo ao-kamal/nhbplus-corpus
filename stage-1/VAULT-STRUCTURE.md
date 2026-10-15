@@ -138,20 +138,31 @@ box. Nothing else earns a field.
 
 ```yaml
 ---
-title: 03-07-2024 NHB+ Theory Call - Converting Audiences
+title: Converting Audiences
 date: 2024-03-07
 type: theory
-duration: 3h 14m
+duration: 194
 speakers: 22
 ---
+
+> **[F8] THIS EXAMPLE VIOLATED SECTION 10.1 AND THE GATE BLESSED IT.**
+> `duration: 3h 14m` is the format section 10.1 forbids ("minutes, never
+> '3h 14m' - V4 and V10 do arithmetic on it"), and `title` was the **verbatim
+> MEGA name**, which is neither the filename stem section 10.1 specifies nor the
+> clean name `design-names.py` emits for this unit. `check-frontmatter.py` checked
+> field NAMES only, so it returned **PASS** on all three defects.
+>
+> It now asserts value domains, and on this example it returns **FAIL** - which is
+> the gate working. Fixed here: `duration: 194` (integer minutes) and
+> `title: Converting Audiences` (the clean name, date carried in `date`).
 ```
 
 | Field | Why it is here |
 |---|---|
-| `title` | The verbatim MEGA filename. Also the H1 and the note filename |
+| `title` | The **clean** name - identical to the filename stem. **[F8] This said "the verbatim MEGA filename", which contradicted section 10 and the emitted paths. The verbatim name lives in `_meta/manifest.json`, not here.** |
 | `date` | Parsed to ISO so date queries work. The title keeps the archiver's own format |
-| `type` | `theory` · `guest` · `coaching` · `training` · `other` — the filter you would actually use |
-| `duration` | The one number you want before committing to a three-hour read |
+| `type` | **[F8] `call` · `theory` · `coaching` · `training` · `mastermind` · `lesson` · `document`.** This listed a 5-value domain including `guest` and `other`, which is neither section 10.1's 6-value list nor the 7 the gate enforces. One domain, declared once. |
+| `duration` | The one number you want before committing to a three-hour read. **Integer MINUTES, >= 1. Never `3h 14m`** - V4 and V10 do arithmetic on this field. `[F8]` |
 | `speakers` | Ditto. A call with 22 speakers is not a call with 3 |
 
 **No source block.** No MEGA handle, no URL, no byte counts. **No transcription
@@ -178,23 +189,41 @@ to it is two documents pretending to be one.
 
 ```markdown
 ---
-title: NHB+ Converting Audiences
-kind: written-hand
+title: Converting Audiences (written hand)
 date: 2024-03-07
-source_call: 03-07-2024 NHB+ Theory Call - Converting Audiences
+type: document
+duration: 0
+speakers: 0
 ---
 
-# NHB+ Converting Audiences
+# Converting Audiences (written hand)
 
 <!-- the extracted document text, headings preserved from the source -->
 ```
 
+> **[B16] THIS SHAPE WAS FOUR FIELDS AND SECTION 10 SPECIFIES FIVE.** It declared
+> `kind: written-hand` and `source_call:` — neither in section 10's five — and
+> omitted `duration` and `speakers`. Worse, `check-frontmatter.py` carried an
+> `ALLOWED_WRITTEN_HAND` allow-list for exactly this shape, and **it was dead
+> code**: only ONE yaml block exists in this document, so branch 1 always won and
+> the allow-list was never applied. A dead branch is not a passing branch.
+>
+> **Reconciled to ONE shape.** All four note shapes carry the same five fields
+> with the same asserted domains, and the shape is carried in `type`:
+> `call` · `lesson` · `training` · `mastermind` · `document`. The
+> link to the parent call is a **body wikilink**, not a sixth field — it is
+> structure, and section 10 exists precisely to keep structure out of
+> frontmatter.
+>
+> `duration` and `speakers` are **0**, not absent: a domain is asserted over a
+> declared field set, and an absent field is an undefined one.
+> **[F10]** The hand's `title` derives from the CALL's clean name plus
+> ` (written hand)` — 37 of 37 now link, measured — so a search for the call
+> finds both halves and the two notes can never read as duplicates.
+
 Extraction is `zipfile` + `ElementTree` on the OOXML container — Python standard
 library only, no converter and no office install. A `.docx` that turns out not to be
 OOXML is reported as such, never as empty text.
-
-`kind` distinguishes the four note shapes in the vault: `call`, `lesson`,
-`written-hand`, `document`. Every note says what it is from its first line.
 
 ### The link, both ways
 
