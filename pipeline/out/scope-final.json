@@ -17,7 +17,9 @@
   "document_GB": 0.486,
   "total_GB": 146.87,
   "stt_forecast_usd": 150.56,
-  "peak_disk_GB": 2.0
+  "peak_disk_GiB_declared_sentinel": 2.0,
+  "peak_disk_GiB": 0.992,
+  "sentinel_test": "bytes % 1024 == 0 qualifies ALL 440 declared sizes; GiB-exactness (bytes % (1<<30) == 0) finds only 156. No threshold may consume a declared size."
  },
  "by_kind": {
   "audio": {

@@ -209,7 +209,11 @@ MEGA_URL_TMPL  = "https://mega.nz/folder/<PH>#<KEY>/file/<HANDLE>"
      was doing exactly that.
 
 FETCH_CONCURRENCY      = SIZE-ADAPTIVE, not a constant. See 6.3.
-FETCH_CONCURRENCY_CEILING = 39   RAISED from 1, 2026-10-15. W0-Cap PASSED: the
+FETCH_CONCURRENCY_CEILING = 38   [R4-T4.5] was 39. The [F17] off-by-one fix landed in
+                                 section 6.3 and section 4 and NOT in the constants
+                                 block - the one an engineer reads first.
+                                 39 x 100 MiB = 3,900 MiB > 3,872 admissible;
+                                 38 x 100 MiB = 3,800 MiB.   RAISED from 1, 2026-10-15. W0-Cap PASSED: the
                                 4 GiB loopback is a real, exact, timely stop.
                                 Expected saving 40-65 min. The cap costs 1.7%
                                 throughput (169 vs 172 MB/s) against a network
@@ -331,6 +335,46 @@ SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
                                 were in circulation and all three were wrong:
                                 $207.31 (the budget artifact), $207.35 (this
                                 spec, twice), and this one — which is derived.
+  [R4-T1.7] THE $200 CREDIT ARGUMENT NEVER SUBTRACTS THE PROBES THIS DOCUMENT
+  ITSELF RECORDS. It compared the RUN ($197.68) to the credit and concluded two
+  accounts are required. But ~$6.54-$10.23 is ALREADY SPENT:
+
+  | | |
+  |---|---|
+  | run | $197.68 |
+  | W0-Concurrency25 | $2.41 |
+  | W0-SyncCeiling take 3 (carrier) | $1.55 |
+  | W0-SyncCeiling take 2 (`dvcEDToK`) | $1.14 |
+  | keyterm A/B | $0.76 |
+  | W0-AsyncContract | $0.40 |
+  | W0-Concurrency (concprobe) | $0.11 |
+  | T5 stereo / B23 .mka | $0.06 |
+  | **run + probes (de-duplicated, lo / hi)** | **$204.22 / $207.91** |
+  | **credit** | **$200.00** |
+  | **shortfall** | **$4.22 to $7.91** |
+
+  Several of those rows OVERLAP (deepgram-eu-limits records
+  `spent_on_probes_to_date_usd: 3.80` covering several), so $6.54-$10.23 is a
+  de-duplicated band, not a sum. **The real reason two accounts are needed is
+  that the ACCOUNT is not at $200 — not that the run exceeds it.** Plus the
+  take-1 raw-MP4 submission, which TIMED OUT and whose billing status is
+  unknowable from here (§7.3).
+
+  [R4-T1.8] AND THE OPERATOR-FACING LINES WERE PRE-KEYTERM. D4 adopted keyterm
+  after they were written, so three published figures never entered §2.2:
+
+  | | published | **at RATE + KEYTERM** |
+  |---|---|---|
+  | run with `-ac 1` | $150.56 | **$196.07** |
+  | run as-is | $177.54 | **$392.15** |
+  | downmix saving | $26.98 | **$35.10** |
+
+  **`$26.98` is `RATE`-only.** The stereo share is `0.179 x 35,013.1 = 6,267`
+  minutes, and at `RATE` alone that is $26.95 — so the number is internally
+  consistent but **computed at the wrong rate and never entered this budget.**
+  All three lines are re-based above; $26.98 is withdrawn as a live figure and
+  retained only as the STT-only saving.
+
   ONE formula, ONE figure. [F2]
       (35,013.1 + 286.9) x $0.0056 = $197.68   <- the run
       + $10.00 loss reserve         = $207.68   <- SPEND_HARD_STOP_USD
@@ -1175,7 +1219,19 @@ appeared in the duration-sorted list used to choose the worst case.
 > overhead dominates for MP3, corroborating the measured **negative** MP3 cut of
 > −1.6% and the opposite sign to the ~80% MP4 cut.
 >
-> **3.28× is measured SOLO. It is not a concurrency margin.**
+> > **[ R4-T1.11] A TAKE-2 PARAGRAPH SURVIVED INSIDE THE TAKE-3 BLOCK AND
+> ASSERTED THE WRONG GATE STATE.** It read *"Until it is run, W0-SyncCeiling is
+> **OPEN**, and §4 reads 🔴 OPEN, not ✅ SATISFIED."* It HAS now been run,
+> §4 reads ✅ SATISFIED (take 3), and the artifact says *"GENUINELY CLOSED."*
+> **The OPEN sentence is struck.**
+
+**3.28× is measured SOLO. It is not a concurrency margin.** **But the gap it
+left has since been filled by measurement, not by hope:**
+**[W0-CONCURRENCY25] 25 requests fired simultaneously, the same carrier included,
+and it completed in 186.738 s — degradation 1.022×, margin 3.21× under load.**
+The solo figure is no longer the operative number. The artifact's other warning
+stands and is not withdrawn: **one 3-minute burst is not 25 hours of sustained
+load**, and a pass is not a capacity guarantee.
 >
 > The prediction from `dvcEDToK`'s measured 119× realtime is ~139 s against
 > 600 s, which is comfortable — **but that is an extrapolation, and the previous
@@ -1298,7 +1354,7 @@ discarded for filing 7 readable documents as degraded and discarding real text.
 | Class | Count | Handling |
 |---|---|---|
 | `text` | **48** | tiering and reflow valid |
-| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp, ~3.4 w/pg, 0.18 img/pg. **1,372 words** |
+| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp each, `page_cap: 200`. **[R4-T1.6] 59% READ, 41% NEVER OPENED — see the note below. 1,372 words is real; completeness is not.** |
 | `raster` | **0** | needs OCR; none is proven free, so it would ship `empty_extraction` and **never be OCR-billed**. Vacuous. |
 
 **65,985 recoverable words. Zero documents require OCR.**
@@ -1578,7 +1634,8 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** |
 | V11 | egress SHA256 per-file match |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
-| **V13** | **`00 Topics.md` — NEW.** **[F15] RE-SCOPED TO WHAT MEASURED.** It is a 225-row chronological index with a topic column, **not** a clustered index: exactly **1 row per emitted note, plus a `recurs` column counting co-members**, so the 4 units that share a stem are visible and the 221 singletons are listed once and not implied to be a cluster. The previous wording gated "~50 groups of 1–13", a structure that does not exist and could never be produced by any correct script. |
+| **V13** | **`00 Topics.md` — NEW. [R4-T1.5] POPULATION IS 230, NOT 225.** **[F15] re-scoped it to what measurement supports; [R4-T1.5] found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (188). **The population is 230 notes — 188 calls + 42 lessons.** 225 is a GROUP count from [F15]'s clustering, not a note count, and the two cannot both be true. **Now: 230 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. |
+| **V13** (population note) | [F15]'s own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `230 − 221 =` **9** units, but the same row says "4 of 230". The **group count** is 4; the **units inside them** is 9. **[R4-T1.5]** |
 
 ### 11.1 V12 — Identity Binding `[R1]`
 
@@ -1805,3 +1862,26 @@ threshold), so it is readable by the same metric but was never separately audite
 
 **Out of scope, flagged once:** the 335 GB import still sitting in the operator's
 personal MEGA account. Only the operator can delete it.
+
+> **[R4-T1.6] "ALL 1,372 WORDS VERBATIM" IS A LOWER BOUND PRESENTED AS COMPLETE.**
+> `pdf-fallback-audit.json` shows `page_cap: 200` and both sparse books at
+> `pages_read: 200 / pages_total: 340` — **59% of each was read and 41% was
+> never opened.** The 1,372 words is real; what is wrong is the completeness.
+>
+> | book | read | total | words | words/page **as measured** | over the whole book |
+> |---|---|---|---|---|---|
+> | `2. AC eBook` | 200 | 340 | 691 | 3.5 (first 200 pp) | **2.02** |
+> | `AC_Book` | 200 | 340 | 681 | 3.4 (first 200 pp) | **2.00** |
+> | unread tail | — | **140 pp each** | — | — | **≈ 565 words unaccounted** |
+>
+> The 3.4–3.5 w/pg figure that both the artifact and this section quote is a
+> property of the **first 200 pages only**, and it is the density the cap was
+> calibrated on. **A section titled "decided, not deferred" carried a silent
+> completeness hole**, which under Rule 1 is the one kind of hole that is not
+> allowed to stand.
+>
+> **Either re-run both books without the cap, or label the note
+> `partial_extraction` with pages 201–340 named as unread.** The note's status is
+> not yet chosen; what is not permitted is calling a 59%-read book complete.
+
+**1,372 words** |

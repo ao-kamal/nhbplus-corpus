@@ -44,6 +44,7 @@ def _has_notes(p):
         f.endswith(".md") for _r, _d, _fs in os.walk(p) for f in _fs)
 
 # prefer a tree that actually holds notes; an empty dir is not a target
+DOCS = []   # defined for every path below; the block loop reads it unconditionally
 TARGET = next((p for p in VAULT_CANDIDATES if _has_notes(p)), None) \
        or next((p for p in VAULT_CANDIDATES if os.path.isdir(p)), None)
 
@@ -108,6 +109,11 @@ for _f, _t in (DOCS if TARGET and DOCS else [("(design doc)", s)]):
         _blocks.append((_f, _m))
     for _m in re.findall(r"```yaml(.*?)```", _t, re.S):
         _blocks.append((_f, _m))
+# Count REAL blocks before any padding. [R4-T3] padding the list to avoid a
+# crash also made `nblocks` permanently >= 1, so the "nothing to validate"
+# guard could never fire and an empty tree PASSED. That is the empty-vs-empty
+# trap this project has hit twice, in its own gate.
+n_real = len(_blocks)
 _blocks = _blocks or [("(none)", "")]
 for i, (_src, b) in enumerate(_blocks, 1):
     nblocks += 1
@@ -144,8 +150,9 @@ for e in DOMAIN_ERRORS:
     print(f"    XX {e}")
 if DOMAIN_ERRORS:
     ok = False
-if nblocks == 0:
-    print("    XX no yaml block found - the gate proved nothing")
+if n_real == 0:
+    print(f"    XX NO REAL FRONTMATTER FOUND ({nblocks} padded placeholder) -"
+          " the gate proved nothing")
     ok = False
 
 print("\n=== banned fields anywhere in the document ===")

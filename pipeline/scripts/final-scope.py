@@ -138,7 +138,19 @@ scope = {
         "documents": len(docsT), "document_GB": round(gb(bd), 3),
         "total_GB": round(gb(ba + bd), 2),
         "stt_forecast_usd": round(h * 60 * 0.0043, 2),
-        "peak_disk_GB": round(max((t["bytes"] or 0) for t in aud) / 1073741824, 2),
+        # [R4-T5.1] THIS WAS THE 2 GiB SENTINEL. Constraint 6 and [B26] forbid a sentinel
+# reaching a number, and this line printed it as "peak disk 2.00 GB" into
+# scope-final.json, which section 1 calls the LOCKED authority. The honest peak
+# for admission is the largest NON-sentinel unit: YyEWgJSK, 1,065,353,216 B.
+# NOTE the divisor is 2**30, so this is GiB and is now labelled GiB. R4-T4.6
+# flagged exactly this label/unit mismatch.
+        "peak_disk_GiB_declared_sentinel": round(max((t["bytes"] or 0) for t in aud) / 1073741824, 2),
+        "peak_disk_GiB": round(max(((t["bytes"] or 0) for t in aud
+                                    if (t["bytes"] or 0) % (1 << 30) != 0),
+                                   default=0) / 1073741824, 3),
+        "sentinel_test": "bytes % 1024 == 0 qualifies ALL 440 declared sizes; "
+                         "GiB-exactness (bytes % (1<<30) == 0) finds only 156. "
+                         "No threshold may consume a declared size.",
     },
     "by_kind": {k: {"count": v[0], "GB": round(gb(v[1]), 3)} for k, v in sorted(by_kind.items())},
     "calls_without_written_hand": sum(1 for u in calls if not written_for.get(u["id"])),
@@ -173,7 +185,7 @@ for k, v in scope["by_kind"].items():
         print(f"    {k:<20}{v['count']:>5}         {'':>8}   {v['GB']:>8.3f} GB")
 print(f"  {'TOTAL':<22}{T['audio_units']+T['documents']:>5}         {'':>8}   {T['total_GB']:>8.2f} GB")
 print(f"\n  STT forecast            ${T['stt_forecast_usd']:.2f}")
-print(f"  peak disk               {T['peak_disk_GB']:.2f} GB   (largest single file)")
+print(f"  peak disk               {T['peak_disk_GiB']:.3f} GiB   (largest NON-SENTINEL; declared max is the {T['peak_disk_GiB_declared_sentinel']:.2f} GiB sentinel)")
 print(f"  calls with NO written hand   {scope['calls_without_written_hand']} of {len(calls)}")
 print(f"  MP4 alternates never fetched {scope['mp4_alternates_never_fetched']}")
 print(f"\nWRITTEN {p}")
