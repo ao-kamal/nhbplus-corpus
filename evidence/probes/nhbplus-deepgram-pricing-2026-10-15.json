@@ -1,0 +1,80 @@
+{
+  "probe": "deepgram-pricing-and-billing-rules",
+  "date": "2026-10-15",
+  "source": "https://deepgram.com/pricing (fetched 2026-10-15, Pay As You Go column)",
+  "status": "PASS",
+  "resolves": "Stage 1 rev 1 blocking decision D2 (price was circular and unsourced)",
+
+  "rate": {
+    "model": "nova-3 monolingual",
+    "endpoint": "pre-recorded (/v1/listen)",
+    "usd_per_minute": 0.0043,
+    "usd_per_hour": 0.26,
+    "diarization": "INCLUDED on pre-recorded. Priced separately only on streaming ($0.0020/min). The plan uses pre-recorded, so diarize=true adds $0.00.",
+    "verdict": "The plan's 0.0043 figure was CORRECT but wrongly sourced - it was carried from CUT30-era course material, not from a price page. Now sourced and dated."
+  },
+
+  "THE FINDING THAT INVALIDATES A SPEC CONSTANT": {
+    "quote": "Does Deepgram charge for silence or round up audio time? No. Deepgram uses true per-second billing. If your audio file is 14 seconds long, you pay for exactly 14 seconds. Many competitors round up to the nearest 15 seconds or full minute, which can inflate their actual invoice by 15-20%.",
+    "consequences": [
+      "There is NO per-request minimum and NO rounding. Both were open risks raised independently by round 1 (R3 Q6, R1 defect 6) and both are now closed.",
+      "The plan's COMMIT_COST rule 'ceil(minutes) x RATE' is WRONG in the pessimistic direction. It over-reserves by up to 1 minute per request.",
+      "R1's finding that the plan overspends by $0.45 ($151.01 vs $150.56) IS AN ARTIFACT OF THE CEIL ASSUMPTION. Against true per-second billing the corpus costs 35,013.1 min x $0.0043 = $150.556, which is the forecast.",
+      "Stage 1 rev 1 blocking decision D1 THEREBY LARGELY DISSOLVES: the budget is approximately correct, not contradictory."
+    ],
+    "correction": "COMMIT_COST = ceil_seconds_to_billed_seconds x RATE, where billed seconds = sum of raw part durations with NO rounding. Commit exactly; settle exactly. The pessimistic-reserve idea was solving a problem the vendor does not have."
+  },
+
+  "NEW RISK FOUND THAT THE PLAN DOES NOT CONSIDER": {
+    "quote": "How do you calculate costs for multichannel audio? We bill based on the total duration of processed audio. If you process a 10-minute file with 2 channels (stereo), you are billed for 20 minutes of processing.",
+    "risk": "A stereo or multichannel source bills DOUBLE. The corpus is 230 podcast-style calls of unknown channel layout, and 133 of them are MP4 video files, which are commonly stereo. Section 7a remuxes with '-c:a copy', which PRESERVES channel count - so the plan would knowingly submit stereo audio at 2x cost.",
+    "severity": "potentially +$150.56 on the whole run. This is larger than every other budget finding combined.",
+    "required_action": "W0 must probe ffprobe channel counts on a sample BEFORE the first submission. If any substantial share is multichannel, the operator decides between (a) ffmpeg -ac 1 downmix to mono, which halves cost and is standard for speech, or (b) paying 2x. NOT an assistant decision - it trades audio fidelity against money.",
+    "status": "OPEN - blocking before first STT dollar"
+  },
+
+  "cost_against_actual_corpus": {
+    "corpus_minutes": 35013.1,
+    "rate": 0.0043,
+    "actual_usd": 150.56,
+    "rev1_claimed_usd_under_ceil": 151.01,
+    "difference": "the $0.45 gap was the ceil artifact, not a real overspend",
+    "unbudgeted": "2 units carry NO duration in manifest-v3.json (dvcEDToK, pjFQiLQQ). Their runtime minutes are still unpriced. At the corpus mean of ~152 min/unit that is roughly $1.31 of unbudgeted spend.",
+    "loss_allowance": "Still required. A single 504 is paid-and-unrecoverable (see the storage limit) and no allowance is currently set.",
+    "residual_risk": "with per-second billing, exact costs, and the 2 units priced at runtime, the true figure is $150.56 + ~$1.31 + (504 losses). The ceiling still needs headroom above that, but the contradiction is gone."
+  },
+
+  "funding": {
+    "quote": "Every new account receives $200 in free credit, which is equivalent to approximately 43,000 minutes (over 700 hours) of transcription using our Nova model.",
+    "corpus_minutes": 35013,
+    "covered_by_credit": true,
+    "note": "The corpus is 35,013 of ~43,000 covered minutes, so it fits inside the $200 credit. This is the ALREADY-WAIVED Deepgram exception (evidence/probes/operator-decision-rule2-waiver-2026-10-14.json), not a new one. Nothing here re-opens Rule 2."
+  },
+
+  "options_considered_and_excluded": {
+    "growth_plan": "$0.0036/min pre-recorded (20% cheaper) but requires a $4,000/year prepay commitment and a credit card for overages at +10%. This is a PAID TIER and is excluded by Rule 2. Correctly excluded; recorded so the exclusion is not re-litigated.",
+    "keyterm_prompting": "$0.0013/min add-on, applicable to a jargon-heavy mentorship corpus. Would raise the run by roughly $45.56 (35,013 min x $0.0013). It would plausibly IMPROVE accuracy on method names and proper nouns. NOT adopted - it increases spend, which is the operator's call, not the assistant's. Flagged for decision.",
+    "flux_model": "$0.0065/min streaming, more expensive and aimed at real-time voice agents. Wrong tool; the corpus is pre-recorded.",
+    "whisper_large": "$0.0048/min pre-recorded, more expensive than nova-3 with no stated advantage for this corpus."
+  },
+
+  "concurrency": {
+    "pricing_page_states": "Speech-to-Text: Up to 50 for the REST API (Pay As You Go)",
+    "spec_runs": 16,
+    "note": "The plan's 16 sits below both this figure and the 25 documented for EU + diarize, which is the tighter and more specific number. No change. The pricing page is a plan-level table; the docs-level per-feature table is the binding one."
+  },
+
+  "spec_changes_required": {
+    "section_2.2": "RATE_USD_PER_MIN = 0.0043, sourced and dated here, no longer derived from FORECAST. Removes the circularity.",
+    "section_2.2": "COMMIT_COST = exact billed seconds x RATE. Delete ceil. Delete PER_REQUEST_OVERHEAD - no minimum exists.",
+    "section_7b": "SETTLE_FROM metadata.duration seconds, identically in the gate and in V10. Already required; now provably the right quantity because billing is per-second.",
+    "section_0_D1": "Downgrade from BLOCKING CONTRADICTION to RESOLVED WITH RESIDUAL. Remaining: 2 undated units and a loss allowance.",
+    "section_4": "Add W0-ChannelCount as a BLOCKING probe. Multichannel billing is the largest remaining cost risk.",
+    "section_13.1": "Remove the $151.01 overspend entry - it was a ceil artifact - and record WHY it was withdrawn, so a later reader does not re-derive it."
+  },
+
+  "cost_of_this_probe": {
+    "usd": 0.0,
+    "note": "A public pricing page. No account, no API call, no credential, nothing committed to Deepgram."
+  }
+}

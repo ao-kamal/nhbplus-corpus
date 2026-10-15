@@ -30,35 +30,55 @@ These outrank every mechanism here. Nothing below may trade one away.
 | 6 | **A sentinel is not a measurement** `[R1]` | **73 of 230 units carry placeholder sizes** — 37 at exactly 1 GiB, 36 at exactly 2 GiB = **109.00 GiB of 146.39 GiB = 74.5%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
 | 7 | **The response is the only retrieval** `[R1]` | `evidence/probes/deepgram-eu-limits-and-chain-proof-2026-10-15.json`, under `limits_that_would_have_broken_the_run`: *"Deepgram does not store transcripts. The API response is the only opportunity to retrieve it."* **Every submission is single-shot.** The response body must stream to disk as it arrives. §7c. |
 
-### 0.1 Two blocking decisions for the operator — do not execute without them
+### 0.1 Blocking decisions for the operator
 
-**D1 — the budget cannot both finish the corpus and stay under $150.56.**
+**D1 — budget: RESOLVED WITH RESIDUAL `[R1 corrected 2026-10-15]`**
 
-```
-raw minutes           35,013.1
-per-unit ceil minutes  35,118      <- what the plan's own commit rule spends
-ceil x RATE            $151.01
-SPEND_HARD_STOP_USD    $150.56     FORECAST_USD == SPEND_HARD_STOP_USD
-2 units carry NO duration at all (dvcEDToK, pjFQiLQQ) -> unbudgeted
-```
+Rev 1 recorded a contradiction: `FORECAST == SPEND_HARD_STOP == $150.56`, while
+the plan's own `ceil` commit spends $151.01, so V10 failed on a flawless run.
 
-**V10 fails on a flawless run** — zero 504s, zero crashes. Worse, R1 showed the
-82.4% sync fallback raises the ceil basis to **$163.30**, stopping the run
-~49 h of audio short. Choose one, explicitly:
+**That contradiction was an artifact of a rounding rule Deepgram does not charge.**
+From the dated price page (`evidence/probes/nhbplus-deepgram-pricing-2026-10-15.json`):
 
-- **(a)** raise the ceiling to a stated worst-case (ceil + absent units + a loss allowance), **with operator money approval** — this spends more than $150.56 and is their call alone;
-- **(b)** hold $150.56 and state which tail units may be abandoned — this **violates Rule 1**, and must be recorded as a descope, not discovered at run time.
+> *"Deepgram uses **true per-second billing**. If your audio file is 14 seconds
+> long, you pay for exactly 14 seconds. Many competitors round up to the nearest
+> 15 seconds or full minute, which can inflate their actual invoice by 15-20%."*
 
-This spec claims both today. That is the contradiction.
+There is **no per-request minimum and no rounding**. Against true per-second
+billing the corpus costs `35,013.1 min × $0.0043 = $150.56` — the forecast.
 
-**D2 — the price is circular and unsourced.**
+**Residual, all three need an operator value:**
 
-`RATE_USD_PER_MIN = FORECAST_USD / 35013` makes the preflight gate reproduce the
-forecast **by construction**. The `0.0043` figure is CUT30-era; this repo's own
-evidence marks it *"NOT re-derived or negotiated for this corpus"*, and it is
-applied to `nova-3` with **no dated Deepgram price page anywhere**. It gates all
-230 units. W0 must obtain a dated price page and a stated per-request minimum /
-rounding rule before the first dollar.
+| Item | Value |
+|---|---|
+| 2 units with **no duration** (`dvcEDToK`, `pjFQiLQQ`) | unbudgeted; ~$1.31 at the corpus mean |
+| loss allowance for 504s | paid-and-unrecoverable, currently $0 allowed |
+| `SPEND_HARD_STOP_USD` | must sit **above** $150.56 + those two. Not below. |
+
+**D2 — price: RESOLVED 2026-10-15.** `RATE_USD_PER_MIN = 0.0043`, now sourced and
+dated from the price page instead of derived from the forecast. The figure was
+correct all along; only its provenance was wrong. The circularity is gone.
+
+**D3 — multichannel billing: NEW, BLOCKING, not previously considered.**
+
+> *"We bill based on the total duration of processed audio. If you process a
+> 10-minute file with 2 channels (stereo), you are billed for 20 minutes."*
+
+**A stereo source bills double.** 133 of the 230 units are MP4 video files, which
+are commonly stereo, and §7a remuxes with `-c:a copy` — which **preserves**
+channel count. The plan would knowingly submit stereo audio at 2× cost, adding up
+to **+$150.56**, which is larger than every other budget finding in this document
+combined.
+
+**W0-ChannelCount is now a blocking probe.** If any substantial share is
+multichannel, the operator chooses between `ffmpeg -ac 1` downmix to mono
+(standard for speech, halves cost) and paying 2×. **That trades audio fidelity
+against money and is not the assistant's call.**
+
+**D4 — keyterm prompting: operator's call, not adopted.** $0.0013/min add-on, so
+roughly **+$45.56** across the run. A jargon-heavy mentorship corpus would plausibly
+benefit on proper nouns and named methods. It *increases* spend, so it is surfaced,
+not taken.
 
 ---
 
@@ -130,19 +150,41 @@ carrying **29,667 of 35,013 call-minutes**. If W0-AsyncContract fails, this
 fallback is not a contingency — it is the main plan, and it must be as precise
 as the primary.
 
-### 2.2 Spend constants — the circularity and the zero margin `[R1]`
+### 2.2 Spend constants — sourced, not circular `[R1 corrected 2026-10-15]`
 
 ```
-RATE_USD_PER_MIN      = DERIVED FROM A DATED PRICE PAGE   <- W0, blocking (D2)
-                        was FORECAST_USD/35013, which is circular
-SPEND_HARD_STOP_USD   = OPERATOR DECISION (D1)              <- do not execute unset
-                        was 150.56 == FORECAST, i.e. zero margin
-LOSS_ALLOWANCE_USD    = OPERATOR DECISION (D1)
-SETTLE_FROM           = raw metadata.duration seconds, IDENTICALLY in the §7b
-                        gate and in V10. [R1] the two used different quantities.
-COMMIT_COST           = ceil(part_s/60) * RATE + PER_REQUEST_OVERHEAD
-                        ceiling-bound (D2), not zero as assumed
+RATE_USD_PER_MIN      = 0.0043    nova-3 monolingual, PRE-RECORDED, Pay As You Go.
+                                   SOURCED + DATED 2026-10-15. Diarization is
+                                   INCLUDED on pre-recorded (priced separately only
+                                   on streaming), so diarize=true adds $0.00.
+                                   was FORECAST_USD/35013 - circular.
+
+PER_REQUEST_MINIMUM   = NONE      PROVEN from the price page FAQ. No minimum,
+                                   no rounding, true per-second billing.
+                                   R1 and R3 both raised this as an open risk; closed.
+
+COMMIT_COST           = billed_seconds(part) * RATE
+                        billed_seconds is the EXACT duration - no ceil, no slack.
+                        was ceil(minutes) x RATE + PER_REQUEST_OVERHEAD.
+                        The pessimism solved a problem the vendor does not have.
+
+SETTLE_FROM           = raw metadata.duration seconds, IDENTICALLY in the §7b gate
+                        and in V10. Proven correct because billing is per-second.
+
+SPEND_HARD_STOP_USD   = OPERATOR (D1 residual)   must EXCEED 150.56 + ~1.31 + loss
+LOSS_ALLOWANCE_USD    = OPERATOR (D1 residual)
 ```
+
+Corpus cost under these constants: `35,013.1 min × $0.0043 = $150.556`.
+
+**Funding note.** The price page states a new account receives **$200 credit ≈
+43,000 minutes**. The corpus is 35,013 minutes, so it fits inside the credit. This
+is the **already-waived** Deepgram exception
+(`evidence/probes/operator-decision-rule2-waiver-2026-10-14.json`) and opens nothing.
+
+**Excluded, recorded so it is not re-litigated:** the Growth plan is 20% cheaper
+($0.0036/min) but requires a **$4,000/year prepay** and a credit card for +10%
+overages — a paid tier, excluded by Rule 2.
 
 ### 2.3 PDF calibration — RE-MEASURED, do not inherit
 
@@ -193,7 +235,8 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-Remux** | OPEN | `ffmpeg -vn -c:a copy` audio-identical; log the **real** size cut (85% expected — measure). **The majority path**: 133/230 are MP4. |
 | **W0-SyncCeiling** | OPEN | calibrate sync at `SYNC_SEG_SEC`. **Must not** raise the cutoff. |
 | **W0-AsyncContract** | OPEN, **GO/NO-GO** | outbound-only async, and **does a GET after N minutes actually return a transcript?** Constraint 7 says retention is none. This is now the highest-value probe in the plan. |
-| **W0-Pricing** | **NEW `[R1]`** | **BLOCKING (D2).** A dated Deepgram price page for `nova-3`, the per-request minimum, and the rounding rule. |
+| **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
+| **W0-ChannelCount** | **NEW, BLOCKING `[R1]`** | **ffprobe channel counts on a sample before the first submission.** Stereo bills **double**; 133/230 are MP4 and §7a's `-c:a copy` preserves channels. Up to **+$150.56**. Operator decides downmix-vs-pay. |
 | **W0-PDF** | ✅ **SATISFIED** | closed — §8.1 |
 | **W0-Egress** | OPEN | binary VM→PC copy, per-file SHA256 manifest compared. |
 
@@ -342,8 +385,15 @@ else:
 
 ### 7.1 Remux and segment — the majority path
 
-`ffmpeg -vn -c:a copy` every unit. **133 of 230 are MP4.** `ffprobe` duration is
-the cost-gate input, **not the manifest, and not a placeholder**.
+`ffmpeg -vn -c:a copy` every unit. **133 of 230 are MP4.**
+
+> **`-c:a copy` preserves channel count, and Deepgram bills multichannel audio at
+> double: *"If you process a 10-minute file with 2 channels (stereo), you are
+> billed for 20 minutes."*** W0-ChannelCount is **blocking** (§4, D3). If the
+> sample shows a substantial stereo share, the operator chooses
+> `ffmpeg -ac 1` downmix — standard for speech, halves cost — or pays 2×.
+
+`ffprobe` duration is the cost-gate input, **not the manifest, and not a placeholder**.
 If remuxed ≥ `CAP_BYTES` → `ffmpeg -f segment -segment_time SEGMENT_SEC`.
 Single-part otherwise. **Every part gets its own receipt entry.**
 
@@ -699,7 +749,7 @@ copy-verification.json>` — deliberately awkward, so the operator has looked.
 | Direct reuse of the skill's PDF constants | Wrong — §2.3 |
 | **A `*.mp3.md` filename** | A bug — **and the live one is `.mp4.md`, on 2 committed paths** |
 | **"crashed async is free via `request_id` re-GET"** | **FALSE `[R1]`.** Constraint 7: nothing is stored. Both paths are single-shot |
-| **"`FORECAST == HARD_STOP`"** | **FALSE `[R1]`.** The plan's own ceil-commit is $151.01 — V10 fails on a flawless run |
+| **"FORECAST == HARD_STOP"** | **WITHDRAWN 2026-10-15 `[R1]`.** The claimed $151.01 overspend was a **`ceil` artifact**. Deepgram bills true per-second with no minimum and no rounding, so the corpus costs exactly the forecast, $150.56. The pessimism was solving a problem the vendor does not have. |
 | **"resume never re-bills"** | **NOT IMPLEMENTED `[R1]`.** The state machine was blind to the one bit that decides it |
 | **"an unnamed `flock` guards the global sum"** | **NOT IMPLEMENTABLE `[R1]`.** No file, no path, and every named lock is per-unit |
 
