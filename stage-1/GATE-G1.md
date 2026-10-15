@@ -150,11 +150,25 @@ references to 339 / 188 / 230 / 105 / 440 / $204.69 / 35,013.1 / 583.55 /
 
 3. **CLOSED - the PDF gate is closed on 50 of 50.** See the note below.
 
-4. **OPEN - 13 of 14 gates are UNEVALUABLE** because no pipeline code exists yet.
-   That is the correct state at G1 and is the substance of Stage 3. **But V4 and
-   V5 now carry FORMULAS** - they were one line naming a check, with no rule, no
-   threshold and no failure behaviour, which is the same defect as the missing
-   request payload in 7.2.0. Neither was implementable from the document alone.
+4. **OPEN — THE ONE REMAINING ITEM. 13 of 14 gates are UNEVALUABLE** because
+   no pipeline code exists yet. That is the correct state at G1 and it is the
+   whole substance of Stage 3.
+
+   **Writing the formulas did not change this, and it is worth being precise
+   about why.** All twelve gates are now specified — threshold, provenance,
+   failure behaviour, non-vacuity assertion — but a specification is not an
+   implementation. **A gate is evaluable only once code exists that can fail
+   it.** Specifying V0–V11 moved the project nowhere closer to a green gate and
+   made Stage 3 cheaper instead. That is the Law of Rework Escalation
+   working, not a failure of the sweep.
+
+   **Two gates are expected to stay unevaluable for different reasons once code
+   exists**, and both now say so rather than waiting to surprise the run:
+   **V2 is vacuous by construction** (largest part 385 MiB against a 2,000 MiB
+   cap, `SEGMENT_SEC` unreachable) and **V1's kill branch is unreachable** (the
+   sentinel exemption is true for 335 of 335 declared sizes). Neither can fail
+   on this corpus; they are guards against a future surprise. **A run that
+   reported them as meaningful passes would be repeating V9's error.**
 
 5. **CLOSED - `WPM_MAX` was too tight and `SPAN_EDGE_SEC` was 12.9x too loose.**
    Both were gate thresholds carrying no evidence, and both were permissive or
