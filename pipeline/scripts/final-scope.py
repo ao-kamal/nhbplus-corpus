@@ -4,8 +4,8 @@ FINAL SCOPE. Every decision the operator made on 2026-10-15, resolved into one
 work list of fetch targets. Nothing is fetched here; this is the contract the
 runner reads and the plan is written against.
 
-  A  audio scope      all 205 calls + all 42 bonus lesson videos   (single run)
-  B  encoding         MP3 wherever an MP3 exists; the 88 MP4 siblings are
+  A  audio scope      all 188 calls + all 42 bonus lesson videos   (single run)  # [F30]
+  B  encoding         MP3 wherever an MP3 exists; the 105 MP4 siblings are # [F30]
                       recorded as alternates and NEVER fetched
   C  companion docs   WRITTEN HAND ONLY - docx/pptx/xlsx. The 165 AI-summary
                       PDFs are OUT OF SCOPE.
@@ -126,8 +126,8 @@ for t in targets:
 scope = {
     "decided": "2026-10-15 by operator. All five decisions. Single run.",
     "decisions": {
-        "A_audio": "all 205 calls + all 42 bonus lesson videos, ONE run",
-        "B_encoding": "MP3 wherever an MP3 exists; 88 MP4 siblings recorded as alternates, never fetched",
+        "A_audio": "all 188 calls + all 42 bonus lesson videos, ONE run",  # [F30] was 205
+        "B_encoding": "MP3 wherever an MP3 exists; 105 MP4 siblings recorded as alternates, never fetched",  # [F30] was 88
         "C_companion_docs": "WRITTEN HAND ONLY (docx/pptx/xlsx). 165 AI-summary PDFs OUT OF SCOPE.",
         "D_bonus_courses": "all 11",
         "E_orphans": "Swipes + Templates, all 36 files",
@@ -151,7 +151,7 @@ scope = {
         "G0 Q8 says five bonus courses; measured 11 carry video. The 42 videos / "
         "26.16 h figure agrees exactly with the independent bonuses census, so the "
         "video count is sound and the course count is a grouping-level difference.",
-        "6 calls have no recoverable year from folder or name. Resolvable from the "
+        "0 calls have no recoverable year - all 188 resolved from name or folder.  # [F30] was 6. Resolvable from the "
         "transcript once transcribed - flagged, not guessed.",
     ],
     "targets": targets,

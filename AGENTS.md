@@ -48,7 +48,10 @@ operator's PC — it is the deliverable.**
 
 **What is already known, do not re-derive:** **188 calls** (557.39 h) and **42 bonus
 lesson videos** (26.16 h) — **583.55 h** across 230 audio units. **339 fetch
-targets, 146.87 GB, $150.56 STT forecast.** 37 calls carry a written-hand document;
+targets, 146.87 GB. **[F32] The budget here was stale and understated: it
+showed only the $150.56 STT line, with no keyterm line and no hard stop. The
+settled figure is `SPEND_HARD_STOP_USD = $207.68`** = (35,013.1 + 286.9 min) x
+$0.0056 = $197.68 run, plus a $10.00 loss reserve.** 37 calls carry a written-hand document;
 151 carry none. 36 documents have no call counterpart. **`Bonuses` is eleven
 structured video courses**, 42 lesson videos. Every figure has a dated artifact in
 `evidence/probes/`.
@@ -97,12 +100,18 @@ around. Also: no local ffmpeg, nothing heavy running locally.
 **Deepgram accepts MP4 containers** — proven, not assumed (WAV and MP4 returned
 identical 7 utterances / 1 paragraph / 62 words).
 
-**A remux IS required for the MP4 units, and it is not a transcode.** Deepgram's
-documented file-size ceiling is **2 GB** and the largest unit is 2.00 GB displayed —
-1.5–2.5 GB actual, sitting on the limit. `ffmpeg -vn -c:a copy` drops the video track
+**A remux IS required for the MP4 units, and it is not a transcode.** **[F31] The
+old reason here was "the largest unit is 2.00 GB displayed — 1.5–2.5 GB actual,
+sitting on the limit". That reasons from a SENTINEL: 2 GiB exactly is a MEGA
+display value, not a measurement, and 73 of 230 units (74.5% of all bytes) carry
+them. It is also no longer the real reason. The ceiling really is 2 GB, but the
+largest remuxed unit ever actually submitted is 385 MiB — 19% of the cap. The reason
+to remux is that the raw 1,539 MB MP4 path TIMED OUT and the remuxed .mka returned
+HTTP 200 at 156.2 s against a 600 s ceiling.** `ffmpeg -vn -c:a copy` drops the video track
 and copies the AAC stream bit for bit. No re-encode, no quality change, and STT cost
 is unchanged because Deepgram bills audio minutes, not bytes. It also cuts upload
-volume by roughly 85%. A proposal that *transcodes* is still wrong; a proposal that
+volume by roughly 85%. **[F31] The measured figure is 71.2% aggregate - MP4
+~80%, MP3 NEGATIVE (-1.6%) - not 85%.** A proposal that *transcodes* is still wrong; a proposal that
 remuxes is required.
 
 **Per-file retrieval works, and it is what makes the build viable.** The URL form is

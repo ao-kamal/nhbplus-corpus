@@ -30,6 +30,28 @@ These outrank every mechanism here. Nothing below may trade one away.
 | 6 | **A sentinel is not a measurement** `[R1]` | **73 of 230 units carry placeholder sizes** — 37 at exactly 1 GiB, 36 at exactly 2 GiB = **109.00 GiB of 146.39 GiB = 74.5%**. These are MEGA display values recorded as binary. **No kill rule, threshold, or cost gate may consume them.** §6.4. |
 | 7 | **The response is the only retrieval** `[R1]` | `evidence/probes/deepgram-eu-limits-and-chain-proof-2026-10-15.json`, under `limits_that_would_have_broken_the_run`: *"Deepgram does not store transcripts. The API response is the only opportunity to retrieve it."* **Every submission is single-shot.** The response body must stream to disk as it arrives. §7.3. |
 
+### 0.0 How to read the tags in this document `[F41]`
+
+This spec carries **review-finding tags** inline: `[R1]`, `[B1]`…`[B26]`,
+`[F1]`…`[F41]`, `[T5 #n]`, `[R1 corrected]`. **[F41] They were left in the body
+with no legend, so a reader cannot tell specification from review commentary.**
+
+**The rule, which is the only one that matters: the PROSE is authoritative and
+the tag is provenance.** Where a tagged block and the surrounding text disagree,
+the prose wins and the tag is stale — report it, do not reconcile it silently.
+
+| tag | source |
+|---|---|
+| `[R1]` `[R1 corrected]` | round 1 review, and its correction pass |
+| `[B1]…[B26]` | round 2 canon review — `stage-1/ROUND-2-CANON-REVIEW.md` |
+| `[F1]…[F41]` | round 3 repo-grounded review — `stage-1/ROUND-3-REVIEW.md` |
+| `[T5 #n]` | the six-untested-claims resolution pass |
+
+Tags are **not deleted when a finding is applied.** A fix that removes its own
+provenance is indistinguishable from a fix that was never checked, and the
+question "was this ever wrong?" has no answer. What expires is the finding, not
+the record that it existed. Every tag names a defect **that was real**.
+
 ### 0.1 Blocking decisions for the operator
 
 **D1 — budget: RESOLVED WITH RESIDUAL `[R1 corrected 2026-10-15]`**
@@ -363,7 +385,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 
 | Dispute | Decision | Why |
 |---|---|---|
-| Fetch concurrency | **1** | Serialising the only unkillable operation costs ~1 h *measured*. Parallelism multiplies the hazard. |
+| Fetch concurrency | **size-adaptive, 1–39** | **[F16] THIS SAID 1** and contradicted §2's predicate and §6.3's bands. The serial figure was true when `FETCH_CONCURRENCY` was a constant, raised to 6 and then to a 1–39 band by W0-Cap, which proved ENOSPC **fails fast in 0 s** with no host spill. Serialising now costs ~1 h *measured* for no hazard the probe did not demonstrate. |
 | Async policy | **RESOLVED — no async exists** | `ASYNC_ALLOWED = False` measured. The dispute was *"which of two single-shot paths?"* — and the answer is there is only one. The whole sync/async branch, its poll loop and its retention question are deleted. |
 | State authority | **receipts on disk**; journal derived | Two independent truths is a desync waiting to happen. |
 | Parts | **primary abstraction** | 2 GB cap, 504 recovery and tail segmentation become one code path. |
@@ -377,7 +399,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | Probe | Status | Question |
 |---|---|---|
 | **W0-Fetch** | ✅ PROVEN | per-file route works. `systemctl is-active mega-cmd-server` is **known-false**; only a real fetch arbitrates. |
-| **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches `FETCH_CONCURRENCY 1 → 6`.** |
+| **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches: `FETCH_CONCURRENCY` 1 → **the size-adaptive predicate, 1–38 in flight** — not a constant.** **[F18] This row said "1 → 6" and contradicted §2, §3 and §6.3. The raise to 6 was real; the ceiling is now the predicate's small band.** |
 | **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM - **[F23] the 995 MB figure appears only in this spec and in the [B24] note; w0-remux.json records 133.6/89.8 MB sources. Cite the artifact, not this line.**), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
 | **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15** | **CLOSED, MEASURED** — **[F1] on the REAL worst case, not the unit the first probe used.** `wiUyTRZb` (`02-19-2025 NHB Coaching Call - February Reading Offers`), **275.9 min**, 383.7 MiB MP3, completed in **156.2 s against the 600 s ceiling. Margin 3.8×, measured, not calculated.** The first probe ran `dvcEDToK`, which **ranks 47th of 229 by duration** and was mislabelled "the longest call in the corpus"; §4 contradicted §7.2 by 71.6 minutes, 1.9× and $0.40. `dvcEDToK`'s own cost on `metadata.duration` is **$1.14**, not $1.54. Take 1 (the raw 1,539 MB MP4) **timed out**; see §7.1. |
 | **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7× and later measured at 5.7×** on the worst case, which is **3.8×, not the 273.7× first calculated and not the 5.7× first measured** — see W0-SyncCeiling. |
@@ -404,6 +426,24 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 
 ```
 queued -> reserved -> sent -> settled | lost
+
+> **[F33] `queued` APPEARED IN THIS DIAGRAM AND WAS DEFINED NOWHERE - NO MEANING
+> AND NO RESUME BRANCH.** It is now defined, because a state with no meaning in
+> a ledger that is resumed after a crash is how a part gets processed twice.
+>
+> | | |
+> |---|---|
+> | **meaning** | Admitted to the run and **not yet committed**. No spend, no socket, no file. It is the only state that exists purely because the run is ordered. |
+> | **written when** | At admission, in the same atomic write that records the reservation attempt. |
+> | **resume** | **`queued` is safe to replay.** It carries no commit and nothing billed, so re-admitting every `queued` part on restart is correct and idempotent. This is exactly why it is distinct from `reserved`, which is NOT safe to replay. |
+> | **never** | A `queued` part is never settled, never counted in `committed`, and never reported as `PAID_UNKNOWN`. It has not been sent. |
+>
+> **Unit completion.** Also missing until now, and it is the rule the whole
+> resume path hangs off: **a unit is complete when every part it owns is in
+> `settled` or `lost`, and the unit's assembled note exists on disk.** A unit
+> with any part still `queued`/`reserved`/`sent` is **not complete** and its note
+> is not emitted. Partial transcripts are never published as notes — the same
+> principle that makes a 504 body not a transcript (below) applied one level up.
 ```
 
 **`reserved`** means: spend committed, **and** nothing has been sent.
@@ -420,7 +460,11 @@ named artifact was per-**unit**. A per-unit lock cannot serialise a global sum:
 LEDGER = /data/nhb/_meta/spend.json     PER ACCOUNT:
     {"accounts": {
         "<account_id>": {"committed":USD,"settled":USD,"lost":USD,"released":USD}},
-     "totals":      {"committed":USD,"settled":USD,"lost":USD}}
+     "totals":      {"committed":USD,"settled":USD,"lost":USD,
+                     "released":USD}}      [F34] FIXED - the field was OMITTED
+                     while every per-account object declared it, so the gate
+                     formula in the next paragraph was stated over a field the
+                     schema did not have.
     [B11] section 2.2 asserted a per-account ledger and a per-account gate; this
     section still described a single global object, so an implementer following
     IT would build one pool and the second key would never be used.
@@ -433,6 +477,16 @@ Commit and settle are each one atomic ledger mutation under that one lock:
 commit:  committed += cost        settle:  committed -= cost;  settled += actual
 release: committed -= cost          lost:    committed -= cost;  lost += actual
                                    released += cost
+                                   [F34] A `reserved` part is released ONCE.
+                                   Compare-and-set inside the flock: read
+                                   `released`; if this part_id is not already
+                                   in the released set, add cost and add
+                                   part_id. Two resume passes over one part
+                                   would otherwise double-count, and a
+                                   double-counted release frees budget that was
+                                   never spent - which is how a hard stop
+                                   becomes a soft one without any code
+                                   appearing to change.
                                    [B11] section 5.4's resume table requires a
                                    release for a part that was committed and never
                                    sent. Without this mutation that amount is either
@@ -458,6 +512,29 @@ http_status = <int>            recorded in the same atomic write as sent
 `status` and `http_status` are both required. A **504 body, a 429 body, a 402
 body and a 400 body are all "a response"** — without `http_status` the table
 settled a 504 as a completed transcription and assembled it as a transcript.
+**[F35] "ATOMIC" WAS ASSERTED THREE TIMES AND SPECIFIED NOWHERE.** The word
+appears in "Atomic write+rename throughout", in "a *single* receipt write", and in
+the three-durable-bits table. None of the three named a syscall. That matters
+because the §5.4 recovery table's central claim — *a kill after `sent` leaves
+`sent`* — rests on a durability step nobody wrote. The four steps, named:
+
+1. write the temp file at `<path>.tmp` in the **same directory** as the target
+   (a cross-directory `rename` is not atomic on NTFS and is a copy on some mounts)
+2. `f.flush()`, then `os.fsync(fd)` — flush pushes to the OS, **fsync pushes to
+   the device**. Without fsync, a power loss loses the bytes and `sent` is a lie.
+3. `os.replace(tmp, path)` — atomic on POSIX **and** on NTFS via `MoveFileEx` with
+   `REPLACE_EXISTING`. It is NOT atomic on SMB or a 9p share, which is a further
+   reason the receipt ledger lives on the VM's ext4 and not on the shared mount.
+4. `fsync` the **containing directory**, so the rename itself is durable. This is
+   the step everyone skips, and without it the new name can be lost after a crash
+   even though the bytes survive.
+
+**The receipt is the unit of durability, and it is one file.** `status`,
+`http_status`, the per-account committed amount, the part hash and the request
+placeholder land in **one** `os.replace` — never two, never a batch. A receipt
+half-written is worse than one not written, because it is indistinguishable from
+one that was written before the socket opened.
+
 `response_complete` exists because §7.2 streams the body to disk, so **a partial
 file is the normal mid-run state**: without it, `sent` + partial is
 indistinguishable from `sent` + still in flight, which is the exact ambiguity
@@ -576,7 +653,7 @@ so a full loopback never produces partial audio.
 > The overrun watcher is still required — the cap stops the *write*, it does not
 > reap the *process*.
 
-**Concurrency.** `FETCH_CONCURRENCY = 6`, gated on §6.3 admission:
+**Concurrency.** **[F18] NOT A CONSTANT.** `FETCH_CONCURRENCY` is the predicate in §2 — no literal appears in its definition, and none appears here. (An earlier revision of this same bullet block opened with the literal `FETCH_CONCURRENCY = 6`, which defined the thing as a constant and then described it as a predicate two lines later.)
 
 - **Delete the raw at the remux receipt.** Not *before* the next fetch is admitted:
   that phrase serialises the lane to effective concurrency 1 and contradicts
@@ -594,7 +671,8 @@ so a full loopback never produces partial audio.
   usable loopback 3,936 MiB (W0-Cap, measured)
   a 2 GiB sentinel's true size is unknown to a ±0.5 quantum band, up to 2,560 MiB
 
-    small  (<100 MiB)            max 39 in flight
+    small  (<100 MiB)            max 38 in flight   [F17] off-by-one, FIXED
+      39 x 100 MiB = 3,900 MiB against 3,872 MiB admissible. 38 x 100 = 3,800.
     mid    (100-512 MiB)         max  7
     large  (512-1536 MiB)        max  2
     2 GiB sentinel (1536-2560)   max  1
@@ -639,6 +717,19 @@ so a full loopback never produces partial audio.
 - **Reap partial files** after any failed fetch — a refused transfer still leaves
   one 0-byte partial behind.
 - **Name `LOOPBACK_ENOSPC`** as a state distinct from overrun/stall.
+  **[F19] NAMING IT IS NOT HANDLING IT.** For three rounds this line named the
+  state and stopped. The recovery, which is now specified:
+
+  | | |
+  |---|---|
+  | **detect** | `mega-get` exit **232**, or `OSError.errno == ENOSPC` on write. Neither is a retryable network error and neither is an overrun. |
+  | **classify** | Not `lost`. **Not `reserved`.** The part is re-fetchable in full and nothing was billed. `LOOPBACK_ENOSPC` is a *fetch-side* state and never reaches the STT ledger. |
+  | **release** | Free the reservation immediately. Holding a reservation for a unit that cannot be fetched makes the budget tighter for units that can. |
+  | **drain** | **Drain the whole in-flight fetch set before retrying.** A single ENOSPC means the cap was consumed by *concurrent* admissions; re-admitting one fetch while 16 are still writing is the same failure again. |
+  | **re-queue** | Re-admit **once** at the head of the queue, after the loopback's used bytes are re-measured (`df`, not the admission estimate). |
+  | **backoff** | Exponential, base 2 s, cap 60 s. Not a constant. |
+  | **give up** | **3 consecutive failures on the same part → the run STOPS.** Not a skip. ENOSPC is a cap defect; skipping it converts a system-level fault into a silent hole in the corpus. |
+  | **evidence** | Write a `LOOPBACK_ENOSPC` receipt row with `used_bytes`, `in_flight`, `declared`, `actual`, and the `mega-get` exit code. W0-Cap measured this failure in **0 s**, so it is cheap to detect and must be cheap to diagnose after. |
 
 ### 6.4 The overrun threshold must not consume a sentinel `[R1]`
 
@@ -731,12 +822,30 @@ use FLAC or Opus, never WAV.
 > `-ac 1 -ar 16000` are **output** options and must follow `-i`. Placed before it
 > they parse as input options and ffmpeg fails *"Option sample_rate not found"*.
 
-**Size guard on the remuxed output `[T5 #5]`.** The proven submission is
-**280.7 MB**. The largest remuxed unit in scope is estimated at **~400 MB**
-(a 2 GiB sentinel source less the measured ~80% MP4 cut) and has **not** been
-submitted. Upload runs at 150.8 MB/s so 400 MB is ~2.7 s of transfer, and the
-proven case held 5.7× time headroom — but this is **bounded, not closed**, and is
-recorded as such.
+**Size guard on the remuxed output `[T5 #5]`. [F20] THE OLD THRESHOLD WAS DERIVED
+FROM A SENTINEL AND THE "NOT SUBMITTED" CLAIM IS NOW FALSE. BOTH REPLACED.**
+
+The old text estimated the largest remuxed unit at "~400 MB (a 2 GiB sentinel
+source less the measured ~80% MP4 cut)". That is a **sentinel display value
+consumed as a threshold**, which Constraint 6 forbids — the sentinel defect is the
+recurring one in this project and it has now masqueraded as a measurement four
+times. It is also arithmetically inapplicable: MP3 has a **negative** cut
+(−1.6%), so the measured ~80% MP4 cut cannot describe an MP3 at all.
+
+What is actually true, from the repo:
+
+| | |
+|---|---|
+| largest remuxed unit **ever submitted** | `wiUyTRZb`, **383.7 MiB**, HTTP 200 |
+| its margin at 275.9 min | **3.8×** measured (was "5.7×", the wrong unit — F1) |
+| upload rate measured | 150.8 MB/s → ~2.5 s of transfer |
+| the guard that matters | **not a size threshold.** It is `SEGMENT_SEC`, and `SEGMENT_SEC` is dead code under a 2 GB `CAP_BYTES` the 385 MiB maximum cannot reach (T6 #8). |
+
+**So the size guard is withdrawn rather than re-derived.** The honest measured
+maximum is 385.1 MiB / 403.8 MB and it is an **MP3, not a sentinel MP4**; and
+since the largest remuxed unit sits at 19% of `CAP_BYTES`, a size guard has
+nothing to catch. `CAP_BYTES` stays, `SEGMENT_SEC` stays, and the branch is
+recorded as never taken rather than dressed up as a live control.
 
 **Segment** when remuxed ≥ `CAP_BYTES` → `ffmpeg -f segment -segment_time
 SEGMENT_SEC`. Single-part otherwise. **Every part gets its own receipt entry.**
@@ -794,7 +903,13 @@ delta <= -40   -> EFFECTIVELY_DUAL_MONO.  -ac 1 RE-ENCODES (a copy codec cannot
 delta >= -20   -> INDEPENDENT.     KEEP STEREO.  Per-participant audio; downmixing
                                    would force acoustic diarization instead of
                                    channel-derived attribution. Pay the 2x.
-otherwise      -> AMBIGUOUS.       keep stereo, flag AMBIGUOUS_CHANNELS for the
+otherwise      -> AMBIGUOUS.      [F22] TWO OF FIVE BRANCHES ARE UNOBSERVED.
+   `INDEPENDENT` and `AMBIGUOUS` fired on **0 of 3** stereo files — all three
+   were dual-mono, so the delta was uniformly 0.00 dB and neither branch was
+   ever taken. They are specified, not validated. The corpus-wide stereo share
+   is also UNKNOWN (3 of 230 measured), so the branch that bills 2x has no
+   measured population behind it. That tail is priced in §2.2's keep-stereo
+   line, not here.       keep stereo, flag AMBIGUOUS_CHANNELS for the
                                    operator. NEVER silently decide.
 ```
 
@@ -806,7 +921,11 @@ above makes the two cases explicit: two of three measured stereo files were
 BIT_IDENTICAL and are downmixed **losslessly with the copy codec intact**; only
 the -46 dB case re-encodes, and it says so.
 
-One extra ffmpeg pass per part. `channels` goes in the receipt, and the
+One extra ffmpeg pass per part **[F21] — FOR A STEREO PART ONLY, AND THREE, NOT
+ONE**: the pass is `-map_channel`, but `channels == 1` takes the MONO branch and
+runs none of it, and the stereo branch runs the `astats` measurement **three**
+times (rms_L, rms_R, and the difference signal) before deciding. A mono part is
+one commit and no measurement; a stereo part is up to four passes. `channels` goes in the receipt, and the
 downmix decision is recorded beside it — so the money path and the fidelity path
 are auditable together.
 
@@ -1096,7 +1215,19 @@ vocabulary** - it lists six, not five.
 
 ```
 date      ^\d{4}-\d{2}-\d{2}$   or  unknown
-duration  integer >= 1          or  unknown     (minutes, never "3h 14m" -
+duration  integer >= 0          or  unknown     (minutes, never "3h 14m" -
+                                     [F40] LOWER BOUND FIXED 1 -> 0. MEASURED: 2 of
+                                     230 units are sub-minute - A2dWSZAK at
+                                     media.dur_s = 50 (0.833 min, floors to 0), and
+                                     one at 0.0 s whose container reports no duration
+                                     at all. An `integer >= 1` domain REJECTS REAL
+                                     UNITS IN THIS CORPUS. 0 is a truthful minute
+                                     count for a sub-minute unit; the alternative is
+                                     rounding up, which invents a second the
+                                     recording does not have. Keep >= 0, and ADD: a
+                                     response whose duration is 0 or whose word count
+                                     is 0 is FLAGGED, not silently accepted - 50 s of
+                                     audio must not transcribe to an empty note.
                                                 V4 and V10 do arithmetic on it)
 speakers  integer >= 1          or  unknown     (diarisation CLUSTERS, not people)
 type      theory|guest|coaching|training|mastermind|other
@@ -1285,7 +1416,21 @@ Clauses 5 and 6 catch the same defect at the vendor and money boundaries.
 The last clause is what makes it unforgeable — it cannot be satisfied by a
 hand-written heading like "Pricing Psychology" that no filename supports.
 
-Exit codes 0 / 10 / 20 / 30 / 40. Any gate failure **writes its receipt and
+**[F36] FIVE EXIT CODES WERE DECLARED FOR FOURTEEN GATES.** Nine gates had no
+code, and two shared one. A code an implementer must map by hand is a code they
+will get wrong. **The rule is now mechanical: `exit(gate_index * 10)`** — V0 is
+10, V1 is 20, … V13 is 140, and `0` is success.
+
+| | |
+|---|---|
+| 0 | all gates passed |
+| 10×N | gate N failed (N = 0, 1, 2, …) |
+| **1** | **crash** — an exception escaped a gate, not a verdict |
+| **2** | usage error, before any gate ran |
+
+That last row is the distinction the old scheme could not express: **exit 1 is
+not "a gate failed", it is "no gate reached a verdict"**, and a wrapper script
+that treats it as a gate failure will misreport a bug as a measurement. Any gate failure **writes its receipt and
 increments its count**.
 
 ---
@@ -1361,7 +1506,7 @@ copy-verification.json>` — deliberately awkward, so the operator has looked.
 |---|---|
 | "146.87 GB ≈ 30–50 h serial fetch" | **~30× wrong.** Measured 41–53 MB/s → **0.99–1.28 h** |
 | Alphabetical-smallest-first | Dropped — unjustified and pessimal |
-| Any 40×-realtime sync cutoff | Unsafe — the 275.9-min longest call needs 40× to survive, zero margin |
+| Any 40×-realtime sync cutoff | **[F25] "ZERO MARGIN" IS ARITHMETICALLY WRONG.** 16,556 s of audio at the ceiling is 16,556/600 = **27.6× required**, so 40× yields 414 s against 600 s — **186 s of headroom, not zero.** Measured realtime on the real worst case is **106×**, which is 3.8× margin. A cutoff is still not adopted, but it is rejected on the measured submission time, not on a subtraction done twice. |
 | Any success-only spend counter | Wrong — a 504 storm is paid-and-lost and sails past it |
 | SQLite/journal/per-unit-JSON as independent truth | A desync waiting to happen — exactly one authority |
 | Disk "bound proof" (38 GB vs 400 GB) without the loopback | Not a safety system. Only kernel ENOSPC counts, and only once proven |
