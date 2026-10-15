@@ -91,7 +91,18 @@ saving                  $26.98
 nothing at scale — the measurement is applied to all 230 units, so a single
 per-participant file anywhere is *detected and preserved* rather than downmixed.
 
-**D4 — keyterm prompting: ADOPTED 2026-10-15** (operator). $0.0013/min,
+**SECOND API KEY — budget only, never throughput.** Deepgram scopes concurrency
+**per project, not per account or key.** The docs are explicit that multiple keys
+inside one project *all draw from that project's concurrency pool*, and that
+creating additional projects or accounts to work around per-project limits is
+**detected and violates their Terms of Service**.
+
+So a second key adds **$200 of budget and zero throughput**, and load-balancing
+transcription across the two accounts would be an explicit ToS violation. **Use it
+for budget only.** The run needs the budget — $207.31 exceeds the $200 credit. It
+does not need the concurrency: one project at concurrency 50 covers the corpus.
+
+**D4 - keyterm prompting: ADOPTED 2026-10-15** (operator). $0.0013/min,
 **+$45.52**. Justified by a measured A/B, not an opinion — see 2.2.1. The deciding
 argument is search: without it the corpus spells its own programme name
 "Nothing Elbach", and `Ctrl+F "Nothing Held Back"` returns nothing.
@@ -133,8 +144,20 @@ argument is search: without it the corpus spells its own programme name
 MEGA_URL_TMPL  = "https://mega.nz/folder/<PH>#<KEY>/file/<HANDLE>"
      PROVEN. Peak disk 2.00 GB, never 320 GB.
 
-FETCH_CONCURRENCY      = 1        REMUX_CONCURRENCY = 2
-TRANSCRIBE_CONCURRENCY = 16       EU+diarize ceiling 25; run 16.
+FETCH_CONCURRENCY      = 1        RAISE TO 4-8 once W0-Cap closes. This is the
+                                BOTTLENECK: fetch is 60-78 min serial at the
+                                measured 41-53 MB/s, against an STT stage of
+                                15-20 min. Throttled by our own safety choice,
+                                not by any vendor limit. Saves 40-65 min, $0.00.
+REMUX_CONCURRENCY      = 2
+TRANSCRIBE_CONCURRENCY = 50       RAISED from 16, measured 2026-10-15. The prior
+                                evidence said the EU+diarize ceiling was 25; the
+                                current official table gives Nova-3 Pre-Recorded
+                                on api.eu.deepgram.com as 50. The 25 predates
+                                Deepgram's Feb 2026 3x concurrency increase.
+                                Measured: throughput still scaling 1.55x per
+                                doubling AT 16, zero 429s at any level.
+                                evidence/probes/nhbplus-stt-concurrency-2026-10-15.json
 
 FETCH_IMG_BYTES = 4 GiB   loopback ext4, kernel-enforced. W0-Cap proves ENOSPC.
 CAP_BYTES       = 2_000_000_000

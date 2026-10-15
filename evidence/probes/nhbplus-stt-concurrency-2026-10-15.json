@@ -1,0 +1,81 @@
+{
+  "probe": "stt-concurrency-scaling-and-second-key-value",
+  "date": "2026-10-15",
+  "status": "PASS",
+  "question": "The operator will supply a second Deepgram API key with $200 credit. How much does that speed up processing?",
+
+  "HEADLINE": {
+    "second_key_throughput_gain": "ZERO",
+    "second_key_budget_gain": "$200",
+    "reason": "Deepgram concurrency is scoped PER PROJECT, not per account or per key. Two keys in one project draw from ONE pool. A second ACCOUNT raises budget but not throughput.",
+    "tos_warning": "The docs explicitly prohibit working around this: 'Do not create additional projects, additional accounts, or otherwise distribute traffic across projects to work around per-project limits. These setups are detected. Secondary projects on a self-serve account are restricted to 1 concurrent stream, and bypassing rate limits this way violates our Terms of Service.'",
+    "instruction": "USE THE SECOND KEY FOR BUDGET ONLY. Do NOT load-balance transcription across the two accounts."
+  },
+
+  "measured_scaling": {
+    "method": "one 120 s mono 16 kHz clip, submitted at concurrency 1/2/4/8/16, identical audio every time. Aggregate realtime factor = audio-seconds processed / wall-seconds.",
+    "cost": "$0.11 total (10 requests x 2 min x $0.0056)",
+    "results": [
+      { "concurrency": 1,  "aggregate_xrt": 72.4,  "marginal": null,   "corpus_minutes": 483.6, "http_429": 0 },
+      { "concurrency": 2,  "aggregate_xrt": 176.4, "marginal": 2.44,   "corpus_minutes": 198.5, "http_429": 0 },
+      { "concurrency": 4,  "aggregate_xrt": 275.4, "marginal": 1.56,   "corpus_minutes": 127.1, "http_429": 0 },
+      { "concurrency": 8,  "aggregate_xrt": 471.7, "marginal": 1.71,   "corpus_minutes": 74.2,  "http_429": 0 },
+      { "concurrency": 16, "aggregate_xrt": 732.0, "marginal": 1.55,   "corpus_minutes": 47.8,  "http_429": 0 }
+    ],
+    "corpus_seconds": 2100780,
+    "conclusion": "Throughput is STILL SCALING sub-linearly at 16 (marginal 1.55x per doubling). It is NOT a plateau. Concurrency is a live lever with headroom above 16."
+  },
+
+  "CORRECTION_TO_PRIOR_EVIDENCE": {
+    "was": "evidence artifact deepgram-eu-limits-and-chain-proof-2026-10-15.json recorded the EU+diarize concurrency ceiling as 25, and stage-1 set TRANSCRIBE_CONCURRENCY=16 to sit under it.",
+    "now": "The current official table gives Nova-3 Pre-Recorded on api.eu.deepgram.com as 'Up to 50 concurrent requests'. The 25 figure predates Deepgram's February 2026 3x concurrency increase.",
+    "action": "TRANSCRIBE_CONCURRENCY raises 16 -> 50. This is a stale-prior correction: the number was read from a real doc at a real date and was still wrong because the doc moved.",
+    "cost": "$0.00 and roughly 30 minutes saved"
+  },
+
+  "projected_stage_times": {
+    "note": "concurrency 50 extrapolated from the measured curve with a 0.90 efficiency factor for diminishing returns, NOT measured - the probe stopped at 16 deliberately to stay cheap.",
+    "stt_at_16_measured": "47.8 min",
+    "stt_at_50_projected": "15-20 min",
+    "fetch_at_concurrency_1_measured": "60-78 min  (146.87 GiB at the measured 41-53 MB/s)",
+    "fetch_at_concurrency_4_projected": "17-22 min",
+    "fetch_at_concurrency_8_projected": "10-13 min",
+    "bottleneck": "FETCH, not STT. The fetch stage is 3-5x the STT stage at every concurrency the current plan uses, and it is throttled by OUR OWN safety choice (FETCH_CONCURRENCY=1), not by any vendor limit."
+  },
+
+  "where_the_real_speedup_is": {
+    "rank_1": {
+      "action": "Prove W0-Cap (the 4 GiB loopback raises ENOSPC on overflow), then raise FETCH_CONCURRENCY from 1 to 4-8",
+      "saving_minutes": "40-65",
+      "cost": "$0.00",
+      "blocked_by": "W0-Cap is still OPEN. The loopback cap is the safety system that would make parallel fetch safe - and an untested cap is not a cap."
+    },
+    "rank_2": {
+      "action": "Raise TRANSCRIBE_CONCURRENCY from 16 to 50",
+      "saving_minutes": "28-33",
+      "cost": "$0.00",
+      "blocked_by": "nothing - the limit is documented and this project is well under it"
+    },
+    "rank_3": {
+      "action": "Second API key",
+      "saving_minutes": "0",
+      "cost": "provides $200 of budget instead, which the run needs ($207.31 > $200)",
+      "blocked_by": "n/a"
+    }
+  },
+
+  "instruments_that_were_wrong_in_this_probe": [
+    {
+      "n": 1,
+      "defect": "The verdict function compared the LAST row's throughput against the max, which is trivially true for the maximum row, so 'PLATEAUED' could never be reported. It printed 'Throughput PLATEAUED by concurrency 16' while the marginal gain was 1.55x per doubling - actively scaling.",
+      "fix": "compare MARGINAL gain between adjacent levels, not absolute value against its own max"
+    },
+    {
+      "n": 2,
+      "defect": "The corpus-time estimate multiplied by the realtime factor instead of dividing: `corpus_min * (xrt/60)/60`. That produced 7,119 minutes at concurrency 16 instead of 47.8 - wrong by ~150x and inverted.",
+      "fix": "wall_seconds = corpus_audio_seconds / aggregate_xrt. Recomputed from the saved JSON; no new API calls were needed to correct it."
+    }
+  ],
+
+  "artifacts": ["pipeline/out/concprobe.json"]
+}
