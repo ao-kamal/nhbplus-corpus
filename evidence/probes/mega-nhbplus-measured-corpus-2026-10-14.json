@@ -1,0 +1,65 @@
+{
+  "probe_id": "mega-nhbplus-measured-corpus-2026-10-14",
+  "supersedes_cost_forecast_in": "mega-nhbplus-leaf-census-2026-10-14.json",
+  "purpose": "Convert the extrapolation into MEASUREMENT. audio-and-stt.md requires budgeting from measured duration, never from a planning estimate.",
+
+  "MEASURED_TOTALS": {
+    "folders_enumerated": 37,
+    "folders_failed": 0,
+    "total_mp3": 85,
+    "total_mp4": 183,
+    "total_pdf": 181,
+    "pdf_ai_summary": 51,
+    "mp3_without_duration": 0,
+    "audio_hours_via_mp3": 262.62,
+    "mp4_only_folders": 19,
+    "mp4_only_audio_hours": 265.73,
+    "TOTAL_AUDIO_HOURS": 528.35,
+    "deepgram_forecast_usd": 136.31,
+    "rate": "USD 0.0043/min - the CUT30-era rate. NOT re-derived or negotiated for this corpus.",
+    "status": "FORECAST FROM MEASURED DURATION. Actual spend is a separate number and is not yet observed."
+  },
+
+  "THE_FINDING_THAT_BREAKS_THE_EFFICIENCY_PLAN": {
+    "statement": "MP3s DO NOT EXIST for the earlier material. They begin at 2023/10.",
+    "mp4_only_folders": ["2021", "2022/04", "2022/05", "2022/06", "2022/07", "2022/08", "2022/09", "2022/10", "2022/11", "2022/12", "2023/01", "2023/02", "2023/03", "2023/04", "2023/05", "2023/06", "2023/07", "2023/08", "2023/09"],
+    "consequence": "265.73 h - 50.3% of all corpus audio - exists ONLY as MP4. For that half the 'skip the video entirely' shortcut does NOT apply: the MP4 must be downloaded and its audio extracted with ffmpeg. The bandwidth saving therefore applies to roughly half the corpus, not all of it.",
+    "this_corrects": "An earlier statement that 'the MP3s already exist, so no video download is needed'. That was true only of the recent material and was over-generalised from 2025 samples."
+  },
+
+  "STRUCTURAL_DEFECT_FOUND": {
+    "statement": "Folder nesting depth is NOT uniform. Some month folders contain further subfolders rather than files.",
+    "instance": "2024/06_07 contained no files at all - it contained '6. June & July 2024' (16.44 GB), which itself contained '6. June - 2024' (11.13 GB) and '7. July - 2024' (5.31 GB). Sizes reconcile: 11.13 + 5.31 = 16.44.",
+    "impact": "The first sweep recorded this folder as zero files - a FALSE ZERO indistinguishable from an empty folder. Recovering it added 28.01 h (10 MP3s, 9 PDFs) to the corpus total.",
+    "why_it_matters": "'Zero rows' and 'not a leaf' are different facts. A sweep that cannot tell them apart will silently under-report."
+  },
+
+  "RESIDUAL_RISK_NOT_CLOSED": {
+    "statement": "Only folders yielding ZERO files were re-examined for subfolders. A folder containing BOTH files and subfolders would have been counted by file alone, with its subfolders never visited.",
+    "status": "NOT CHECKED. 35 folders would need a subfolder-detection pass.",
+    "direction_of_error": "Under-reporting only. The true total is >= 528.35 h. It cannot be lower."
+  },
+
+  "LOWER_BOUND_CAVEAT": {
+    "statement": "Every folder reported scrolls=1, i.e. the virtualised list converged after a single scroll. If that single scroll under-loaded, file and duration counts are floors.",
+    "counter_evidence": "2025/01 and 2025/02 returned the highest counts in the sweep (35 files each) and matched an independent earlier read closely, so scrolling did materialise additional rows. 2024/01 returned identical numbers across two independent methods (4 mp3 / 15.07 h / 0 pdf), confirming convergence for that folder.",
+    "status": "Partially corroborated, not proven for all 37 folders."
+  },
+
+  "ANOMALY_CARRIED_FORWARD": {
+    "folder": "2024/06_07 (from the 2025/02 pattern)",
+    "statement": "2025/02 contains an MP3 whose rendered duration is '00:00' while its MP4 sibling shows a real duration. Cause NOT RECORDED. This is precisely the shape a duration gate must catch: a plausible file whose content is absent."
+  },
+
+  "SCOPE_NOTE": {
+    "ai_summaries": "51 'AI Summary' PDFs exist in-corpus. They are a FREE written register requiring no LLM spend. They are AI-generated, not authored course material, and must never be presented as the instructor's words.",
+    "pdfs_total": 181 PDFs. The originals are the authored written half.",
+    "transcription_required": "Only the 85 MP3s and the audio of the 183 MP4s. 51 PDFs need no transcription at all."
+  },
+
+  "integrity": {
+    "bytes_downloaded": 0,
+    "pipeline_code_written": false,
+    "probe_scripts_remain_probe_only": true
+  }
+}

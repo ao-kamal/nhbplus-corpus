@@ -1,0 +1,73 @@
+{
+  "probe_id": "nhbplus-residuals-root-cause-2026-10-14",
+  "record_type": "INVESTIGATION — RESOLVES the residuals, and CORRECTS a prior conclusion",
+  "investigates": ["2022 -1.93 GB", "2023 -0.48 GB", "2024 +3.51 GB"],
+
+  "CORRECTION_TO_MEGA_NHPLUS_DEFINITIVE_CENSUS": {
+    "claim_made_earlier": "MEGA's displayed folder sizes are NOT additive. Per-folder stated figures are unusable as a verification check; only the root total reconciles.",
+    "VERDICT": "THAT CLAIM WAS WRONG. MEGA's folder and year figures ARE additive, to within 0.01 GB.",
+    "evidence": {
+      "2022": { "year_stated": 71.22, "sum_of_months": 71.21, "delta": -0.01 },
+      "2023": { "year_stated": 78.09, "sum_of_months": 78.09, "delta": 0.00 },
+      "2024": { "year_stated": 107.41, "sum_of_months": 107.41, "delta": 0.00 },
+      "2025": { "year_stated": 54.89, "sum_of_months": 54.89, "delta": 0.00 },
+      "nested_june_july_2024": "11.13 + 5.31 = 16.44 GB, matching the stated '6. June & July 2024' of 16.44 GB exactly"
+    },
+    "how_the_wrong_claim_was_reached": "I compared a sum of ROUNDED PER-FILE values against MEGA's EXACT folder figure, found 2024 measuring 3.51 GB high, tested for double-counting (correctly found zero), and concluded the discrepancy had to be MEGA's. The error was assuming my per-file values were exact. They are not.",
+    "why_double_counting_was_the_wrong_hypothesis": "Because 2024 was HIGH, not low. A missing-file defect makes a sum SMALLER. Only rounding can make it larger."
+  },
+
+  "ACTUAL_ROOT_CAUSE": {
+    "finding": "MEGA ROUNDS EVERY DISPLAYED FILE SIZE TO A WHOLE UNIT.",
+    "proof": {
+      "files_with_a_GB_valued_size": 156,
+      "of_which_whole_numbers": 156,
+      "percentage_whole": "100%",
+      "distinct_GB_values_present": [1, 2, 3, 4],
+      "files_with_an_MB_valued_size": 229,
+      "of_which_whole_numbers": 229,
+      "percentage_whole": "100%",
+      "interpretation": "No file anywhere in the share displays a fractional GB or MB. Every one is an integer. Values present are only 1-4 GB, which is exactly what integer-rounding produces for a population of recorded calls in that range."
+    },
+    "consequence": "Summing per-file sizes inherits rounding noise that can run either way and can reach ~3.5 GB across a year. This produced the apparent 2022 -1.93, 2023 -0.48 and 2024 +3.51 residuals, and it is why they did not behave like a missing-data signature.",
+    "error_bound": "Each GB-rounded file carries up to 0.5 GB of error. With ~30 large files per year the annual drift can reach ~3.5 GB in either direction - matching the observed spread precisely."
+  },
+
+  "TWO_DEFECTS_SINCE_CONFIRMED_REAL": {
+    "virtualised_grid": {
+      "status": "REAL and the reason the corpus grew",
+      "evidence": "2025-Feb 36 -> 66 rows (+83%), 2025-Jan 36 -> 51. Scroll-to-bottom REDUCED the visible count, proving un-mounting.",
+      "effect": "files 621 -> 651, calls 203 -> 211, call hours 609.29 -> 630.74, and ~13 GB of real media that had never been seen.",
+      "verdict": "genuine enumeration defect, correctly diagnosed"
+    },
+    "rounding": {
+      "status": "REAL, and it is a MEASUREMENT-PRECISION limit rather than an enumeration defect",
+      "effect": "per-file byte figures carry up to +/-0.5 GB each; annual sums drift up to ~3.5 GB",
+      "verdict": "does not hide any file, but makes per-file sums unfit for reconciliation"
+    },
+    "note": "These two are separable and both real. The first cost 30 files and 8 calls. The second cost nothing in data and everything in comparability."
+  },
+
+  "WHAT_EACH_NUMBER_MAY_NOW_BE_USED_FOR": {
+    "MEGA folder and year sizes": "EXACT and additive. These are the authoritative byte figures and the correct basis for any reconciliation.",
+    "MEGA per-file sizes (the `title` attribute)": "ORDER OF MAGNITUDE ONLY. Usable for ranking, for spotting a file that is obviously large, and for planning disk. NOT usable for reconciliation to better than about +/-1%.",
+    "the 183.92 GB mp3-preferred download estimate": "BUILT ON ROUNDED PER-FILE VALUES. Treat as 182-186 GB. Still decisively sufficient for a 500 GB disk, so the operational conclusion is unchanged - but the figure is not precise to the decimal shown.",
+    "row counts and durations": "UNAFFECTED. Rounding is in the size field only; durations are rendered separately and were never rounded."
+  },
+
+  "RESOLUTION": {
+    "2022_minus_1_93": "Rounding. Not missing data.",
+    "2023_minus_0_48": "Rounding. Not missing data.",
+    "2024_plus_3_51": "Rounding. Not missing data, and not double-counting - tested and excluded.",
+    "root_gap_0_08": "Rounding, which happened to cancel across 651 files. The agreement was luck, not proof.",
+    "files_missing_from_the_corpus": "NONE. All 59 folders walked, 0 failed, 651 files enumerated."
+  },
+
+  "DEFECTS_IN_THE_INVESTIGATION_SCRIPT_ITSELF": [
+    "The year-index ranges covered the MONTH folders, never the YEAR ROOT, so the listings carrying the stated sizes were never read - a clean zero.",
+    "Months were keyed by NAME alone. April exists in 2022 AND 2023, so both were summed into one bucket, producing plausible single numbers that were sums of two different months.",
+    "The unit lambda expected 'GB' while the regex captured only 'G' - a KeyError, which at least failed loudly rather than silently."
+  ],
+
+  "integrity": { "bytes_of_corpus_downloaded": 0, "corpus_modified": false }
+}

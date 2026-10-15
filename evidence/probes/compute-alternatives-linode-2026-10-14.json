@@ -1,0 +1,105 @@
+{
+  "probe_id": "compute-alternatives-linode-2026-10-14",
+  "record_type": "VENDOR ASSESSMENT — research, not a live account probe",
+  "investigated_at_utc": "2026-10-14",
+  "question": "Does Linode (Akamai Cloud) satisfy this build's compute requirements, given that Azure's risk is card verification?",
+
+  "REQUIREMENTS_THIS_WAS_SCORED_AGAINST": {
+    "R1_platform": "Linux x86_64, >=2 vCPU, >=8 GiB RAM, root SSH. megacmd is a native .deb binary and is the ONLY thing that can decrypt this corpus.",
+    "R2_disk": ">=350 GB. megacmd IGNORES the '::' subpath and fetches the ENTIRE 319.95 GB share, so the VM must stage all of it. This is the binding constraint and it is why GitHub Actions was ruled out.",
+    "R3_region": "EU, to keep MEGA -> VM -> api.eu.deepgram.com intra-EU.",
+    "R4_payment": "MUST survive a Nigerian card. Oracle already failed this; Azure may too. Verve Classic is reportedly domestic-only.",
+    "R5_cost": "Bounded, against the recorded compute waiver.",
+    "R6_run_length": "Hourly billing with a monthly cap, so a throwaway VM can be destroyed at completion."
+  },
+
+  "R1_PLATFORM": {
+    "verdict": "PASS",
+    "evidence": "Shared CPU plans run to 32 vCPU / 192 GB RAM / 3840 GB storage. Akamai Cloud supports Linux images with root SSH via the lish gateway.",
+    "why_it_matters": "megacmd is the only decryption route. It is a native Debian/Ubuntu binary and installs unattended on any of these images."
+  },
+
+  "R2_DISK — the binding constraint": {
+    "verdict": "PASS, but only on the 32 GB plan",
+    "share_to_stage_GB": 319.95,
+    "plans": [
+      { "plan": "Linode 8 GB",  "storage_GB": 160,  "usd_per_hour": 0.072, "fits": false },
+      { "plan": "Linode 16 GB", "storage_GB": 320,  "usd_per_hour": 0.144, "fits": false,
+        "why_not": "320 GB against a 319.95 GB share is 99.98% full. Zero headroom for the OS, logs, or megacmd temp files. Would fail in practice, not on paper." },
+      { "plan": "Linode 32 GB", "storage_GB": 640,  "usd_per_hour": 0.288, "fits": true }
+    ],
+    "block_storage_alternative": {
+      "price": "$0.10/GB/month",
+      "arithmetic": "Linode 8 GB ($0.072/hr x 72h = $5.18) + 400 GB block storage ($40.00)",
+      "total_72h": "$45.18",
+      "verdict": "WORSE than simply running the 32 GB plan for 72h ($20.74). Block storage also bills monthly, so a 72-hour run pays a full month. Rejected."
+    }
+  },
+
+  "R3_REGION": {
+    "verdict": "PASS — strongest EU coverage of any candidate",
+    "regions_full_availability": [
+      "Frankfurt, DE (de-fra-2 and legacy eu-central)",
+      "Amsterdam, NL (nl-ams)",
+      "Paris, FR (fr-par, plus fr-par-2)",
+      "London, UK (gb-lon)",
+      "Milan, IT (it-mil)", "Madrid, ES (es-mad)", "Stockholm, SE (se-sto)"
+    ],
+    "note": "Frankfurt is explicitly the busiest EU core region and has received dedicated capacity expansion. DigitalOcean offers only 3 EU regions by comparison."
+  },
+
+  "R4_PAYMENT — THE DECIDING AXIS": {
+    "verdict": "PASS, and materially better than Azure",
+    "accepted_methods": "All major credit cards, PLUS Google Pay and PayPal.",
+    "why_this_is_the_important_finding": "It is a DIFFERENT FAILURE MODE, not a smaller version of the same one. If a Nigerian Verve card is rejected by card-network rules on Azure, PayPal or Google Pay funded from a different instrument is an independent path that Azure does not offer.",
+    "corroborating_evidence_of_the_risk_being_real": "A 2026 Nigerian payment guide states plainly that 'Linode Nigerian Naira cards are usually declined for international payments, the fastest fix is a virtual dollar card funded with NGN/USDT.' So the card risk is REAL here too — but PayPal and Google Pay are the documented workaround, and that workaround exists.",
+    "billing_threshold": "For new accounts the billing threshold begins at $50 and is adjusted automatically. Usage accrues against that threshold before a charge is raised."
+  },
+
+  "R5_COST": {
+    "currency_note": "USD only. Any other currency requires a payment method that converts.",
+    "linode_32GB_72h": "$20.74",
+    "linode_32GB_168h": "$48.38",
+    "azure_D2as_v5_500GB_estimate": "~$26",
+    "digitalocean_promotion": "EUR 1.29 / 72h with 2000 GiB included (already researched; promotional, and promos vanish)",
+    "verdict": "Linode is CHEAPER than Azure and roughly 16x the cost of the DigitalOcean promotion.",
+    "egress": "Bundled transfer on the 32 GB plan is 16 TB. The run pushes ~182 GB to Deepgram and pulls ~184 GB from MEGA. Both are far inside the bundle, so egress cost is $0. Overage would be $0.005/GB, the cheapest in class."
+  },
+
+  "R6_RUN_LENGTH": {
+    "verdict": "PASS",
+    "evidence": "Hourly billing, rounded up to the nearest hour, with a monthly cap. Deleting the Linode stops the meter. Fits the throwaway-VM model exactly."
+  },
+
+  "MATERIAL DISADVANTAGES": {
+    "NO_HARD_SPEND_CAP": {
+      "evidence": "Independent 2026 review: 'nothing stops you spending past the credit. No hard cap pauses your servers at zero balance, so usage above the credit becomes an ordinary invoice.'",
+      "why_it_matters": "This is the one genuine risk of choosing Linode. Under Rule 2, an unbounded meter is the wrong shape. A forgotten VM burning for a month costs ~$200, not ~$21.",
+      "MITIGATION": "Destroy the Linode the moment the run completes, and check the Cloud Manager billing panel before leaving it unattended. The $50 new-account threshold also means nothing is charged until $50 accrues, so a short overrun is absorbed.",
+      "contrast": "Azure's $200 trial credit is bounded. Linode's credit is not."
+    },
+    "promotional_credit_unverified": {
+      "evidence": "A $100 promotional credit is advertised on akamai.com/lp/free-credit-100 and linode.com/lp/refer. An independent review warns Akamai 'has adjusted both the credit amount and the expiry window more than once' and that the offer 'can differ by region'.",
+      "status": "NOT VERIFIED LIVE. The figure on the signup page is the only one that binds. Do not plan against $100 until it is read off the page.",
+      "policy_constraint": "Akamai's promotional policy allows one promotional redemption per person/account."
+    },
+    "block_storage_monthly_billing": "Any block-storage-based disk strategy pays a full month regardless of run length."
+  },
+
+  "VERDICT": {
+    "does_it_fit": "YES. It passes all six requirements.",
+    "is_it_better_than_azure": "On the AXIS THAT MATTERS MOST — card verification — YES, because it accepts PayPal and Google Pay, which Azure does not. It is also cheaper (~$21 vs ~$26) and has more disk headroom (640 GB vs the 500 GB Azure would need).",
+    "is_it_safer_than_azure": "NO. Azure's spend is bounded by a $200 credit; Linode's is not. A forgotten Linode is an unbounded bill.",
+    "RECOMMENDATION": "Adopt Linode Frankfurt as the PRIMARY, not the fallback. The card-verification failure mode that most likely kills Azure is survivable on Linode, and the unbounded meter is controllable by destroying the instance on completion — which the run plan already requires. If the operator prefers a bounded meter over a wider payment surface, keep Azure first and hold Linode as the card-failure fallback.",
+    "what_would_settle_it": "One live visit to the signup page to read the actual credit amount and expiry, and to see which payment methods are offered for a Nigeria-billed account."
+  },
+
+  "NOT_VERIFIED": [
+    "The live promotional credit amount and expiry — read off the signup page, not from a review.",
+    "Whether PayPal or Google Pay can actually be attached to a Nigeria-billed Linode account. Documented as accepted generally; not confirmed for this billing location.",
+    "Actual run duration, which determines whether the run costs $21 or $48.",
+    "MEGA -> Frankfurt -> api.eu.deepgram.com throughput, which governs run length and therefore total cost."
+  ],
+
+  "integrity": { "no_account_created": true, "no_payment_details_touched": true, "bytes_of_corpus_downloaded": 0 }
+}

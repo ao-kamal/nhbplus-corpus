@@ -1,0 +1,86 @@
+{
+  "probe_id": "mega-nhbplus-corpus-census-2026-10-14",
+  "supersedes": "mega-public-folder-listing-2026-10-13.json",
+  "purpose": "Skill `course-corpus-extraction`, back-end `share-link`, step 1 — establish a dated evidence artifact before any route enters code.",
+
+  "correction_of_prior_artifact": {
+    "prior_verdict": "NEGATIVE — 'MEGA rejects anonymous enumeration' (error -15 ESID)",
+    "actual_classification": "harness_artefact",
+    "cause": "mega.py's `login_anonymous()` is only reachable via `login()`; it is NOT called by `Mega.__init__`. The first probe constructed `Mega()` and issued an API call with no session established. ESID was the correct response to a malformed request, not a property of MEGA.",
+    "residual_finding_that_STANDS": "Even WITH the anonymous session bootstrap, every `a:'f'` node-metadata variant returns a stripped node — keys ['f','noc','sn','st'], with no `at`, `t` or `s`. Anonymous sessions receive HANDLES ONLY: no names, no sizes, no types. Container-level enumeration therefore DOES require an authenticated account. This was measured separately, across 5 call shapes, with backoff.",
+    "rule_followed": "Classify every finding before counting it: pipeline_defect / scope_error / harness_artefact. The probe can be the bug."
+  },
+
+  "source_url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q",
+  "probed_at_utc": "2026-10-14",
+  "method": "dev-browser 0.2.9 (file-mode; stdin-mode stdout does not forward in this PowerShell environment). DISCOVERY ONLY — browser to FIND, plain HTTP to TAKE bytes.",
+  "bytes_downloaded": 0,
+  "credentials_used": "NONE",
+  "note_on_sizes": "Every byte figure below is MEGA's OWN figure, rendered by the MEGA web client. They were not computed or estimated by this probe.",
+
+  "corpus_identity": {
+    "root_folder_title_as_rendered": "Alen Sultanic – NHB+ – Nothing held back Plus (Up to 02.2025)",
+    "root_size_as_rendered": "319.95 GB",
+    "classification": "This is NOT a video course with companion PDFs. It is a TRADING MENTORSHIP ARCHIVE of recorded calls, year-partitioned 2021-2025.",
+    "why_that_matters": "The skill's premise is a two-register corpus: one lesson document carrying a SPOKEN half (transcript) and a WRITTEN half (companion PDF). This corpus is predominantly raw audio. There is no evidence of any lesson/PDF pairing structure."
+  },
+
+  "root_children": [
+    { "name": "NHB+ Calls & Playlists", "type": "Folder", "size_display": "312.16 GB" },
+    { "name": "NHB+ Swipes",           "type": "Folder", "size_display": "108.1 MB" },
+    { "name": "Templates",            "type": "Folder", "size_display": "297.9 MB" },
+    { "name": "NHB Bonuses",          "type": "Folder", "size_display": "7.39 GB" },
+    { "name": "NHB Discord Server.txt", "type": "Text", "size_display": "29 B" }
+  ],
+
+  "calls_and_playlists_children": {
+    "sub_folder_handle": "E2FyiLCC",
+    "url_after_open": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/folder/E2FyiLCC",
+    "children": [
+      { "name": "2021",  "type": "Folder", "size_display": "561.9 MB" },
+      { "name": "2022",  "type": "Folder", "size_display": "71.22 GB" },
+      { "name": "2023",  "type": "Folder", "size_display": "78.09 GB" },
+      { "name": "2024",  "type": "Folder", "size_display": "107.41 GB" },
+      { "name": "2025",  "type": "Folder", "size_display": "54.89 GB" },
+      { "name": "Playlists - MUST READ FIRST.txt", "type": "Text", "size_display": "476 B" }
+    ]
+  },
+
+  "arithmetic_cross_check": {
+    "year_folders_sum": "0.55 + 71.22 + 78.09 + 107.41 + 54.89 GB",
+    "sum_displayed_GB": 312.16,
+    "matches_parents_stated_size": true,
+    "why_this_matters": "The child sizes reconcile with the parent folder's stated 312.16 GB. This is one of the skill's three drift dimensions (names AND sizes AND root) agreeing, and it is a real check rather than an assertion."
+  },
+
+  "NOT MEASURED — DO NOT INFER": [
+    "FILE COUNT anywhere below the root. Not enumerated.",
+    "AUDIO DURATION. This is the figure Deepgram bills on, and it is UNMEASURED. No cost forecast may be stated for this corpus until it is measured from the actual media, per audio-and-stt.md: 'Budget from the measured duration, never from a planning estimate.'",
+    "FILE FORMATS inside the year folders. MP3 vs MP4 vs WAV vs M4A is UNKNOWN and decides whether any transcode is needed at all.",
+    "Whether 'Swipes', 'Templates' and 'Bonuses' contain PDFs (usable written register) or images (no text layer).",
+    "The content of 'Playlists - MUST READ FIRST.txt' (476 B) — not read, not fetched."
+  ],
+
+  "host_capacity_constraint": {
+    "free_disk_bytes_C_drive": 293648822272,
+    "free_disk_GB": 273.4,
+    "corpus_GB": 319.95,
+    "finding": "FREE DISK IS LESS THAN THE CORPUS. Downloading this archive whole is not currently possible on this machine, independent of any policy decision.",
+    "caveat": "The skill's proven route ('stream the URL, never store video') avoids this for VIDEO because only FLAC lands on disk. Whether it applies here depends on the unmeasured file formats — if the 312 GB is already audio, it all has to pass through disk or stream."
+  },
+
+  "standing_rule_conflict_REQUIRES_RECONFIRMATION": {
+    "waiver_given": "2026-10-13 — operator waived content-os/AGENTS.md Rule 2 for Deepgram, in the belief the corpus was CUT30-sized. The measured CUT30 basis was 326.0 minutes of audio and a ~$1.40 forecast.",
+    "measured_now": "The corpus is 319.95 GB, year-partitioned across five years of recorded calls.",
+    "why_this_matters": "The waiver was authorised against a scale roughly three orders of magnitude smaller than the actual corpus. audio-and-stt.md:288 requires the skill to 'record the spend and the conflict every run rather than assuming the decision still holds.' A waiver given at $1.40 is not consent to a bill of unknown and possibly very large size.",
+    "required_action": "Re-confirm the waiver AFTER audio duration is measured, quoting the measured hours and the resulting figure. Do not begin sending audio under the old waiver."
+  },
+
+  "stop_condition": {
+    "skill_rule": "acquisition-backends.md:263 — probe, date the artifact, STOP, hand back three things.",
+    "honoured": true,
+    "fetched_any_course_bytes": false,
+    "wrote_any_pipeline_code": false,
+    "probe_scripts_are_probe_only": true
+  }
+}

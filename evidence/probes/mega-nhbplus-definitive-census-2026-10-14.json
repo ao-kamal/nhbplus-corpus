@@ -1,0 +1,80 @@
+{
+  "probe_id": "mega-nhbplus-definitive-census-2026-10-14",
+  "record_type": "MEASUREMENT — DEFINITIVE",
+  "closes": ["Q11 (the 13.2 GB gap)", "the virtualised-grid enumeration defect"],
+  "supersedes": [
+    "mega-nhbplus-full-share-measurement-2026-10-14.json  (609.29 h calls / 203 calls / 635.45 h total / $163.95)",
+    "nhbplus-audio-duration-correction-2026-10-14.json    (592.74 h / $152.93)",
+    "nhbplus-call-join-slotrule-v2-2026-10-14.json        (198 calls)"
+  ],
+
+  "probed_at_utc": "2026-10-14",
+  "bytes_downloaded": 0,
+  "credentials_used": "NONE",
+  "method": "Incremental SCROLL-UNION walk of all 59 folder handles (mega-walk-union.ps1), then final-census.py with a mandatory self-check.",
+
+  "ROOT_CAUSE_OF_THE_13_2_GB_GAP": {
+    "defect": "THE MEGA GRID IS VIRTUALISED AND UN-MOUNTS ROWS YOU SCROLL PAST.",
+    "proof": "Scrolling 2025-Feb to the BOTTOM REDUCED the visible row count from 36 to 31. A single before/after count measures a WINDOW, not a list.",
+    "correct_technique": "Scroll in viewport-sized INCREMENTAL steps and UNION the rows visible at every position. Never jump to the end. Never count once.",
+    "yield": "2025-Feb: 36 rows -> 66 rows (29.83 GB). 2025-Jan: 36 -> 51.",
+    "SCOPE_OF_THE_DEFECT": "EVERY count this project has ever taken measured a window — including the original census, whose own methodology note read 'row counts from this method are a lower bound until scrolling is proven.' It was never proven, and the note sat unactioned through four enumerations.",
+    "gap_closed_from_GB": 13.205,
+    "gap_closed_to_GB": 0.080,
+    "gap_closed_to_pct": 0.025
+  },
+
+  "DEFINITIVE_FIGURES": {
+    "calls": 211,
+    "call_hours": 630.74,
+    "served_by_mp3": { "count": 98, "GB": 16.54, "hours": 302.13 },
+    "served_by_mp4": { "count": 113, "GB": 160.06, "hours": 328.61 },
+    "bonus_lesson_videos": { "count": 42, "hours": 26.16 },
+    "TOTAL_AUDIO_HOURS": 656.90,
+    "FORECAST_USD": 169.48,
+    "actual_spend": "NOT YET OBSERVED. Forecast and actual stay separate.",
+    "download_mp3_preferred_GB": 183.92,
+    "total_files": 651,
+    "files_by_type": { "pdf": 250, "mp4": 237, "mp3": 98, "docx": 42, "pptx": 12, "txt": 6, "xlsx": 4, "zip": 1, "png": 1 },
+    "folders_failed": 0
+  },
+
+  "FIVE_CORRECTIONS_TO_THIS_CORPUS": {
+    "note": "Every correction has moved UPWARD. Each was found by reconciling a total against an independent figure, never by reading code.",
+    "chain": ["528.35 h (folder-level MP4-only classification dropped 113 units)",
+              "592.74 h (weak normaliser split 12 paired calls)",
+              "609.29 h (2025 enumeration was a window)",
+              "630.74 h (all month folders were windows)"],
+    "final_delta": "528.35 -> 630.74 is +19.4% on the original measurement, and +6.7% on the figure quoted to the operator most recently.",
+    "why_it_matters": "Every one of these would have been an UNDER-count, and under-counting a corpus means transcribing less of it than the operator paid for."
+  },
+
+  "THE_2024_OVER_MEASUREMENT": {
+    "observation": "2024 measures +3.51 GB against MEGA's own stated 107.41 GB for that year folder. You cannot measure more bytes than exist.",
+    "hypothesis_tested": "Double-counting — some folder in the 2024 tree appearing twice in the enumeration.",
+    "test": "Every title in all 14 of the 2024 month folders was checked against every other. Titles appearing in more than one folder: ZERO. Across the WHOLE share, exactly one title spans multiple folders: 'Resources Links.txt', a generic filename repeated across 4 bonus modules — not the same file.",
+    "CONCLUSION": "NOT double-counting. MEGA's stated year size (107.41 GB) is simply LOWER than the sum of its own stated month sizes. MEGA's displayed folder figures are NOT ADDITIVE.",
+    "contradicts": "The original census recorded that 'child sizes, names and counts all agree — the three independent drift dimensions'. For 2024 they do not agree.",
+    "residual": "2022 -1.93 GB and 2023 -0.48 GB remain as sub-year shortfalls that offset the 2024 over. They sum with it to the 0.08 GB root-level residual, which is rounding.",
+    "honest_reading": "Per-folder stated figures cannot be used as an independent check. Only the ROOT total (319.95 GB) reconciles, and it does so to 0.025%."
+  },
+
+  "TWO_MORE_DEFECTS_IN_THE_RECONCILIATION": [
+    "PowerShell wraps a nested JSON array as {\"value\": [...], \"Count\": N}. Reading rows directly yields a dict, and iterating a dict yields its KEYS — producing a clean zero that reported 'folders failed: 0' and 'total files: 0' simultaneously.",
+    "A self-check was added that asserts the breakdown accounts for the same total as an independent tally, and prints *** MISMATCH *** and refuses to present the breakdown if it does not. Two earlier per-folder scripts lacked this and reported confident, wrong, few-GB totals."
+  ],
+
+  "WHAT_STILL_ITERATES": {
+    "2022_and_2023_sub_year_shortfalls": "2022 -1.93 GB, 2023 -0.48 GB. NOT yet explained. They offset 2024's over at the root level, but individually they remain unexplained rather than reconciled.",
+    "per_folder_stated_sizes": "Unusable as a check — see the 2024 finding. Any future verification must compare against the ROOT total only."
+  },
+
+  "NOT_MEASURED — DO NOT INFER": [
+    "Whether the enumeration is now COMPLETE. The scroll-union is a strong method and the root total reconciles to 0.025%, but 'reconciles at the root' is weaker than 'every file was seen'. 656.90 h should still be treated as a near-floor, not a floor.",
+    "Contents of the .zip and the 6 .txt link files.",
+    "Whether the office files are genuinely OOXML (Q9 residual) — one fetch settles it.",
+    "Any actual spend."
+  ],
+
+  "integrity": { "bytes_of_corpus_downloaded": 0, "corpus_modified": false, "pipeline_code_written": false }
+}

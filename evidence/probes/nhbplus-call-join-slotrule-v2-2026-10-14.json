@@ -1,0 +1,72 @@
+{
+  "probe_id": "nhbplus-call-join-slotrule-v2-2026-10-14",
+  "supersedes": "nhbplus-call-join-slotrule-2026-10-14.json",
+  "rule": "Slot rule unchanged: PASS 1 exact title after normalisation, PASS 2 ordinal slot (unclaimed after PASS 1, unique both ways), PASS 3 recorded absence under its mechanism. What changed is the NORMALISATION and one operator adjudication.",
+
+  "decisions_applied": {
+    "1_box_drawing_dash": "Every non-ASCII character folded to a space. MEGA filenames mix a real box-drawing dash (U+2500) with the same bytes mis-decoded into Latin letters. Guessing which mangling occurred is unreliable, so the whole class is folded. Safe because non-ASCII in this corpus is decorative separators only, never identifying content.",
+    "2_call_type_prefix": "Explicit alias table: branded and bare call-type words (guest/coaching/theory call, call, calls) collapse to one canonical ' call ', and the brand mark is written 'NHB+' by one file family and 'NHB' by the other, so it is normalised too. Not a heuristic - an enumerated table.",
+    "3_date_zero_padding": "M-D-YYYY -> MM-DD-YYYY.",
+    "adjudication": "2025/02 'Offer Fundamentals' == 'How To Make Offers That Are Built For Scale'. Operator ruling, recorded as ONE pair with its reason and deliberately NOT generalised into a rule."
+  },
+
+  "CORRECTION_TO_THE_PREVIOUS_ARTIFACT": {
+    "call_count": "198, NOT the 210 previously reported. The earlier count treated an mp3 and its mp4 as two calls. They are two encodings of one recording.",
+    "verification": "268 media files, 70 titles carrying both an mp3 and an mp4, 198 distinct calls. 268 - 70 = 198 closes exactly. Of those 70 pairs, 12 showed durations differing by exactly ONE SECOND (e.g. 3:31:21 vs 3:31:22) - the normal rounding difference between two encodings of the same recording, not evidence of two different calls."
+  },
+
+  "MEASURED": {
+    "calls_total": 198,
+    "calls_with_original_pdf": 108,
+    "calls_with_ai_summary": 44,
+    "summary_files_total": 51,
+    "summaries_still_unpaired": 7,
+    "adjudications_applied": 1
+  },
+
+  "mechanism_tally_original": {
+    "exact_title_after_normalisation": 99,
+    "ordinal_slot": 9,
+    "slot_taken_by_sibling": 39,
+    "no_pdf_in_ordinal_slot": 9,
+    "no_companion_in_manifest": 42
+  },
+
+  "mechanism_tally_summary": {
+    "exact_title_after_normalisation": 39,
+    "ordinal_slot": 4,
+    "slot_taken_by_sibling": 20,
+    "no_pdf_in_ordinal_slot": 8,
+    "no_companion_in_manifest": 127,
+    "operator_ruling": 1
+  },
+
+  "seven_summaries_still_unpaired": [
+    { "folder": "2024/08", "summary": "Reading Offers #3", "reason": "summary carries '#3', the media file carries '3'. Hash-suffix variant - NOT normalised, because '#N' vs 'N' is a content-bearing difference and folding it would also fold genuinely distinct parts." },
+    { "folder": "2024/08", "summary": "Guest Call - Charles Kirkland on Local Lead Generation", "reason": "media file says 'Charles Kirkland Local Lead Gen Unveiled'. Same guest, same date, reworded AND abbreviated." },
+    { "folder": "2024/09", "summary": "NHB+ Theory Call - September 2024 Reading Offers", "reason": "media file appends the word 'Call'." },
+    { "folder": "2025/01", "summary": "NHB+ Coaching Call - Introduction To Google Ads - With Charles Kirklan", "reason": "TWO defects at once: the media file is branded 'NHB Introduction...' rather than 'NHB+ Coaching Call', and the surname is truncated 'Kirklan' vs 'Kirkland'." },
+    { "folder": "2025/01", "summary": "CRO Audit Accelerator", "reason": "YEAR MISMATCH - summary says 01-24-2025, the media file says 01-24-2024." },
+    { "folder": "2025/02", "summary": "Google Case Studies - With Charles Kirkland", "reason": "media file carries a leading ' - ' after the date that the summary omits." },
+    { "folder": "2025/02", "summary": "How To Be A Media Buyer - With Charles Kirkland", "reason": "media file carries a leading ' - ' after the date." }
+  ],
+
+  "deliberately_not_normalised": [
+    "'#3' vs '3' - content-bearing, folding it risks merging genuinely distinct parts.",
+    "The leading ' - ' after a date on 2025/02 media files - this is the LAST systematic divergence found, and folding a stray leading separator is low-risk, but it is left visible rather than silently absorbed. RECOMMENDED as a future decision, not applied here.",
+    "Truncated surnames ('Kirklan' vs 'Kirkland') and year mismatches (2024 vs 2025) - these are typos in the source, not a naming convention. Absorbing them would be inventing a rule the corpus does not support."
+  ],
+
+  "bugs_found_while_building_v2": [
+    "LEAD_NUM matched a hyphen as well as a dot, so '01-20-2025' lost its month and every title in the corpus was truncated to '20-2025'. This silently destroyed the date component of every join key.",
+    "The brand mark 'NHB+' was never normalised, so 'nhb+ call' could never equal 'nhb call' and the 11 prefix orphans persisted after the alias table was added.",
+    "The adjudication tested `summary_title in calls`, but `calls` holds MEDIA titles only, so the operator ruling could never fire.",
+    "The adjudication record stored a reconstructed filename missing the ' AI Summary' suffix, naming a file that does not exist."
+  ],
+
+  "integrity": {
+    "bytes_downloaded": 0,
+    "pipeline_code_written": false,
+    "note": "Probe over a rendered container listing. Not the S8 mapping stage; produces no vault."
+  }
+}

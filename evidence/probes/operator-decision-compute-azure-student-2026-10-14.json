@@ -1,0 +1,63 @@
+{
+  "record_type": "OPERATOR_DECISION_RECORD",
+  "recorded_at_utc": "2026-10-14",
+  "decision": "COMPUTE RESOLVED — Azure for Students",
+
+  "closes": "stage-0-intent.md Q4 — the last open question in G0",
+
+  "why_this_resolved_a_standing_blocker": {
+    "the_blocker": "Every candidate provider requires a card that Nigerian issuers decline. AWS rejects Verve outright; Google rejects Verve, rejects Nigerian naira BINs at the network level, AND rejects virtual cards — the usual workaround. Banks cap international spend at USD 20-100/month against a ~USD 152 run.",
+    "the_resolution": "Azure for Students is documented as USD 100 of credit for 12 months with NO CREDIT CARD REQUIRED. This is the only route found that removes the card requirement entirely rather than working around it.",
+    "lineage": "Linode was assessed and REJECTED on the operator's direct report that it does not accept Nigerians — a country-acceptance gate that had been checked too late in that assessment."
+  },
+
+  "terms": {
+    "credit_usd": 100,
+    "credit_validity_months": 12,
+    "card_required": false,
+    "vms_supported": true,
+    "eligibility": "Qualifying full-time student at an accredited degree-granting institution; academic-status verification required. The operator has signed up, so eligibility is their assertion to make."
+  },
+
+  "comparison_with_the_standard_trial": {
+    "standard_trial": { "credit_usd": 200, "validity_days": 30, "card_required": true },
+    "student_program": { "credit_usd": 100, "validity_months": 12, "card_required": false },
+    "verdict": "The student program is OPERATIONALLY BETTER for this job despite being worth less. The run costs ~USD 26, so USD 100 covers it roughly four times over, and there is no 30-day deadline — which removes the pressure to rush and the risk of burning credit on an idle VM.",
+    "risk_it_carries": "Student subscriptions sometimes restrict VM families and regions. To be confirmed at creation time, not assumed."
+  },
+
+  "VM_SPECIFICATION_ISSUED": {
+    "region": "North Europe (Ireland), or West Europe (Netherlands)",
+    "region_rationale": "EU, so MEGA -> VM -> api.eu.deepgram.com stays intra-EU. This is the reason the region was chosen over a cheaper US or South-East-Asia location.",
+    "size": "D2as v5 — 2 vCPU, 8 GiB RAM",
+    "size_substitutes_if_unavailable": "D2as v4 or B2ms — the requirement is 2 vCPU and 8 GB, nothing exotic",
+    "os": "Ubuntu Server 24.04 LTS x64",
+    "disk_gb": 500,
+    "disk_rationale": "The share is 319.95 GB and must be staged whole, because megacmd cannot address single files. 500 GB gives ~180 GB of headroom for the OS, logs and megacmd temp files.",
+    "DISK_IS_NOT_REVERSIBLY_EDITABLE": "Azure disks are fixed size. Growing one later requires deallocating the VM. 500 GB must be chosen at creation; 300 GB would be wrong and would cost a redeploy.",
+    "auth": "SSH public key"
+  },
+
+  "FIRST_REAL_TEST": {
+    "goal": "One MP3, end to end: megacmd -> Deepgram -> receipt -> delete, with the disk guard armed.",
+    "why_it_matters": "Every decrypt test so far used only a 29-byte txt or a small PDF. No real media file has ever been moved through the whole chain.",
+    "install_command": "wget https://mega.nz/linux/repo/xUbuntu_26.04/amd64/megacmd-xUbuntu_26.04_amd64.deb && sudo apt install ./megacmd-xUbuntu_26.04_amd64.deb",
+    "KNOWN_UNTESTED_LINK": "That .deb targets Ubuntu 26.04; the VM will run 24.04. MEGAcmd is broadly compatible and it will very likely install, but this is the ONE untested link in the transport chain and it is flagged now rather than discovered mid-run.",
+    "fallback_if_it_refuses": "Use the xUbuntu_24.04 repo path."
+  },
+
+  "cost_position": {
+    "forecast_usd": 169.48,
+    "note": "That figure is DEEPGRAM ONLY — speech-to-text. Compute is separate and draws against the Azure student credit.",
+    "compute_estimate_usd": "~26 for a ~72 hour run, against USD 100 of credit."
+  },
+
+  "no_dependency_on_the_mega_account": {
+    "statement": "The pipeline does not require the operator's MEGA account and never did.",
+    "evidence": "megacmd fetches PUBLIC links anonymously. This was the FIRST thing proven in the project, before any account existed: a 29-byte txt decrypted to plaintext and PDFs returned %PDF-1.7 headers, with no credentials.",
+    "the_account_was_only_used_for": "Testing the mega-fuse per-file hypothesis. That test produced no working file read and the account is being abandoned.",
+    "on_the_azure_vm": "megacmd will be installed fresh, logged out, and used anonymously against the public link."
+  },
+
+  "integrity": { "credentials_written_to_disk": false, "bytes_of_corpus_downloaded_to_operator_pc": 0 }
+}

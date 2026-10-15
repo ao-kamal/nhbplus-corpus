@@ -1,0 +1,100 @@
+{
+  "probe_id": "mega-nhbplus-resource-folders-2026-10-14",
+  "purpose": "Operator chose 'probe them first' for Swipes / Templates / Bonuses — the three resource folders OUTSIDE 'Calls & Playlists', never opened by any prior probe. The open question was whether they hold EXTRACTABLE TEXT or only IMAGES, because that decides the size of the written register.",
+
+  "source_url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q",
+  "probed_at_utc": "2026-10-14",
+  "method": "dev-browser 0.2.9, MEGA official web client, container listing only.",
+  "bytes_downloaded": 0,
+  "credentials_used": "NONE",
+
+  "HANDLES_RECOVERED": {
+    "method": "The left nav tree, NOT the grid. <li id=\"treeli_<HANDLE>\"> wraps span.nw-fm-tree-item > span.nw-fm-tree-folder. VALIDATED: it returned E2FyiLCC for 'Calls & Playlists', matching the handle recovered by click-through in the earlier census — two independent routes, same value.",
+    "Swipes": "tjFwWDzS",
+    "Templates": "lyVQBJxR",
+    "Bonuses": "9qMUmLYZ",
+    "note": "Row attributes carry only id/class. The handle is in the li id, which is why attribute-scraping returned null."
+  },
+
+  "FINDINGS": {
+    "NHB+ Swipes": {
+      "stated_size": "108.1 MB",
+      "unique_files": 4,
+      "all_pdf": true,
+      "extractable_text": "YES — every file is a PDF",
+      "files": [
+        "500-page-swipe-file-clayton-makepeace_compress_1.pdf",
+        "AC_Book.pdf",
+        "fourdaycashmachine.pdf",
+        "Swipe.pdf"
+      ],
+      "character": "Lead-magnet / swipe creative documents. NOT tied to any dated call. This is written material with NO transcript counterpart — the inverse of the 114 paired calls.",
+      "status": "RESOLVED"
+    },
+
+    "Templates": {
+      "stated_size": "297.9 MB",
+      "unique_files": 32,
+      "composition": "31 PDF + 1 ZIP",
+      "extractable_text": "YES for the 31 PDFs. The ZIP is UNOPENED — contents unmeasured.",
+      "sample": [
+        "AB Testing Template sheet.pdf", "AC Book Writing Worksheet.pdf",
+        "AC Design Tempalte.pdf", "AC Economics Calculator.pdf",
+        "AC EMAIL TEMPLATES.pdf", "AC Figma File Template.pdf",
+        "AC funnel on Groovefunnels.pdf", "AC Lever Analysis.pdf",
+        "AC Product MockUp.pdf", "AC Template on ClickFunnels.pdf",
+        "AC Upsells.pdf", "AC VIDEO TEMPLATE.pdf", "Alex Hormozi.pdf",
+        "Automatic Clients Funnel Template for Go High Level.pdf",
+        "Beating Controls Template.pdf"
+      ],
+      "status": "RESOLVED for the PDFs. The single ZIP is an open leaf — not opened, contents NOT INFERRED."
+    },
+
+    "NHB Bonuses": {
+      "stated_size": "7.39 GB",
+      "children_are": "FIVE FOLDERS — not files",
+      "measured_sum": "2.09 + 0.4445 + 1.14 + 2.17 + 1.56 = 7.40 GB, reconciling with the stated 7.39 GB",
+      "folders": [
+        { "name": "Rapid Launch Stack", "size": "2.09 GB" },
+        { "name": "Automatic Clients Course", "size": "444.5 MB" },
+        { "name": "Advanced Acquisition Theory Course", "size": "1.14 GB" },
+        { "name": "Converting ads", "size": "2.17 GB" },
+        { "name": "7-Day Fast Start", "size": "1.56 GB" }
+      ],
+      "why_this_is_the_most_important_result_of_this_probe": "Three of the five are named as COURSES. The early census concluded 'this is not a lesson course... there is no evidence of any lesson/PDF pairing structure.' THAT CONCLUSION IS WRONG. The share DOES contain lesson-course structure; it was simply never opened. The operator's correction — 'there is actually per lesson pdf for SOME' — is borne out.",
+      "status": "OPEN — RECURSION NOT COMPLETE",
+      "blocker": "Subfolder handles could not be recovered. The left nav tree renders ONLY the expanded Calls & Playlists path (46 rows) and does not follow URL navigation into Bonuses, so treeli_<HANDLE> yields nothing for these five. Click-descending does not fit dev-browser's 30s per-run budget.",
+      "consequence": "The WRITTEN REGISTER IS CURRENTLY UNDERSTATED. If these five course folders carry lesson PDFs, the corpus has a two-register structure well beyond the 114 paired calls. If they carry video, the 592.74 h / USD 152.93 forecast is understated by up to a further 7.39 GB of media.",
+      "direction_of_error": "Both readings UNDERSTATE the corpus. No reading overstates it. This is the safe direction to be wrong in, but it is still wrong."
+    }
+  },
+
+  "CORRECTED_PICTURE_OF_THE_WRITTEN_REGISTER": {
+    "paired_with_a_call": { "calls": 114, "hours": 342.2, "source": "in-corpus companion PDFs" },
+    "orphaned_but_text_bearing": { "pdfs": 36, "size": "406 MB", "source": "Swipes (4) + Templates (32)" },
+    "inside_bonuses": "UNKNOWN — not enumerated. Potentially a full course curriculum.",
+    "conclusion": "The '58% of calls have a written half' figure describes only the CALL-PAIRED register and says nothing about the rest of the share."
+  },
+
+  "PROBE_BUGS_HIT_THIS_SESSION": [
+    "MEGA is an SPA — goto to the URL already loaded does not repaint. Fixed with an explicit reload(). Without it every click locator waited on a stale DOM and timed out.",
+    "`.file-name` ALSO matches MEGA's own chrome placeholders ('examplefilename.png', 'Object 2'). A generic `waitFor('.file-name')` reports success BEFORE the real list paints, so a naive poll exits early and the subsequent click waits forever. This produced two consecutive 8s/10s/20s click timeouts that looked like a bad selector and were actually a bad WAIT.",
+    "`process.env` is not defined in dev-browser's QuickJS runtime — a script parameterised by env var dies immediately with a ReferenceError.",
+    "Depth-filtering the nav tree by counting treesub_ ancestors returns depth>=1 for every row including root, so ROOTLEVEL came back EMPTY while 46 rows existed. Matching on name was correct; the depth heuristic was the bug.",
+    "The grid renders each file as TWO DOM nodes in some views (Swipes showed 8 rows for 4 files; Templates 64 for 32). Raw row counts are DOUBLE the file count. Any count taken from the grid must be deduplicated before it is reported — an unreconciled count here would have overstated the PDF population by exactly 2x."
+  ],
+
+  "NOT_MEASURED — DO NOT INFER": [
+    "Contents of the single ZIP in Templates.",
+    "Any child of any of the five Bonuses subfolders.",
+    "Whether the Bonuses courses carry lesson PDFs, video, or both.",
+    "Per-file byte sizes anywhere. MEGA's tiles view renders DURATION in place of SIZE for media. Folder-level sizes are visible; file-level sizes are not. Download volume remains UNKNOWN."
+  ],
+
+  "integrity": {
+    "bytes_of_corpus_downloaded": 0,
+    "pipeline_code_written": false,
+    "probe_scripts_are_probe_only": true,
+    "note": "Container listings only. No file opened, previewed, or downloaded."
+  }
+}

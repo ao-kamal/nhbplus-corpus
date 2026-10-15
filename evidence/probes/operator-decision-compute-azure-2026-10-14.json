@@ -1,0 +1,51 @@
+{
+  "record_type": "OPERATOR_DECISION_RECORD",
+  "recorded_at_utc": "2026-10-14",
+  "decision": "COMPUTE VENDOR SELECTED - Microsoft Azure, EU region",
+
+  "what_this_authorises": {
+    "compute": "A short-lived Azure Linux VM to run megacmd + the transcription pipeline",
+    "why_it_breaks_rule_2": "content-os/AGENTS.md Rule 2 forbids any paid vendor. Azure is a paid vendor. This is an EXPLICIT OPERATOR WAIVER, scoped to the compute box only.",
+    "scoped_to": "Compute and bandwidth for the NHB+ transcription run. Nothing else.",
+    "not_waived": [
+      "Any other vendor",
+      "Any ongoing or recurring service",
+      "Anything that persists after this run"
+    ],
+    "expected_net_cost": "USD 0 - the ~USD 26 of compute and egress draws against Azure's USD 200 / 30-day signup credit.",
+    "the_vm_is_destroyed_after": "The run completes, or the ceiling is hit, whichever comes first."
+  },
+
+  "why_azure": [
+    "The only option where a FREE TIER ALLOWANCE, not just the credit, does real work: 100 GB/month egress free for 12 months from EU regions, plus B-series VMs free for 12 months.",
+    "EU region (West Europe / North Europe) keeps the whole path intra-EU: MEGA EU storage -> VM -> api.eu.deepgram.com, so the user's course content never crosses an ocean.",
+    "A reversible USD 1 card authorisation, refunded. Far less hostile than Oracle's signup path, which already failed."
+  ],
+
+  "fallback_if_azure_card_fails": {
+    "provider": "DigitalOcean Frankfurt or Amsterdam",
+    "why": "USD 5 signup credit covers 72 h on a 2 vCPU / 2 GiB droplet at USD 1.29, with 2,000 GiB included outbound - far above the ~640 GB this job needs. Lowest risk of a surprise bill.",
+    "note": "DigitalOcean's famous USD 200 credit is DEAD - cut to USD 5 on 2026-07-15. Two independent research agents confirmed this."
+  },
+
+  "deepgram_credit_status": {
+    "reported_by_operator": "sufficient credits held on the existing account",
+    "independently_verified": false,
+    "why": "The account's API key is a SCOPED INFERENCE key. GET /v1/balances returns 404, and the project-scoped variants return 403 INSUFFICIENT_PERMISSIONS requiring 'billing:read' or 'usage:read'. The balance is deliberately not visible to this key.",
+    "what_this_means_for_the_run": "The USD 136.31 forecast is expected to draw on existing promotional credit rather than new spend. Forecast and actual remain recorded separately.",
+    "correction_to_prior_artifact": "The 2026-10-14 Deepgram waiver recorded this as NEW spend. If the existing credit covers it, no new money is spent and the waiver's ceiling still governs the run."
+  },
+
+  "constraints_carried_into_the_run": [
+    "USD 136.31 is a CEILING for transcription, not a target.",
+    "Receipts written PER FILE as work proceeds. A crash between the last response and a batch summary discards every receipt earned, and the next run re-bills the corpus.",
+    "Run targets come from the manifest, never from a glob over the output directory - a glob that matches its own output re-charges everything, because the vendor bills per request.",
+    "The VM is destroyed when the run finishes. Nothing persists.",
+    "Deepgram's consent flag mip_opt_out=true is structural and sent on every request."
+  ],
+
+  "not_yet_probed": [
+    "Whether Azure's card verification accepts the operator's card. The general rule that IS sourceable: Verve Classic is domestic-only and routinely rejected internationally; Verve Global usually works. Nigerian international spending caps run from roughly USD 100/month upward depending on bank. This is the most likely cause of the earlier Oracle signup failure and may affect Azure identically.",
+    "Whether the 100 GB/month free egress applies to the specific region chosen."
+  ]
+}

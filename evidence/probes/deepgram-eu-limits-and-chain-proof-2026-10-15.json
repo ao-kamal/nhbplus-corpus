@@ -1,0 +1,104 @@
+{
+  "artifact": "deepgram-eu-limits-and-chain-proof",
+  "date": "2026-10-15",
+  "verdict": "The full chain is proven end to end on real compute. Three documented limits were read, not assumed, and two of them would have broken the run.",
+
+  "limits_read_from_docs": {
+    "source": "https://developers.deepgram.com/reference/api-rate-limits and /docs/pre-recorded-audio",
+    "rule_that_binds": "'If multiple services are used in one API call, the lower of the rate limits is applied.'",
+    "nova_3_pre_recorded_eu": "up to 50 concurrent requests",
+    "speaker_diarization_pre_recorded_eu": "up to 25 concurrent requests",
+    "effective_ceiling_for_this_build": 25,
+    "reason": "the request sends diarize=true. Diarization is not optional - it is what separates 22 speakers, the difference between a transcript and unlabelled text.",
+    "planned_concurrency": 16,
+    "headroom_reason": "9 slots under the cap absorb retries. Also, the VM has 2 vCPU - 25 concurrent workers would thrash below the vendor limit.",
+    "enterprise_tier": "starts at 200 concurrent - not pursued, it costs money and Rule 2 forbids it"
+  },
+
+  "limits_that_would_have_broken_the_run": [
+    {
+      "limit": "File size: Maximum 2 GB. 'For large video files, extract the audio stream first.'",
+      "status_if_unhandled": "one unit is 3.00 GB ('10-03-2024 NHB+ Call - October Reading Offers Call - 1476x10') and would fail 100% of the time",
+      "mitigation": "ffmpeg -vn -c:a copy -> lossless REMUX, no re-encode. Also cuts upload volume 183.92 GB -> 28.0 GB, a 85% reduction.",
+      "quality_impact": "none - the AAC stream is copied bit for bit. Confirmed empirically: the MP3 and MP4 of the same call transcribe to 37027w/spk22 vs 36963w/spk21.",
+      "cost_impact": "none - Deepgram bills per audio minute, not per byte",
+      "tension_with_g0": "AGENTS.md §4 states 'No transcode is needed anywhere in this pipeline. If a proposal introduces one, it is solving a problem that does not exist.' The 3.00 GB file makes that true for exactly one unit. The general claim no longer holds."
+    },
+    {
+      "limit": "Synchronous requests exceeding 10 minutes return 504 Gateway Timeout (Nova/Base/Enhanced).",
+      "status_if_unhandled": "risk on the longest calls",
+      "measurement": "longest call is 276 min (4.60 h); p95 is 229 min; median 177 min",
+      "at_40x_realtime_the_longest_takes_minutes": 6.9,
+      "margin": "inside the limit, but the thinnest margin in the build. If observed processing time exceeds 8 min for any call, that is the signal to move to the async endpoint."
+    },
+    {
+      "limit": "Deepgram does not store transcripts. The API response is the only opportunity to retrieve it.",
+      "consequence": "receipts and transcripts MUST be written before the media is deleted. The runner enforces this order."
+    }
+  ],
+
+  "response_shape": {
+    "note": "my first parser invented metadata.duration.seconds and channels[0].paragraphs. Both were wrong. The RUN-PLAN had it right and I deviated, then tried to fix it by reading one sample instead of the spec.",
+    "metadata_duration": "a plain float in SECONDS - not an object",
+    "metadata_model_info": "object keyed by model UUID -> {name, version, arch}",
+    "paragraphs_path": "results.channels[0].alternatives[0].paragraphs.paragraphs[] - NOT channels[0].paragraphs",
+    "paragraph_fields": ["sentences[]", "start", "end", "num_words", "speaker?"],
+    "utterances_path": "results.utterances[] - requires utterances=true",
+    "both_paths_asserted_by_the_runner": true
+  },
+
+  "measured_chain": {
+    "unit": "03-07-2024 NHB+ Theory Call - Converting Audiences",
+    "handle": "EqN2UTLK",
+    "ext": "mp3",
+    "bytes_fetched": 140086019,
+    "bytes_uploaded": 140086019,
+    "duration_s_deepgram": 11662.308,
+    "duration_s_manifest": 11649,
+    "duration_delta_pct": 0.11,
+    "utterances": 2058,
+    "paragraphs": 1149,
+    "words": 37027,
+    "speakers": 22,
+    "model": "general-nova-3",
+    "model_version": "2025-07-31.0",
+    "request_id": "01a13cfc-1b03-7e10-94cb-a448d81cb512",
+    "sha256": "6953fcd956696173279efcd7e194f2cacc4f9852fcce7981e7ff8371dc075a00",
+    "transcript_opens": "Alright, gang. Today is Monday, 04/18/2022. We have the world famous Mike Gandia with us.",
+    "throughput_note": "159 s for 1436 MB (9.0 MB/s) on the first file. This is Deepgram PROCESSING at ~40x realtime, NOT upload bandwidth - the VM network cap is 12500 Mbps (1562 MB/s) and we used 4.6% of it."
+  },
+
+  "bugs_found_in_the_transport": [
+    {
+      "symptom": "curl: option --data-binary: out of memory",
+      "cause": "curl --data-binary @file loads the ENTIRE body into memory. 1436 MB exhausted it on a 7 GB box, and curl reports the misleading message 'option --data-binary'.",
+      "fix": "python urllib streaming from a file handle",
+      "note": "--data-binary @- did not fix it. Only real streaming does."
+    },
+    {
+      "symptom": "Authorization header malformed, curl error pointed nowhere near the cause",
+      "cause": "Windows pipes send CRLF. read -r strips the \\n but leaves the \\r, so the key arrived as 41 characters instead of 40.",
+      "fix": "tr -d '\\r\\n' after read"
+    },
+    {
+      "symptom": "mega-cmd-server appears inactive",
+      "cause": "FALSE NEGATIVE. It is not a systemd unit on Ubuntu 24.04, so systemctl is-active returns inactive for a process that is running. ps shows it. Only a real fetch is the arbiter."
+    },
+    {
+      "symptom": "apt-cache showed megacmd's libfuse2t64 dependency unavailable",
+      "cause": "apt-get update had not been run",
+      "fix": "apt-get update is mandatory before apt-cache"
+    }
+  ],
+
+  "cost": {
+    "rate_usd_per_minute": 0.0043,
+    "forecast_on_corrected_636.98_h_usd": 164.34,
+    "forecast_on_superseded_656.90_h_usd": 169.48,
+    "spent_on_probes_to_date_usd": 3.80,
+    "compute_expected_usd": 0.60,
+    "forecast_and_actual_stay_separate": true
+  },
+
+  "secrets": "the Deepgram key arrives on STDIN, CR-stripped. Never argv, never a file, never logged. argv is visible in the process table and in this transcript."
+}

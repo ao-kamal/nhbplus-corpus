@@ -1,0 +1,3553 @@
+{
+ "decided": "2026-10-15 by operator",
+ "A_audio_scope": "205 CALLS. The 42 bonus lesson videos and the 36 orphan documents are HELD OPEN pending operator triage of the bonus material.",
+ "B_encoding": "MP3 wherever an MP3 exists. The 88 MP4 siblings are recorded as alternates and are NEVER fetched. STT cost is identical either way; this saves 132.1 GB.",
+ "C_companion_documents": "WRITTEN HAND ONLY - docx/pptx/xlsx. The 165 AI-summary PDFs are OUT OF SCOPE.",
+ "D_bonus_courses": "PENDING - operator is triaging",
+ "E_orphans": "PENDING - operator is triaging",
+ "counts": {
+  "calls": 205,
+  "with_written_hand": 41,
+  "without_written_hand": 164,
+  "mp4_alternates_not_fetched": 88
+ },
+ "totals": {
+  "hours": 610.82,
+  "fetch_GB": 164.6,
+  "written_hand_GB": 0.02,
+  "stt_forecast_usd": 157.59
+ },
+ "held_open": {
+  "bonus_lesson_videos": 42,
+  "orphan_documents": 36,
+  "ai_summary_pdfs_excluded": 165
+ },
+ "units": [
+  {
+   "id": "2024-03-07-theory-3",
+   "date": "2024-03-07",
+   "folder_label": "2024-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - converting audiences",
+   "audio": {
+    "handle": "EqN2UTLK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/EqN2UTLK",
+    "ext": "mp3",
+    "bytes": 140509184,
+    "dur_s": 11662
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "s2MGiDJb",
+    "name": "NHB+ Converting Audiences",
+    "ext": "docx",
+    "bytes": 12288,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/s2MGiDJb"
+   }
+  },
+  {
+   "id": "2024-03-14-theory-3",
+   "date": "2024-03-14",
+   "folder_label": "2024-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - market assumptions 2.0 (counter arguments)",
+   "audio": {
+    "handle": "tuNGSDJC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/tuNGSDJC",
+    "ext": "mp3",
+    "bytes": 141557760,
+    "dur_s": 11743
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "x7Ug3TwT",
+    "name": "NHB+ Market Assumptions 2.0",
+    "ext": "docx",
+    "bytes": 20480,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/x7Ug3TwT"
+   }
+  },
+  {
+   "id": "2024-03-21-theory-3",
+   "date": "2024-03-21",
+   "folder_label": "2024-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - conceptual god model",
+   "audio": {
+    "handle": "B3V2gDzT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/B3V2gDzT",
+    "ext": "mp3",
+    "bytes": 126877696,
+    "dur_s": 10565
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "M2E2lZxb",
+    "name": "NHB+ Conceptual God Model",
+    "ext": "docx",
+    "bytes": 14336,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/M2E2lZxb"
+   }
+  },
+  {
+   "id": "2024-03-28-theory-3",
+   "date": "2024-03-28",
+   "folder_label": "2024-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - lowering argumentative resistance",
+   "audio": {
+    "handle": "AmMiWTjS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/AmMiWTjS",
+    "ext": "mp3",
+    "bytes": 142606336,
+    "dur_s": 11840
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "kyVGRJTB",
+    "name": "NHB+ Argumentative Resistance",
+    "ext": "docx",
+    "bytes": 178176,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/kyVGRJTB"
+   }
+  },
+  {
+   "id": "2022-10-06-training-10",
+   "date": "2022-10-06",
+   "folder_label": "2022-10 October",
+   "type": "training",
+   "topic": "ff_nhb training call - bible offer + recurring membership models",
+   "audio": {
+    "handle": "57EWmJ5I",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/57EWmJ5I",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12009
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-10-13-training-10",
+   "date": "2022-10-13",
+   "folder_label": "2022-10 October",
+   "type": "training",
+   "topic": "ff_nhb training call - web hosting offers + 5 step sales process",
+   "audio": {
+    "handle": "ojNm3T4b",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ojNm3T4b",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12655
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-10-20-training-10",
+   "date": "2022-10-20",
+   "folder_label": "2022-10 October",
+   "type": "training",
+   "topic": "ff nhb training call - astrology + market maturation cycles",
+   "audio": {
+    "handle": "17MUiboL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/17MUiboL",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 10497
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-10-27-training-10",
+   "date": "2022-10-27",
+   "folder_label": "2022-10 October",
+   "type": "training",
+   "topic": "ff nhb training call - the what and the who",
+   "audio": {
+    "handle": "hjcSFT7I",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/hjcSFT7I",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11205
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-10-31-other-10",
+   "date": "2022-10-31",
+   "folder_label": "2022-10 October",
+   "type": "other",
+   "topic": "nhb mindstream call",
+   "audio": {
+    "handle": "93Ug2R5I",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/93Ug2R5I",
+    "ext": "mp4",
+    "bytes": 553648128,
+    "dur_s": 6956
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-04-04-theory-4",
+   "date": "2024-04-04",
+   "folder_label": "2024-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - perfect launch sequence",
+   "audio": {
+    "handle": "M6dm2TzR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/M6dm2TzR",
+    "ext": "mp3",
+    "bytes": 130023424,
+    "dur_s": 10846
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "ciEG3TRT",
+    "name": "NHB+ Perfect Launch Sequence",
+    "ext": "docx",
+    "bytes": 17408,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ciEG3TRT"
+   }
+  },
+  {
+   "id": "2024-04-11-theory-4",
+   "date": "2024-04-11",
+   "folder_label": "2024-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - momentum marketing",
+   "audio": {
+    "handle": "lzFSHZRI",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lzFSHZRI",
+    "ext": "mp3",
+    "bytes": 164626432,
+    "dur_s": 13746
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "M2FigTzL",
+    "name": "NHB+ Momentum Marketing",
+    "ext": "docx",
+    "bytes": 112640,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/M2FigTzL"
+   }
+  },
+  {
+   "id": "2024-04-18-theory-4",
+   "date": "2024-04-18",
+   "folder_label": "2024-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - symbolic language",
+   "audio": {
+    "handle": "4jMUBZ5Y",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4jMUBZ5Y",
+    "ext": "mp3",
+    "bytes": 156237824,
+    "dur_s": 13061
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "03U0GLIL",
+    "name": "NHB+ Symbolic Language",
+    "ext": "docx",
+    "bytes": 196608,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/03U0GLIL"
+   }
+  },
+  {
+   "id": "2023-04-25-theory-4",
+   "date": "2023-04-25",
+   "folder_label": "2023-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - complaints to conversions",
+   "audio": {
+    "handle": "QrcW1TYJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QrcW1TYJ",
+    "ext": "mp3",
+    "bytes": 146800640,
+    "dur_s": 12258
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-04-25-theory-4",
+   "date": "2024-04-25",
+   "folder_label": "2024-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - complaints to conversions",
+   "audio": {
+    "handle": "dvcEDToK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/dvcEDToK",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": null
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-07-04-theory-7",
+   "date": "2024-07-04",
+   "folder_label": "2024-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - reading offers #2",
+   "audio": {
+    "handle": "VqdiCRrJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/VqdiCRrJ",
+    "ext": "mp3",
+    "bytes": 131072000,
+    "dur_s": 10884
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "c2MSVJ6Y",
+    "name": "01. NHB+ Reading Offers #2",
+    "ext": "docx",
+    "bytes": 509952,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/c2MSVJ6Y"
+   }
+  },
+  {
+   "id": "2024-07-11-theory-7",
+   "date": "2024-07-11",
+   "folder_label": "2024-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - engineering commitment",
+   "audio": {
+    "handle": "8yUwHDCA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/8yUwHDCA",
+    "ext": "mp3",
+    "bytes": 134217728,
+    "dur_s": 11145
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "lqVWBTyB",
+    "name": "02. NHB+ Engineering Commitment",
+    "ext": "docx",
+    "bytes": 22528,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lqVWBTyB"
+   }
+  },
+  {
+   "id": "2024-07-18-theory-7",
+   "date": "2024-07-18",
+   "folder_label": "2024-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - short term vs long term thinking audiences",
+   "audio": {
+    "handle": "0vVmhR6L",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/0vVmhR6L",
+    "ext": "mp3",
+    "bytes": 119537664,
+    "dur_s": 9993
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "t6FQCLSI",
+    "name": "3. NHB+ Short Term vs Long Term Thinking Audiences",
+    "ext": "docx",
+    "bytes": 515072,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/t6FQCLSI"
+   }
+  },
+  {
+   "id": "2024-07-25-theory-7",
+   "date": "2024-07-25",
+   "folder_label": "2024-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - controlling the evaluation process",
+   "audio": {
+    "handle": "l3EWFBAa",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/l3EWFBAa",
+    "ext": "mp3",
+    "bytes": 111149056,
+    "dur_s": 9283
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-09-05-theory-9",
+   "date": "2024-09-05",
+   "folder_label": "2024-09 September",
+   "type": "theory",
+   "topic": "nhb theory call - the psychology of business models",
+   "audio": {
+    "handle": "t7FgXbiS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/t7FgXbiS",
+    "ext": "mp3",
+    "bytes": 136314880,
+    "dur_s": 11319
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-09-12-theory-9",
+   "date": "2024-09-12",
+   "folder_label": "2024-09 September",
+   "type": "theory",
+   "topic": "nhb theory call - september 2024 reading offers call",
+   "audio": {
+    "handle": "A6dgCLpT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/A6dgCLpT",
+    "ext": "mp3",
+    "bytes": 141557760,
+    "dur_s": 11745
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-09-19-theory-9",
+   "date": "2024-09-19",
+   "folder_label": "2024-09 September",
+   "type": "theory",
+   "topic": "nhb theory call - selling to outcomes 2.0",
+   "audio": {
+    "handle": "oqUm2DxC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/oqUm2DxC",
+    "ext": "mp3",
+    "bytes": 122683392,
+    "dur_s": 10193
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-09-26-theory-9",
+   "date": "2024-09-26",
+   "folder_label": "2024-09 September",
+   "type": "theory",
+   "topic": "nhb theory call - how to create good products",
+   "audio": {
+    "handle": "xqcAhZDC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/xqcAhZDC",
+    "ext": "mp3",
+    "bytes": 200278016,
+    "dur_s": 9993
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "undated-other-9",
+   "date": null,
+   "folder_label": "09 September year-unknown",
+   "type": "other",
+   "topic": "2024-09-27 ff.nhb coffee room impromptu call",
+   "audio": {
+    "handle": "IqVSkD5Z",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/IqVSkD5Z",
+    "ext": "mp4",
+    "bytes": 649068544,
+    "dur_s": 7326
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-03-coaching-2",
+   "date": "2025-02-03",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "- nhb coaching call - google case studies - with charles kirkland",
+   "audio": {
+    "handle": "BuNAzJTT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/BuNAzJTT",
+    "ext": "mp3",
+    "bytes": 261095424,
+    "dur_s": 13056
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-04-coaching-2",
+   "date": "2025-02-04",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - offer fundamentals - with kevin sheerin",
+   "audio": {
+    "handle": "pjFQiLQQ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/pjFQiLQQ",
+    "ext": "mp3",
+    "bytes": 94371840,
+    "dur_s": 0
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-05-coaching-2",
+   "date": "2025-02-05",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - digging into data part 2 - with loren pinilis",
+   "audio": {
+    "handle": "4nVkTL5S",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4nVkTL5S",
+    "ext": "mp3",
+    "bytes": 241172480,
+    "dur_s": 10050
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-06-theory-2",
+   "date": "2025-02-06",
+   "folder_label": "2025-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - february reading offers",
+   "audio": {
+    "handle": "NzMGQTqL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/NzMGQTqL",
+    "ext": "mp3",
+    "bytes": 321912832,
+    "dur_s": 16114
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-07-coaching-2",
+   "date": "2025-02-07",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - adventures in cro - with brandon vasquez",
+   "audio": {
+    "handle": "UyNwhZIR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/UyNwhZIR",
+    "ext": "mp3",
+    "bytes": 149946368,
+    "dur_s": 8732
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-10-coaching-2",
+   "date": "2025-02-10",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "- nhb coaching call - how to be a media buyer - with charles kirkland",
+   "audio": {
+    "handle": "RrcgQJ4b",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/RrcgQJ4b",
+    "ext": "mp3",
+    "bytes": 269484032,
+    "dur_s": 11233
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-11-coaching-2",
+   "date": "2025-02-11",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - avatar assumptions 1.0 - with kevin sheerin",
+   "audio": {
+    "handle": "RrM2CLTC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/RrM2CLTC",
+    "ext": "mp3",
+    "bytes": 92274688,
+    "dur_s": 5502
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-12-coaching-2",
+   "date": "2025-02-12",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - diving into data part 3 - with loren pinilis",
+   "audio": {
+    "handle": "ljF0mZ4Y",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ljF0mZ4Y",
+    "ext": "mp3",
+    "bytes": 292552704,
+    "dur_s": 9140
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-13-theory-2",
+   "date": "2025-02-13",
+   "folder_label": "2025-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - depth of copy",
+   "audio": {
+    "handle": "JiUGhRpS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/JiUGhRpS",
+    "ext": "mp3",
+    "bytes": 283115520,
+    "dur_s": 14145
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-14-coaching-2",
+   "date": "2025-02-14",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - cro adventures reading offers - with brandon vasquez",
+   "audio": {
+    "handle": "9jdm2bpQ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/9jdm2bpQ",
+    "ext": "mp3",
+    "bytes": 168820736,
+    "dur_s": 9779
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-16-coaching-2",
+   "date": "2025-02-16",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - the ai hack that writes your google ads on autopilot",
+   "audio": {
+    "handle": "8mMkwbIJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/8mMkwbIJ",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11080
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-17-coaching-2",
+   "date": "2025-02-17",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - the ai hack that writes your google ads on autopilot - with charles kirkland",
+   "audio": {
+    "handle": "0vdA0R7L",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/0vdA0R7L",
+    "ext": "mp3",
+    "bytes": 183500800,
+    "dur_s": 11080
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-18-coaching-2",
+   "date": "2025-02-18",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - the nature of needs - with kevin sheerin",
+   "audio": {
+    "handle": "lrdQjZyZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lrdQjZyZ",
+    "ext": "mp3",
+    "bytes": 173015040,
+    "dur_s": 7187
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-19-coaching-2",
+   "date": "2025-02-19",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - february reading offers - with loren pinilis",
+   "audio": {
+    "handle": "wiUyTRZb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wiUyTRZb",
+    "ext": "mp3",
+    "bytes": 397410304,
+    "dur_s": 16556
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-20-theory-2",
+   "date": "2025-02-20",
+   "folder_label": "2025-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - releasing emotions",
+   "audio": {
+    "handle": "cvVGUTII",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/cvVGUTII",
+    "ext": "mp3",
+    "bytes": 283115520,
+    "dur_s": 14155
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-21-coaching-2",
+   "date": "2025-02-21",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - dtc brand case study part 1 - with brandon vasquez",
+   "audio": {
+    "handle": "p7VUBL5D",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/p7VUBL5D",
+    "ext": "mp3",
+    "bytes": 125829120,
+    "dur_s": 6273
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-24-coaching-2",
+   "date": "2025-02-24",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - february reading offers - with charles kirkland",
+   "audio": {
+    "handle": "8iUySDhY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/8iUySDhY",
+    "ext": "mp3",
+    "bytes": 222298112,
+    "dur_s": 11106
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-25-coaching-2",
+   "date": "2025-02-25",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - low ticket mastery - with kevin sheerin",
+   "audio": {
+    "handle": "Z7dwRb6R",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Z7dwRb6R",
+    "ext": "mp3",
+    "bytes": 315621376,
+    "dur_s": 13165
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-27-theory-2",
+   "date": "2025-02-27",
+   "folder_label": "2025-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - root beliefs",
+   "audio": {
+    "handle": "52ckkTTI",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/52ckkTTI",
+    "ext": "mp3",
+    "bytes": 224395264,
+    "dur_s": 11228
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-02-28-coaching-2",
+   "date": "2025-02-28",
+   "folder_label": "2025-02 February",
+   "type": "coaching",
+   "topic": "nhb coaching call - dtc brand case study part 2",
+   "audio": {
+    "handle": "hrdmRTAY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/hrdmRTAY",
+    "ext": "mp3",
+    "bytes": 167772160,
+    "dur_s": 6971
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2022-05-30-guest-5",
+   "date": "2022-05-30",
+   "folder_label": "2022-05 May",
+   "type": "guest",
+   "topic": "ff guest call - ron-lynch, uncensored call",
+   "audio": {
+    "handle": "oyMwQTBb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/oyMwQTBb",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 7487
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-04-06-theory-4",
+   "date": "2023-04-06",
+   "folder_label": "2023-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - risk reversals",
+   "audio": {
+    "handle": "4iEWSLqL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4iEWSLqL",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11302
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-04-13-theory-4",
+   "date": "2023-04-13",
+   "folder_label": "2023-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - levels of desire",
+   "audio": {
+    "handle": "V6V2GZza",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/V6V2GZza",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11342
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-04-20-theory-4",
+   "date": "2023-04-20",
+   "folder_label": "2023-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - rapport & openings",
+   "audio": {
+    "handle": "cidCnR5C",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/cidCnR5C",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 14113
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-04-27-theory-4",
+   "date": "2023-04-27",
+   "folder_label": "2023-04 April",
+   "type": "theory",
+   "topic": "nhb theory call - anatomy of ads 2.0",
+   "audio": {
+    "handle": "oyNS1b5I",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/oyNS1b5I",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 13290
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-09-07-theory-9",
+   "date": "2023-09-07",
+   "folder_label": "2023-09 September",
+   "type": "theory",
+   "topic": "nhb theory call - the hidden architecture of quiz funnels",
+   "audio": {
+    "handle": "hydijL6I",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/hydijL6I",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11592
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "wzdU0BaD",
+    "name": "9-7-2023 NHB+ Theory Call - The Hidden Architecture Of Quiz Funnels",
+    "ext": "docx",
+    "bytes": 2097152,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wzdU0BaD"
+   }
+  },
+  {
+   "id": "2023-09-14-theory-9",
+   "date": "2023-09-14",
+   "folder_label": "2023-09 September",
+   "type": "theory",
+   "topic": "nhb theory call - the pov process",
+   "audio": {
+    "handle": "AmFCHRJB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/AmFCHRJB",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12259
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "BmM0UZQR",
+    "name": "9-14-2023 NHB+ Theory Call - The POV Process",
+    "ext": "docx",
+    "bytes": 2097152,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/BmM0UZQR"
+   }
+  },
+  {
+   "id": "2023-09-21-theory-9",
+   "date": "2023-09-21",
+   "folder_label": "2023-09 September",
+   "type": "theory",
+   "topic": "nhb theory call - the pov process part 2",
+   "audio": {
+    "handle": "4jFwRTLa",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4jFwRTLa",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 10413
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-11-02-other-11",
+   "date": "2022-11-02",
+   "folder_label": "2022-11 November",
+   "type": "other",
+   "topic": "ff_nhb fireside chat - offer creation",
+   "audio": {
+    "handle": "s2FUxZAB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/s2FUxZAB",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 9346
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-11-03-other-11",
+   "date": "2022-11-03",
+   "folder_label": "2022-11 November",
+   "type": "other",
+   "topic": "ff_nhb core emotions of markets - outcomes - desire stacking",
+   "audio": {
+    "handle": "p3FAzDhT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/p3FAzDhT",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 9287
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-11-10-training-11",
+   "date": "2022-11-10",
+   "folder_label": "2022-11 November",
+   "type": "training",
+   "topic": "ff_nhb training call - the biz-op blueprint",
+   "audio": {
+    "handle": "gidiDR5T",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/gidiDR5T",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12676
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-11-17-training-11",
+   "date": "2022-11-17",
+   "folder_label": "2022-11 November",
+   "type": "training",
+   "topic": "ff_nhb training call - the mechanism of fear & optimism.mp4",
+   "audio": {
+    "handle": "t2diXBiT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/t2diXBiT",
+    "ext": "mp4",
+    "bytes": 1042284544,
+    "dur_s": 10395
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-11-25-mastermind-11",
+   "date": "2022-11-25",
+   "folder_label": "2022-11 November",
+   "type": "mastermind",
+   "topic": "ff_nhb real mastermind call",
+   "audio": {
+    "handle": "w3d0GLpR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/w3d0GLpR",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 8926
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-10-05-other-10",
+   "date": "2023-10-05",
+   "folder_label": "2023-10 October",
+   "type": "other",
+   "topic": "nhb call - selling to women part 2",
+   "audio": {
+    "handle": "xmNG3D4L",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/xmNG3D4L",
+    "ext": "mp3",
+    "bytes": 152043520,
+    "dur_s": 12682
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "5rUmXDIL",
+    "name": "01. NHB+ Selling To Women 2",
+    "ext": "docx",
+    "bytes": 231424,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/5rUmXDIL"
+   }
+  },
+  {
+   "id": "2023-10-12-theory-10",
+   "date": "2023-10-12",
+   "folder_label": "2023-10 October",
+   "type": "theory",
+   "topic": "nhb theory call - creating an awareness bridge",
+   "audio": {
+    "handle": "4nEQGBoK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4nEQGBoK",
+    "ext": "mp3",
+    "bytes": 125829120,
+    "dur_s": 10476
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "FuF0TRqA",
+    "name": "02. NHB+ Creating An Awareness Bridge",
+    "ext": "docx",
+    "bytes": 229376,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FuF0TRqA"
+   }
+  },
+  {
+   "id": "2023-10-19-theory-10",
+   "date": "2023-10-19",
+   "folder_label": "2023-10 October",
+   "type": "theory",
+   "topic": "nhb theory call - cause for arguments",
+   "audio": {
+    "handle": "8jd2nB5Y",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/8jd2nB5Y",
+    "ext": "mp3",
+    "bytes": 152043520,
+    "dur_s": 12617
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "omVQnbwb",
+    "name": "03. NHB+ Cause For Arguments",
+    "ext": "docx",
+    "bytes": 225280,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/omVQnbwb"
+   }
+  },
+  {
+   "id": "2023-10-26-theory-10",
+   "date": "2023-10-26",
+   "folder_label": "2023-10 October",
+   "type": "theory",
+   "topic": "nhb theory call - requirements",
+   "audio": {
+    "handle": "8rVkyBSQ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/8rVkyBSQ",
+    "ext": "mp3",
+    "bytes": 149946368,
+    "dur_s": 12507
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "87cSnTyZ",
+    "name": "04. NHB+ Requirements",
+    "ext": "docx",
+    "bytes": 11264,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/87cSnTyZ"
+   }
+  },
+  {
+   "id": "2024-01-04-theory-1",
+   "date": "2024-01-04",
+   "folder_label": "2024-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - industry back ends",
+   "audio": {
+    "handle": "12UkTJRQ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/12UkTJRQ",
+    "ext": "mp3",
+    "bytes": 148897792,
+    "dur_s": 12401
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-01-11-theory-1",
+   "date": "2024-01-11",
+   "folder_label": "2024-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - thoughts into emotions",
+   "audio": {
+    "handle": "F6F2HJRJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/F6F2HJRJ",
+    "ext": "mp3",
+    "bytes": 159383552,
+    "dur_s": 13293
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "k6VSwZQa",
+    "name": "01-11-2024 NHB Theory Call - Thoughts Into Emotions",
+    "ext": "docx",
+    "bytes": 539648,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/k6VSwZQa"
+   }
+  },
+  {
+   "id": "2024-01-18-theory-1",
+   "date": "2024-01-18",
+   "folder_label": "2024-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - criteria of markets part 1",
+   "audio": {
+    "handle": "tudEhZpZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/tudEhZpZ",
+    "ext": "mp3",
+    "bytes": 174063616,
+    "dur_s": 14473
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-01-25-theory-1",
+   "date": "2024-01-25",
+   "folder_label": "2024-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - criteria of markets part 2",
+   "audio": {
+    "handle": "N3NGVLxR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/N3NGVLxR",
+    "ext": "mp3",
+    "bytes": 168820736,
+    "dur_s": 14070
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "FqckHZoL",
+    "name": "01-25-2024 NHB+ Theory Call - Criteria of Markets & Offers",
+    "ext": "docx",
+    "bytes": 43008,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FqckHZoL"
+   }
+  },
+  {
+   "id": "2023-01-05-theory-1",
+   "date": "2023-01-05",
+   "folder_label": "2023-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - limiting beliefs",
+   "audio": {
+    "handle": "83FwyZwb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/83FwyZwb",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 12649
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-01-12-theory-1",
+   "date": "2023-01-12",
+   "folder_label": "2023-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - anatomy of ads",
+   "audio": {
+    "handle": "FmFyVJgA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FmFyVJgA",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10178
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-01-19-theory-1",
+   "date": "2023-01-19",
+   "folder_label": "2023-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - publishing profits",
+   "audio": {
+    "handle": "JuVyBJ7A",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/JuVyBJ7A",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10674
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-01-26-theory-1",
+   "date": "2023-01-26",
+   "folder_label": "2023-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - symbolism",
+   "audio": {
+    "handle": "0yFE0BZD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/0yFE0BZD",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10922
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-05-04-theory-5",
+   "date": "2023-05-04",
+   "folder_label": "2023-05 May",
+   "type": "theory",
+   "topic": "nhb theory call - reading data call 1.0",
+   "audio": {
+    "handle": "EiVEXR7A",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/EiVEXR7A",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 12127
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-05-11-theory-5",
+   "date": "2023-05-11",
+   "folder_label": "2023-05 May",
+   "type": "theory",
+   "topic": "nhb theory call - seasonal adjustment strategies",
+   "audio": {
+    "handle": "s2cWGbRI",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/s2cWGbRI",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10318
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-05-18-theory-5",
+   "date": "2023-05-18",
+   "folder_label": "2023-05 May",
+   "type": "theory",
+   "topic": "nhb theory call - educational vs motivational copy",
+   "audio": {
+    "handle": "pjUEzbwa",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/pjUEzbwa",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10496
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-05-25-theory-5",
+   "date": "2023-05-25",
+   "folder_label": "2023-05 May",
+   "type": "theory",
+   "topic": "nhb theory call - what not to say in copy",
+   "audio": {
+    "handle": "AjFw3BQK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/AjFw3BQK",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10955
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-12-07-theory-12",
+   "date": "2023-12-07",
+   "folder_label": "2023-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - truth vs trust",
+   "audio": {
+    "handle": "ZjNGhTSA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ZjNGhTSA",
+    "ext": "mp3",
+    "bytes": 133169152,
+    "dur_s": 11105
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "RuMAnBKJ",
+    "name": "10. NHB+ Truth vs Trust",
+    "ext": "docx",
+    "bytes": 224256,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/RuMAnBKJ"
+   }
+  },
+  {
+   "id": "2023-12-14-theory-12",
+   "date": "2023-12-14",
+   "folder_label": "2023-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - objection handling story structures",
+   "audio": {
+    "handle": "RnEASRBT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/RnEASRBT",
+    "ext": "mp3",
+    "bytes": 148897792,
+    "dur_s": 12375
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "FmFSxb6Q",
+    "name": "11. NHB+ Objection Handling",
+    "ext": "docx",
+    "bytes": 299008,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FmFSxb6Q"
+   }
+  },
+  {
+   "id": "2023-12-21-theory-12",
+   "date": "2023-12-21",
+   "folder_label": "2023-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - clean biz-ops",
+   "audio": {
+    "handle": "E7U2hBKC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/E7U2hBKC",
+    "ext": "mp3",
+    "bytes": 130023424,
+    "dur_s": 10834
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "l7dGgZLL",
+    "name": "12. NHB+ Clean Biz-Ops",
+    "ext": "docx",
+    "bytes": 225280,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/l7dGgZLL"
+   }
+  },
+  {
+   "id": "2023-12-28-other-12",
+   "date": "2023-12-28",
+   "folder_label": "2023-12 December",
+   "type": "other",
+   "topic": "nhb year end roundtable call",
+   "audio": {
+    "handle": "0vEyQTjI",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/0vEyQTjI",
+    "ext": "mp3",
+    "bytes": 128974848,
+    "dur_s": 10747
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "BzVAwJrA",
+    "name": "13. NHB+ Year End Roundtable Call",
+    "ext": "docx",
+    "bytes": 218112,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/BzVAwJrA"
+   }
+  },
+  {
+   "id": "2023-03-02-theory-3",
+   "date": "2023-03-02",
+   "folder_label": "2023-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - absolution of responsibility",
+   "audio": {
+    "handle": "QnVAVbrL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QnVAVbrL",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11136
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-03-09-other-3",
+   "date": "2023-03-09",
+   "folder_label": "2023-03 March",
+   "type": "other",
+   "topic": "nhb call - creating rationalizations",
+   "audio": {
+    "handle": "orUWQBKC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/orUWQBKC",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11852
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-03-16-theory-3",
+   "date": "2023-03-16",
+   "folder_label": "2023-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - tsl structures.mp4",
+   "audio": {
+    "handle": "YnEkFBrT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/YnEkFBrT",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 13075
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-03-23-theory-3",
+   "date": "2023-03-23",
+   "folder_label": "2023-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - the basis of objections",
+   "audio": {
+    "handle": "YzMEHRQJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/YzMEHRQJ",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 12367
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-03-30-theory-3",
+   "date": "2023-03-30",
+   "folder_label": "2023-03 March",
+   "type": "theory",
+   "topic": "nhb theory call - problem - solution ratios",
+   "audio": {
+    "handle": "QvcCQbDS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QvcCQbDS",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11313
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-10-03-other-10",
+   "date": "2024-10-03",
+   "folder_label": "2024-10 October",
+   "type": "other",
+   "topic": "nhb call - october reading offers call - 1476x1080 4281k",
+   "audio": {
+    "handle": "EyFE2DpD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/EyFE2DpD",
+    "ext": "mp4",
+    "bytes": 3221225472,
+    "dur_s": 13222
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-10-03-other-10",
+   "date": "2024-10-03",
+   "folder_label": "2024-10 October",
+   "type": "other",
+   "topic": "nhb call - october reading offers call",
+   "audio": {
+    "handle": "03UW2LCY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/03UW2LCY",
+    "ext": "mp3",
+    "bytes": 158334976,
+    "dur_s": 13222
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-10-10-theory-10",
+   "date": "2024-10-10",
+   "folder_label": "2024-10 October",
+   "type": "theory",
+   "topic": "nhb theory call - building beliefs",
+   "audio": {
+    "handle": "BjEgRJ4I",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/BjEgRJ4I",
+    "ext": "mp3",
+    "bytes": 179306496,
+    "dur_s": 8957
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-10-17-theory-10",
+   "date": "2024-10-17",
+   "folder_label": "2024-10 October",
+   "type": "theory",
+   "topic": "nhb theory call - hierarchy of a pitch & deep optimizations",
+   "audio": {
+    "handle": "ZyM00DIS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ZyM00DIS",
+    "ext": "mp3",
+    "bytes": 200278016,
+    "dur_s": 10005
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-10-24-theory-10",
+   "date": "2024-10-24",
+   "folder_label": "2024-10 October",
+   "type": "theory",
+   "topic": "nhb theory call - pre-openings",
+   "audio": {
+    "handle": "JiFyiBiZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/JiFyiBiZ",
+    "ext": "mp3",
+    "bytes": 189792256,
+    "dur_s": 9491
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-10-31-theory-10",
+   "date": "2024-10-31",
+   "folder_label": "2024-10 October",
+   "type": "theory",
+   "topic": "nhb theory call - mechanism of motivation",
+   "audio": {
+    "handle": "IvUCnRhS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/IvUCnRhS",
+    "ext": "mp3",
+    "bytes": 235929600,
+    "dur_s": 11772
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2022-08-01-guest-8",
+   "date": "2022-08-01",
+   "folder_label": "2022-08 August",
+   "type": "guest",
+   "topic": "ff guest speaker pauline longdon on copywriting",
+   "audio": {
+    "handle": "VzEm0Lpb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/VzEm0Lpb",
+    "ext": "mp4",
+    "bytes": 987758592,
+    "dur_s": 9086
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-08-04-training-8",
+   "date": "2022-08-04",
+   "folder_label": "2022-08 August",
+   "type": "training",
+   "topic": "ff_nhb training call - upsell masterclass",
+   "audio": {
+    "handle": "Z6E0UTKR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Z6E0UTKR",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11023
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-08-11-other-8",
+   "date": "2022-08-11",
+   "folder_label": "2022-08 August",
+   "type": "other",
+   "topic": "nhb integration call part 1",
+   "audio": {
+    "handle": "U2dCxTzb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/U2dCxTzb",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 14301
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-08-22-guest-8",
+   "date": "2022-08-22",
+   "folder_label": "2022-08 August",
+   "type": "guest",
+   "topic": "ff guest speaker rohan sheth on event model",
+   "audio": {
+    "handle": "InViQbBR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/InViQbBR",
+    "ext": "mp4",
+    "bytes": 378535936,
+    "dur_s": 4078
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-08-25-training-8",
+   "date": "2022-08-25",
+   "folder_label": "2022-08 August",
+   "type": "training",
+   "topic": "ff_nhb training call - integration call part 2",
+   "audio": {
+    "handle": "83MgETiC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/83MgETiC",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12932
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-06-01-theory-6",
+   "date": "2023-06-01",
+   "folder_label": "2023-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - age cycles",
+   "audio": {
+    "handle": "9zUSRTpC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/9zUSRTpC",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10663
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-06-08-theory-6",
+   "date": "2023-06-08",
+   "folder_label": "2023-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - the instant promo technique",
+   "audio": {
+    "handle": "hnEiFLQL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/hnEiFLQL",
+    "ext": "mp4",
+    "bytes": 860880896,
+    "dur_s": 9068
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-06-15-theory-6",
+   "date": "2023-06-15",
+   "folder_label": "2023-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - optimizing for limitations",
+   "audio": {
+    "handle": "EnMGUTzZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/EnMGUTzZ",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11907
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-06-22-theory-6",
+   "date": "2023-06-22",
+   "folder_label": "2023-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - timeline language",
+   "audio": {
+    "handle": "RiEUQBCR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/RiEUQBCR",
+    "ext": "mp4",
+    "bytes": 696254464,
+    "dur_s": 8245
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-06-29-theory-6",
+   "date": "2023-06-29",
+   "folder_label": "2023-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - copy payoffs",
+   "audio": {
+    "handle": "4uNkSbCJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4uNkSbCJ",
+    "ext": "mp4",
+    "bytes": 936378368,
+    "dur_s": 9020
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-02-02-theory-2",
+   "date": "2023-02-02",
+   "folder_label": "2023-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - vitamins & stuff",
+   "audio": {
+    "handle": "kucygZiL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/kucygZiL",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 8924
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-02-09-theory-2",
+   "date": "2023-02-09",
+   "folder_label": "2023-02 February",
+   "type": "theory",
+   "topic": "nhb theory - redefine yourself",
+   "audio": {
+    "handle": "sid0AZYB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/sid0AZYB",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10544
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-02-15-guest-2",
+   "date": "2023-02-15",
+   "folder_label": "2023-02 February",
+   "type": "guest",
+   "topic": "ff_nhb guest call - mike gandia publishing",
+   "audio": {
+    "handle": "dqECHTQQ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/dqECHTQQ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 10720
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-02-16-theory-2",
+   "date": "2023-02-16",
+   "folder_label": "2023-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - primary motivators of action",
+   "audio": {
+    "handle": "gyEQTZ5S",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/gyEQTZ5S",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11875
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-02-23-theory-2",
+   "date": "2023-02-23",
+   "folder_label": "2023-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - creating desire",
+   "audio": {
+    "handle": "Y3F2SDqb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Y3F2SDqb",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11600
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-02-27-guest-2",
+   "date": "2023-02-27",
+   "folder_label": "2023-02 February",
+   "type": "guest",
+   "topic": "ff_nhb guest call - guest call ray blakney",
+   "audio": {
+    "handle": "ZqFUQJgY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ZqFUQJgY",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 7157
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-11-07-theory-11",
+   "date": "2024-11-07",
+   "folder_label": "2024-11 November",
+   "type": "theory",
+   "topic": "nhb theory - november reading offers call",
+   "audio": {
+    "handle": "J7MWlT6R",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/J7MWlT6R",
+    "ext": "mp3",
+    "bytes": 231735296,
+    "dur_s": 11593
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-11-07-theory-11",
+   "date": "2024-11-07",
+   "folder_label": "2024-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - november reading offers call",
+   "audio": {
+    "handle": "oicCibZI",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/oicCibZI",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11593
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-11-14-theory-11",
+   "date": "2024-11-14",
+   "folder_label": "2024-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - mechanism of love",
+   "audio": {
+    "handle": "56NAAD4b",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/56NAAD4b",
+    "ext": "mp3",
+    "bytes": 212860928,
+    "dur_s": 10629
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-11-21-theory-11",
+   "date": "2024-11-21",
+   "folder_label": "2024-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - installing decisions",
+   "audio": {
+    "handle": "12UAXTwK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/12UAXTwK",
+    "ext": "mp3",
+    "bytes": 220200960,
+    "dur_s": 10998
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-11-28-theory-11",
+   "date": "2024-11-28",
+   "folder_label": "2024-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - 2024 thanksgiving round table",
+   "audio": {
+    "handle": "prNAgRqC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/prNAgRqC",
+    "ext": "mp3",
+    "bytes": 187695104,
+    "dur_s": 9386
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2021-06-07-other-6",
+   "date": "2021-06-07",
+   "folder_label": "2021-06 June*",
+   "type": "other",
+   "topic": "- how to sell & close high ticket",
+   "audio": {
+    "handle": "lzUSkTZZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lzUSkTZZ",
+    "ext": "mp4",
+    "bytes": 589299712,
+    "dur_s": 9140
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-11-02-theory-11",
+   "date": "2023-11-02",
+   "folder_label": "2023-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - the catalog model",
+   "audio": {
+    "handle": "ZzNkyRhK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ZzNkyRhK",
+    "ext": "mp3",
+    "bytes": 155189248,
+    "dur_s": 12935
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "InVgWDgb",
+    "name": "05. NHB+ The Catalog Model",
+    "ext": "docx",
+    "bytes": 16384,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/InVgWDgb"
+   }
+  },
+  {
+   "id": "2023-11-09-theory-11",
+   "date": "2023-11-09",
+   "folder_label": "2023-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - market positions",
+   "audio": {
+    "handle": "IzFmGbhB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/IzFmGbhB",
+    "ext": "mp3",
+    "bytes": 140509184,
+    "dur_s": 11740
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "FuF2kBxa",
+    "name": "06. NHB+ Market Positions",
+    "ext": "docx",
+    "bytes": 983040,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FuF2kBxa"
+   }
+  },
+  {
+   "id": "2023-11-16-theory-11",
+   "date": "2023-11-16",
+   "folder_label": "2023-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - the go back mechanism",
+   "audio": {
+    "handle": "Bjc0SLRC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Bjc0SLRC",
+    "ext": "mp3",
+    "bytes": 141557760,
+    "dur_s": 11810
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "BiEmBRQQ",
+    "name": "07. NHB+ The Go Back Mechanism",
+    "ext": "docx",
+    "bytes": 228352,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/BiEmBRQQ"
+   }
+  },
+  {
+   "id": "2023-11-23-theory-11",
+   "date": "2023-11-23",
+   "folder_label": "2023-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - thanksgiving real mastermind call",
+   "audio": {
+    "handle": "EvNgxRKZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/EvNgxRKZ",
+    "ext": "mp3",
+    "bytes": 113246208,
+    "dur_s": 9411
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2023-11-30-theory-11",
+   "date": "2023-11-30",
+   "folder_label": "2023-11 November",
+   "type": "theory",
+   "topic": "nhb theory call - the architecture of awareness",
+   "audio": {
+    "handle": "l6NGTR5D",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/l6NGTR5D",
+    "ext": "mp3",
+    "bytes": 137363456,
+    "dur_s": 11415
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "NqF2yRKB",
+    "name": "09. NHB+ The Architecture of Awareness",
+    "ext": "docx",
+    "bytes": 223232,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/NqF2yRKB"
+   }
+  },
+  {
+   "id": "2023-07-06-theory-7",
+   "date": "2023-07-06",
+   "folder_label": "2023-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - 3 step sales page",
+   "audio": {
+    "handle": "42MUwZYS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/42MUwZYS",
+    "ext": "mp4",
+    "bytes": 823132160,
+    "dur_s": 8052
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-07-13-theory-7",
+   "date": "2023-07-13",
+   "folder_label": "2023-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - list management",
+   "audio": {
+    "handle": "EvdWXJTI",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/EvdWXJTI",
+    "ext": "mp4",
+    "bytes": 914358272,
+    "dur_s": 10093
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-07-20-theory-7",
+   "date": "2023-07-20",
+   "folder_label": "2023-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - selling to women",
+   "audio": {
+    "handle": "c3EwibLB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/c3EwibLB",
+    "ext": "mp4",
+    "bytes": 1037041664,
+    "dur_s": 11108
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-07-27-theory-7",
+   "date": "2023-07-27",
+   "folder_label": "2023-07 July",
+   "type": "theory",
+   "topic": "nhb theory call - emotional spending",
+   "audio": {
+    "handle": "YyEWgJSK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/YyEWgJSK",
+    "ext": "mp4",
+    "bytes": 1065353216,
+    "dur_s": 10974
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-04-18-guest-4",
+   "date": "2022-04-18",
+   "folder_label": "2022-04 April",
+   "type": "guest",
+   "topic": "ff guest call - mike gandia",
+   "audio": {
+    "handle": "97NAyRyA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/97NAyRyA",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 6276
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-04-25-guest-4",
+   "date": "2022-04-25",
+   "folder_label": "2022-04 April",
+   "type": "guest",
+   "topic": "ff guest call - dale lab profile",
+   "audio": {
+    "handle": "lyE0BBBb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lyE0BBBb",
+    "ext": "mp4",
+    "bytes": 974127104,
+    "dur_s": 7755
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-04-27-training-4",
+   "date": "2022-04-27",
+   "folder_label": "2022-04 April",
+   "type": "training",
+   "topic": "podcast vsl training",
+   "audio": {
+    "handle": "hnNURZKL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/hnNURZKL",
+    "ext": "mp4",
+    "bytes": 722468864,
+    "dur_s": 6478
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-06-13-guest-6",
+   "date": "2022-06-13",
+   "folder_label": "2022-06 June",
+   "type": "guest",
+   "topic": "ff guest call - matt bacak, the birth of high ticket and free cd formula",
+   "audio": {
+    "handle": "46MSkJqS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/46MSkJqS",
+    "ext": "mp4",
+    "bytes": 882900992,
+    "dur_s": 7367
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-06-16-guest-6",
+   "date": "2022-06-16",
+   "folder_label": "2022-06 June",
+   "type": "guest",
+   "topic": "ff guest call - blake wyatt, ultimate economics tracking for scale and roas",
+   "audio": {
+    "handle": "V3dSBLYZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/V3dSBLYZ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 7371
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "hmdGiTJL",
+    "name": "6-16-2022 FF Guest Call - Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS",
+    "ext": "xlsx",
+    "bytes": 786432,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/hmdGiTJL"
+   }
+  },
+  {
+   "id": "2022-06-23-other-6",
+   "date": "2022-06-23",
+   "folder_label": "2022-06 June",
+   "type": "other",
+   "topic": "ff_nhb weekly calls - competing on economics",
+   "audio": {
+    "handle": "pvd0RJrB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/pvd0RJrB",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 10522
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-06-27-guest-6",
+   "date": "2022-06-27",
+   "folder_label": "2022-06 June",
+   "type": "guest",
+   "topic": "ff guest call - dale on equity",
+   "audio": {
+    "handle": "cjMw1Rxb",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/cjMw1Rxb",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 7785
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-06-30-other-6",
+   "date": "2022-06-30",
+   "folder_label": "2022-06 June",
+   "type": "other",
+   "topic": "ff_nhb weekly calls - intentional business models",
+   "audio": {
+    "handle": "d7Ni1DwR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/d7Ni1DwR",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10936
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-02-01-theory-2",
+   "date": "2024-02-01",
+   "folder_label": "2024-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - criteria of markets part 3",
+   "audio": {
+    "handle": "wmVGnZaQ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wmVGnZaQ",
+    "ext": "mp3",
+    "bytes": 156237824,
+    "dur_s": 13010
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-02-08-theory-2",
+   "date": "2024-02-08",
+   "folder_label": "2024-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - criteria of markets implementation call",
+   "audio": {
+    "handle": "gncA0DZZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/gncA0DZZ",
+    "ext": "mp3",
+    "bytes": 152043520,
+    "dur_s": 12629
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "pzF02Bza",
+    "name": "NHB+ Criteria Of Markets Implementation Call",
+    "ext": "docx",
+    "bytes": 78848,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/pzF02Bza"
+   }
+  },
+  {
+   "id": "2024-02-15-theory-2",
+   "date": "2024-02-15",
+   "folder_label": "2024-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - creating moat",
+   "audio": {
+    "handle": "IiUghJRL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/IiUghJRL",
+    "ext": "mp3",
+    "bytes": 135266304,
+    "dur_s": 11239
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "gvdyxZhB",
+    "name": "NHB+ Creating Moat",
+    "ext": "docx",
+    "bytes": 506880,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/gvdyxZhB"
+   }
+  },
+  {
+   "id": "2024-02-19-guest-2",
+   "date": "2024-02-19",
+   "folder_label": "2024-02 February",
+   "type": "guest",
+   "topic": "guest call - ben and loren fb ads masterclass",
+   "audio": {
+    "handle": "5zVQWbQJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/5zVQWbQJ",
+    "ext": "mp3",
+    "bytes": 166723584,
+    "dur_s": 13858
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-02-22-theory-2",
+   "date": "2024-02-22",
+   "folder_label": "2024-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - organic content structures",
+   "audio": {
+    "handle": "UuV2XRII",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/UuV2XRII",
+    "ext": "mp3",
+    "bytes": 128974848,
+    "dur_s": 10778
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "43cWVRzD",
+    "name": "NHB+ Organic Content Structures",
+    "ext": "docx",
+    "bytes": 2097152,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/43cWVRzD"
+   }
+  },
+  {
+   "id": "2024-02-29-theory-2",
+   "date": "2024-02-29",
+   "folder_label": "2024-02 February",
+   "type": "theory",
+   "topic": "nhb theory call - creating marketing models",
+   "audio": {
+    "handle": "NrdwHDQB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/NrdwHDQB",
+    "ext": "mp3",
+    "bytes": 152043520,
+    "dur_s": 12663
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "undated-other-5",
+   "date": null,
+   "folder_label": "05 May year-unknown",
+   "type": "other",
+   "topic": "market efficiency ratios",
+   "audio": {
+    "handle": "prdyUB7b",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/prdyUB7b",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 14314
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "Nvcw0brR",
+    "name": "NHB+ Selling To Women 3.0",
+    "ext": "docx",
+    "bytes": 805888,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Nvcw0brR"
+   }
+  },
+  {
+   "id": "undated-other-5",
+   "date": null,
+   "folder_label": "05 May year-unknown",
+   "type": "other",
+   "topic": "selling to women 3.0 part 1",
+   "audio": {
+    "handle": "V6US2DRJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/V6US2DRJ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11318
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "Nvcw0brR",
+    "name": "NHB+ Selling To Women 3.0",
+    "ext": "docx",
+    "bytes": 805888,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Nvcw0brR"
+   }
+  },
+  {
+   "id": "undated-other-5",
+   "date": null,
+   "folder_label": "05 May year-unknown",
+   "type": "other",
+   "topic": "selling to women 3.0",
+   "audio": {
+    "handle": "MmMmABhJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/MmMmABhJ",
+    "ext": "mp3",
+    "bytes": 136314880,
+    "dur_s": 11318
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "Nvcw0brR",
+    "name": "NHB+ Selling To Women 3.0",
+    "ext": "docx",
+    "bytes": 805888,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Nvcw0brR"
+   }
+  },
+  {
+   "id": "undated-other-5",
+   "date": null,
+   "folder_label": "05 May year-unknown",
+   "type": "other",
+   "topic": "the mechanism of will power",
+   "audio": {
+    "handle": "x3Mi0JJL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/x3Mi0JJL",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11582
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "Nvcw0brR",
+    "name": "NHB+ Selling To Women 3.0",
+    "ext": "docx",
+    "bytes": 805888,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Nvcw0brR"
+   }
+  },
+  {
+   "id": "undated-other-5",
+   "date": null,
+   "folder_label": "05 May year-unknown",
+   "type": "other",
+   "topic": "the next 5 years",
+   "audio": {
+    "handle": "QmcWhTwJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QmcWhTwJ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12655
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "Nvcw0brR",
+    "name": "NHB+ Selling To Women 3.0",
+    "ext": "docx",
+    "bytes": 805888,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Nvcw0brR"
+   }
+  },
+  {
+   "id": "2022-07-07-other-7",
+   "date": "2022-07-07",
+   "folder_label": "2022-07 July",
+   "type": "other",
+   "topic": "ff_nhb weekly calls - the philosophy of offers",
+   "audio": {
+    "handle": "QjFQFRaa",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QjFQFRaa",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 9468
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-11-guest-7",
+   "date": "2022-07-11",
+   "folder_label": "2022-07 July",
+   "type": "guest",
+   "topic": "ff guest call - double trouble publishing",
+   "audio": {
+    "handle": "wnF2GBKS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wnF2GBKS",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 7491
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-14-other-7",
+   "date": "2022-07-14",
+   "folder_label": "2022-07 July",
+   "type": "other",
+   "topic": "ff_nhb weekly calls - market based funnel architecture & design",
+   "audio": {
+    "handle": "FmFGgRoJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FmFGgRoJ",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 11745
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-16-other-7",
+   "date": "2022-07-16",
+   "folder_label": "2022-07 July",
+   "type": "other",
+   "topic": "ff_nhb secrets of the game mindset call",
+   "audio": {
+    "handle": "huFgSRaZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/huFgSRaZ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 9947
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-18-guest-7",
+   "date": "2022-07-18",
+   "folder_label": "2022-07 July",
+   "type": "guest",
+   "topic": "ff guest speaker loren on fb ads",
+   "audio": {
+    "handle": "QnVChZbT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QnVChZbT",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12280
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-20-guest-7",
+   "date": "2022-07-20",
+   "folder_label": "2022-07 July",
+   "type": "guest",
+   "topic": "ff guest speaker patrick kenney on google ads",
+   "audio": {
+    "handle": "0mFiHTIK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/0mFiHTIK",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 12126
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-21-training-7",
+   "date": "2022-07-21",
+   "folder_label": "2022-07 July",
+   "type": "training",
+   "topic": "ff_nhb training call - evaluative call booking models",
+   "audio": {
+    "handle": "pqcQXL4C",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/pqcQXL4C",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 9144
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-25-guest-7",
+   "date": "2022-07-25",
+   "folder_label": "2022-07 July",
+   "type": "guest",
+   "topic": "- ff guest speaker erfan riahi on closing",
+   "audio": {
+    "handle": "53EW0B7J",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/53EW0B7J",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 7063
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-27-guest-7",
+   "date": "2022-07-27",
+   "folder_label": "2022-07 July",
+   "type": "guest",
+   "topic": "- ff guest speaker john caprani on network mastery",
+   "audio": {
+    "handle": "93MkzLRY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/93MkzLRY",
+    "ext": "mp4",
+    "bytes": 814743552,
+    "dur_s": 5155
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-07-28-training-7",
+   "date": "2022-07-28",
+   "folder_label": "2022-07 July",
+   "type": "training",
+   "topic": "ff_nhb training call - what to sell & selling on outcomes",
+   "audio": {
+    "handle": "h7cAwBJD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/h7cAwBJD",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12964
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-09-01-training-9",
+   "date": "2022-09-01",
+   "folder_label": "2022-09 September",
+   "type": "training",
+   "topic": "ff_nhb training call - vsl masterclass part 2 body copy",
+   "audio": {
+    "handle": "MjUgnb6B",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/MjUgnb6B",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 13018
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-09-07-guest-9",
+   "date": "2022-09-07",
+   "folder_label": "2022-09 September",
+   "type": "guest",
+   "topic": "ff_nhb guest speaker call - sam park yt ads masterclass",
+   "audio": {
+    "handle": "h3NkxBqD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/h3NkxBqD",
+    "ext": "mp4",
+    "bytes": 1043333120,
+    "dur_s": 7733
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-09-08-training-9",
+   "date": "2022-09-08",
+   "folder_label": "2022-09 September",
+   "type": "training",
+   "topic": "ff_nhb training call - vsl masterclass part 3 - the close",
+   "audio": {
+    "handle": "B3FQBJ4D",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/B3FQBJ4D",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 9395
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-09-15-training-9",
+   "date": "2022-09-15",
+   "folder_label": "2022-09 September",
+   "type": "training",
+   "topic": "ff_nhb training call - vsl masterclass part 4 - rhythm - style - cadence",
+   "audio": {
+    "handle": "hnVAFBiI",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/hnVAFBiI",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 13232
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-09-19-guest-9",
+   "date": "2022-09-19",
+   "folder_label": "2022-09 September",
+   "type": "guest",
+   "topic": "ff_nhb guest speaker call - jordan hall",
+   "audio": {
+    "handle": "FmFgnJrJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/FmFgnJrJ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 10237
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-09-22-training-9",
+   "date": "2022-09-22",
+   "folder_label": "2022-09 September",
+   "type": "training",
+   "topic": "ff nhb training call - low ticket offers",
+   "audio": {
+    "handle": "dvFW0BwZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/dvFW0BwZ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 13000
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-09-29-training-9",
+   "date": "2022-09-29",
+   "folder_label": "2022-09 September",
+   "type": "training",
+   "topic": "ff_nhb training call - cmo-cro roles",
+   "audio": {
+    "handle": "c7EERbbS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/c7EERbbS",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10532
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-12-05-theory-12",
+   "date": "2024-12-05",
+   "folder_label": "2024-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - december reading offers",
+   "audio": {
+    "handle": "gicGhRiB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/gicGhRiB",
+    "ext": "mp3",
+    "bytes": 248512512,
+    "dur_s": 12403
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-12-12-other-12",
+   "date": "2024-12-12",
+   "folder_label": "2024-12 December",
+   "type": "other",
+   "topic": "nhb call - value matrix",
+   "audio": {
+    "handle": "QvcAyRIZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QvcAyRIZ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11707
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-12-12-theory-12",
+   "date": "2024-12-12",
+   "folder_label": "2024-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - value matrix",
+   "audio": {
+    "handle": "wmEwhJoD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wmEwhJoD",
+    "ext": "mp3",
+    "bytes": 233832448,
+    "dur_s": 11707
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-12-19-theory-12",
+   "date": "2024-12-19",
+   "folder_label": "2024-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - copy logic",
+   "audio": {
+    "handle": "cnNkSDgY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/cnNkSDgY",
+    "ext": "mp3",
+    "bytes": 231735296,
+    "dur_s": 11571
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-12-26-theory-12",
+   "date": "2024-12-26",
+   "folder_label": "2024-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - the who campaign",
+   "audio": {
+    "handle": "RrVEWT7A",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/RrVEWT7A",
+    "ext": "mp3",
+    "bytes": 210763776,
+    "dur_s": 10507
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-01-theory-12",
+   "date": "2022-12-01",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - authority handover_watermarked",
+   "audio": {
+    "handle": "93EGARpJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/93EGARpJ",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 9557
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-01-theory-12",
+   "date": "2022-12-01",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - authority handover",
+   "audio": {
+    "handle": "czN2QLBJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/czN2QLBJ",
+    "ext": "mp4",
+    "bytes": 740294656,
+    "dur_s": 9557
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-08-theory-12",
+   "date": "2022-12-08",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - december integration call #1_watermarked",
+   "audio": {
+    "handle": "QmVGhTpL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QmVGhTpL",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10977
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-08-theory-12",
+   "date": "2022-12-08",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - december integration call #1",
+   "audio": {
+    "handle": "dvd2FTQD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/dvd2FTQD",
+    "ext": "mp4",
+    "bytes": 929038336,
+    "dur_s": 10977
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-15-theory-12",
+   "date": "2022-12-15",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - nhb december integration call #2_watermarked",
+   "audio": {
+    "handle": "Y6NG3Rja",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/Y6NG3Rja",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10802
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-15-theory-12",
+   "date": "2022-12-15",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - nhb december integration call #2",
+   "audio": {
+    "handle": "U6UQnBRJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/U6UQnBRJ",
+    "ext": "mp4",
+    "bytes": 1038090240,
+    "dur_s": 10802
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-22-theory-12",
+   "date": "2022-12-22",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - december integration call #3_watermarked",
+   "audio": {
+    "handle": "wzVwCRyC",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wzVwCRyC",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 9959
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-22-theory-12",
+   "date": "2022-12-22",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - december integration call #3",
+   "audio": {
+    "handle": "xnVURLxD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/xnVURLxD",
+    "ext": "mp4",
+    "bytes": 946864128,
+    "dur_s": 9959
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-29-theory-12",
+   "date": "2022-12-29",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - relationship_trust cycles_watermarked",
+   "audio": {
+    "handle": "QvdyjBRL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/QvdyjBRL",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 12591
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2022-12-29-theory-12",
+   "date": "2022-12-29",
+   "folder_label": "2022-12 December",
+   "type": "theory",
+   "topic": "nhb theory call - relationship_trust cycles",
+   "audio": {
+    "handle": "13FgxLoZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/13FgxLoZ",
+    "ext": "mp4",
+    "bytes": 1008730112,
+    "dur_s": 12591
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-02-theory-1",
+   "date": "2025-01-02",
+   "folder_label": "2025-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - january reading offers",
+   "audio": {
+    "handle": "8rcgkbwA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/8rcgkbwA",
+    "ext": "mp3",
+    "bytes": 270532608,
+    "dur_s": 13528
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-09-coaching-1",
+   "date": "2025-01-09",
+   "folder_label": "2025-01 January",
+   "type": "coaching",
+   "topic": "nhb theory call - the perfect path to coaching",
+   "audio": {
+    "handle": "ovEWhJbA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ovEWhJbA",
+    "ext": "mp3",
+    "bytes": 217055232,
+    "dur_s": 10860
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-16-other-1",
+   "date": "2025-01-16",
+   "folder_label": "2025-01 January",
+   "type": "other",
+   "topic": "nhb call - mechanism of comprehension",
+   "audio": {
+    "handle": "9vNiSZ4T",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/9vNiSZ4T",
+    "ext": "mp3",
+    "bytes": 244318208,
+    "dur_s": 12221
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-20-other-1",
+   "date": "2025-01-20",
+   "folder_label": "2025-01 January",
+   "type": "other",
+   "topic": "nhb introduction to google ads - with charles kirkland",
+   "audio": {
+    "handle": "86MQHbaA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/86MQHbaA",
+    "ext": "mp3",
+    "bytes": 451936256,
+    "dur_s": 11296
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-21-coaching-1",
+   "date": "2025-01-21",
+   "folder_label": "2025-01 January",
+   "type": "coaching",
+   "topic": "nhb coaching call - tangible vs. intangible bumps - with kevin sheerin",
+   "audio": {
+    "handle": "lyEmARZR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lyEmARZR",
+    "ext": "mp3",
+    "bytes": 162529280,
+    "dur_s": 6758
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-22-coaching-1",
+   "date": "2025-01-22",
+   "folder_label": "2025-01 January",
+   "type": "coaching",
+   "topic": "nhb coaching calls - meta ads mastery - with loren pinilis",
+   "audio": {
+    "handle": "gjc2zZiA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/gjc2zZiA",
+    "ext": "mp3",
+    "bytes": 249561088,
+    "dur_s": 10386
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-23-theory-1",
+   "date": "2025-01-23",
+   "folder_label": "2025-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - breaking through impossibilities",
+   "audio": {
+    "handle": "lmNAUTSR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lmNAUTSR",
+    "ext": "mp3",
+    "bytes": 308281344,
+    "dur_s": 15408
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-01-24-coaching-1",
+   "date": "2024-01-24",
+   "folder_label": "2024-01 January",
+   "type": "coaching",
+   "topic": "nhb coaching call - the cro audit accelerator - with brandon vasquez",
+   "audio": {
+    "handle": "M2NWCBba",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/M2NWCBba",
+    "ext": "mp3",
+    "bytes": 260046848,
+    "dur_s": 10827
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-27-coaching-1",
+   "date": "2025-01-27",
+   "folder_label": "2025-01 January",
+   "type": "coaching",
+   "topic": "nhb coaching call - google search ads 101 - with charles kirkland",
+   "audio": {
+    "handle": "wncWST5L",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wncWST5L",
+    "ext": "mp3",
+    "bytes": 273678336,
+    "dur_s": 13673
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-28-coaching-1",
+   "date": "2025-01-28",
+   "folder_label": "2025-01 January",
+   "type": "coaching",
+   "topic": "nhb coaching call - reading offers - with kevin sheerin",
+   "audio": {
+    "handle": "wnNGjTSY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wnNGjTSY",
+    "ext": "mp3",
+    "bytes": 343932928,
+    "dur_s": 14310
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-29-coaching-1",
+   "date": "2025-01-29",
+   "folder_label": "2025-01 January",
+   "type": "coaching",
+   "topic": "nhb coaching call - digging into data part 1 - with loren pinilis",
+   "audio": {
+    "handle": "4vNSSRaD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4vNSSRaD",
+    "ext": "mp3",
+    "bytes": 250609664,
+    "dur_s": 10422
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2025-01-30-theory-1",
+   "date": "2025-01-30",
+   "folder_label": "2025-01 January",
+   "type": "theory",
+   "topic": "nhb theory call - nhb conspiracy marketing",
+   "audio": {
+    "handle": "g7E2QTST",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/g7E2QTST",
+    "ext": "mp3",
+    "bytes": 231735296,
+    "dur_s": 11577
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-01-31-coaching-1",
+   "date": "2024-01-31",
+   "folder_label": "2024-01 January",
+   "type": "coaching",
+   "topic": "nhb coaching call - the cro audit accelerator pt. 2- with brandon vasquez",
+   "audio": {
+    "handle": "17ESRbBJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/17ESRbBJ",
+    "ext": "mp3",
+    "bytes": 197132288,
+    "dur_s": 8196
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "xuViWLbC",
+    "name": "01-31-2024 NHB Coaching Call - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez V1",
+    "ext": "xlsx",
+    "bytes": 145408,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/xuViWLbC"
+   }
+  },
+  {
+   "id": "2023-08-03-theory-8",
+   "date": "2023-08-03",
+   "folder_label": "2023-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - selling to the ego",
+   "audio": {
+    "handle": "smMExDaL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/smMExDaL",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 11397
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-08-10-theory-8",
+   "date": "2023-08-10",
+   "folder_label": "2023-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - assumptive questions",
+   "audio": {
+    "handle": "dzMWXB4R",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/dzMWXB4R",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 10043
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-08-17-theory-8",
+   "date": "2023-08-17",
+   "folder_label": "2023-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - market assumptions",
+   "audio": {
+    "handle": "VqFEgBAS",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/VqFEgBAS",
+    "ext": "mp4",
+    "bytes": 1073741824,
+    "dur_s": 10497
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-08-24-theory-8",
+   "date": "2023-08-24",
+   "folder_label": "2023-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - sales format innovation",
+   "audio": {
+    "handle": "8rNwVLAY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/8rNwVLAY",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 13061
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2023-08-31-theory-8",
+   "date": "2023-08-31",
+   "folder_label": "2023-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - marketing measures",
+   "audio": {
+    "handle": "92FUjTqZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/92FUjTqZ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 10512
+   },
+   "mp4_available": false,
+   "written_hand": {
+    "handle": "BjEQyTza",
+    "name": "8-31-2023 NHB+ Theory Call - Marketing Measures",
+    "ext": "docx",
+    "bytes": 14336,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/BjEQyTza"
+   }
+  },
+  {
+   "id": "2024-06-03-guest-6",
+   "date": "2024-06-03",
+   "folder_label": "2024-06 June",
+   "type": "guest",
+   "topic": "guest call - isaac lara on how to sell to women addendum",
+   "audio": {
+    "handle": "16dEULgT",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/16dEULgT",
+    "ext": "mp4",
+    "bytes": 831520768,
+    "dur_s": 7315
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-06-03-guest-6",
+   "date": "2024-06-03",
+   "folder_label": "2024-06 June",
+   "type": "guest",
+   "topic": "guest call with isaac lara - how to selll to women addendum",
+   "audio": {
+    "handle": "lvEUwZCD",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/lvEUwZCD",
+    "ext": "mp3",
+    "bytes": 88080384,
+    "dur_s": 7315
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-06-06-theory-6",
+   "date": "2024-06-06",
+   "folder_label": "2024-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - reading offers #1",
+   "audio": {
+    "handle": "t3VAkb5J",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/t3VAkb5J",
+    "ext": "mp3",
+    "bytes": 137363456,
+    "dur_s": 11451
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "omUw2BwC",
+    "name": "02. NHB+ Reading Offers",
+    "ext": "docx",
+    "bytes": 3145728,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/omUw2BwC"
+   }
+  },
+  {
+   "id": "2024-06-13-theory-6",
+   "date": "2024-06-13",
+   "folder_label": "2024-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - creating and spotting opportunities",
+   "audio": {
+    "handle": "9ycSBZxA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/9ycSBZxA",
+    "ext": "mp3",
+    "bytes": 140509184,
+    "dur_s": 11676
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "wqFAAbbB",
+    "name": "03. NHB+ Creating And Spotting Opportunities",
+    "ext": "docx",
+    "bytes": 228352,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/wqFAAbbB"
+   }
+  },
+  {
+   "id": "2024-06-20-theory-6",
+   "date": "2024-06-20",
+   "folder_label": "2024-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - the right now process",
+   "audio": {
+    "handle": "UucgQBZR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/UucgQBZR",
+    "ext": "mp3",
+    "bytes": 123731968,
+    "dur_s": 10271
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "ZuMCiBgL",
+    "name": "04. NHB+ _The Right Now Process_",
+    "ext": "docx",
+    "bytes": 590848,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/ZuMCiBgL"
+   }
+  },
+  {
+   "id": "2024-06-24-guest-6",
+   "date": "2024-06-24",
+   "folder_label": "2024-06 June",
+   "type": "guest",
+   "topic": "guest call - brandon vasquez on cro tactical tips to move the needle part 1",
+   "audio": {
+    "handle": "JyUUXDqR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/JyUUXDqR",
+    "ext": "mp3",
+    "bytes": 97517568,
+    "dur_s": 8097
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-06-27-theory-6",
+   "date": "2024-06-27",
+   "folder_label": "2024-06 June",
+   "type": "theory",
+   "topic": "nhb theory call - increasing beliefs",
+   "audio": {
+    "handle": "82NAmB7T",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/82NAmB7T",
+    "ext": "mp3",
+    "bytes": 128974848,
+    "dur_s": 10729
+   },
+   "mp4_available": true,
+   "written_hand": {
+    "handle": "x2U2VJjK",
+    "name": "06. NHB+ Increasing Beliefs",
+    "ext": "docx",
+    "bytes": 14336,
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/x2U2VJjK"
+   }
+  },
+  {
+   "id": "2024-08-01-theory-8",
+   "date": "2024-08-01",
+   "folder_label": "2024-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - reading offers 3",
+   "audio": {
+    "handle": "1jdCkLST",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/1jdCkLST",
+    "ext": "mp3",
+    "bytes": 109051904,
+    "dur_s": 9113
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-05-guest-8",
+   "date": "2024-08-05",
+   "folder_label": "2024-08 August",
+   "type": "guest",
+   "topic": "guest call - lonnie jones on seo how to build authority for your brand",
+   "audio": {
+    "handle": "k2cm3byR",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/k2cm3byR",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 7531
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-05-guest-8",
+   "date": "2024-08-05",
+   "folder_label": "2024-08 August",
+   "type": "guest",
+   "topic": "guest call - lonnie jones on seo",
+   "audio": {
+    "handle": "cvMWiD4C",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/cvMWiD4C",
+    "ext": "mp3",
+    "bytes": 90177536,
+    "dur_s": 7531
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-08-theory-8",
+   "date": "2024-08-08",
+   "folder_label": "2024-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - the basis of business strategy",
+   "audio": {
+    "handle": "4rMikDyA",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/4rMikDyA",
+    "ext": "mp3",
+    "bytes": 112197632,
+    "dur_s": 9338
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-12-guest-8",
+   "date": "2024-08-12",
+   "folder_label": "2024-08 August",
+   "type": "guest",
+   "topic": "guest call - luke jaten on direct mail secrets",
+   "audio": {
+    "handle": "AyUCjJJY",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/AyUCjJJY",
+    "ext": "mp3",
+    "bytes": 90177536,
+    "dur_s": 7473
+   },
+   "mp4_available": true,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-15-theory-8",
+   "date": "2024-08-15",
+   "folder_label": "2024-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - call of duty biz-ops",
+   "audio": {
+    "handle": "dnc0BDSa",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/dnc0BDSa",
+    "ext": "mp3",
+    "bytes": 157286400,
+    "dur_s": 13100
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-15-theory-8",
+   "date": "2024-08-15",
+   "folder_label": "2024-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - call of duty biz-ops]",
+   "audio": {
+    "handle": "pzV2wTLK",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/pzV2wTLK",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 13100
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-22-theory-8",
+   "date": "2024-08-22",
+   "folder_label": "2024-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - call of duty biz ops part 2",
+   "audio": {
+    "handle": "xidizZIL",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/xidizZIL",
+    "ext": "mp3",
+    "bytes": 152043520,
+    "dur_s": 12644
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-22-theory-8",
+   "date": "2024-08-22",
+   "folder_label": "2024-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - call of duty biz-ops part 2",
+   "audio": {
+    "handle": "w6EyjJZZ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/w6EyjJZZ",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 12644
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-26-guest-8",
+   "date": "2024-08-26",
+   "folder_label": "2024-08 August",
+   "type": "guest",
+   "topic": "guest call - charles kirkland local lead gen unveiled",
+   "audio": {
+    "handle": "VnEkUJCB",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/VnEkUJCB",
+    "ext": "mp4",
+    "bytes": 2147483648,
+    "dur_s": 9259
+   },
+   "mp4_available": false,
+   "written_hand": null
+  },
+  {
+   "id": "2024-08-29-theory-8",
+   "date": "2024-08-29",
+   "folder_label": "2024-08 August",
+   "type": "theory",
+   "topic": "nhb theory call - market pendulums",
+   "audio": {
+    "handle": "o3V2yRyJ",
+    "url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q/file/o3V2yRyJ",
+    "ext": "mp3",
+    "bytes": 133169152,
+    "dur_s": 11090
+   },
+   "mp4_available": true,
+   "written_hand": null
+  }
+ ]
+}

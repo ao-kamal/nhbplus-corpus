@@ -1,0 +1,50 @@
+{
+  "record_type": "RESEARCH_FINDING",
+  "researched_at_utc": "2026-10-14",
+  "question": "Does the MEGA route consume storage or transfer quota on the operator's account?",
+  "sources": [
+    "https://help.mega.io/plans-storage/space-storage/transfer-quota - MEGA Help Centre, updated 23 May 2026 (PRIMARY / OFFICIAL)",
+    "https://mega.io/developers - MEGA Software Development Kit (PRIMARY / OFFICIAL)"
+  ],
+
+  "CORRECTION_TO_AN_EARLIER_STATEMENT": {
+    "what_I_said": "'historically around 45 GB per 24 hours'",
+    "what_MEGA_actually_documents": "'MEGA does not have a fixed download limit.'",
+    "why_the_earlier_figure_was_wrong": "It came from third-party SEO articles, not from MEGA. It was repeated by several sites with different numbers (5 GB, 10 GB, 45 GB, 2 GB), which is itself the tell that none of them are authoritative.",
+    "the_documented_mechanism": "'For free account holders or non-MEGA users, this limit is influenced by factors such as your geographical location and our current network usage. The limit is based on the amount of data downloaded from your IP address over the past six hours.' Paid accounts are NOT checked against IP; free accounts are."
+  },
+
+  "THE_FINDING_THAT_DECIDES_IT": {
+    "quote_verbatim": "When does transfer quota apply to a file? Not every download counts against transfer quota. Transfer quota only begins to apply to a given file once that file has been transferred in full more than 10 times. Partial transfers count proportionally towards this threshold rather than as full transfers. This means most personal use of MEGA does not consume transfer quota in any meaningful way. ... Transfer quota typically only becomes relevant when a file is downloaded repeatedly at scale, for example a public link with many distinct recipients.",
+    "source": "MEGA Help Centre, 23 May 2026",
+    "application_to_this_run": "Every file in this corpus is fetched ONCE. The corpus is 320 GB across 198 calls; no file is downloaded twice. The documented threshold is more than TEN full transfers of the same file. That threshold is never approached.",
+    "conclusion": "The 320 GB acquisition does NOT consume transfer quota, on either the Deepgram-fetches route or the download-locally route."
+  },
+
+  "enforcement_mechanism": {
+    "quote": "A download attempt will be rejected with error EOVERQUOTA if the bandwidth consumption during the past five to six hours plus the residual size of all running downloads plus the size of the file to download would exceed the current per-IP bandwidth limit (if any).",
+    "source": "MEGA SDK documentation",
+    "per_ip": true,
+    "window": "past five to six hours",
+    "implication_for_the_url_route": "If Deepgram retrieves the MEGA URLs, the requests originate from DEEPGRAM's IP addresses, not the operator's. The operator's per-IP window is therefore untouched even in principle, independent of the 10x threshold."
+  },
+
+  "answers": {
+    "megA_storage_required": "NO. The route is read-only. Nothing is uploaded, imported or duplicated. import_public_url - the only operation that would consume storage - is explicitly excluded from this build.",
+    "megA_transfer_quota_consumed": "NO, on the documented mechanism. Quota requires a file to be transferred in full MORE THAN 10 TIMES. Every file here is fetched once.",
+    "what_would_consume_it": "Repeated downloads of the same file, or a public link with many distinct recipients. Neither applies to a single operator running one extraction pass."
+  },
+
+  "residual_risk_that_IS_real": [
+    "EOVERQUOTA is enforced PER IP over a rolling 5-6 hour window and is dynamic - it depends on the operator's geography and MEGA's current network load. The exact ceiling is unpublished and varies. The documented exemption above means the 10x threshold is the binding constraint in normal operation, but the per-IP limit is a separate mechanism that exists and can reject a request.",
+    "Direct-download URLs returned by the API are temporary. Expiry duration is NOT documented in any authoritative source found. This remains unmeasured."
+  ],
+
+  "what_would_consume_mega_quota_in_this_project": [
+    "import_public_url (copies files into the account) - EXCLUDED BY DESIGN.",
+    "Any upload - none is performed.",
+    "Re-running the extraction pass many times, which would push a given file toward the 10x threshold over many passes."
+  ],
+
+  "status": "RESEARCH COMPLETE. PROBE BLOCKED - MEGA credentials not yet present in .env.private."
+}

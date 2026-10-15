@@ -1,0 +1,101 @@
+{
+  "SUPERSEDED": "This artifact's VERDICT is WITHDRAWN as a harness_artefact. The probe constructed `Mega()` without calling `login_anonymous()`, so it issued an API call with no session and received -15 (ESID). ESID was the correct answer to a malformed request, NOT a property of MEGA. DO NOT cite this artifact's verdict. Superseded by mega-nhbplus-corpus-census-2026-10-14.json. Retained, not deleted, so the correction stays auditable.",
+
+  "probe_id": "mega-public-folder-listing-2026-10-13",
+  "purpose": "Skill `course-corpus-extraction`, back-end `share-link`, canonical procedure step 1: 'Probe first. No route enters code until a dated evidence artifact proves it works.'",
+  "source_url": "https://mega.nz/folder/EzMk0Z4K#CrnHbM7tWaNtcByX0Ry_-Q",
+  "probed_at_utc": "2026-10-13",
+  "run_from": {
+    "host": "Windows (win32), operator workstation",
+    "python": "CPython 3.14 (C:\\Users\\layiw\\AppData\\Local\\Python\\pythoncore-3.14-64)",
+    "operator_present": true
+  },
+
+  "VERDICT": "NEGATIVE - the anonymous open-protocol enumeration route does NOT work. No fetch route is proven. Per acquisition-backends.md, 'why empty beats plausible': this slot stays empty rather than being filled with a command that was never proven.",
+
+  "what_was_proven": [
+    "MEGA's API endpoint https://g.api.mega.co.nz/cs rejects ANONYMOUS folder-node fetches with error -15 (ESID).",
+    "This is a SESSION DEMAND, not a 'link missing' result. Error -9 is ENOENT ('Object (typically, node or user) not found'); we did NOT receive -9.",
+    "Therefore the supplied link's existence, expiry state and contents are ALL STILL UNVERIFIED. Nothing about the corpus is known."
+  ],
+
+  "evidence": {
+    "error_code": -15,
+    "error_name": "ESID",
+    "error_description_verbatim": "Invalid or expired user session, please relogin",
+    "source_of_error_meaning": "mega/errors.py _CODE_TO_DESCRIPTIONS, -15: ('ESID', 'Invalid or expired user session, please relogin')",
+    "byte_error": -9,
+    "byte_error_name": "ENOENT",
+    "byte_error_description_verbatim": "Object (typically, node or user) not found",
+    "why_the_distinction_matters": "-9 would have meant the node or link is absent. -15 means the API never got that far: it demanded credentials first. Conflating them would produce the documented retracted conclusion 'there is no download, the corpus is video-only' - a large wrong conclusion reached from the wrong layer."
+  },
+
+  "variants_tested": [
+    { "name": "f+p",          "body": [{"a":"f","p":"EzMk0Z4K"}],                "http": 200, "result": -15 },
+    { "name": "f+ca+p",       "body": [{"a":"f","ca":1,"p":"EzMk0Z4K"}],          "http": 200, "result": -15 },
+    { "name": "f+ca+r+p",     "body": [{"a":"f","ca":1,"r":1,"p":"EzMk0Z4K"}],    "http": 200, "result": -15 },
+    { "name": "f+ca+r+p+ssm", "body": [{"a":"f","ca":1,"r":1,"p":"EzMk0Z4K","ssm":1}], "http": 200, "result": -15 },
+    { "name": "f+ca+r+p+s",   "body": [{"a":"f","ca":1,"r":1,"p":"EzMk0Z4K","s":"EzMk0Z4K"}], "http": 200, "result": -15 }
+  ],
+  "variant_note": "All five are the documented node-fetch shapes. All returned HTTP 200 with an in-band error code -15. HTTP 200 is not a receipt - this is acquisition-backends.md's 'soft-404' lesson applied to a JSON API: the discriminating power lives in the body, not the status line.",
+
+  "client_finding": {
+    "client": "mega.py 1.0.8 (MIT, pure-python)",
+    "install_note": "Installed on the operator's system Python. tenacity pinned to 8.1.0 because mega.py's unpinned dependency resolves to a build that references asyncio.coroutine, removed in Python 3.11+. This box is 3.14.",
+    "client_capability_gap": {
+      "has": [
+        "get_public_url_info(url) -> size+name for a single FILE",
+        "get_public_file_info(handle, key) -> a:'g' single-file gateway",
+        "import_public_url(url) -> copies a public file INTO a MEGA ACCOUNT"
+      ],
+      "lacks": "any anonymous public-FOLDER listing method",
+      "consequence": "mega.py cannot enumerate a public folder link without an account. import_public_url is the only folder-adjacent route and it REQUIRES a MEGA account - a vendor dependency, which Rule 2 forbids by default and which the operator has not authorized."
+    },
+    "installed_but_unusable_route": "megacmd was deliberately NOT installed: it is a persistent background service, against the operator's stated 'nothing running locally' constraint. The rejection is recorded here rather than acted on."
+  },
+
+  "download_gateway_never_called": true,
+  "bytes_downloaded": 0,
+  "pipeline_paths_written": "NONE",
+
+  "routes_not_yet_tried_and_why": [
+    {
+      "route": "MEGA account login, then import_public_url or direct API",
+      "status": "NOT TRIED - requires an operator decision",
+      "why_it_matters": "It is the only route found that is proven to exist. It introduces a vendor account (Rule 2 conflict), consumes the operator's MEGA storage quota, and may copy the corpus into their account before it is fetched anywhere.",
+      "needs": "explicit operator authorization"
+    },
+    {
+      "route": "Browser render of the public link",
+      "status": "BLOCKED - no desktop browser connected to this session",
+      "why_it_matters": "MEGA's web app renders a public folder with no login. The skill explicitly endorses this instrument for DISCOVERY: 'Use a real browser to FIND links - its DOM is the point. Use plain HTTP to TAKE bytes.' Connecting a browser would let the census (file types, count, total size) be established without any account.",
+      "needs": "the operator to open this session in the desktop app so the browser tool connects"
+    },
+    {
+      "route": "Operator downloads the folder via the MEGA web UI; pipeline uses the `local-folder` back-end",
+      "status": "NOT TRIED - available immediately, no vendor, no client",
+      "why_it_matters": "`local-folder` is the PROVEN, implemented back-end. This route needs no account and no custom client. It costs local disk and the same bandwidth, but the bytes have to cross to this machine on any route that avoids a vendor worker.",
+      "needs": "operator action in their own browser"
+    }
+  ],
+
+  "consequences_for_the_plan_if_a_route_is_chosen": {
+    "local-folder_back_end": [
+      "acquisition-backends.md:230-237: TWO things change downstream and NEITHER is optional.",
+      "The media DURATION ANCHOR must be REPLACED, not ported - anchoring a file already on disk to itself 'is a vacuous check'; audio-and-stt.md:112 forbids it re-entering 'through the back door'.",
+      "The DRIFT PROBE has nothing to point at if the source publishes no manifest: either drop it and RECORD that it is dropped, or diff against the folder's own state and say that is what was done. Do not leave a check whose target does not exist.",
+      "Log each kept file with its `source_path` - NO URL EXISTS. Do not invent one.",
+      "Load `vault-forge` for the authored-vault ingestion-integrity pass (verify every file parses, hash-dedupe identical bodies, quarantine-not-delete)."
+    ],
+    "still_undecided": "Whether the corpus is CUT30 (already extracted and committed at ../cut30-vault/) or a NEW course. The probe cannot answer this - it never reached the contents."
+  },
+
+  "stop_condition": {
+    "skill_rule": "acquisition-backends.md:263 - 'STOP. Do not fetch. Do not write a client call. Do not let the probe's output become a code path in this run. Do not resume the build.'",
+    "honoured": true,
+    "fetched_any_course_bytes": false,
+    "probe_script_promoted_to_pipeline": false,
+    "probe_script_location": "content-os/probe/scripts/mega-public-folder-probe.py - PROBE ONLY, not importable by any build stage",
+    "resumes_when": "The operator chooses a route and authorizes it. On the current evidence NO route is proven, so nothing may enter code."
+  }
+}

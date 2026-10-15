@@ -1,0 +1,59 @@
+{
+  "record_type": "OPERATOR_DECISION_RECORD",
+  "recorded_at_utc": "2026-10-14",
+  "decision": "RULE 2 WAIVER - RE-CONFIRMED AT MEASURED SCALE",
+
+  "rule_being_waived": {
+    "source": "content-os/AGENTS.md section 3.0, Rule 2",
+    "text": "'pay nothing. Absolutely nothing. No paid tier, no metered API, and no vendor's free credit tier either.'",
+    "reason_for_the_rule_as_stated": "A vendor product is a dependency on someone else's pricing, quota, ToS and schema, all of which drift."
+  },
+
+  "scope_of_waiver": {
+    "authorised_for": "Deepgram ONLY - the metered speech-to-text call.",
+    "explicitly_not_waived": [
+      "Any other vendor API",
+      "Any other paid tier or metered service",
+      "The corpus-acquisition route, which remains vendor-free"
+    ]
+  },
+
+  "scale_correction": {
+    "original_waiver": {
+      "granted": "2026-10-13",
+      "basis": "CUT30 measured audio of 326.0 minutes",
+      "value": "USD 1.40"
+    },
+    "reconfirmed_waiver": {
+      "granted": "2026-10-14",
+      "basis": "MEASURED corpus duration, not an extrapolation",
+      "measured_total_audio_hours": 528.35,
+      "measured_mp3_served_hours": 262.62,
+      "measured_mp4_only_hours": 265.73,
+      "vendor_rate": "USD 0.0043/min",
+      "rate_provenance": "audio-and-stt.md, CUT30 era. NOT re-derived or negotiated for this corpus.",
+      "FORECAST": "USD 136.31",
+      "actual_spend": "NOT YET OBSERVED - no request has been made. Actual and forecast must stay separate in every report."
+    },
+    "magnitude_change": "The 2026-10-13 waiver was ~97x smaller than the measured figure. Re-confirming at the true scale is the entire point of recording the waiver at all."
+  },
+
+  "conditions_attached": [
+    "Budget is spent against the MEASURED duration, never a planning estimate.",
+    "Forecast and actual spend are recorded separately, always. audio-and-stt.md: the balance file on the CUT30 run was 0 bytes, so 'actual spend' was NOT IN SOURCE there.",
+    "Receipts are written PER UNIT as the run proceeds, never batched at the end. A crash between the last response and the batch summary discards every receipt earned and the next run re-bills the corpus.",
+    "Spend is monitored against the USD 136.31 forecast and work STOPS if the forecast is exceeded. The forecast is a ceiling, not a target.",
+    "Quota and payment responses (402/429/credit) are treated as a PAUSE of this stage only, never a halt of the build."
+  ],
+
+  "on_receipts_and_resume": [
+    "Key every receipt on the stable call identity, never on a MEGA URL or any expiring token.",
+    "Do not persist a MEGA direct-download link. Resolve fresh immediately before each call."
+  ],
+
+  "integrity": {
+    "bytes_of_corpus_downloaded_at_time_of_waiver": 0,
+    "pipeline_code_written": false,
+    "note": "No course audio has been sent to any vendor. This record authorises future spend; it does not report spend."
+  }
+}

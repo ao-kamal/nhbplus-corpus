@@ -1,0 +1,39 @@
+{
+  "probe_id": "mega-cdn-direct-url-2026-10-14",
+  "HEADLINE": "A self-authenticating MEGA CDN URL was found and proven. The zero-local-bandwidth goal is nonetheless DISPROVEN - and the reason is the file encryption, which is now measured rather than assumed.",
+
+  "the_creative_step_that_worked": {
+    "problem_solved": "The API is closed to third-party clients (HTTP 402 proof-of-work), so a per-file download URL cannot be COMPUTED. But it need not be computed - the OFFICIAL web client demonstrably produces one.",
+    "method": "Used dev-browser to drive the official MEGA client, opened a file's context menu, chose Download, and captured the resulting XHR target. The Playwright download event exposes only a blob: URL because the client assembles bytes in memory first; the real fetch appears as an earlier XHR.",
+    "corrections_made_along_the_way": [
+      "First assumed MEGA's web client used a WebSocket. WRONG - the listing arrives over ordinary HTTP POST to g.api.mega.co.nz/cs. An earlier response capture filtered on content-type:json, which MEGA does not set, and therefore recorded zero responses for an hour of work.",
+      "page.on('response') with an async resp.text() returns nothing in this dev-browser build - three attempts including an explicit flush. The download event and the request event DO work."
+    ],
+    "captured_url_shape": "https://gfs270n072.userstorage.mega.co.nz/dl/<long-token>/0-475",
+    "token_location": "in the URL PATH, not a cookie"
+  },
+
+  "PROOF_the_url_is_self_authenticating": {
+    "test": "Clean Python requests.Session - zero cookies, zero headers, no User-Agent, no Referer, no browser session of any kind.",
+    "result": "HTTP 200, content-type application/octet-stream, 476 bytes, content-length 476.",
+    "verdict": "CONFIRMED. The bearer token in the path is sufficient on its own. No MEGA account, no session, no closed API required."
+  },
+
+  "THE_WALL": {
+    "what_came_back": "The 476 bytes are CIPHERTEXT - AES-encrypted by MEGA client-side. A plaintext text file of 476 bytes cannot begin with \\x88\\xa4S\\xff.",
+    "deepgram_result": "HTTP 400 - 'corrupt or unsupported data'. Deepgram fetched the URL successfully and rejected the CONTENT, which proves the URL route works and the payload is the problem.",
+    "consequence": "The bytes must be DECRYPTED before any speech-to-text engine can read them. Decryption is a bulk data operation, so the bytes necessarily reach the machine performing it. There is no vendor-free way around this: a decryption service would be a vendor dependency under Rule 2, and a cloud VM would be a paid vendor.",
+    "VERDICT": "ZERO_LOCAL_BANDWIDTH IS NOT ACHIEVABLE. The bytes must cross this machine exactly once. This is now measured, not assumed."
+  },
+
+  "WHAT_IS_NONETHELESS_PROVEN_AND_USEFUL": {
+    "no_mega_account_needed": "The public folder link alone was sufficient. The closed API and the 402 proof-of-work are bypassed entirely - the browser mints URLs, plain HTTP takes bytes. This is exactly the split the skill prescribes: 'use a real browser to FIND links; use plain HTTP to TAKE bytes.'",
+    "no_local_ffmpeg_needed": "Deepgram accepts MP4 containers - proven by an equivalence test (WAV and MP4 returned identical utterance, paragraph and word counts on a speech clip). The 265.73 h of MP4-only audio needs no local transcode.",
+    "no_disk_needed": "Encrypted bytes are fetched, decrypted in memory, and POSTed. Nothing is persisted.",
+    "the_bandwidth_lever_that_remains": "MEGA encrypts EVERY file, so there is no 'already-decrypted audio' shortcut. The lever is therefore WHICH files to fetch: the 85 MP3s are vastly smaller than the 183 MP4s, and the MP3-served half of the corpus needs no video at all."
+  },
+
+  "honest_position": "The original ask - keep the bytes entirely off this machine - is not achievable, and now I know precisely why rather than guessing. What is achievable is: no vendor account, no closed API, no ffmpeg, no disk, and a download volume chosen deliberately rather than accidentally.",
+  "corpus_bytes_persisted": 0,
+  "probe_payload_bytes": 476
+}
