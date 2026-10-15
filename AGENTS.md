@@ -173,7 +173,7 @@ long-lived. Current: Azure `Standard_D2s_v5`, Austria East, 500 GB disk.
 
 11. **`Select-Object -First N` kills an upstream PowerShell pipeline.** It truncated
     a probe driver mid-script, before it wrote its output — the run *looked* like it
-    had produced results. Capture to a variable, truncate after.
+    had produced results. Capture to a variable, truncate after. See also trap 20.
 
 ---
 
@@ -217,23 +217,6 @@ document, or a commit message in this repository.**
   during scoping, including one that caught the merge collapsing 42 bonus lessons
   into 32. Treat a tripwire failure as a stop, not a threshold to relax.
 
-13. **Two MCP/browser-unrelated traps that cost hours here.** `curl --data-binary
-    @file` reads the entire body into memory and reports a misleading
-    `option --data-binary: out of memory` — stream from a Python file handle
-    instead. And Windows pipes send **CRLF**, so a key read with `read -r` arrives
-    one character long, which breaks an `Authorization` header in a way that points
-    nowhere near the cause. Strip `\r`.
-
-14. **`systemctl is-active` is not a health check for `mega-cmd-server`.** It is not
-    a systemd unit on Ubuntu 24.04, so it reports `inactive` for a process that is
-    running. `ps` shows it. A real fetch is the only arbiter — and a *false negative*
-    that reads as "the server is down" will send you debugging a server that is up.
-
-15. **When writing a Python file through PowerShell, the round-trip corrupts it.**
-    `Get-Content -Raw | Set-Content -Encoding utf8` mangles non-ASCII characters —
-    the same defect that corrupted the MEGA capture. Write Python files with the
-    write tool, not through a shell pipe.
-
 12. **Read the reference before running the command, not after it fails.** This has
     cost hours repeatedly, in five separate tools: `mega-cmd` usage syntax, the
     argument order of `mega-fuse-add` (it is `<LOCAL> <REMOTE>`, not the reverse),
@@ -254,3 +237,31 @@ document, or a commit message in this repository.**
     operator's cloud sync. The test was worth running; taking the action without
     asking was not a judgement call to make. When a hypothesis needs someone's
     resources, that is a one-line question, not a decision.
+
+15. **`curl --data-binary @file` reads the whole body into memory** and reports a
+    misleading `option --data-binary: out of memory` on a large file. Stream from a
+    Python file handle instead. `--data-binary @-` does **not** fix it.
+
+16. **Windows pipes send CRLF.** A key read with `IFS= read -r` arrives one
+    character long, which silently breaks an `Authorization` header in a way that
+    points nowhere near the cause. Strip `\r` and print the length.
+
+17. **`systemctl is-active` is not a health check for `mega-cmd-server`.** It is not
+    a systemd unit on Ubuntu 24.04, so it reports `inactive` for a process that is
+    running. `ps` shows it. A real fetch is the only arbiter — a *false negative*
+    reading as "the server is down" sends you debugging a server that is up.
+
+18. **Never pipe a file through PowerShell to rewrite it.** `Get-Content -Raw |
+    Set-Content -Encoding utf8` and a `python -c @"…"@` heredoc both corrupt
+    non-ASCII — the same defect that mangled the MEGA capture. Write the script to
+    a file with the write tool, then run it.
+
+19. **An encoding "fix" needs a positive test, not a character-class filter.** A
+    repair pass using an allow-list of expected characters silently overwrote
+    legitimate typography (`→ × § ≥ ± ≈ ✓`) with em-dashes across three documents.
+    **U+FFFD is the only corruption signal.** Before running any repair, list what it
+    would change and read the list.
+
+20. **`Select-Object -First N` truncates an upstream pipeline**, and so does any
+    early-exit consumer. Capture to a variable, then slice — the process writing the
+    output gets killed mid-run and the file looks complete.
