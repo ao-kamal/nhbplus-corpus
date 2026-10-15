@@ -46,7 +46,20 @@ ran on. **$0.115/hr** from `prices.azure.com/api/retail/prices`, queried
 2026-10-15. **$2.76/day.** 2 vCPU.
 
 > **[ R4-T4.1] THIS TABLE WAS WRONG BY 60× WHEN FIRST WRITTEN, AND THE ERROR
-> WAS MINE.** `36,336.6 min / 25 / 90.6x` is **15.46 MINUTES**, not 15.5 hours.
+> WAS MINE.** `36,336.6 min / 25 / 90.6x` is **16.04 MINUTES**, not 15.5 hours.
+> **AND 16.04 IS STILL NOT THE FIGURE THAT SHIPS. IT IS 16.40.**
+> 90.6x is the SOLO measured factor (`wiUyTRZb`, 275.93 min in 182.757 s).
+> The 25-way degradation is separately measured at **1.022x**, so per-stream
+> realtime at 25 concurrent is 90.6 / 1.022 = **88.65x** and the aggregate is
+> 88.65 x 25 = **2216x**. 36,336.6 / 2216 = **16.40 MINUTES**.
+>
+> **That one figure has now been wrong FOUR times, in four different ways:**
+> `15.46 minutes` (right shape, wrong quotient - 401.066 / 25 is 16.043),
+> `6.8 minutes` (dropped the /25 entirely, so the quotient was HOURS labelled
+> minutes), `8.7 minutes`, and `15.5 hours` (the 60x slip this paragraph
+> exists to correct). **Do not edit it without recomputing all three terms.**
+> The carry is 0.27 h, not 0.26.
+> The value was 
 > The value was right and the **unit** was wrong — minutes divided by a realtime
 > factor is still minutes. Same slip twice more: the full-decode figure was
 > **9.44 core-hours, not 567**, because `2,100,786 s / 61.8 = 33,993 s` and I
@@ -55,7 +68,7 @@ ran on. **$0.115/hr** from `prices.azure.com/api/retail/prices`, queried
 
 | phase | computation | result |
 |---|---|---|
-| **STT at concurrency 25** | `36,336.6 min / 90.6x / 25 = 15.46 min` | **0.26 h** |
+| **STT at concurrency 25** | `36,336.6 min / (88.65x per stream x 25 streams) = 16.40 min` | **0.27 h** |
 | fetch, 165149671424.49 GiB | `165149671424.49*1024 / 47 MB/s = 3,200 s` | **0.89 h** |
 | remux `-c:a copy` | `193 units x 5 s` (stream copy, **no decode**) | **0.26 h** |
 | channel measurement, 90 s window | `10 stereo x 3 passes x 1.46 s` | **0.01 h** |
@@ -1931,7 +1944,7 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 | V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** — **formula in §11.4** |
 | V11 | egress SHA256 per-file match — **formula in §11.4** |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
-| **V13** | **`00 Topics.md` — NEW. POPULATION IS 235 (193 calls + 42 lessons), NOT 225 AND NOT 230.** **re-scoped it to what measurement supports; found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from 's clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. **They are. But the blockquote at the head of §11.2 still carries them verbatim, and it gates a clustered structure §10.3 measured does not exist.** |
+| **V13** | **`00 Topics.md` — NEW. POPULATION IS 235 (193 calls + 42 lessons), NOT 225 AND NOT 230.** **re-scoped it to what measurement supports; found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from 's clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below, in §11.2 itself as well as here — the blockquote at the head of §11.2 is marked **DELETED, DO NOT REINSTATE** and struck through, so there is no longer any surviving copy of those three sentences. |
 | **V13** (population note) | 's own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `235 − 221 =` **14** units, but the same row says "4 of 235".
 > **CORRECTED: 235 − 221 is 14, NOT 9.** The sentence it corrected was itself
 > internally inconsistent - it measured 4 of 235 units sharing a stem, so
@@ -1940,6 +1953,28 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 > 225 of 235 units and **10 are unaccounted for** - a gap in the source,
 > recorded rather than closed by adjusting a number to fit. **Re-measure before
 > any implementation trusts 221, 4, or 14.** The **group count** is 4; the **units inside them** is 9. **** |
+
+**THE GATE COUNT: FOURTEEN. `N` RANGES OVER 0 TO 13, INCLUSIVE.**
+
+The table above enumerates **V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12,
+V13** — **fourteen gates, not twelve.** V0–V11 are Rev 0's original twelve; V12
+(Identity Binding, §11.1) and V13 (Topics, §11.2) are **NEW** and were appended to
+the same table. Every count of "twelve gates" later in this section is a statement
+about **Rev 0's** table and is marked as such where it appears. **For this
+document the count is fourteen, and `gate_index` runs 0…13.**
+
+That range is load-bearing for the exit-code rule in §11.2. An implementer coding
+from a "twelve gates" narrative produces `exit(110)` … `exit(120)` and never emits
+the codes for V12 or V13 — the two newest gates fail silently as an unrecognised
+code at the wrapper. **`exit((gate_index + 1) * 10)` over the fourteen gates
+yields:**
+
+| gate N | exit code |
+|---|---|
+| V0 | **10** — and never 0, because 0 is success (§11.2) |
+| V1 … V11 | 20 … 120 |
+| V12 | **130** |
+| V13 | **140** |
 
 ### 11.1 V12 — Identity Binding ``
 
@@ -2006,12 +2041,31 @@ Clauses 5 and 6 catch the same defect at the vendor and money boundaries.
 
 ### 11.2 V13 — Topics
 
-> Every note under `vault/calls/` appears in **exactly one** topic group; every
-> group has ≥1 member; and **every token in a group heading appears in at least one
-> member's topic string.**
+> **DELETED — DO NOT REINSTATE. These three clauses were struck from V13 and this
+> blockquote is the last place they survive.**
+>
+> > Every note under `vault/calls/` appears in **exactly one** topic group; every
+> > group has ≥1 member; and **every token in a group heading appears in at least one
+> > member's topic string.**
+>
+> **Why they are gone.** They gate a clustered structure §10.3 measured does not
+> exist: 221 of 235 topics are singletons and the largest group is 3. They gate it
+> over `vault/calls/`, which is **193**, while the same gate table records the
+> population as **235** (193 calls + 42 lessons) — so the first clause asserts a
+> property of a set that is 42 notes short of the set it is name-checked against.
+> A run that emits only calls satisfies clause 1 and never sees a lesson.
+>
+> **The gate table's note above and `5ir`'s Acceptance Criteria both already reject
+> these clauses reappearing. That rejection is the live rule; this blockquote is
+> evidence, not instruction.** The unforgeable property the last clause was reaching
+> for survives as a *design rule* on the builder (`fzd`) — a stem is derived, never
+> authored — and V13 is gated on the 235-row chronological index plus the `recurs`
+> column. Reinstating any of these three sentences would make the spec and `5ir`
+> actively disagree.
 
-The last clause is what makes it unforgeable — it cannot be satisfied by a
-hand-written heading like "Pricing Psychology" that no filename supports.
+~~Every note under `vault/calls/` appears in **exactly one** topic group; every~~
+~~group has ≥1 member; and **every token in a group heading appears in at least one~~
+~~member's topic string.**~~ — **struck. See the deletion note above.**
 
 **FIVE EXIT CODES WERE DECLARED FOR FOURTEEN GATES.** Nine gates had no
 code, and two shared one. A code an implementer must map by hand is a code they
@@ -2025,7 +2079,7 @@ that cannot fail.
 | | |
 |---|---|
 | 0 | all gates passed |
-| 10×N | gate N failed (N = 0, 1, 2, …) |
+| 10×N | gate N failed, **N ∈ {0, 1, 2, …, 13}** — fourteen gates, so N runs to 13 and the largest code is **140** |
 | **1** | **crash** — an exception escaped a gate, not a verdict |
 | **2** | usage error, before any gate ran |
 
@@ -2140,8 +2194,10 @@ the same wrong answer. Both are FAIL, and they are reported with different names
 
 ### 11.4 The ten remaining gate formulas
 
-**Rev 0's gate table was twelve one-line assertions and no formulas. V4 and V5
-now have one (§11.3); the other ten are written here.** Each carries a threshold
+**Rev 0's table held twelve gates (V0–V11) as one-line assertions and no formulas.
+This document has FOURTEEN — see the gate-count note after the §11 table. V4 and V5
+now have one (§11.3); V12 is §11.1, V13 is §11.2, and the other ten are written
+here.** Each carries a threshold
 with its provenance, a failure behaviour, and a **non-vacuity assertion**.
 
 **THE NON-VACUITY ASSERTION IS THE PART THIS PROJECT KEEPS NEEDING.** A gate
@@ -2438,7 +2494,7 @@ V11(manifest_json, pc_copy) :=
 
 #### What these ten had in common
 
-Nine of the twelve gates were **one line naming a check**. None carried a
+**Of Rev 0's twelve gates**, nine were **one line naming a check**. None carried a
 threshold with provenance, none carried a failure behaviour, and **none carried
 a non-vacuity assertion** — which is why a gate that matched nothing could
 return PASS and be believed.
@@ -2528,9 +2584,20 @@ phases is a scope claim no reader can check.
 | 2 | **settle** — every `sent`/`reserved` part resolves to `settled`, `lost` or an explicit `PAID_UNKNOWN` | ledger has no `queued` |
 | 3 | **assemble** — `assembled.json` per unit, then the rendered note | V12 clauses 1–4 |
 | 4 | **audit** — emit `_meta/AUDIT.md` (235 rows) and the SHA-256 manifest | V12 clause 4 |
-| 5 | **egress** — `scp -r` vault + `_meta` to the PC, media-free | V6 (with its floor), V7, V11 |
-| 6 | **verify the copy** — `copy-verification.json`: per-file SHA-256, byte count, typography spot-check | V11 |
+| 5 | **egress** — `scp -r` vault + `_meta` to the PC, media-free | **V6 (with its floor) + V7** |
+| 6 | **verify the copy** — `copy-verification.json`: per-file SHA-256, byte count, typography spot-check | **V11** |
 | 7 | **destroy** — delete the VM and its disk image | **all of 1–6 green** |
+
+**V11 IS PHASE 6's GATE. IT WAS PREVIOUSLY LISTED AS PHASE 5's — WHICH PUT IT
+BOTH BEFORE AND AFTER THE COPY IT VERIFIES.** The egress sequence in §12 runs
+`EMIT manifest -> scp -r -> V11 SHA256 compare on the PC`: **V11 reads the copy on
+the PC, so it cannot be a precondition for making it.** As written, V11 was the
+gate on the copy *and* the output of verifying it. **Phase 5's gates are V6 + V7 —
+everything that can be checked on the VM source tree before the only irreversible
+step. V11 belongs to phase 6, and that is the only reading in which V11 has
+something left to check.** This is the same ordering principle as the V6 note
+above: a gate placed downstream of an irreversible step reports a breach that has
+already happened, and a gate placed *after* the thing it gates is not a gate at all.
 
 **`copy-verification.json` HAS NO PRODUCER, PATH OR SCHEMA ANYWHERE IN
 THIS DOCUMENT.** It is named once, by the `--confirm` argument that gates phase 7.
@@ -2608,7 +2675,7 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 
 ## 15. Open
 
-**None. All four operator decisions are settled:**
+**OPEN — FOUR ITEMS. The four operator decisions are settled; nothing below is.**
 
 | | Outcome |
 |---|---|
@@ -2616,6 +2683,28 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 | D2 | **closed** - $0.0043/min, sourced and dated |
 | D3 | **closed** - dual-mono, per-file rule, $26.98 |
 | D4 | **adopted** - keyterm on, +$45.52, A/B-measured |
+
+> **THIS HEADER READ "None" WHILE THE SECTION BELOW NAMED FOUR OPEN ITEMS, AND THE
+> STALE HEADER COST A BEAD ITS PRIORITY.** A skimmer reads the header. It once read
+> *"Open - None"* over a body that then named two open content decisions, three
+> unmeasured figures and one un-audited document — and the graph was built from it:
+> `5ir` (V13, the `00 Topics.md` gate) was ranked **P2, as if settled work**, while
+> its dependent `dgu` (egress) was **P1**. The ranking was inverted by a header
+> that called open work closed. An open item that reads as settled is worse than a
+> missing one: it gets no gate, and it gets ranked below the thing that needs it.
+>
+> **The four genuinely-open items, so the next reader cannot be misled the same way:**
+
+| # | Open item | Status | Blocking |
+|---|---|---|---|
+| **O1** | **`00 Topics.md` and the 30-minute transcript headings — wanted, or not** (§10.3). $0.00, ~2.5 h combined. R4 objects to a vault without them. | **OPEN, operator decision.** `5ir`→`dgu` edge is drawn for the spec's sequence and is the only edge to remove if the answer is no. | P1, conditional |
+| **O2** | **Corpus-wide stereo share** — 3 of 235 sampled. Not a corpus figure. | **OPEN, unmeasured** - nothing paid yet. | `geo`'s five branches; D3's $26.98 |
+| **O3** | **Azure VM-days for a 16-way run over 605.61 h.** | **OPEN, unmeasured** - nothing paid yet. | `md5`'s report (presence asserted, value not) |
+| **O4** | **Decoded-vs-header durations** — 228 of 235 are container headers, only 7 decoded. | **OPEN, unmeasured.** §14 marks `SEGMENT_SEC` and the WPM band provisional for the same reason. | `pcp` (V4) and the settle quantity |
+
+Plus two named below and not counted above: `7-Figure VSL Script Template`, un-audited;
+and the two sparse books' 41%-unread tail. **§9's ordering — documents, one
+lesson-sized smoke test, then the 16 longest — is what converts O2–O4.**
 
 **[UPDATED 2026-10-15 — THE NAMING REPAIR IS BUILT, NOT PENDING.]** This section
 previously read "the naming repair … spans 67 of 296 names … That repair is the
@@ -2675,5 +2764,3 @@ personal MEGA account. Only the operator can delete it.
 > **Either re-run both books without the cap, or label the note
 > `partial_extraction` with pages 201–340 named as unread.** The note's status is
 > not yet chosen; what is not permitted is calling a 59%-read book complete.
-
-**1,372 words** |
