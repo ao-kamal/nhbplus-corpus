@@ -462,13 +462,20 @@ SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
   retained only as the STT-only saving.
 
   ONE formula, ONE figure. [F2]
-      (34,472.1 + 294.84) x $0.0056 = $194.69   <- the run
+      (34,472.10 + 294.84 + 1,569.62) x $0.0056 = $203.48   <- the run
+      [R5-B1] **THE 42 BONUS LESSON VIDEOS WERE IN NO BUDGET LINE.** They are in
+      scope (section 1), ordered (section 9 step 3), submitted (section 7.2,
+      'every submission'), and counted in the vault tree (courses/ = 78 paths).
+      They carry 1,569.6167 MEASURED min = $8.79 and appeared nowhere. The
+      $204.69 stop was therefore $8.79 SHORT and the $10.00 reserve was 87.9%
+      consumed before the first request. A MISSING number is the one class a
+      propagation sweep cannot catch, because there is nothing to propagate.
       [R4-PROP] 34,472.1 min from 191 DATED calls in the regenerated
       manifest; + 294.84 min for the two units whose durations are not in
       the manifest but WERE measured - dvcEDToK 12,258.603 s
       (w0-syncceiling) and pjFQiLQQ 5,431.8 s DECODED (w0-remux; its
       container header says 4,958.7 s, +9.54%).
-      + $10.00 loss reserve         = $204.69   <- SPEND_HARD_STOP_USD
+      + $10.00 loss reserve         = $213.48   <- SPEND_HARD_STOP_USD
       [R4-PROP] was $207.68 on 35,013.1 + 286.9 min. The 286.9 tail was
       an ESTIMATE for the undated units; both are now MEASURED at
       294.84 min combined, and 5 corrupt merged units no longer exist.
@@ -491,12 +498,13 @@ figure.** The per-line split is *inside* the run total, not added on top of it:
 
 | | |
 |---|---|
-| **TOTAL RUN** (34,472.1 + 294.84 min) × $0.0056 | **$194.69** |
+| **TOTAL RUN** (34,472.10 + 294.84 + 1,569.62 min) × $0.0056 | **$203.48** |
 | — of which STT 34,472.1 min × $0.0043 | $148.23 |
 | — of which keyterm 34,472.1 min × $0.0013 | $44.81 |
 | — of which the 294.84 measured undated minutes | $1.65 |
+| — of which the 42 lessons, 1,569.6167 min | **$8.79** |
 | 504 loss allowance (5% of ~230 units = $9.89) | **$10.00** |
-| **`SPEND_HARD_STOP_USD`** | **$204.69** |
+| **`SPEND_HARD_STOP_USD`** | **$213.48** |
 
 Adding the splits on top of the total is how **$207.35 and $207.68 were both live
 in one code block.** The old table's "2 previously-undated units $1.27" was
@@ -510,10 +518,10 @@ carry a keyterm. [F4]
 ceiling — exhausting the credit returns **HTTP 402** and processing stops. That is
 a hard, vendor-enforced bound that no bug in our accounting can get past.
 
-**But $200 < $204.69, so the vendor stop is strictly LOWER than our own gate and
+**But $200 < $213.48, so the vendor stop is strictly LOWER than our own gate and
 fires FIRST.** Round 2 caught that "strictly stronger" was backwards. The correct
 statement: the 402 is a **backstop at $200 per account**, not a ceiling at
-$204.69. Two accounts are therefore required, and the split is explicit:
+$213.48. Two accounts are therefore required, and the split is explicit:
 
 ```
 primary    DEEPGRAM_API_KEY     carries the bulk

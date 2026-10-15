@@ -56,7 +56,7 @@ if TARGET and any(
         _notes += [os.path.join(_r, f) for f in _fs if f.endswith(".md")]
     # [R4-T1.9f] NOTES MUST BE PARSED ONE AT A TIME. Concatenating them and
     # then using \A found only the FIRST note's frontmatter and reported the
-    # rest as having none - so a gate over 339 notes silently checked 1.
+    # rest as having none - so a gate over 344 notes silently checked 1.
     DOCS = [(f, io.open(f, encoding="utf-8-sig").read()) for f in _notes]
     s = "\n".join(t for _f, t in DOCS)
     print(f"TARGET: {TARGET} ({len(DOCS)} .md notes)")
@@ -68,12 +68,12 @@ elif TARGET:
     s = ""
     print(f"TARGET: {TARGET}  *** EXISTS BUT IS EMPTY - 0 NOTES ***")
     print("       A gate with nothing to check proves nothing. RESULT is FAIL.")
-    print("       Expected 339 targets once the run exists. See section 11 floors.")
+    print("       Expected 344 targets once the run exists. See section 11 floors.")
 else:
     s = io.open("stage-1/VAULT-STRUCTURE.md", encoding="utf-8-sig").read()
     print("TARGET: stage-1/VAULT-STRUCTURE.md  [R4-T1.9d] THIS IS AN EXAMPLE,")
     print("       NOT THE DELIVERABLE. vault/ does not exist yet, so a PASS here")
-    print("       says nothing about the 339 notes the run will produce.")
+    print("       says nothing about the 344 notes the run will produce.")
 
 print("=== yaml blocks and their fields ===")
 ok = True
