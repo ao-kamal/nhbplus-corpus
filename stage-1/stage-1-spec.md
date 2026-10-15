@@ -169,7 +169,7 @@ argument is search: without it the corpus spells its own programme name
 > | `the next 5 years` | `2025-01-20 … introduction to google ads` | different calls |
 >
 > **A 2025 call folded into an undated unit, and three different years into one
-> note** \u2014 a wrong note, a wrong date and a wrong written-hand link, produced
+> note** — a wrong note, a wrong date and a wrong written-hand link, produced
 > silently by a rule nobody gated.
 >
 > **The guard now REFUSES a merge when exactly one side carries a date.** A wrong
@@ -1333,20 +1333,69 @@ discarded for filing 7 readable documents as degraded and discarding real text.
 
 | Class | Count | Handling |
 |---|---|---|
-| `text` | **47** | tiering and reflow valid |
-| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp each, `page_cap: 200`. **59% READ, 41% NEVER OPENED.** 1,372 words is real; completeness is not. |
+| `text` | **48** | tiering and reflow valid |
+| `sparse` | **2** | *AC eBook*, *AC_Book* — 340 pp each, `page_cap: 200`. **58.8% READ, 41.2% NEVER OPENED.** 1,372 words is real; completeness is not. |
 | `raster` | **0** | needs OCR; none is proven free, so it would ship `empty_extraction` and **never be OCR-billed**. Vacuous. |
-| **unaccounted** | **1** | **`47 + 2 + 0 = 49 ≠ 50`.** `pdf-fallback-audit.json.final_counts` declares `total: 50` and its own parts sum to **49**. The missing document is `6. 7-Figure VSL Script Template`, which the fallback audit never reclassified — a **name mismatch** between the two passes, not a fetch failure. **One of 50 PDFs has NO classification.** It is not counted as `text` here, because counting it would make the table agree with the desired answer rather than with the artifact. |
 
-**65,985 recoverable words** (`pdf-ceiling.total_words`, and the per-document sum
-agrees). **Zero documents require OCR — subject to the row above.**
+**48 + 2 + 0 = 50, and the gate is closed on 50 of 50.**
 
-**The gate is therefore NOT closed on 50 of 50.** It is closed on 49, with one
-document unclassified and a three-way total that does not reconcile to its own
-parts. Closing it means re-running the fallback audit with the name-mismatch
-fixed, or matching the two passes on a handle rather than on a filename.
+**65,985 recoverable words**, and the parts account for every one of them:
+`already_text` 42,683 + `recovered_text` 21,930 + `sparse_text` 1,372 +
+`raster` 0 = **65,985**. Zero documents require OCR.
 
-**Stereo billing, measured 2026-10-15 ``.** A 120 s stereo clip and a
+#### WHY THE FIRST ARTIFACT SAID 47, AND WHY THE ORIGINAL 48 WAS RIGHT
+
+`pdf-fallback-audit.json` v1 reported `47 + 2 + 0` against its own declared
+`total: 50` — **the parts did not sum to the total, and the run printed a
+confident summary table anyway.** The document missing from the reclassification
+was `6. 7-Figure VSL Script Template`, which is not a fetch failure and not a
+name mismatch *between the two passes*. The mechanism, from line 27 of the
+audit script:
+
+```python
+TARGETS = [..., "7-Figure VSL Script Template", ...]   # manifest: "6. 7-Figure VSL Script Template"
+...
+r = by_name.get(name)
+if not r: continue          # <- silently skips the document
+```
+
+The hand-typed target list was missing the `6. ` ordinal. The lookup missed.
+`if not r: continue` swallowed it. Seven probes were run, **six** were reported,
+and the summary printed without a missing-unit notice.
+
+**At 814 words on one page it is the least sparse document in the set.**
+
+Both defects are fixed in `evidence/probes/nhbplus-pdf-fallback-audit-v2-2026-10-15.json`:
+the target list is now **derived from the ceiling artifact** (every result whose
+`class` is `degenerate_geometry`) so there is nothing to mistype, and a lookup
+miss is now a `SystemExit` with the name rather than a `continue`. The audit
+asserts `audited == targets` and `parts == total` before writing.
+
+**The 48 was correct and the artifact was incomplete. Both are now true at once.**
+
+#### THE PAGE CAP — all THREE capped documents, named
+
+`page_cap: 200`. Three of 50 PDFs hit it. **677 of their 1,277 pages — 53.0%
+— are never opened, and they carry 21,577 words, which is 32.7% of every word
+in the PDF half of the corpus.**
+
+| document | pages read | never opened | words |
+|---|---|---|---|
+| `2. AC eBook` | 200/340 | 140 | 691 |
+| `500-page-swipe-file-clayton-makepeace_compress_1` | **200/597** | **397** | **20,205** |
+| `AC_Book` | 200/340 | 140 | 681 |
+
+`500-page-swipe-file-clayton-makepeace_compress_1` was invisible to the earlier
+completeness note, which named only the two 340-page eBooks. **It is the single
+largest document in the set by words** — 20,205 of 65,985, nearly a third —
+and it is the one most damaged by the cap.
+
+**Raising the cap is a decision, not an oversight.** At 101 words/page the
+remaining 397 pages are ~40,000 words, about 60% more text than the whole PDF
+half currently yields. Cost: zero (pypdf is installed, extraction is local). The
+cap exists only because the first probe read 340+597+340 pages in one pass.
+**The spec ships `page_cap: 200`; this is the measured cost of that choice and
+it is recorded so the choice can be revisited with the number in hand.****Stereo billing, measured 2026-10-15 ``.** A 120 s stereo clip and a
 120 s mono clip of the same audio were submitted identically:
 
 | | true | reported | ratio | channels in response |
@@ -1627,6 +1676,19 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 > applied to a corpus that is not mostly audio. **`pdf\|docx\|pptx\|xlsx\|txt\|png\|zip`
 > are added to the banned set**, because an extracted document ships as `.md` and
 > the *source* must not ship beside it.
+
+> **AND `attachments/` WAS MANDATED BY THE DOCUMENT THAT WAS NOT THE SPEC.**
+> `VAULT-STRUCTURE.md` specified an `attachments/` directory holding raw
+> `docx` / `pptx` / `xlsx` **"as fetched"** — which is the Constraint 1
+> violation, written into the structure of the deliverable itself, by a
+> document subordinate to this one. It was written first and written as though
+> it were authoritative, which is why the conflict survived five review rounds.
+>
+> **Resolved: `attachments/` does not ship.** The binaries are fetched, parsed
+> and converted to markdown on the VM, and destroyed with it in phase 7. The
+> same file's **C2 (verbatim vs clean filenames)** and **C3 (index-note tree)**
+> conflicts are resolved in the same direction, and all three are recorded at
+> the top of `VAULT-STRUCTURE.md`.
 
 | V7 | reduction diff: re-render from receipts, byte-compare |
 | V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** |

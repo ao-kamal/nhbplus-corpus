@@ -1,6 +1,20 @@
 # Vault structure — NHB+ corpus
 
-**Status:** proposed, pending operator sign-off. **Decided 2026-10-15:**
+> **SUBORDINATE TO `stage-1/stage-1-spec.md`.** This is a structural sketch.
+> Where the two disagree, the master specification wins. It was written first
+> and it was written as though it were authoritative; that is why these
+> conflicts existed at all.
+>
+> | # | this document said | the master specification says | resolution |
+> |---|---|---|---|
+> | C1 | `attachments/` holds raw `docx` / `pptx` / `xlsx` "as fetched" | Constraint 1: **nothing media-shaped touches the operator's PC.** A `.docx` is media-shaped. | **`attachments/` does not ship.** Removed from the tree below. |
+> | C2 | verbatim MEGA filenames, e.g. `12-1-2022 NHB+ Theory Call - Authority Handover_watermarked.md` | clean names, e.g. `2022-12-01 NHB+ Theory Call - Authority Handover.md` | **clean names.** `pipeline/out/clean-names.json` carries the 344 measured paths. |
+> | C3 | a per-course, per-year and per-month index tree | 344 content notes plus exactly one index note, `00 Topics.md`; §11 adds `00 Home.md` | **the 344 are the deliverable.** The larger index tree is optional enrichment, out of scope. |
+>
+> **Status: SIGNED 2026-10-15**, superseded on those three points by
+> `stage-1/stage-1-spec.md` §10, which carries the authoritative tree.
+
+**Status:** signed 2026-10-15, superseded on C1–C3. **Decided 2026-10-15:**
 year → month for calls · written hand inside the call note · one folder per course.
 
 Nothing is fetched against this document until it is signed.
@@ -69,9 +83,12 @@ nhbplus-vault/
 │     └─ 03 March/
 │        └─ NHB+ Converting Audiences.md
 ├─ courses/
-│  ├─ 00 Courses.md                  all 11, grouped and costed
+│  ├─ 00 Topics.md                   the ONE index note in scope (C3)
 │  └─ 7-Day Fast Start/
-│     ├─ 00 7-Day Fast Start.md      course index (MOC)
+#     A per-course `00 <Course>.md` MOC is drawn here as a nicety. It is NOT in
+#     scope: the 344 content notes are the deliverable and `00 Topics.md` is the
+#     only index note section 10 mandates. Ship the MOCs or do not; V6's floor
+#     is `>= 344` either way and does not count them.
 │     ├─ 01 7-Figure Math & AC Formula.md
 │     ├─ 02 Your Market, Superpower & Disruptive Idea.md
 │     └─ 07 Getting Your First 10 High Ticket Clients.md
@@ -79,8 +96,13 @@ nhbplus-vault/
 │  ├─ 00 Library.md                  index
 │  ├─ swipes/                        4 PDFs — swipe / lead-magnet creative
 │  ├─ templates/                     31 PDFs + 1 ZIP — funnel build files
-│  └─ resources/                     per-course resource-link files
-├─ attachments/                      raw docx / pptx / xlsx as fetched
+│  └─ resources/                     per-course resource-link files (.md)
+#   attachments/                      DOES NOT SHIP. C1: a .docx is
+#                                     media-shaped and Constraint 1 is absolute.
+#                                     The source documents are fetched, parsed
+#                                     and converted to markdown; the binaries
+#                                     never leave the VM and are destroyed with
+#                                     it in phase 7.
 └─ _meta/
    ├─ manifest.json                  every target, receipt, sha256, cost
    ├─ scope-final.json               the locked scope this vault was built from
