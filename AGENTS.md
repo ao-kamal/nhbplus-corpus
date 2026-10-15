@@ -29,12 +29,13 @@ nhbplus-corpus/
 ├─ stage-0/
 │  └─ stage-0-intent.md   INTENT (G0) — PASSED 2026-10-15
 ├─ stage-1/
-│  └─ VAULT-STRUCTURE.md  the vault shape — reviewed, unsigned
-├─ evidence/probes/       28 dated evidence artifacts
+│  └─ VAULT-STRUCTURE.md  SUBORDINATE to the spec; signed, superseded on C1-C3 — reviewed, unsigned
+├─ evidence/probes/       50 dated evidence artifacts
 ├─ pipeline/
 │  ├─ scripts/            sweep -> normalise -> scope -> reconcile
 │  └─ out/                manifest-v3.json, scope-final.json, logs
-└─ vault/                 build output; attachments are committed
+└─ vault/                 build output. **NOTHING media-shaped ships.**
+                              `attachments/` does NOT exist — see C1 below.
 ```
 
 ---
@@ -46,15 +47,30 @@ archive — a MEGA public share — into a **call-shaped vault**, without downlo
 anything media-shaped to the operator's PC. **The finished vault does land on the
 operator's PC — it is the deliverable.**
 
-**What is already known, do not re-derive:** **188 calls** (557.39 h) and **42 bonus
-lesson videos** (26.16 h) — **583.55 h** across 230 audio units. **339 fetch
-targets, 146.87 GB. **[F32] The budget here was stale and understated: it
-showed only the $150.56 STT line, with no keyterm line and no hard stop. The
-settled figure is `SPEND_HARD_STOP_USD = $207.68`** = (35,013.1 + 286.9 min) x
-$0.0056 = $197.68 run, plus a $10.00 loss reserve.** 37 calls carry a written-hand document;
-151 carry none. 36 documents have no call counterpart. **`Bonuses` is eleven
+**What is already known, do not re-derive:** **193 calls** (574.53 h) and **42 bonus
+lesson videos** (26.16 h) — **600.70 h** across 235 audio units. **344 fetch
+targets.** The run fetches **153.81 GiB** of primary audio; the 100 MP4
+alternates (165.29 GiB) are recorded and **never fetched**.
+
+**`SPEND_HARD_STOP_USD = $213.48`**, derived and printed from the formula
+rather than asserted:
+
+```
+(34,472.10 calls + 294.84 undated tail + 1,569.62 lessons) x $0.0056 = $203.48
++ $10.00 loss reserve                                                = $213.48
+```
+
+**That constant has carried four different values across this project's life**
+— $207.31, $207.35, $207.68 and $203.48 — and the block that insisted it was
+"DERIVED, not asserted" was itself the wrong one. If a figure here disagrees with
+`stage-1/stage-1-spec.md`, the spec is right and this file is stale.
+
+**37 calls carry a written-hand document; 156 carry none.** 36 course documents
+have no call counterpart and 36 are orphans. **`Bonuses` is eleven
 structured video courses**, 42 lesson videos. Every figure has a dated artifact in
-`evidence/probes/`.
+`evidence/probes/`. Every figure has a dated artifact in `evidence/probes/`, and `pipeline/out/PLAN-TRUTH.json` recomputes the headline ones on every run.
+
+**This file has carried stale figures for several rounds** because corrections landed in `stage-1-spec.md` and stopped there. An unmarked constant in this project has been a defect every time one was found: a forecast below the run it forecasts, a guard that never fires, a slack allowance that lets bad data through. **Every one was too permissive, none too strict.** Treat any number here as unverified until `PLAN-TRUTH.json` agrees.
 
 > **This share is two different things.** A mentorship call archive *plus* an
 > eleven-course curriculum. Different shapes, different registers, different costs.
@@ -64,10 +80,9 @@ structured video courses**, 42 lesson videos. Every figure has a dated artifact 
 
 ## 2. The arc
 
-`INTENT → PLAN → BEADS → EXECUTE → HARDEN`, in that order. **G0 passed 2026-10-15**,
-so Stage 1 (PLAN) is open. The skill's G1 gate requires **≥4 refinement rounds in
-fresh conversations** before beads exist — a plan that has not cleared that gate is
-not a plan.
+`INTENT → PLAN → BEADS → EXECUTE → HARDEN`, in that order. **G0 passed 2026-09-30. G1 (PLAN) PASSED 2026-10-15** — five blind refinement
+rounds in fresh conversations, recorded in `stage-1/GATE-G1.md`. Beads are a
+Stage 2 deliverable and do not exist yet.
 
 **No beads exist in this repository, and none until Stage 2.**
 
@@ -103,8 +118,8 @@ identical 7 utterances / 1 paragraph / 62 words).
 **A remux IS required for the MP4 units, and it is not a transcode.** **[F31] The
 old reason here was "the largest unit is 2.00 GB displayed — 1.5–2.5 GB actual,
 sitting on the limit". That reasons from a SENTINEL: 2 GiB exactly is a MEGA
-display value, not a measurement, and 73 of 230 units (74.5% of all bytes) carry
-them. It is also no longer the real reason. The ceiling really is 2 GB, but the
+display value, not a measurement, and 77 of 235 units (32.8% of units, **75.4% of all bytes**)
+carry them — recomputed on the full population, not carried forward. It is also no longer the real reason. The ceiling really is 2 GB, but the
 largest remuxed unit ever actually submitted is 385 MiB — 19% of the cap. The reason
 to remux is that the raw 1,539 MB MP4 path TIMED OUT and the remuxed .mka returned
 HTTP 200 at 156.2 s against a 600 s ceiling.** `ffmpeg -vn -c:a copy` drops the video track
