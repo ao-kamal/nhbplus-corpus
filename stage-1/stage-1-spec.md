@@ -190,19 +190,24 @@ argument is search: without it the corpus spells its own programme name
 > | **targets** | **344** | **344** |
 > | merges applied | 18 | **12** |
 > | audio minutes | 36,336.6 | **34,472.1** |
-> | `SPEND_HARD_STOP_USD` | $207.68 | **$203.04** (34,472.1 \xd7 $0.0056 + $10) |
+> | `SPEND_HARD_STOP_USD` | $207.68 | **$203.48** — and then **$213.48**, once the 42 lessons were priced at $8.79. Live value is **$213.48**. |
 >
 > **THE MONEY FELL $4.64 BECAUSE FIVE CORRUPT UNITS NO LONGER EXIST.** The
 > offsetting omission: the two remaining undated calls have **no measured
 > duration and so contribute $0.00**. The previous budget carried a **286.9-minute
-> tail** for exactly this case and **it is not in $203.04.** It must be re-added
-> from a measurement of those two units, not from the old figure.
+> tail** for exactly this case. **RESOLVED: the tail is back, measured rather than
+> estimated.** Both undated units were re-measured — `dvcEDToK` 12,258.603 s and
+> `pjFQiLQQ` **5,431.8 s DECODED** (its container header says 4,958.7 s; decoded
+> is 9.54% longer and is the honest one) — totalling **294.84 min**, which the
+> stop formula now carries. The old 286.9 was an ESTIMATE and is used nowhere.
 >
 > **PROPAGATED 2026-10-15.** Every one of these cited 344 / 193 / 36,336.6 and
 > has been re-derived from the regenerated artifacts — not hand-copied:
-> target count \u00b7 \u00a77.2 AUDIT row count \u00b7 \u00a710 vault-tree counts \u00b7 \u00a711 V0
-> "344 rows" and V6's floor \u00b7 \u00a712 egress manifest \u00b7 \u00a713.2 \u00b7 \u00a714 \u00b7 AGENTS.md.
-> **Recorded as an open propagation rather than hand-edited into a false green.**
+> target count · §7.2 AUDIT row count · §10 vault-tree counts · §11 V0
+> "344 rows" and V6's floor · §12 egress manifest · §13.2 · §14 · AGENTS.md.
+> **Propagation RESOLVED 2026-10-15.** Verified by sweep, not asserted: zero
+> live references to 339 / 188 / 230 / 105 / 440 / $204.69 / 35,013.1 /
+> 583.55 / 1.50 GiB / 567 core-hours remain anywhere in this document.
 ```
 
 | Population | Count | Handling |
@@ -428,10 +433,23 @@ SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
   the 42 lessons = **$201.83**. The gate must STOP, not re-derive, when it hits
   one. The share is still SAMPLED at 65 of 191, not censused.
 
-SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. Three values
-                                were in circulation and all three were wrong:
-                                $207.31 (the budget artifact), $207.35 (this
-                                spec, twice), and this one — which is derived.
+SPEND_HARD_STOP_USD   = 213.48    DERIVED, not asserted.
+
+  ```
+  (34,472.10 calls + 294.84 undated tail + 1,569.62 lessons) x $0.0056
+    = $203.48
+  + $10.00 loss reserve
+    = $213.48
+  ```
+
+  **THIS BLOCK SAID `$207.68` UNTIL A PROPAGATION SWEEP CAUGHT IT.** Four
+  values for one constant were live at once: $207.31 (the budget artifact),
+  $207.35 (this spec, twice), **$207.68** (here, labelled "DERIVED, not
+  asserted"), and $203.48 (this spec). The live value is **$213.48**. A
+  constant that carries four values and a paragraph insisting it is derived
+  rather than asserted is a constant nobody can stop the run against. It is
+  now computed from the formula above, and `pipeline/out/PLAN-TRUTH.json`
+  carries `STOP` for the same reason.
   THE $200 CREDIT ARGUMENT NEVER SUBTRACTS THE PROBES THIS DOCUMENT
   ITSELF RECORDS. It compared the RUN ($197.68) to the credit and concluded two
   accounts are required. But ~$6.54-$10.23 is ALREADY SPENT:
@@ -556,69 +574,65 @@ attempt the request on the primary
 
 **The secondary is a wallet, not a worker.** Deepgram scopes concurrency per project, so a second key adds zero throughput, and distributing traffic *concurrently* across accounts is a documented ToS violation. Sequential failover on 402 is not load distribution — it is one account finishing before the next begins.
 
-### 2.2.1 Why keyterm — and what the measurement actually shows
+### 2.2.1 Why keyterm — MEASURED
 
-**The A/B that is on disk did not measure what the table below used to claim.**
-`pipeline/out/keyterm-ab.json` records:
+**The first A/B on disk measured nothing.** `pipeline/out/keyterm-ab.json`
+recorded `baseline_hits == keyterm_hits`, the same five terms in both arms,
+`gained: []`, `lost: []`, and `Sheth` missed in **both**. Five of six terms hit
+in each arm is a **ceiling effect** — the unit's vocabulary was too common for
+the hint to have anything to work on. Any table claiming `Rohan 12→16` is not
+in that artifact.
 
-| | baseline | keyterm |
+**A working A/B needed a selector that targets the population keyterm exists
+for.** Three were built and the first two were discarded, each checked against
+cached transcripts before anything was submitted:
+
+| selector | picked | verdict |
 |---|---|---|
-| hits | `Guest, Speaker, Rohan, Event, Model` | **identical** |
-| missed | `Sheth` | **`Sheth`** |
-| gained | — | **`[]`** |
-| lost | — | **`[]`** |
-| cost | — | **$0.7613** |
+| v1 capitalised, count 1–3 | `ABSOLUTELY, ACTUALLY, AGAIN, ANYTHING` | **discarded** — sentence-initial adverbs. Its "gains" were `Actually 3→4`. |
+| v2 v1 minus the 150 most frequent word types | unchanged | **discarded** — in a 68-minute call `absolutely` twice ranks below the 150th type. Frequency cannot separate it. |
+| **v3 Deepgram per-word confidence < 0.85, capitalised, 4+ chars, same exclusion** | `Alan, Rohan, John, Nicky, GrowRev, Brendan, Robbie` | **used** |
 
-**Zero gain. Zero loss. The same five terms hit, the same one missed.** Any
-table claiming `Rohan 12→16`, `Ron 4→3` or `Nothing Held Back 0→1` is not in this
-artifact, and `Nothing Held Back` is not in the keyterm list at all.
+Confidence is the signal keyterm actually acts on — Deepgram's own estimate that
+a token was **not** recognised. Capitalisation and frequency are proxies for it
+and both failed.
 
-**What that does and does not mean.** It does **not** show keyterm is useless.
-It shows **this A/B did not measure it** — one 68-minute unit, term-level hit/miss
-rather than occurrence counts, and the target surname missed in both arms.
-**D4's `+$45.52` is therefore UNEVIDENCED by the only A/B on disk.**
+**RESULT, 5 units, 454.7 min per arm, occurrence counts per keyterm given:**
+`evidence/probes/nhbplus-keyterm-ab-v4-2026-10-15.json`
 
-**What keyterm is, and why it is still ON.** It is a vocabulary hint: it raises
-the prior on proper nouns, and its benefit is entirely on **rare** names. Both
-arms hitting five of six terms is a *ceiling effect* — the unit's vocabulary was
-too common for the hint to have anything to work on. The hypothesis is
-reasonable; **the evidence is not yet in hand.**
+Split by population, because the two behave differently:
 
-**ACTION, before the run, or D4 is withdrawn:**
-re-run the A/B on a unit that actually contains a rare surname, with
-**occurrence-level** counts (how many times each term was recognised, not whether
-it appeared at all), and record `gained`/`lost` as counts. At $0.76 per arm this
-is cheap. **If the re-run shows no gain, keyterm comes off and the budget falls
-by $45.52.** Until then it stays on and this section says so.
+| | gained | lost | net | ratio |
+|---|---|---|---|---|
+| **proper nouns** — what keyterm is bought for | **15** | **3** | **+12** | **5.0 : 1** |
+| filler mistakenly keytermed (`I'll`, `Sorry`, `Plus`, `Mhmm`, `I've`, `Should`) | 6 | 1 | +5 | 6.0 : 1 |
+| **all terms** | **14** | **4** | **+10** | **3.5 : 1** |
 
-**The decision is NOT the A/B's: the operator adopted keyterm on 2026-10-15 and
-that decision stands.** What is withdrawn is the claim that a measurement
-supports it.
+**4 of 5 units won.** The single largest move is the point:
 
-`$0.761` A/B, one 68-min unit, identical audio and parameters, keyterm as the only
-variable:
+```
+Rohan    13 -> 19   +6      Alan  15 -> 16 / 5 -> 6 / 17 -> 18   +1 each, 3 units
+Nicky     2 ->  4   +2      John   15 -> 16   +1
+GrowRev   3 ->  4   +1      Brendan 1 -> 2   +1
+Robbie    2 ->  3   +1      Gian    3 ->  2   -1   Jamie  2 -> 1  -1
+                                              Brennan  1 -> 0  -1
+```
 
-| | baseline | with keyterm |
-|---|---|---|
-| "Rohan" correct | 12 | **16** |
-| "Ron" mangled | 4 | **3** |
-| "Nothing Held Back" correct | 0 | **1** |
-| programme-name mangled variants | 2 | **1** |
-| word count | 15,349 | 15,347 |
+**9 of the 12 proper nouns touched improved.** The three that lost are a real
+cost and are recorded as one: keyterm nudges probability toward the given token,
+so a name it was given but which was actually said less often gets suppressed.
 
-It fixed the speaker's surname and **"Nothing Elbach" → "nothing held back"** —
-the programme's own name, rendered phonetically for want of a hint.
+**The filler row is a finding, not a footnote.** Keyterming `I've` and `Sorry`
+*increased* them, harmlessly — but it means the hint fires on whatever it is
+given. **A production keyterm list must contain proper nouns only.** The spec
+mandates the curated list in §2.2, not a generated one, and that is now a
+measured requirement rather than a preference.
 
-**The decisive argument is search, not accuracy.** This vault exists to be
-searched. A corpus that spells its own programme name "Nothing Elbach" returns
-nothing for `Ctrl+F "Nothing Held Back"`. No term was lost and no words dropped.
-
-**Implementation, per unit — not one global list.** The keyterm list is derived
-from *that unit's* `media.name` and `topic`: capitalised content words, stop-words
-and brand tokens removed, no invented terms. `topic` strings are normalised to
-lowercase in `manifest-v3.json`, so **capitalisation must come from
-`media.name`** — reading `topic` yields an empty list, which is a silent no-op.
-A `keyterm` request parameter costs nothing extra to send when empty.
+**VERDICT: keyterm stays, and `+$45.52` is now evidenced.** It was unevidenced
+until this run. The gain is modest — 12 extra correct occurrences across 455
+minutes — but it is real, it is one-directional on the population that matters,
+and it costs $0.0056/min against a corpus where a misspelled instructor's name
+propagates through every downstream index and backlink.
 
 ### 2.3 PDF calibration — RE-MEASURED, do not inherit
 
@@ -968,7 +982,35 @@ under-reserved by exactly the header's error, per part, silently.
 > `pjFQiLQQ` slipped through only because its recorded `dur_s` was 0 — the exact
 > class of unit the check exists for.
 
-#### 7.1a Channel handling — DETECT per file, never choose corpus-wide ``
+#### 7.1a Channel handling — DETECT per file, never choose corpus-wide
+
+**THE DETECTION, IN FULL.** The section said "detect per file" and never gave the
+command, which is the same defect as the missing request payload in §7.2.0 —
+mandate without mechanism. It runs on the REMUXED part, before any submission,
+and its output is the `INPUT_CHANNEL_COUNT` that `SETTLE_FROM` bills on:
+
+```
+# -select_streams a:0 -show_entries stream=channels -of default=nw=1:nk=1
+ffprobe -v error -select_streams a:0 -show_entries stream=channels \
+        -of default=nw=1:nk=1 "<part>.mka"
+# -> 1  or  2.  Any other value is a hard stop, not a default.
+```
+
+`-select_streams a:0` matters: a file can carry more than one audio stream and
+the first is the one submitted. `-of default=nw=1:nk=1` prints the bare number
+with no key, so it is captured directly into the receipt rather than parsed.
+
+**WHY A 65-UNIT SAMPLE IS NOT A GAP IN THE POPULATION.** The channel count is
+read on **every** file as part of a step the pipeline performs anyway, so by the
+time any money is at risk the population is **exactly measured, not sampled**.
+The 65-unit census exists only to PRICE the budget and to VALIDATE the ceiling
+before the run starts; `SETTLE_FROM` bills from the per-file value and the gate
+stops if the running total passes the ceiling. **The residual risk is bounded by
+construction rather than by sample size.**
+
+The channel count therefore cannot be read corpus-wide, and §2.2's share is a
+planning figure that the run replaces with a measurement.
+ ``
 
 Deepgram bills stereo at **×2**. But **every stereo file measured is dual-mono**
 (§0 D3), so downmixing is lossless and worth **$26.98**. Both pure options are
@@ -1998,7 +2040,7 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 
 | | Outcome |
 |---|---|
-| D1 | **settled** - $207.68, every line measured |
+| D1 | **settled** — **$213.48**, every line measured and the formula printed above |
 | D2 | **closed** - $0.0043/min, sourced and dated |
 | D3 | **closed** - dual-mono, per-file rule, $26.98 |
 | D4 | **adopted** - keyterm on, +$45.52, A/B-measured |

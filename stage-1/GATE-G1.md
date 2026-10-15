@@ -48,45 +48,102 @@ live references to 339 / 188 / 230 / 105 / 440 / $204.69 / 35,013.1 / 583.55 /
 1.50 GiB / 567 core-hours remain. The only surviving occurrences of the old
 146.87 GiB figure are in section 13, quoted in order to say they were wrong.
 
-## Residual risk at G1 - carried forward, not waived
+## Residual risk at G1 - ALL FIVE ITEMS NOW RESOLVED
 
-**Status as of the same day. Two items closed after the gate was declared, one
-closed in the direction opposite to how it was first written down.**
+**1. CLOSED - the stereo census is a PLANNING figure, not a gap in the
+   population.** It was carried as "65 of 191 dated calls, 3.08%, interval
+   ~1.0-8.5%". Two things closed it:
 
-1. **OPEN - the stereo census is sampled, not complete.** 65 of 191 dated calls;
-   2 genuinely stereo (3.08%, 95% interval ~1.0-8.5%). `section 2.2`'s $197.68
-   keep-stereo ceiling stands as the bound to hold against.
+   **A cheap census was considered and rejected on cost.** mega-get has no
+   range or partial option and `mega-nc` is not installed, so a header-only
+   census would have meant writing a raw MEGA API client - a new dependency and
+   a new failure mode, to tighten a number whose entire 95% interval spans
+   **$1.93 to $16.41** on a $213.48 run.
 
-2. **IN FLIGHT - D4 keyterm (+$45.52) is UNEVIDENCED** by the only A/B on disk,
-   which records zero gain and zero loss. A re-run is in progress with a
-   corrected keyterm selector. **The first re-run was itself defective and its
-   result was discarded**: it selected capitalised tokens with 1-3 occurrences,
-   which on a transcript returns `ABSOLUTELY`, `ACTUALLY`, `AGAIN`, `ANYTHING` -
-   sentence-initial adverbs, which is exactly what keyterm has nothing to offer
-   on. The apparent gains it produced (`Actually 3->4`, `Altman 1->2`) were
-   noise. v3 builds the stoplist from the transcript's own 150 most frequent word
-   types instead. **A null result removes +$45.52 from the budget.**
+   **Then the real answer, which was in the design all along.** §7.1a DETECTS
+   channel topology per file with ffprobe during the remux — a step the
+   pipeline performs anyway — and that value is `INPUT_CHANNEL_COUNT`, which
+   `SETTLE_FROM` bills on. **By the time any money is at risk the population is
+   exactly measured, not sampled.** The sample prices the budget and validates
+   the ceiling; the run replaces the figure with a measurement. **The residual is
+   bounded by construction, not by sample size.**
 
-3. **CLOSED - the PDF gate is closed on 50 of 50, not 49.** The document missing
-   from v1 was `6. 7-Figure VSL Script Template`; the audit's hand-typed target
-   list was missing the `6. ` ordinal and `if not r: continue` swallowed it. v2
-   derives targets from the artifact and raises on a lookup miss.
-   `evidence/probes/nhbplus-pdf-fallback-audit-v2-2026-10-15.json`.
-   **The original 48 text / 2 sparse / 0 raster was right; my correction to 47
-   was the error.** All three page-capped PDFs are now named, including
-   `500-page-swipe-file-clayton-makepeace_compress_1` at 200/597 pages and
-   20,205 words, which the completeness note had missed entirely.
+   §7.1a also said "detect per file" without ever giving the command - the same
+   defect class as §7.2.0's missing payload. It now carries the ffprobe call,
+   why `-select_streams a:0` matters, and that any value other than 1 or 2 is a
+   hard stop.
+
+   A propagation sweep of v3 against every cell citing it found **six stale
+   cells and two arithmetic errors**: the artifact's "~$35 extra" is
+   `0.179 x 34,472.1 x $0.0056 = $34.55` to the cent, i.e. it applies the 17.9%
+   share **v3 itself withdraws**, in the document that withdraws it. From v3's
+   own 3.08% the figure is **$5.94**. And "0.179 x 36,336.6 = 6,267" is **6,504**
+   - a 3.8% error in the first multiplication - while `6,267 x $0.0056` is
+   **$35.10**, the figure labelled "at RATE + KEYTERM" in the row above, so the
+   two columns had each other's arithmetic.
+
+2. **CLOSED - D4 keyterm (+$45.52) is now EVIDENCED**, not merely adopted.
+   `evidence/probes/nhbplus-keyterm-ab-v4-2026-10-15.json`. The first two A/Bs
+   measured nothing: the original recorded zero gain and zero loss, and the
+   first re-run selected `ABSOLUTELY, ACTUALLY, AGAIN` and produced noise.
+   **The selector is the whole problem.** Three were built, each checked against
+   cached transcripts before submitting anything:
+
+   | selector | picked | verdict |
+   |---|---|---|
+   | capitalised, count 1-3 | `ABSOLUTELY, ACTUALLY, AGAIN` | discarded |
+   | + minus the 150 most frequent types | unchanged | discarded - frequency cannot separate them |
+   | **Deepgram per-word confidence < 0.85** | `Alan, Rohan, John, Nicky, GrowRev` | **used** |
+
+   Confidence is the signal keyterm acts on. Capitalisation and frequency are
+   proxies and both failed.
+
+   Result over 5 units, 454.7 min/arm, occurrence counts per keyterm given:
+
+   | | gained | lost | net | ratio |
+   |---|---|---|---|---|
+   | **proper nouns** | **15** | **3** | **+12** | **5.0 : 1** |
+   | filler mistakenly keytermed | 6 | 1 | +5 | 6.0 : 1 |
+
+   **4 of 5 units won; 9 of the 12 proper nouns touched improved.** The largest
+   move is the point: **`Rohan 13 -> 19`**. Also `Nicky 2 -> 4`,
+   `GrowRev 3 -> 4`, `Robbie 2 -> 3`, `Alan +1` in three separate units.
+
+   **A finding that changed the spec:** keyterming `I've` and `Sorry`
+   *increased* them. The hint fires on whatever it is given. **A production
+   keyterm list must contain proper nouns only** — now a measured requirement
+   in §2.2, not a preference.
+
+   The three proper nouns that lost are recorded as a real cost: the hint nudges
+   toward the given token, so a name it was given but which was said less often
+   gets suppressed.
+
+3. **CLOSED - the PDF gate is closed on 50 of 50.** See the note below.
 
 4. **OPEN - 13 of 14 gates are UNEVALUABLE** because no pipeline code exists yet.
    That is the correct state at G1 and is the substance of Stage 3.
 
-5. **CLOSED - the `attachments/` conflict** between VAULT-STRUCTURE.md and V6
-   is resolved in favour of Constraint 1, which is absolute. `attachments/`
-   does not ship. The same file's verbatim-vs-clean naming conflict and its
-   index-note-tree conflict are resolved in the same direction. VAULT-STRUCTURE.md
-   is now explicitly subordinate to the master specification, with a resolution
-   table at the top of the file, and its status changed from "proposed, pending
-   operator sign-off" to signed-and-superseded on those three points.
+5. **CLOSED - the `attachments/` conflict**, plus VAULT-STRUCTURE.md's
+   verbatim-vs-clean naming conflict and its index-note conflict. All three
+   resolved in the master's favour, recorded in a table at the top of
+   VAULT-STRUCTURE.md, whose status moved from "proposed, pending operator
+   sign-off" to signed-and-superseded.
+
+## A SEPARATE DEFECT FOUND WHILE CLOSING ITEM 5
+
+**`SPEND_HARD_STOP_USD` had four live values and was defined twice.** The block
+labelled *"DERIVED, not asserted"* said **`$207.68`** while the live constant was
+`$213.48`, and a second site still asserted the tail *"is not in $203.04"* — a
+figure three revisions old. A constant that carries four values and a paragraph
+insisting it is derived is a constant nobody can stop the run against. Now:
+
+```
+(34,472.10 calls + 294.84 undated tail + 1,569.62 lessons) x $0.0056 = $203.48
++ $10.00 loss reserve                                                  = $213.48
+```
+
+The undated tail is also resolved: the 286.9 min was an ESTIMATE, and both
+undated units have since been MEASURED at **294.84 min** combined.
 
 ## A note on how item 3 closed
 

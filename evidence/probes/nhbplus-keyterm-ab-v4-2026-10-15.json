@@ -1,0 +1,218 @@
+{
+ "generated": "2026-10-15T12:17:03",
+ "selector": "Deepgram per-word confidence < 0.85, capitalised, 4+ chars, excluding the 150 most frequent word types of the unit itself",
+ "measurement": "occurrence counts per keyterm GIVEN, arm1 vs arm2, identical audio and flags",
+ "kill_criterion": "keyterm off unless arm2 raises the count for the terms it was given, on a majority of units",
+ "units": [
+  {
+   "unit": "InViQbBR",
+   "keyterms": [
+    "Alan",
+    "John",
+    "Rohan",
+    "Good",
+    "Mhmm",
+    "Zoom",
+    "Forward",
+    "Gian",
+    "GrowRev",
+    "Jamie"
+   ],
+   "rows": [
+    {
+     "term": "Alan",
+     "arm1": 15,
+     "arm2": 16,
+     "delta": 1
+    },
+    {
+     "term": "John",
+     "arm1": 15,
+     "arm2": 16,
+     "delta": 1
+    },
+    {
+     "term": "Rohan",
+     "arm1": 13,
+     "arm2": 19,
+     "delta": 6
+    },
+    {
+     "term": "Mhmm",
+     "arm1": 13,
+     "arm2": 14,
+     "delta": 1
+    },
+    {
+     "term": "Gian",
+     "arm1": 3,
+     "arm2": 2,
+     "delta": -1
+    },
+    {
+     "term": "GrowRev",
+     "arm1": 3,
+     "arm2": 4,
+     "delta": 1
+    },
+    {
+     "term": "Jamie",
+     "arm1": 2,
+     "arm2": 1,
+     "delta": -1
+    }
+   ],
+   "gained_terms": 5,
+   "lost_terms": 2
+  },
+  {
+   "unit": "93MkzLRY",
+   "keyterms": [
+    "Alan",
+    "Facebook",
+    "Alright",
+    "Could",
+    "Alan's",
+    "Annie",
+    "Anybody",
+    "Believe",
+    "Brendan",
+    "Brennan"
+   ],
+   "rows": [
+    {
+     "term": "Brendan",
+     "arm1": 1,
+     "arm2": 2,
+     "delta": 1
+    },
+    {
+     "term": "Brennan",
+     "arm1": 1,
+     "arm2": 0,
+     "delta": -1
+    }
+   ],
+   "gained_terms": 1,
+   "lost_terms": 1
+  },
+  {
+   "unit": "RrM2CLTC",
+   "keyterms": [
+    "Sorry",
+    "Plus",
+    "Alan",
+    "Anything",
+    "Appreciate",
+    "Gender",
+    "I'll",
+    "Nicky",
+    "Pull",
+    "Should"
+   ],
+   "rows": [
+    {
+     "term": "Sorry",
+     "arm1": 11,
+     "arm2": 12,
+     "delta": 1
+    },
+    {
+     "term": "Plus",
+     "arm1": 5,
+     "arm2": 6,
+     "delta": 1
+    },
+    {
+     "term": "I'll",
+     "arm1": 13,
+     "arm2": 15,
+     "delta": 2
+    },
+    {
+     "term": "Nicky",
+     "arm1": 2,
+     "arm2": 4,
+     "delta": 2
+    },
+    {
+     "term": "Should",
+     "arm1": 3,
+     "arm2": 2,
+     "delta": -1
+    }
+   ],
+   "gained_terms": 4,
+   "lost_terms": 1
+  },
+  {
+   "unit": "p7VUBL5D",
+   "keyterms": [
+    "Alan",
+    "Brandon",
+    "January",
+    "Again",
+    "Lauren",
+    "Mhmm",
+    "Robbie",
+    "Thanks",
+    "We'll",
+    "Well"
+   ],
+   "rows": [
+    {
+     "term": "Alan",
+     "arm1": 5,
+     "arm2": 6,
+     "delta": 1
+    },
+    {
+     "term": "Robbie",
+     "arm1": 2,
+     "arm2": 3,
+     "delta": 1
+    }
+   ],
+   "gained_terms": 2,
+   "lost_terms": 0
+  },
+  {
+   "unit": "97NAyRyA",
+   "keyterms": [
+    "Alan",
+    "Well",
+    "Alright",
+    "Anyways",
+    "I've",
+    "Mika",
+    "Thank",
+    "Absolutely",
+    "Again",
+    "Airbnbs"
+   ],
+   "rows": [
+    {
+     "term": "Alan",
+     "arm1": 17,
+     "arm2": 18,
+     "delta": 1
+    },
+    {
+     "term": "I've",
+     "arm1": 16,
+     "arm2": 17,
+     "delta": 1
+    }
+   ],
+   "gained_terms": 2,
+   "lost_terms": 0
+  }
+ ],
+ "totals": {
+  "measurable_units": 5,
+  "gained_terms": 14,
+  "lost_terms": 4,
+  "units_keyterm_won": 4
+ },
+ "verdict": "KEEP keyterm - gained 14, lost 4 across 5 units, won 4"
+}
