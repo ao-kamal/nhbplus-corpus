@@ -50,13 +50,13 @@ billing the corpus costs `35,013.1 min × $0.0043 = $150.56` — the forecast.
 **Residual, all three need an operator value:**
 
 **SETTLED 2026-10-15.** Both items are now measured, not estimated. See 2.2 for the
-full budget table and `SPEND_HARD_STOP_USD = $207.35`.
+full budget table and `SPEND_HARD_STOP_USD = $207.68`.
 
 | Item | Was | Now |
 |---|---|---|
 | 2 units with no duration | ~$1.31 estimated | **$1.23 measured** |
 | loss allowance for 504s | unset | **$10.00** |
-| `SPEND_HARD_STOP_USD` | unresolved | **$207.35** |
+| `SPEND_HARD_STOP_USD` | unresolved | **$207.68** |
 
 **D2 — price: RESOLVED 2026-10-15.** `RATE_USD_PER_MIN = 0.0043`, now sourced and
 dated from the price page instead of derived from the forecast. The figure was
@@ -99,7 +99,7 @@ creating additional projects or accounts to work around per-project limits is
 
 So a second key adds **$200 of budget and zero throughput**, and load-balancing
 transcription across the two accounts would be an explicit ToS violation. **Use it
-for budget only.** The run needs the budget — $207.35 exceeds the $200 credit. It
+for budget only.** The run needs the budget — $207.68 exceeds the $200 credit. It
 does not need the concurrency: one project at concurrency 50 covers the corpus.
 
 **D4 - keyterm prompting: ADOPTED 2026-10-15** (operator). $0.0013/min,
@@ -220,7 +220,15 @@ SETTLE_FROM           = metadata.duration seconds x INPUT_CHANNEL_COUNT,
                         NOT the response's channel array: Deepgram returns
                         channels=1 for a stereo input while BILLING 2x.
 
-SPEND_HARD_STOP_USD   = 207.35    OPERATOR-SET, measured, not estimated
+SPEND_HARD_STOP_USD   = 207.68    DERIVED, not asserted. [B6] Three values
+                                were in circulation and all three were wrong:
+                                $207.31 (the budget artifact), $207.35 (this
+                                spec, twice), and this one — which is derived.
+                                  (35,013.1 + 286.9) x $0.0056 = $196.68 run
+                                  + $10.00 loss reserve            = $207.68
+                                The $1.23/$1.27 "undated units" line was
+                                STT-only; at RATE + KEYTERM the two units are
+                                286.9 min x $0.0056 = **$1.65**. [B1]
 LOSS_ALLOWANCE_USD    = 10.00     covers a 5% failure rate across 3,611 parts
 ```
 
@@ -232,16 +240,16 @@ LOSS_ALLOWANCE_USD    = 10.00     covers a 5% failure rate across 3,611 parts
 | 2 previously-undated units, **measured today** | **$1.27** |
 | 504 loss allowance | **$10.00** |
 | keyterm 35,013.1 min × $0.0013 | **$45.52** |
-| **`SPEND_HARD_STOP_USD`** | **$207.35** |
+| **`SPEND_HARD_STOP_USD`** | **$207.68** |
 
 **Credit position: no payment card on file.** So the vendor itself enforces the
 ceiling — exhausting the credit returns **HTTP 402** and processing stops. That is
 a hard, vendor-enforced bound that no bug in our accounting can get past.
 
-**But $200 < $207.35, so the vendor stop is strictly LOWER than our own gate and
+**But $200 < $207.68, so the vendor stop is strictly LOWER than our own gate and
 fires FIRST.** Round 2 caught that "strictly stronger" was backwards. The correct
 statement: the 402 is a **backstop at $200 per account**, not a ceiling at
-$207.35. Two accounts are therefore required, and the split is explicit:
+$207.68. Two accounts are therefore required, and the split is explicit:
 
 ```
 primary    DEEPGRAM_API_KEY     carries the bulk
@@ -252,14 +260,17 @@ The ledger is **per-account** (5.3 gains an `account` field):
 
 ```
 gate:  sum over accounts of (committed + settled + lost) + cost > SPEND_HARD_STOP_USD
-    AND chosen_account.committed + cost <= that account's own $200
+    AND chosen_account.**Routing, which must be explicit or it is unimplementable. [B12]** "All transcription goes through the primary" and "the secondary carries the shortfall" cannot both hold: a primary that has spent its $200 returns **402** and cannot be used at all.
+
+```
+attempt the request on the primary
+  402 -> the primary is exhausted. Re-route the WHOLE PART to the
+          secondary, re-commit against the secondary's own ledger, and
+          record account=secondary on the receipt. Never split one part.
+  other -> attribute to the account that served it
 ```
 
-All transcription goes through the primary key. The secondary is a **wallet, not
-a worker** - Deepgram scopes concurrency per project, so a second key adds zero
-throughput, and load-balancing across accounts is a documented ToS violation.
-This removes the only path by which a bug in our spend
-accounting becomes a real bill.
+**The secondary is a wallet, not a worker.** Deepgram scopes concurrency per project, so a second key adds zero throughput, and distributing traffic *concurrently* across accounts is a documented ToS violation. Sequential failover on 402 is not load distribution — it is one account finishing before the next begins.
 
 ### 2.2.1 Why keyterm — the measurement, not the opinion
 
@@ -373,7 +384,13 @@ named artifact was per-**unit**. A per-unit lock cannot serialise a global sum:
 16 workers can each read a stale total and jointly overshoot.
 
 ```
-LEDGER = /data/nhb/_meta/spend.json     {"committed":USD,"settled":USD,"lost":USD}
+LEDGER = /data/nhb/_meta/spend.json     PER ACCOUNT:
+    {"accounts": {
+        "<account_id>": {"committed":USD,"settled":USD,"lost":USD,"released":USD}},
+     "totals":      {"committed":USD,"settled":USD,"lost":USD}}
+    [B11] section 2.2 asserted a per-account ledger and a per-account gate; this
+    section still described a single global object, so an implementer following
+    IT would build one pool and the second key would never be used.
 LOCK   = /data/nhb/_meta/spend.lock     flock, held across READ-CHECK-WRITE
 ```
 
@@ -381,7 +398,12 @@ Commit and settle are each one atomic ledger mutation under that one lock:
 
 ```
 commit:  committed += cost        settle:  committed -= cost;  settled += actual
-declare:                            lost:    committed -= cost;  lost     += actual
+release: committed -= cost          lost:    committed -= cost;  lost += actual
+                                   released += cost
+                                   [B11] section 5.4's resume table requires a
+                                   release for a part that was committed and never
+                                   sent. Without this mutation that amount is either
+                                   double-counted forever or never returned.
 ```
 
 **Ledger reconciliation is derived, never authoritative** — `bin/rescan.py`
@@ -458,7 +480,10 @@ accept the loss, not to price it.**
 ### 5.5 The preflight gate — one formula, everywhere `[R1]`
 
 ```
-committed + settled + lost + cost > SPEND_HARD_STOP_USD  ->  stop, do not submit
+(totals.committed + totals.settled + totals.lost) + cost > SPEND_HARD_STOP_USD
+    ->  stop, do not submit
+AND chosen_account.committed + cost <= that account's own $200
+    ->  else route the shortfall to the secondary account (see 2.2)
 ```
 
 Rev 0 omitted `lost`, so headroom already consumed by 504s was invisible to the
@@ -550,6 +575,20 @@ so a full loopback never produces partial audio.
   **Admission must use REAL bytes.** For the 73 sentinels the real size is unknown
   until fetched — `dvcEDToK` declared 2 GiB and is actually 1.50 GiB — so reserve
   the display band's **upper bound**, never the declared value.
+
+  > **[B25] AND THE REAL BYTES DO NOT EXIST YET.** For a sentinel the control
+  > cannot be evaluated before the irreversible act it exists to bound — which is
+  > the same shape as the sentinel bug itself: a predicate that reads as
+  > load-bearing and is not. Two stages:
+  >
+  > ```
+  > ADMIT   on the display-band UPPER BOUND  (known before the fetch)
+  > VERIFY  on arrival, from the real file on disk
+  >         real > upper_bound * 1.10  ->  FETCH_OVERRUN, kill, rm, re-plan
+  > ```
+  >
+  > Admission is therefore conservative by construction, and the post-fetch check
+  > is what actually enforces the cap. The predicate alone would not.
 
   **The `2 ×` was an off-by-one for a loopback whose purpose is to hold one
   copy at a time**, and is replaced by the size-adaptive predicate above.
@@ -1243,7 +1282,7 @@ Kept visible, because a withdrawn claim is evidence about the corpus.
 
 | | Outcome |
 |---|---|
-| D1 | **settled** - $207.35, every line measured |
+| D1 | **settled** - $207.68, every line measured |
 | D2 | **closed** - $0.0043/min, sourced and dated |
 | D3 | **closed** - dual-mono, per-file rule, $26.98 |
 | D4 | **adopted** - keyterm on, +$45.52, A/B-measured |
