@@ -757,7 +757,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 
 ---
 
-### 5.0 Fetch concurrency — THE LEVER, FOUND IN THE DOCUMENTATION
+### 4.1 Fetch concurrency — THE LEVER, FOUND IN THE DOCUMENTATION
 
 **The run is ~95% fetch, and fetch concurrency was configured by accident.**
 `mega-get` is a two-line shell wrapper — `mega-exec get "$@"` — over
@@ -948,6 +948,39 @@ R4 re-measured across **every** declared size, primaries and alternates:
 
 Ground truth from the files actually downloaded: `wiUyTRZb` declared
 397,410,304 B (**KiB-exact**) vs actual 397,487,264 B (**not** KiB-exact).
+
+---
+
+## 6. The fetch predicate, the sentinel rule, and the disk cap
+
+**This section had no heading and was cited ten times.** Its content was
+absorbed into 5.4 by an earlier rewrite, so references to "section 6.3", "See
+section 6.4" and "see 6.2" pointed at a section that did not exist as a heading.
+**A cross-reference to a section with no heading is the same defect as a figure
+with two values** - both send a reader looking for something that is not there
+under the name they were given.
+
+**WHERE EACH §6.x REFERENCE ACTUALLY LANDS.** This document is referenced as
+§6.0 through §6.9. Section 6 was once nine subsections; the content was
+redistributed during earlier rewrites and the references were never repointed.
+Verified by locating every one, not by inference:
+
+| cited as | the content it meant | now lives in |
+|---|---|---|
+| §6.0 | sentinel / placeholder declared sizes | §0 Hard constraints |
+| §6.1 | the population table | §1 Scope |
+| §6.2 | loopback cap, `FETCH_IMG_BYTES` | §2 Constants, §11.4 V1 |
+| §6.3 | size-adaptive `FETCH_CONCURRENCY` predicate | §2, §4 W0 probes |
+| **§6.4** | **the threshold rule — and it is the one that IS here, below** | **§6** |
+| §6.6 | the run-time table, STT at concurrency 25 | §0.0.1 Compute, priced |
+| §6.8 | the superseded 236-call reconciliation | §1, §13.2 |
+| §6.9 | corrections and withdrawn figures | §1, §11.3 |
+
+**The references are left as they are** rather than rewritten to match the new
+arrangement. A citation that records where something used to be is evidence; one
+silently rewritten to match today's layout is not. **The table above is the
+resolution, and it was built by locating each reference, not by guessing which
+subsection it must have meant.**
 
 **So there is no un-quantised subset by this test.** GiB-exactness found 73
 primaries and called the rest genuine; the rest are quantised at the KiB
@@ -1851,18 +1884,18 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 
 | Gate | Status | Assertion |
 |---|---|---|
-| V0 | worklist integrity: **344** rows, never a glob — **formula in §11.1** |
-| V1 | fetch caps: ENOSPC proven; **no kill fired on a sentinel `declared`** — **formula in §11.1** |
-| V2 | remux/segment: no part ≥ `CAP_BYTES` — **formula in §11.1** |
-| V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required — **formula in §11.1** |
-| V4 | **three-way duration reconcile** — formula in §11.0 |
-| V5 | **span coverage** — formula in §11.0 |
+| V0 | worklist integrity: **344** rows, never a glob — **formula in §11.4** |
+| V1 | fetch caps: ENOSPC proven; **no kill fired on a sentinel `declared`** — **formula in §11.4** |
+| V2 | remux/segment: no part ≥ `CAP_BYTES` — **formula in §11.4** |
+| V3 | STT contracts: **the one sync path** (§7.2 deleted the other — there is no async job); **`sent` persisted before the socket opened**; `http_status == 200` AND `response_complete` both required — **formula in §11.4** |
+| V4 | **three-way duration reconcile** — formula in §11.3 |
+| V5 | **span coverage** — formula in §11.3 |
 | V6 | **zero media extensions under `vault/`** — the list must include **`.mka`**, the container §7.1 mandates, plus `aac\|opus\|ogg\|mpga\|mkv\|webm\|mov\|m4a` — **AND** no stem matches `\.(mp3\|mp4\|mov\|m4a\|wav\|flac\|mka)$`. **ADD `.png`:** the corpus contains exactly one image (`guNkBLaZ`, 151,552 B, §8.3) and Constraint 1 is absolute — no media-shaped file reaches the operator's PC. **AND A FLOOR, WHICH IS THE PART THAT WAS MISSING:** `vault/` currently holds **0 files**, and every check above is a *ceiling* — **an empty tree satisfies all of them and returns PASS.** That is this project's own empty-vs-empty trap. **V6 must also assert `count(vault/**/*.md) >= 344 and every note matches section 10's tree
      # 344 = 193 calls + 42 lessons + 109 documents.
      # >= not ==, and this is CORRECTION: section 10's own tree also names
      # `00 Home.md` and `00 Topics.md`, so a flawless run emits 346 and an
      # equality test would fail it. The floor's job is to stop an EMPTY tree
-     # reading as PASS; it is not a manifest of the whole vault.`.** Until that floor exists, V6 green means nothing. — **formula in §11.1** |
+     # reading as PASS; it is not a manifest of the whole vault.`.** Until that floor exists, V6 green means nothing. — **formula in §11.4** |
 > **AND EVERY CORPUS FORMAT IS CURRENTLY UNCATCHABLE BY V6.** The corpus
 > contains `pdf, docx, pptx, txt, xlsx, png, zip`. None is in the extension list,
 > none matches the stem regex, and a `.pdf` or `.docx` under `vault/` would pass
@@ -1884,11 +1917,11 @@ outline. `00 Topics.md` answers *"where did we discuss X"*; this answers
 > conflicts are resolved in the same direction, and all three are recorded at
 > the top of `VAULT-STRUCTURE.md`.
 
-| V7 | reduction diff: re-render from receipts, byte-compare — **formula in §11.1** |
-| V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** — **formula in §11.1** |
-| V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (193 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. ** V9 previously checked documents only, so it **structurally could not catch the dropped call** — **formula in §11.1** |
-| V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** — **formula in §11.1** |
-| V11 | egress SHA256 per-file match — **formula in §11.1** |
+| V7 | reduction diff: re-render from receipts, byte-compare — **formula in §11.4** |
+| V8 | **frontmatter value DOMAINS (§10.1), not a field count; every document has a `path`; no filename contains `None`** — **formula in §11.4** |
+| V9 | counts 37/36/36; **and every manifest unit with `kind == "calls"` has exactly one emitted note** (193 rows in `manifest-v3.json`). **`scope-final.json` has no `call`/`calls` kind — its kinds are `audio`/`written_hand`/`course_doc`/`orphan_doc` — so the previous `kind == "call"` matcher hit 0 handles and V9 passed VACUOUSLY on the one confirmed live defect, the dropped `10-31-2022 NHB+ Mindstream Call`. ** V9 previously checked documents only, so it **structurally could not catch the dropped call** — **formula in §11.4** |
+| V10 | `settled + lost ≤ SPEND_HARD_STOP_USD`, derived from receipts, **using the same settle quantity as the §7.2 gate** — **formula in §11.4** |
+| V11 | egress SHA256 per-file match — **formula in §11.4** |
 | **V12** | **Identity Binding — NEW, and the most important gate here** |
 | **V13** | **`00 Topics.md` — NEW. POPULATION IS 230, NOT 225.** **re-scoped it to what measurement supports; found it still named THREE populations.** It said "225 rows", "1 row per emitted note", and §11.2's body gated "every note under `vault/calls/`" (193). **The population is 235 notes — 193 calls + 42 lessons.** 225 is a GROUP count from 's clustering, not a note count, and the two cannot both be true. **Now: 235 rows, one per emitted note, plus a `recurs` column.** §11.2's group clauses are deleted below. |
 | **V13** (population note) | 's own table is also internally inconsistent: `225 − 221 = 4` multi-groups, which must hold `235 − 221 =` **9** units, but the same row says "4 of 235". The **group count** is 4; the **units inside them** is 9. **** |
@@ -1988,7 +2021,7 @@ increments its count**.
 
 ---
 
-### 11.0 The two gate formulas V4 and V5 assert, written out
+### 11.3 The two gate formulas V4 and V5 assert, written out
 
 **Both gates were a single line naming a check, with no rule, no threshold and
 no failure behaviour.** That is the same defect as §7.2.0's missing request
@@ -2090,10 +2123,10 @@ but span too little is an **assembly failure**. The first costs money to retry;
 the second means the transcript is being built wrong and retrying will produce
 the same wrong answer. Both are FAIL, and they are reported with different names.
 
-### 11.1 The ten remaining gate formulas
+### 11.4 The ten remaining gate formulas
 
 **Rev 0's gate table was twelve one-line assertions and no formulas. V4 and V5
-now have one (§11.0); the other ten are written here.** Each carries a threshold
+now have one (§11.3); the other ten are written here.** Each carries a threshold
 with its provenance, a failure behaviour, and a **non-vacuity assertion**.
 
 **THE NON-VACUITY ASSERTION IS THE PART THIS PROJECT KEEPS NEEDING.** A gate
