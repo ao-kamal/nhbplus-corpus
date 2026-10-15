@@ -265,3 +265,52 @@ document, or a commit message in this repository.**
 20. **`Select-Object -First N` truncates an upstream pipeline**, and so does any
     early-exit consumer. Capture to a variable, then slice — the process writing the
     output gets killed mid-run and the file looks complete.
+
+21. **A test that proves something else is not a pass.** Twice in a single probe.
+    A loopback mounted root-owned returned `EACCES`, which the verdict function
+    accepted as cap behaviour because it only checked for a *hang*, not for the
+    failure mode under test. A "real traffic" test used a 47 KB file against 16 MiB
+    of free space, so it fitted and proved nothing. Ask: *is this the failure mode I
+    was testing for?* A verdict that can only return PASS is not a verdict.
+
+22. **An empty-vs-empty comparison returns TRUE.** A helper spliced ffmpeg options at
+    a fixed command index, corrupting `-v error` into `-v -ac 1 error`; ffmpeg decoded
+    **zero bytes**, and SHA-256 of nothing equalled SHA-256 of nothing, so the
+    bit-exactness gate passed on a run that checked nothing. Any equality assertion
+    needs a **floor**: assert bytes decoded > 0 before asserting the hashes match.
+
+23. **ffmpeg option position decides whether it is an input or output option.**
+    `-ac 1 -ar 16000` before `-i` is parsed as input options and fails *"Option
+    sample_rate not found"*; after `-i` it works. Relatedly, `mkfs.ext4 -m 0` clears
+    reserved **blocks**, not **ownership** — a loopback mount stays root-owned while
+    the pipeline runs as the unprivileged user, so every write fails `EACCES`.
+
+24. **`-v error` suppresses `astats`.** It writes at `info` level, so every reading
+    silently returns `-inf` — indistinguishable from a silent input. Do not pass `-v
+    error` to a filter whose only output is logging.
+
+25. **`mega-get` names its output after the VERBATIM source file**, with the extension
+    appended (`Vimeo gif thumbnail custom code.pdf`) — **not** the handle. A
+    handle-prefixed existence check reports a fetch failure while the fetch succeeded.
+    Fetch into an **empty per-handle directory** and take whatever single file lands.
+
+26. **A gate placed downstream of an irreversible step reports a breach that already
+    happened.** V6 asserts no media reaches the vault, but `scp` faithfully copied a
+    planted `.mp3` — the transfer is a dumb pipe with no filter, and should be. V6
+    must run on the **source tree, before the copy**. Ask where a gate sits relative
+    to the first irreversible action, not just whether it exists.
+
+27. **`git commit -m "…"` from PowerShell shreds any message containing quotes or
+    parentheses.** It parses them as pathspecs. Write the message to a file and use
+    `git commit -F`. Same class as trap 18: the shell is not a text tool.
+
+28. **Container constraints are not codec constraints.** `ffmpeg -c:a copy` into
+    `.m4a` fails rc=234 for every mp3 source, because `.m4a` is an MP4 container and
+    cannot hold an MP3 elementary stream. Use `.mka`. The error reads like a codec
+    fault and is not one.
+
+29. **Duration from a container header is not duration.** An MP3 header claimed
+    4,958 s where the decoded PCM was 5,431.8 s (**+9.54%**). When a vendor bills on
+    processed audio, a header-derived cost gate is under-reserved by exactly the
+    header's error, per part, silently. Derive cost from **decoded PCM bytes ÷ (rate ×
+    channels × 2)**.
