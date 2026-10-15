@@ -193,7 +193,25 @@ for u in sorted(lessons, key=lambda x: x["source_folder"]):
     # The separator matters: "2.What advertising is not" carries NO space after
     # the period and fell through to the zNN flag, hiding two real source
     # ordinals. Require either a . or ) separator, or whitespace.
-    src = re.search(r"^\s*(\d{1,2}(?:\s*\.\s*\d{1,2})?)(?:\s*[.)]\s*|\s+)", u["media"]["name"])
+    # [R4-T5.4] THIS REGEX MANGLES, AND THE CHECK THAT CERTIFIES IT WAS BLIND.
+    # `\s*\.\s*` let "6. 3 LEVELS OF CUSTOMERS" parse as the dotted ordinal
+    # "6. 3", emitting `6- 3 3 LEVELS OF CUSTOMERS.md` - a double ordinal with an
+    # embedded hyphen. `ordinal_is_source = bool(src)` then reported 42/42,
+    # because it asserts AN ordinal matched, not that the EMITTED PREFIX EQUALS
+    # it. A test that passes while proving something else, in code, on a filename.
+    # The dot must be CONTIGUOUS and a dotted ordinal must not be followed by a
+    # space (that is an ordinal then a title beginning with a number).
+    # Three explicit forms, tried in order. A single lookahead cannot separate
+    # these: "1. 100 BOOKS" (ordinal then a title starting with a digit) and
+    # "2.What advertising is not" (no space after the period) both defeat it,
+    # while "2.1 Sales" must keep its dotted ordinal.
+    #   1) DOTTED, contiguous   2.1 / 10.3
+    #   2) SINGLE + separator   1.  /  2)      (space optional)
+    #   3) BARE + space         100 BOOKS A DAY with no leading punctuation
+    _m = (re.search(r"^\s*(\d{1,2}\.\d{1,2})(?=\s|$)", u["media"]["name"])
+          or re.search(r"^\s*(\d{1,2})\s*[.)]", u["media"]["name"])
+          or re.search(r"^\s*(\d{1,2})\s+", u["media"]["name"]))
+    src = _m
     n = src.group(1).replace(".", "-") if src else \
         f"z{sum(1 for r in lesson_rows if r['course'] == course) + 1:02d}"
     if not src:
@@ -207,6 +225,14 @@ for u in sorted(lessons, key=lambda x: x["source_folder"]):
 for r in lesson_rows[:16]:
     print(f"  {r['verbatim'][:44]:<46} ->  {r['path'][:56]}")
 print(f"  ... {len(lesson_rows)} lessons total")
+# [R4-T5.4] ASSERT THE EMITTED PREFIX, NOT JUST THAT A MATCH OCCURRED.
+for r in lesson_rows:
+    stem = r["path"].rsplit("/", 1)[-1][:-3]
+    want = r["lesson_no"]
+    if r["ordinal_is_source"] and not stem.startswith(want + " "):
+        r["ordinal_is_source"] = False
+        r["ordinal_emit_error"] = f"emitted {stem[:14]!r} does not start with {want!r}"
+        print(f"  ORDINAL EMIT MISMATCH: {r['handle']} wanted {want!r} got {stem[:24]!r}")
 srcd = sum(1 for r in lesson_rows if r["ordinal_is_source"])
 print(f"\n  SOURCE ordinals carried: {srcd} of {len(lesson_rows)}  [F10]")
 if renumbered:

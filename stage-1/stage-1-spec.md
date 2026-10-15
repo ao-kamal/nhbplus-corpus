@@ -52,23 +52,44 @@ provenance is indistinguishable from a fix that was never checked, and the
 question "was this ever wrong?" has no answer. What expires is the finding, not
 the record that it existed. Every tag names a defect **that was real**.
 
-### 0.0.1 Compute, priced `[MEASURED 2026-10-15]`
+### 0.0.1 Compute, priced `[MEASURED 2026-10-15 · CORRECTED BY R4]`
 
 `Standard_D2s_v5`, `austriaeast`, Linux, Consumption — the VM the probes actually
 ran on. **$0.115/hr** from `prices.azure.com/api/retail/prices`, queried
-2026-10-15. **$2.76/day.**
+2026-10-15. **$2.76/day.** 2 vCPU.
 
-| phase | wall clock | basis |
+> **[ R4-T4.1] THIS TABLE WAS WRONG BY 60× WHEN FIRST WRITTEN, AND THE ERROR
+> WAS MINE.** `35,013.1 min / 25 / 90.6x` is **15.46 MINUTES**, not 15.5 hours.
+> The value was right and the **unit** was wrong — minutes divided by a realtime
+> factor is still minutes. Same slip twice more: the full-decode figure was
+> **9.44 core-hours, not 567**, because `2,100,786 s / 61.8 = 33,993 s` and I
+> divided by 60 a second time. **Every quantity below carries its unit, which is
+> the rule R4 asked for and which would have caught all three.**
+
+| phase | computation | result |
 |---|---|---|
-| STT at concurrency **25** | **15.5 h** | 35,030 min / 25 / **90.6x measured realtime** |
-| fetch 146.87 GiB | 0.89 h | measured 47 MB/s network ceiling, single stream |
-| remux `-c:a copy` | 0.26 h | stream copy, **no decode** |
-| channel measurement, **90 s window** | 0.08 h | the full-decode alternative is **284 h = 11.8 days** |
-| **total** | **≈ 16.7 h** | **≈ $1.92** |
+| **STT at concurrency 25** | `35,013.1 min / 90.6x / 25 = 15.46 min` | **0.26 h** |
+| fetch, 146.8731 GiB | `146.8731*1024 / 47 MB/s = 3,200 s` | **0.89 h** |
+| remux `-c:a copy` | `188 units x 5 s` (stream copy, **no decode**) | **0.26 h** |
+| channel measurement, 90 s window | `10 stereo x 3 passes x 1.46 s` | **0.01 h** |
+| **total** | | **≈ 1.42 h** |
 
-**That is under 10% of the STT budget and it is no longer an open question.**
-At concurrency 16 the same arithmetic gives 25.3 h and $2.91 — the raise to 25
-paid for itself in the first line.
+**≈ $0.16 of Azure compute.** Fetch dominates the run. **The STT stage is
+fifteen minutes**, which is worth sitting with: a 583-hour corpus is not a long
+transcription job, it is a long *download* job.
+
+**[R4-T4.2] the full-decode argument survives, at 17× not 1,150×.** The channel
+measurement as §7.1a specifies it is a full decode: `2,100,786 s / 61.8x = 9.44
+core-hours = 4.72 wall-hours on 2 vCPU = $0.54`. A 90-second window over every
+unit is **0.28 h**. So the window is **17× better**, and 4.72 hours of pure CPU
+to classify dual-mono is still indefensible. **Keep the window** — the
+conclusion was right and only the figure attached to it was wrong.
+
+**[R4-8.46] and the raise to 25 paid for itself in  $0.017 of Azure**, not in the
+line I claimed. The *concurrency* case for 25 was never an Azure-cost case: 16 is
+inside one project with no contract question, 25 is the documented ceiling, and
+the measured degradation was 1.022×. That is still the whole argument. The
+sentence "paid for itself in the first line" was wrong and is withdrawn.
 
 ### 0.1 Blocking decisions for the operator
 
@@ -451,7 +472,7 @@ TIER RULE= gate first (§8.1 taxonomy). Then title = largest tier, body = most
 | **W0-Cap** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** The 4 GiB loopback is real, exact (3,936 MiB into 3,952), costs 1.7% throughput against a 41–53 MB/s network ceiling, **fails fast under real traffic** (mega-get exit 232 "Insufficient disk space" in **0 s**, no host spill), and recovers without a remount. **Fetches: `FETCH_CONCURRENCY` 1 → **the size-adaptive predicate, 1–38 in flight** — not a constant.** **[F18] This row said "1 → 6" and contradicted §2, §3 and §6.3. The raise to 6 was real; the ceiling is now the predicate's small band.** |
 | **W0-Remux** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** Bit-exact for MP3 (SHA-256 over 712/995 MB PCM - **[F23] the 995 MB figure appears only in this spec and in the [B24] note; w0-remux.json records 133.6/89.8 MB sources. Cite the artifact, not this line.**), near-exact for AAC (~10 KB in 1.1 GB). Real size cut is **71.2% aggregate — MP4 ~80%, MP3 NEGATIVE**. Output container must be **`.mka`**: `.m4a` fails for 97 of 230 units. |
 | **W0-SyncCeiling** | ✅ **SATISFIED 2026-10-15 (take 3)** | **GENUINELY CLOSED, MEASURED ON THE CORPUS MAXIMUM.** `wiUyTRZb` — **275.93 min, the largest unit in the corpus** — returned **HTTP 200 in 182.757 s against the 600 s ceiling. Margin 3.28×, realtime 90.6×, 51,786 words. $1.55.** Artifact `nhbplus-w0-syncceiling3-2026-10-15.json`. **[History: take 1 (raw MP4) timed out; take 2 measured `dvcEDToK`, which ranks 47th of 229; a fix then asserted figures for `wiUyTRZb` that existed in no artifact — 156.2 s, 3.8×, 51,787 words. All three of those were wrong. The word count was off by ONE.]** |
-| **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7× and later measured at 5.7×** on the worst case, which is **3.8×, not the 273.7× first calculated and not the 5.7× first measured** — see W0-SyncCeiling. |
+| **W0-AsyncContract** | ❌ **FAILED 2026-10-15** | **`ASYNC_ALLOWED = False`.** No async job at 2 min *or* 68 min — inline results, `request_id` None. §7.2 collapses to one sync path. The "unreachable 504" claim that came with it was **calculated at 273.7×, measured at 5.7× on the 47th-ranked unit, and then asserted at 3.8× with no artifact behind it. The true figure on the corpus maximum is 3.28×** — not 273.7×, not 5.7×, and not the 3.8× that a fix supplied — see W0-SyncCeiling. |
 | **W0-Pricing** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** `$0.0043/min` nova-3 pre-recorded, diarization included, sourced and dated. **No per-request minimum, no rounding — true per-second billing.** |
 | **W0-ChannelShare** | 🟡 **PARTIAL 2026-10-15** | **[MEASURED] 10 of 188 calls sampled (~5%), stratified by size. 7 measured, 3 fetch-failed. Every stereo file is BIT-IDENTICAL dual-mono: L md5 == R md5, proven by hash, not by an RMS threshold. 4 mono, 3 bit-identical, and the keep-stereo 2× branch fired on ZERO.** Includes `wiUyTRZb`, the corpus maximum. **The sample is too small to bound the corpus share and is not presented as if it could** — with n=10 and zero events the 95% upper bound is ~26%. Artifact `nhbplus-w0-channelshare-2026-10-15.json`. The branch stays specified; a small sample not triggering it is not grounds for deleting a 2×-billing safety branch. |
 | **W0-ChannelCount** | ✅ **SATISFIED 2026-10-15** | **CLOSED.** 3 of 3 stereo files are **dual-mono** — no per-participant separation exists. `-ac 1` is lossless and saves **$26.98**. Applied **per file** in §7.1a, not corpus-wide, so a per-participant file anywhere is detected and preserved. |
@@ -596,7 +617,26 @@ this table was written to eliminate.
 | `reserved` | committed, **never sent** | release the commit, re-reserve, submit. No spend incurred. |
 | `sent`, no file, `http_status` unset | in flight when the process died | `PAID_UNKNOWN`. **Never auto-resubmit.** Operator decides. |
 | `sent`, **partial** file | response truncated | `PAID_UNKNOWN`. The prefix is not a transcript. Operator decides. |
-| `sent`, `http_status` **≠ 200** | vendor refused or timed out | `PAID_UNKNOWN`. **Settled as `lost`, never as a transcript.** |
+| `sent`, `http_status` **402** | **credit exhausted. NOT BILLED.** | **Re-route the WHOLE PART to the secondary** per §2.2. Do **not** touch `lost`. `committed` is released, re-committed against the secondary's ledger, resubmitted. **[ R4-T1.2]** |
+| `sent`, `http_status` **429** | **rate limited. NOT BILLED, and retryable.** | **Retry with exponential backoff, base 2 s, cap 60 s.** Not terminal. Not `lost`. **[ R4-T1.2]** There was previously **no 429 path anywhere in this document** — and a 429 is the single most likely transient on a 25-way run. |
+| `sent`, `http_status` **400** | **malformed request. NOT BILLED.** | Re-prepare from the receipt and resubmit. Not terminal, not `lost`. | `[ R4-T1.2]` |
+| `sent`, `http_status` **504 / timeout / truncated** | vendor gave up **after** accepting the bytes | `PAID_UNKNOWN`, then settled as `lost`. **This is the only genuinely-paid non-200.** |
+
+> **[ R4-T1.2] THIS WAS A WRONG *RULE*, NOT A WRONG NUMBER, AND IT IS THE MOST
+> SERIOUS DEFECT FOUND IN FOUR ROUNDS.** `lost iff (http_status != 200)` made
+> **402, 429 and 400 terminal, BILLED, unrecoverable** corpus losses — all three
+> are **unbilled**, and two are recoverable. It also contradicted §2.2's own
+> instruction to re-route a 402 to the second account, so an implementer
+> following §5.4 never executed §2.2's routing at all.
+>
+> The damage compounded: `lost += actual` charges the ledger for money never
+> spent, which **corrupts V10 in the direction that hides the breach**, and
+> §2 runs at the documented ceiling with **zero headroom**, so one 429 storm
+> would permanently delete content under Constraint 7 and consume the headroom
+> that would have finished the run.
+>
+> **The distinction is billing, not status code.** Billed: 200, and 504/timeout
+> after acceptance. Unbilled: 402, 429, 400. That is the whole rule.
 | `sent`, `http_status` 200, `response_complete` | completed | settle, re-assemble. No new spend. |
 | any of the above, `status = lost` | declared lost by the operator | terminal. See 5.4a. |
 
@@ -795,8 +835,37 @@ false overruns**, on traffic that is perfectly legal, by a safety system that
 would log it as working correctly. The per-target sizes also over-sum the
 folder-exact total by **10.79 GB (7.4%)**, confirming they are display values.
 
-Detection is exact and free: **`bytes % (1 << 30) == 0` is a sentinel** — 0 false
-positives among the 157 genuine values.
+**[ R4-T1.3] DETECTION WAS WRONG IN KIND, AND CONSTRAINT 6 MANDATED THE FIX
+THAT WAS NEVER APPLIED HERE.** This said `bytes % (1 << 30) == 0` is the test
+and that the other **157 "genuine" values** are real. **They are not.**
+
+R4 re-measured across **every** declared size, primaries and alternates:
+
+| test | count |
+|---|---|
+| `bytes % 1024 == 0` | **440 / 440 — every declared size in the corpus** |
+| `bytes % (1 << 30) == 0` | 156 / 335 |
+
+Ground truth from the files actually downloaded: `wiUyTRZb` declared
+397,410,304 B (**KiB-exact**) vs actual 397,487,264 B (**not** KiB-exact).
+
+**So there is no un-quantised subset by this test.** GiB-exactness found 73
+primaries and called the rest genuine; the rest are quantised at the KiB
+boundary — 30 bits coarser than the test assumed.
+
+**THE FIX, NOW APPLIED:**
+
+```
+sentinel(b) := (b % 1024) == 0        # NOT (b % (1<<30)) == 0
+```
+
+**The `max()` in this section's threshold is dead code and is deleted.**
+`threshold = max(1.10 * declared, declared + 0.5 * quantum)` takes the `1.10x`
+arm only when `declared >= 5 * quantum`. For all 157 non-sentinel units
+`declared < 5 * quantum`, so **the band arm always wins**. For `pjFQiLQQ`
+(90 MiB declared, 512 MiB quantum) the effective threshold is **353 MiB — 3.9×
+its declared size**, while the table below says `×1.10` and describes a branch
+that never executes. **One threshold, stated once: the band arm.**
 
 ```
 if declared is sentinel:
@@ -1555,8 +1624,12 @@ hand-written heading like "Pricing Psychology" that no filename supports.
 
 **[F36] FIVE EXIT CODES WERE DECLARED FOR FOURTEEN GATES.** Nine gates had no
 code, and two shared one. A code an implementer must map by hand is a code they
-will get wrong. **The rule is now mechanical: `exit(gate_index * 10)`** — V0 is
-10, V1 is 20, … V13 is 140, and `0` is success.
+will get wrong. **The rule is now mechanical: `exit((gate_index + 1) * 10)`.**
+ `[ R4-T1.4] **NOT `exit(gate_index * 10)`** — that form returns **0 for V0,
+and 0 is success**, so **V0 can never report failure.** V0 is *worklist
+integrity: 339 rows, never a glob* — the gate that stops a re-billed corpus. The
+`+1` is not cosmetic; it is the difference between a gate that works and one
+that cannot fail.
 
 | | |
 |---|---|
