@@ -4,3 +4,4 @@
 {"test": "container-m4a-rejected-mp4-timeout-unknown", "artifact": "submit.py", "input_digest": "89326a67e3e67aef", "verdict": "PASS", "note": ""}
 {"test": "no-curl-no-async", "artifact": "submit.py", "input_digest": "61a5671e6a8a26fd", "verdict": "PASS", "note": ""}
 {"test": "streaming-body-never-readall", "artifact": "submit.py", "input_digest": "4d1765980deaf354", "verdict": "PASS", "note": ""}
+{"test": "http-status-returns-table-codes-transport-raises", "artifact": "submit.py", "input_digest": "c9c52b8ca77fbce8", "verdict": "PASS", "note": ""}

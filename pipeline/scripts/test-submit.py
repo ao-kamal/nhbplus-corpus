@@ -163,6 +163,34 @@ def _():
     assert ".read(" in code  # response side streams in chunks
 
 
+@T("http-status-returns-table-codes-transport-raises")
+def _():
+    import urllib.error
+    part = os.path.join(TMP, "p.mka")
+    open(part, "wb").write(b"\x1a\x45\xdf\xa3" + b"\x00" * 100)
+
+    class Boom:
+        def __init__(self, exc):
+            self.exc = exc
+        def open(self, req, timeout=None):
+            raise self.exc
+
+    out = os.path.join(TMP, "r.json")
+    for code in (402, 429, 400, 504):
+        err = urllib.error.HTTPError("http://x", code, "X", {}, None)
+        st, complete, _ts = sub.post_file(
+            sub.build_url(True), "K", part, out, timeout=5,
+            opener=Boom(err))
+        assert (st, complete) == (code, False), (code, st, complete)
+        assert os.path.exists(out + ".partial"), "partial marker missing"
+    try:
+        sub.post_file(sub.build_url(True), "K", part, out, timeout=5,
+                      opener=Boom(TimeoutError("slow")))
+        raise SystemExit("timeout returned a code")
+    except sub.PaidUnknown:
+        pass
+
+
 def main():
     passed = sum(1 for r in RESULTS if r["verdict"] == "PASS")
     total = len(RESULTS)

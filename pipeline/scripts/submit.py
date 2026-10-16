@@ -100,8 +100,14 @@ def post_file(url, api_key, part_path, response_path, timeout=600, opener=None):
             if opener is None:
                 opener = urllib.request.build_opener()
             socket_open_ts = time.time()  # the socket opens HERE, after sent
+            import urllib.error as _urlerr
             try:
                 resp = opener.open(req, timeout=timeout)
+            except _urlerr.HTTPError as e:
+                # HTTP status IS an outcome, not a transport failure: 402/429/
+                # 400/5xx must reach settle() and the branch table. Swallowing
+                # them here buried 402s as lost and killed failover (live).
+                return e.code, False, socket_open_ts
             except TimeoutError as e:
                 raise PaidUnknown(f"submit timeout: {e}")
             except OSError as e:

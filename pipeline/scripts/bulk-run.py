@@ -137,7 +137,13 @@ def process_unit(row, keys, ledger, remux_sem, log):
     os.makedirs(udir, exist_ok=True)
     verdict, action = ps.recover(udir)
     if verdict in (ps.SETTLED, ps.LOST):
-        return {"handle": h, "outcome": "skip-" + verdict}
+        if verdict == ps.LOST and os.environ.get("FAILOVER") == "1":
+            rec = ps.read_json(os.path.join(udir, "receipt.json"))
+            if not rec.get("paid_unknown"):
+                return {"handle": h, "outcome": "skip-" + verdict}
+            # else: operator-authorized failover retry below (fresh trial)
+        else:
+            return {"handle": h, "outcome": "skip-" + verdict}
     if verdict == ps.PAID_UNKNOWN:
         raise RuntimeError(f"{h}: PAID_UNKNOWN on resume: operator decides")
 
@@ -232,17 +238,34 @@ def submit_one(prep, keys, ledger, title, topic):
             # billed and the outcome is unknowable. NEVER auto-resubmit:
             # PAID_UNKNOWN stops here and the operator decides. A resume
             # that crashes on reserve-Refused would hide this branch.
+            # Retryable http (429/400) requeues instead: the fresh submit
+            # will meet the table again (including 402 -> failover).
             rec = ps.read_json(os.path.join(udir, "receipt.json"))
-            if rec.get("http_status") is None:
+            http = rec.get("http_status")
+            if http is None:
                 return {"handle": h, "outcome": "PAID_UNKNOWN",
                         "note": "sent with no outcome on resume: operator decides"}
-            return {"handle": h, "outcome": "PAID_UNKNOWN",
-                    "note": f"sent with http {rec.get('http_status')}: operator decides"}
+            if http in (429, 400, 402):
+                st["status"] = ps.QUEUED  # requeue; falls through to reserve
+            else:
+                return {"handle": h, "outcome": "PAID_UNKNOWN",
+                        "note": f"sent with http {http}: operator decides"}
         if v == ps.RESERVED:
             old = ps.read_json(os.path.join(udir, "receipt.json"))
             ledger.release("primary", f"{h}-p00-a{n-1}",
                            old.get("committed_usd", 0.0))
             # falls through to reserve() below: re-reserve + resubmit, no spend
+            st["status"] = ps.QUEUED
+        elif v == ps.LOST and os.environ.get("FAILOVER") == "1":
+            # Operator-authorized 402 failover batch: 402 means NOT BILLED, so
+            # the stranded commit releases safely (unlike true unknowns, which
+            # never release). Reset to queued; the fresh submit meets the
+            # table again and fails over to the secondary.
+            rec = ps.read_json(os.path.join(udir, "receipt.json"))
+            if not rec.get("paid_unknown"):
+                return {"handle": h, "outcome": "skip-lost"}
+            ledger.release("primary", f"{h}-p00-a{n-1}",
+                           rec.get("committed_usd", 0.0))
             st["status"] = ps.QUEUED
         st["submit_attempts"] = n
         ps.atomic_write_json(st_path, st)
@@ -253,26 +276,41 @@ def submit_one(prep, keys, ledger, title, topic):
     ps.mark_sent(udir, extras={"sent_ts": sent_ts, "transport": "sync"})
     url = sub.build_url(True, keyterms=kt)
     acct, key = "primary", keys["primary"]
-    try:
-        status, complete, opened = sub.post_file(
-            url, key, prep["part"], os.path.join(udir, "response-part-00.json"))
-    except sub.PaidUnknown as e:
-        ps.settle(udir, None, False)
-        return {"handle": h, "outcome": "PAID_UNKNOWN", "note": str(e)}
-    if status == 402:
-        if "secondary" not in keys:
-            ps.settle(udir, 402, False)
-            return {"handle": h, "outcome": "WALLET_NEEDED"}
-        ledger.release("primary", trial, cost)
-        cost2 = cost
-        ledger.commit("secondary", trial + "-sec", cost2)
-        acct, key = "secondary", keys["secondary"]
-        status, complete, opened = sub.post_file(
-            url, key, prep["part"], os.path.join(udir, "response-part-00.json"))
-    if status == 429:
-        time.sleep(2)
-        status, complete, opened = sub.post_file(
-            url, key, prep["part"], os.path.join(udir, "response-part-00.json"))
+    backoff = 2
+    status, complete, opened = None, False, sent_ts
+    failed_over = False
+    for attempt in range(4):
+        try:
+            status, complete, opened = sub.post_file(
+                url, key, prep["part"], os.path.join(udir, "response-part-00.json"))
+        except sub.PaidUnknown as e:
+            ps.settle(udir, None, False)
+            return {"handle": h, "outcome": "PAID_UNKNOWN", "note": str(e)}
+        if status == 402:
+            if "secondary" not in keys or failed_over:
+                ps.settle(udir, 402, False)
+                return {"handle": h, "outcome": "WALLET_NEEDED" if "secondary" not in keys else "WALLET_EXHAUSTED"}
+            # Whole part to the secondary, sequential failover (wallet, never
+            # concurrent). NOT counted in the 4 attempts: money, not retries.
+            ledger.release("primary", trial, cost)
+            cost2 = cost
+            ledger.commit("secondary", trial + "-sec", cost2)
+            acct, key = "secondary", keys["secondary"]
+            trial = trial + "-sec"
+            cost = cost2
+            failed_over = True
+            continue
+        if status == 429:
+            time.sleep(backoff)
+            backoff = min(60, backoff * 2)
+            continue
+        if status == 400:
+            continue  # re-prepare from receipt, resubmit identical payload
+        break
+    if status != 200:
+        ps.settle(udir, status, False)
+        return {"handle": h, "outcome": f"RETRY_EXHAUSTED_{status}",
+                "note": "attempts spent; receipt records the branch"}
     obj = json.load(open(os.path.join(udir, "response-part-00.json"), encoding="utf-8"))
     sub.check_arrival(obj)
     md = obj["metadata"]["duration"]
