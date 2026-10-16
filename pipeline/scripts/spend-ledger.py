@@ -48,7 +48,7 @@ MIN_RATE = RATE + KEYTERM_RATE
 SPEND_HARD_STOP_USD = 213.48
 DEFAULT_LEDGER = "/data/nhb/_meta/spend.json"
 
-ZERO = {"committed": 0.0, "settled": 0.0, "lost": 0.0, "released": 0.0}
+ZERO = {"committed": 0.0, "settled": 0.0, "lost": 0.0, "released": 0.0, "dead": 0.0}
 
 
 class StopHit(Exception):
@@ -162,6 +162,24 @@ class Ledger:
             t = ledger["totals"]
             t["committed"] = round(t["committed"] - cost, 6)
             t["lost"] = round(t["lost"] + actual, 6)
+        return self._locked(fn)
+
+    def write_down(self, aid, amount, reason):
+        """Move settled money to dead: spent, no deliverable, never re-counted.
+        The stop math (committed+settled+lost) no longer sees it; the dead
+        column memorializes it with the reason. One-way: no write-up exists."""
+        def fn(ledger):
+            a = self._acct(ledger, aid)
+            if amount > a["settled"] + 1e-9:
+                raise ValueError(f"write_down {amount} > settled {a['settled']}")
+            a["settled"] = round(a["settled"] - amount, 6)
+            a["dead"] = round(a.get("dead", 0.0) + amount, 6)
+            t = ledger["totals"]
+            t["settled"] = round(t["settled"] - amount, 6)
+            t["dead"] = round(t.get("dead", 0.0) + amount, 6)
+            ledger.setdefault("write_downs", []).append(
+                {"account": aid, "amount": amount, "reason": reason})
+            return t["settled"]
         return self._locked(fn)
 
     def report(self, vm_days=None):

@@ -129,6 +129,27 @@ def _():
     assert rep["stt_forecast_usd"] == 213.48, rep
 
 
+@T("write-down-moves-settled-to-dead-one-way")
+def _():
+    L = fresh()
+    L.commit("primary", "p1", 2.0)
+    L.settle("primary", 2.0, 1.8)
+    assert L.write_down("primary", 1.8, "ghost receipts wiped") == 0.0
+    t = L.totals()
+    assert abs(t["settled"]) < 1e-9 and abs(t["dead"] - 1.8) < 1e-9, t
+    try:
+        L.write_down("primary", 0.1, "overdraft")
+        raise SystemExit("write-down overdraft passed")
+    except ValueError:
+        pass
+    # Old-format ledger without dead key migrates safely.
+    raw = json.load(open(L.path, encoding="utf-8"))
+    del raw["totals"]["dead"]
+    del raw["accounts"]["primary"]["dead"]
+    json.dump(raw, open(L.path, "w"))
+    assert L.write_down("primary", 0.0, "zero-move") == 0.0
+
+
 def main():
     passed = sum(1 for r in RESULTS if r["verdict"] == "PASS")
     total = len(RESULTS)

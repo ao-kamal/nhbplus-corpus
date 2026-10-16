@@ -5,3 +5,4 @@
 {"test": "paid-unknown-counts-against-stop", "artifact": "spend-ledger.py", "input_digest": "a5909c365090ec19", "verdict": "PASS", "note": ""}
 {"test": "per-account-schema-totals-released-present", "artifact": "spend-ledger.py", "input_digest": "3cb4b6f2b3ec8450", "verdict": "PASS", "note": ""}
 {"test": "report-two-lines-never-one", "artifact": "spend-ledger.py", "input_digest": "6b77dc69ce133df1", "verdict": "PASS", "note": ""}
+{"test": "write-down-moves-settled-to-dead-one-way", "artifact": "spend-ledger.py", "input_digest": "f3ded312011fdce3", "verdict": "PASS", "note": ""}

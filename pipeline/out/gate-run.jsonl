@@ -8,7 +8,7 @@
 {"gate": "V-zyg", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-zyg.json", "counts": {"PASS": 4}}
 {"gate": "V-geo", "verdict": "STARTED", "script": "test-channels.py", "script_digest": "24ebfb8e5a7dd6ca"}
 {"gate": "V-geo", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-geo.json", "counts": {"PASS": 5}}
-{"gate": "V-md5", "verdict": "STARTED", "script": "test-spend-ledger.py", "script_digest": "831ab9ba0c1910c9"}
+{"gate": "V-md5", "verdict": "STARTED", "script": "test-spend-ledger.py", "script_digest": "04244b2aa6ba20f2"}
 {"gate": "V-md5", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-md5.json", "counts": {"PASS": 6}}
 {"gate": "V-z72", "verdict": "STARTED", "script": "test-submit.py", "script_digest": "505884faa693fb46"}
 {"gate": "V-z72", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-z72.json", "counts": {"PASS": 7}}
