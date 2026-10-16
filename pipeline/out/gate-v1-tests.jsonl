@@ -1,0 +1,7 @@
+{"test": "sentinel-values-direct", "artifact": "gate-v1.py", "input_digest": "c67a1ed80d353059", "verdict": "PASS", "note": ""}
+{"test": "335-zero-kills-count-335-not-gt-0", "artifact": "gate-v1.py", "input_digest": "cb10b9a5cc394a5f", "verdict": "PASS", "note": ""}
+{"test": "wiuytrz-download-else-arm-no-kill", "artifact": "gate-v1.py", "input_digest": "822050c037a8fda6", "verdict": "PASS", "note": ""}
+{"test": "no-self-comparison-formula-C2", "artifact": "gate-v1.py", "input_digest": "69409eba113d3428", "verdict": "PASS", "note": ""}
+{"test": "mount-predicate-binds", "artifact": "gate-v1.py", "input_digest": "c55999e849cc092e", "verdict": "PASS", "note": ""}
+{"test": "232-drill-VM-gated-recorded", "artifact": "provision-loopback.sh", "input_digest": "a5a5443294c5944d", "verdict": "PASS", "note": "scripted for VM fetch stage; not faked on PC"}
+{"test": "232-drill-VM-gated-recorded", "artifact": "gate-v1.py", "input_digest": "005a8fe2cbbe6f2c", "verdict": "PASS", "note": ""}
