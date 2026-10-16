@@ -95,7 +95,7 @@ def _():
 @T("smoke-edges-pass-55s-fails-negative-passes")
 def _():
     out = g.v5(0.40, 1435.945, 1436.885, 5531)  # smoke: head 0.40 tail 0.94
-    assert out == {"head_gap": 0.4, "tail_gap": 0.94,
+    assert out == {"head_gap": 0.4, "tail_gap": 0.94, "basis": "wall-clock",
                    "span_ratio": "UNSET (MIN_SPAN_RATIO unsourced)"}, out
     try:
         g.v5(55.0, 1400.0, 1436.0, 5000)
@@ -109,6 +109,23 @@ def _():
         raise SystemExit("empty passed")
     except g.V5Fail as e:
         assert "EMPTY" in str(e), e
+
+
+@T("silence-edges-pass-live-hnU2dCxTzb")
+def _():
+    # Live 2026-10-16: leader/trailer silence matching transcript edges.
+    out = g.v5(24.735, 6476.505, 6478.272, 22084,
+               speech_start=24.7041, speech_end=6476.6)
+    assert out["basis"] == "speech" and out["head_gap"] == 0.03, out
+    out = g.v5(2.32, 14280.555, 14301.461, 47896,
+               speech_start=0.0, speech_end=14280.6)
+    assert out["basis"] == "speech" and out["tail_gap"] == 0.05, out
+    # Same inputs WITHOUT speech edges still FAIL wall-clock (strict default).
+    try:
+        g.v5(24.735, 6476.505, 6478.272, 22084)
+        raise SystemExit("wall-clock lax without speech data")
+    except g.V5Fail as e:
+        assert "wall-clock" in str(e), e
 
 
 @T("span-ratio-unset-never-zero")

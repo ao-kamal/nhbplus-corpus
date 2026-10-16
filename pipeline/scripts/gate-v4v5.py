@@ -87,18 +87,39 @@ def v4(d_manifest, d_header, d_decoded):
             "manifest_excluded": bool(excluded)}
 
 
-def v5(first_start, last_end, d_manifest, n_words):
+def v5(first_start, last_end, d_manifest, n_words, speech_start=None,
+     speech_end=None):
+    """Edge gaps against SPEECH edges when measured, wall-clock otherwise.
+
+    AMENDMENT 2026-10-16 (live evidence): hnNURZKL head 24.735 s and U2dCxTzb
+    tail 20.9 s are LEADER/TRAILER SILENCE (silencedetect -30dB/0.5s matches
+    transcript edges to 0.03 s), not dropped speech. Wall-clock edges fail a
+    complete transcript: the V9-class false alarm. Speech edges are SMALLER
+    than wall-clock edges whenever both exist, so wall-clock PASS implies
+    speech PASS and only wall-clock FAILs need a silence measurement
+    (bounded 60+60 s windows, never a full decode). The basis is recorded
+    per verdict; unmeasured edges stay wall-clock-strict, never silently lax.
+    """
     if n_words == 0:
         raise V5Fail("EMPTY: no words (fetch/decode failure, retry costs money)")
     d_manifest = _num(d_manifest)
     if d_manifest is None or d_manifest <= 0:
         raise V5Fail("EMPTY: no duration")
-    head, tail = float(first_start), float(d_manifest) - float(last_end)
+    if speech_start is not None:
+        head = float(first_start) - float(speech_start)
+        basis = "speech"
+    else:
+        head, basis = float(first_start), "wall-clock"
+    if speech_end is not None:
+        tail = float(speech_end) - float(last_end)
+    else:
+        tail = float(d_manifest) - float(last_end)
     if head > SPAN_EDGE_SEC:
-        raise V5Fail(f"EDGE: head_gap {head:.2f} > {SPAN_EDGE_SEC}")
+        raise V5Fail(f"EDGE: head_gap {head:.2f} > {SPAN_EDGE_SEC} ({basis})")
     if tail > SPAN_EDGE_SEC:
-        raise V5Fail(f"EDGE: tail_gap {tail:.2f} > {SPAN_EDGE_SEC}")
+        raise V5Fail(f"EDGE: tail_gap {tail:.2f} > {SPAN_EDGE_SEC} ({basis})")
     return {"head_gap": round(head, 2), "tail_gap": round(tail, 2),
+            "basis": basis,
             "span_ratio": "UNSET (MIN_SPAN_RATIO unsourced)"}
 
 
