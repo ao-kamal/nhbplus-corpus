@@ -1,0 +1,1921 @@
+{
+  "generated": "2026-10-16T13:47:16.275628+00:00",
+  "source": "VM:/home/azureuser/nhbplus/vault",
+  "files": [
+    {
+      "relpath": "vault/00 Home.md",
+      "bytes": 112,
+      "sha256": "c7f06468081c4bb7cea2f4d3d9be2eec9e02ca3405224de9f891890ddaea9f31"
+    },
+    {
+      "relpath": "vault/00 Topics.md",
+      "bytes": 32051,
+      "sha256": "09129c20136943358bb5a6b8769e0cfc39908ea2185f61f5e68cf268d05a7dd4"
+    },
+    {
+      "relpath": "vault/attachments/01-11-2024 NHB Theory Call - Thoughts Into Emotions.docx",
+      "bytes": 539153,
+      "sha256": "596ac5bb3fb7dd7bdfa2e83ed9b69f6bd7114268f77b07897964b7f3a849810d"
+    },
+    {
+      "relpath": "vault/attachments/01-25-2024 NHB+ Theory Call - Criteria of Markets & Offers.docx",
+      "bytes": 43199,
+      "sha256": "d50a70c056ab40d10d24feb6f92ac77c89e7145c5400e3141a111ee8afd3d31e"
+    },
+    {
+      "relpath": "vault/attachments/01-31-2024 NHB Coaching Call - The CRO Audit Accelerator Pt. 2- With Brandon Vasquez V1.xlsx",
+      "bytes": 145492,
+      "sha256": "46998656785623055f6996a15e5c137164da511faeaf7a5d00010033539c65a2"
+    },
+    {
+      "relpath": "vault/attachments/01. NHB+ Reading Offers #2.docx",
+      "bytes": 509513,
+      "sha256": "7663082a2a05856c8ceedf75a9754f7dd925744b94af0f231371f3fb9c5f4ed8"
+    },
+    {
+      "relpath": "vault/attachments/01. NHB+ Selling To Women 2.docx",
+      "bytes": 231623,
+      "sha256": "ee724db92002aed94b80e8303968566cb9006b9e0d4ced50f21f0679a2b89b98"
+    },
+    {
+      "relpath": "vault/attachments/02. NHB+ Creating An Awareness Bridge.docx",
+      "bytes": 229373,
+      "sha256": "122069540d286b62ac4307cdfd56736fd8d520611b2a97342a5383e5bef9afae"
+    },
+    {
+      "relpath": "vault/attachments/02. NHB+ Engineering Commitment.docx",
+      "bytes": 22367,
+      "sha256": "ade6931a120748a000f16115ab7a3e7689deb21b1936e847f2116175457b14d9"
+    },
+    {
+      "relpath": "vault/attachments/02. NHB+ Reading Offers.docx",
+      "bytes": 3194800,
+      "sha256": "73df3cbe28e33f15a44fc5cbf352e7247203f3ce808af400a1db744171325cf2"
+    },
+    {
+      "relpath": "vault/attachments/03. NHB+ Cause For Arguments.docx",
+      "bytes": 225662,
+      "sha256": "600f5f884a1c606268005ffb683e7099657c23f011a4879ad328891fa73f2c18"
+    },
+    {
+      "relpath": "vault/attachments/03. NHB+ Creating And Spotting Opportunities.docx",
+      "bytes": 228337,
+      "sha256": "ff702d461ae83e81d885a942b9d4f0bd17184fa60f80ea1326552aed7864113d"
+    },
+    {
+      "relpath": "vault/attachments/04. NHB+ Requirements.docx",
+      "bytes": 11090,
+      "sha256": "aa4a5298cd502d41219c7f103236ae6d0475cbba73f0fb3fa50ee9f0b0600bfc"
+    },
+    {
+      "relpath": "vault/attachments/04. NHB+ _The Right Now Process_ .docx",
+      "bytes": 591050,
+      "sha256": "67e2e9719b321f5814d55e59be8c2793313a8b2cecec766d399273c70fc7a516"
+    },
+    {
+      "relpath": "vault/attachments/05. NHB+ The Catalog Model.docx",
+      "bytes": 16229,
+      "sha256": "e056c8fc391efa3112e12f86f7123fcba6714680cf2f1d3e9cc5181ce65a5275"
+    },
+    {
+      "relpath": "vault/attachments/06. NHB+ Increasing Beliefs.docx",
+      "bytes": 14045,
+      "sha256": "68247b9cfb05bb8dbddac31b61697395322412359f097d2aa70db95aceb5d701"
+    },
+    {
+      "relpath": "vault/attachments/06. NHB+ Market Positions.docx",
+      "bytes": 983000,
+      "sha256": "e42211704900077974f6c5bd503f27c5058f4a5d9504b8ee86a02c4824abee18"
+    },
+    {
+      "relpath": "vault/attachments/07. NHB+ The Go Back Mechanism.docx",
+      "bytes": 228619,
+      "sha256": "1976eb99e74f95d2cb51e2a226d404280d200547b2c2641dc491fb87c0bb1e72"
+    },
+    {
+      "relpath": "vault/attachments/09. NHB+ The Architecture of Awareness.docx",
+      "bytes": 223490,
+      "sha256": "88b90938d87383722bffa50cd85a9da3bcb06b2e1189495d67573cbd5070c696"
+    },
+    {
+      "relpath": "vault/attachments/1-Retarget-BOOK-Non-Buyers-Email-Template.pdf",
+      "bytes": 271551,
+      "sha256": "5d82357cc2c4292ca627d82539787083c0abe6c1106f726f86afef33db2de0c9"
+    },
+    {
+      "relpath": "vault/attachments/1. AC Calculator.pdf",
+      "bytes": 56431,
+      "sha256": "4c8f08a5e6bc4e0b62ccc78f63b3656c05908e74278db6ffd29ade296cb7699f"
+    },
+    {
+      "relpath": "vault/attachments/1. Automatic Clients Step.pdf",
+      "bytes": 124506,
+      "sha256": "28fdc6650695d087b7ef5c1f8a4397f60ea9b354c229de1d37247b2c5f8a0fdb"
+    },
+    {
+      "relpath": "vault/attachments/10. NHB+ Truth vs Trust .docx",
+      "bytes": 224033,
+      "sha256": "0bd0f1cf1fc7714b296d7dcdc131e078bac8ff326b652f369fa7714f43631bc3"
+    },
+    {
+      "relpath": "vault/attachments/11. NHB+ Objection Handling.docx",
+      "bytes": 299392,
+      "sha256": "001795afb23eae95a6152b8c0ff5c73e270d326e0a7823fe1c6114be6d9ce161"
+    },
+    {
+      "relpath": "vault/attachments/12. NHB+ Clean Biz-Ops.docx",
+      "bytes": 225034,
+      "sha256": "d0726b3c8986b0515abeb6e4f91a7d7462471ea3cf2a48104522f4b331aee28a"
+    },
+    {
+      "relpath": "vault/attachments/13. NHB+ Year End Roundtable Call.docx",
+      "bytes": 218050,
+      "sha256": "1e6f204bc03fc21e10722f0c6f271250fc4a985ea8fa731d0154143e5ab7553b"
+    },
+    {
+      "relpath": "vault/attachments/2-BOOK-Fulfillment-Email-Template.pdf",
+      "bytes": 207416,
+      "sha256": "190bc1e4c8373c4c1a30defbb03a6ba539e0813fd321fcea3e85df948373fdea"
+    },
+    {
+      "relpath": "vault/attachments/2. AC eBook.pdf",
+      "bytes": 38881070,
+      "sha256": "70778f3a3a46b4c8879be28fb16f9164b67795d93a8b05581adfe3a775855691"
+    },
+    {
+      "relpath": "vault/attachments/2. Automatic Clients Market Selection Matrix.pdf",
+      "bytes": 65076,
+      "sha256": "53d41f974beb8e57c6950a2435a9435471014313cdfbad60a283eb68a3feb083"
+    },
+    {
+      "relpath": "vault/attachments/3-OTO-1-Email-Templates.pdf",
+      "bytes": 282863,
+      "sha256": "45687c2b6415db7215ead108f67d9c4481dc4aeb13a5f57d4c359dace1e36d50"
+    },
+    {
+      "relpath": "vault/attachments/3. Automatic Clients Offer Name Generator.pdf",
+      "bytes": 71596,
+      "sha256": "55eab74896b5f211ae23d0a65885bbe785d4e8249ed918d501b5a1485eaa63ed"
+    },
+    {
+      "relpath": "vault/attachments/3. Economics Calculator.pdf",
+      "bytes": 64373,
+      "sha256": "77810ac0f1bb2d2daa9074af8a467863f75d5ef4e1db91e82fcab4f42f6e0d72"
+    },
+    {
+      "relpath": "vault/attachments/3. NHB+ Short Term vs Long Term Thinking Audiences.docx",
+      "bytes": 514906,
+      "sha256": "7092d69e67f2c2e4f4755cb339e4f22e0d05900b9f775667e7a16fb5b0a427b1"
+    },
+    {
+      "relpath": "vault/attachments/4-Book-A-Call-Email-Templates.pdf",
+      "bytes": 319455,
+      "sha256": "a44a53ad0ed5913af200255b95bef38856799c551835fee90694b80db4967a24"
+    },
+    {
+      "relpath": "vault/attachments/4. 2,498 Niches Spreadsheet.pdf",
+      "bytes": 67692,
+      "sha256": "86648c8057ce1d7948c623dd2205499c6c4f883bfb45be1acb78c48d85dbf142"
+    },
+    {
+      "relpath": "vault/attachments/4.1 2,498 Automatic Client Niche Markets.xlsx",
+      "bytes": 346903,
+      "sha256": "5e55cb439714aee7e830f9c6f42bea8be5afd619c81737bb72cdad10bbb41377"
+    },
+    {
+      "relpath": "vault/attachments/5. $200,000 Ad Template.pdf",
+      "bytes": 2339198,
+      "sha256": "2c230eeb710888a26e87007e6de52c6f50e6deaa226cc928093ce0f78fd85a8d"
+    },
+    {
+      "relpath": "vault/attachments/5. Our Best Ads.pdf",
+      "bytes": 2339198,
+      "sha256": "f60b9024d7591a29607e18d1757f58095b2a1dcff55aa265334befbee3f324ac"
+    },
+    {
+      "relpath": "vault/attachments/500-page-swipe-file-clayton-makepeace_compress_1.pdf",
+      "bytes": 69766389,
+      "sha256": "d7601137ac8b70936e449b1be3f8751a680d38f20c088c893fb854f5facb4dba"
+    },
+    {
+      "relpath": "vault/attachments/6-16-2022 FF Guest Call - Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS.xlsx",
+      "bytes": 786797,
+      "sha256": "d4d1da747227ce944d061e4e78cc33bc0bb5faa3d2e139246091b00cbeddb39b"
+    },
+    {
+      "relpath": "vault/attachments/6. 7-Figure VSL Script Template.pdf",
+      "bytes": 58079,
+      "sha256": "518e4f9117e9f32ae37486fd8445bada36c74b41afb695b98c74a9dcdf64c93d"
+    },
+    {
+      "relpath": "vault/attachments/8-31-2023 NHB+ Theory Call - Marketing Measures.docx",
+      "bytes": 13838,
+      "sha256": "70efbd59639fb404ec7e8977d1d5b2555d5bf5487502a31e6f2e6a3086c8ee56"
+    },
+    {
+      "relpath": "vault/attachments/9-14-2023 NHB+ Theory Call - The POV Process.docx",
+      "bytes": 2516989,
+      "sha256": "5db8e07a56603df7624fe2c424427bbd63b48d3b978302421829de8e5de1a8be"
+    },
+    {
+      "relpath": "vault/attachments/9-7-2023 NHB+ Theory Call - The Hidden Architecture Of Quiz Funnels.docx",
+      "bytes": 2236363,
+      "sha256": "a7ec83a947ad8cf76b8619bb15d77f0f5bbcb413184c3f1dd7ab2911fe04a0dd"
+    },
+    {
+      "relpath": "vault/attachments/AB Testing Template sheet.pdf",
+      "bytes": 70517,
+      "sha256": "633ac1286b5d8fce64c76ffa8c4f337417df6558ffc956af30dc0d6c0a4de78f"
+    },
+    {
+      "relpath": "vault/attachments/AC Book Writing Worksheet.pdf",
+      "bytes": 82251,
+      "sha256": "5ea5a5572ec9e08c3c27086ae6e3402f52748800f3c010247ff6559941bd4955"
+    },
+    {
+      "relpath": "vault/attachments/AC Design Tempalte.pdf",
+      "bytes": 82671,
+      "sha256": "fbcf1bb7ad21aa56424f67523299f3b8f3b375506a04ca699a7c103639074ca7"
+    },
+    {
+      "relpath": "vault/attachments/AC Economics Calculator.pdf",
+      "bytes": 88507,
+      "sha256": "0570546b47a1cd9770cd09900e1d8cce8ce155025772296a7cc33aa2e99e027a"
+    },
+    {
+      "relpath": "vault/attachments/AC EMAIL TEMPLATES.pdf",
+      "bytes": 80922,
+      "sha256": "4bcfedbfb338e6059ede2d9658dd1430635bd17827ba0950b9b7bc7fa6b95814"
+    },
+    {
+      "relpath": "vault/attachments/AC Figma File Template.pdf",
+      "bytes": 80082,
+      "sha256": "73da33f495f8df266be4387b5ce576ab087f486d4be75b477950e3299dcfbf43"
+    },
+    {
+      "relpath": "vault/attachments/AC funnel on Groovefunnels.pdf",
+      "bytes": 49674,
+      "sha256": "61f8336ce1752722723e09f68be66dbb090fa9f694c16276b885ad5e56e3e847"
+    },
+    {
+      "relpath": "vault/attachments/AC Lever Analysis.pdf",
+      "bytes": 83460,
+      "sha256": "aaddd5f0cf5668467ed071ddb7b1d470e5ffb2db5e5c6b3180827457b5924192"
+    },
+    {
+      "relpath": "vault/attachments/AC Product MockUp.pdf",
+      "bytes": 76292,
+      "sha256": "bd8a294261768adfbc35781fd67fb15cdd231c1e1439fb0588d5202d45f18839"
+    },
+    {
+      "relpath": "vault/attachments/AC Template on ClickFunnels.pdf",
+      "bytes": 75800,
+      "sha256": "08a8d8909b320c5d3b108eb373ae6735c91a612b41ce5acd5c200f94ea6e8a9b"
+    },
+    {
+      "relpath": "vault/attachments/AC Upsells.pdf",
+      "bytes": 59995,
+      "sha256": "3ef7ee39e7850379297801e261fa3c005f8bca8fa2ff5b5e386f750e022999f3"
+    },
+    {
+      "relpath": "vault/attachments/AC VIDEO TEMPLATE.pdf",
+      "bytes": 78378,
+      "sha256": "2917c30aeebc1463adb0a1822e5b7ffc9f9d1f850a80cc1aa8b22904c38380b3"
+    },
+    {
+      "relpath": "vault/attachments/AC_Book.pdf",
+      "bytes": 38540333,
+      "sha256": "6c297b7163ac1f2bcba3743707cdbe73e4fa47d314e54a29c530ba0c7dac874d"
+    },
+    {
+      "relpath": "vault/attachments/Alex Hormozi.pdf",
+      "bytes": 80710,
+      "sha256": "2ab3e7b9cfd7e45de3b859addecd1bee928241e73db40fc1ff6989561ebc7514"
+    },
+    {
+      "relpath": "vault/attachments/Automatic Clients Funnel Template for Go High Level.pdf",
+      "bytes": 58139,
+      "sha256": "a21f4a2824c572b691e3918a78708c6bf4061a919818ec397ae317030f545600"
+    },
+    {
+      "relpath": "vault/attachments/Background Graphics.pptx",
+      "bytes": 2383588,
+      "sha256": "844e6dacf970896afa98da739bbb81520d35b81948594bb444c0fb8ab090a59c"
+    },
+    {
+      "relpath": "vault/attachments/Beating Controls Template.pdf",
+      "bytes": 70243,
+      "sha256": "c2d879ad46f3d1e5a31ce565152d7ab50d95abf7f4b046a079cb763b1ce8be12"
+    },
+    {
+      "relpath": "vault/attachments/Billable Hours Calculator.pdf",
+      "bytes": 63341,
+      "sha256": "ed083a95a6024341f04168da68110ff0705d5dd9495967045827d78a56381cc9"
+    },
+    {
+      "relpath": "vault/attachments/Bullet Based Upsell1.pdf",
+      "bytes": 128895,
+      "sha256": "b7ac9739226bf885be9581999f25795d42d5a20b932fc83a47a0aabd9bd9165d"
+    },
+    {
+      "relpath": "vault/attachments/Call Watch History Sheet.pdf",
+      "bytes": 60231,
+      "sha256": "5a88ec32d34b601db239251094b67fb023009f8ae90b0a2ef877992a9d5172f4"
+    },
+    {
+      "relpath": "vault/attachments/ClickFunnels Resetting Timer.pdf",
+      "bytes": 75371,
+      "sha256": "d160b2ef131ed95e4fd61a418f13f35f504f3a60c027eac783397753cb403579"
+    },
+    {
+      "relpath": "vault/attachments/CMO CRO Proposal Templates.pdf",
+      "bytes": 67233,
+      "sha256": "15c9c45af916721dea37bf5b929bdf655defa400289fe22f0adb28214e90f70e"
+    },
+    {
+      "relpath": "vault/attachments/Converting-Ads.pdf",
+      "bytes": 9570782,
+      "sha256": "bdc2a69b8121a3198bbca6b60c31d65fc9247cb6f1c5fbd0963da9c01ab676b3"
+    },
+    {
+      "relpath": "vault/attachments/Economics Spreadsheet Template.pdf",
+      "bytes": 80608,
+      "sha256": "c67315574b7a278492e4904f0d3c2d65c50e0787369b9262b5200dea25d708c5"
+    },
+    {
+      "relpath": "vault/attachments/Editing AC template on Figma.pdf",
+      "bytes": 66687,
+      "sha256": "f032022fa4c923e712d6c1e82e9228be7c273a07dadcbda88b76b96ac5c1cc9e"
+    },
+    {
+      "relpath": "vault/attachments/Evergreen Webinars.pdf",
+      "bytes": 59503,
+      "sha256": "bc1e0ca05e4b183265308a0f833ab070f5335128f266d2461cafb3c2d1293095"
+    },
+    {
+      "relpath": "vault/attachments/Fill In The Blank Sales Letter.docx",
+      "bytes": 2067440,
+      "sha256": "e6adc535574de27b72e49364d1217a0e03e909a11552bf31bd4f8aebba778fa8"
+    },
+    {
+      "relpath": "vault/attachments/fourdaycashmachine.pdf",
+      "bytes": 4213233,
+      "sha256": "6cad281d38921bbf73dc63f1b71757b7d4ae32b74b30e6f0f0e2b1f57bc3d62f"
+    },
+    {
+      "relpath": "vault/attachments/Go High Level Appointment Funnel.pdf",
+      "bytes": 69411,
+      "sha256": "cdf0f4ae9867d5230b518f0c56e2813225f995fa7f95946361bdce39130dff73"
+    },
+    {
+      "relpath": "vault/attachments/Graphics - 2D Book Mockup Landscape.pptx",
+      "bytes": 5760854,
+      "sha256": "15c595b6bc61a2e1fab0c32f3f0c061e3855a55790b253ffeb52f258fff40853"
+    },
+    {
+      "relpath": "vault/attachments/Graphics - Image Collage.pptx",
+      "bytes": 6575923,
+      "sha256": "1aeb047618a995f0d5b53ce5846b4fb02df5dd42f9078e4638d18c30fd84a758"
+    },
+    {
+      "relpath": "vault/attachments/Graphics - Open Book Landscape.pptx",
+      "bytes": 2199777,
+      "sha256": "9dceac2f7aa3a9082f9eb8ec4b2db160ad4daeaff75f2e098e159f21b4713c87"
+    },
+    {
+      "relpath": "vault/attachments/Graphics - Process Graphic.pptx",
+      "bytes": 410688,
+      "sha256": "69d6d83999c6074bb984cfe0284702a6f9814bfb468e121471ffca96a07986c2"
+    },
+    {
+      "relpath": "vault/attachments/Graphics - Product Stack - Singles.pptx",
+      "bytes": 962244,
+      "sha256": "b946d0e91118196fba1da368865b349d0a004c3a29ec888613ddac77f9281554"
+    },
+    {
+      "relpath": "vault/attachments/Graphics - Product Stack.pptx",
+      "bytes": 1102782,
+      "sha256": "aabe9cd2cdf03900f017f28c9a4e60e5426e1479fc3afe3b687f5e58a9e5a514"
+    },
+    {
+      "relpath": "vault/attachments/Graphics - Testimonials.pptx",
+      "bytes": 408423,
+      "sha256": "86a1856b9170fb7c33be9826ee9dccc59b2c6d2a64954b7f1955a2d7af4c0380"
+    },
+    {
+      "relpath": "vault/attachments/Graphics for mockup1.pdf",
+      "bytes": 60376,
+      "sha256": "c672f8c024e0516fce14759cba375cb3e8de882ca248de3f0feaf0630994bdca"
+    },
+    {
+      "relpath": "vault/attachments/Graphics For Mockups.pdf",
+      "bytes": 60011,
+      "sha256": "af40fa638acf15d3e2fc53fd6bf00c1ece1e65e1fe4ebe229c5304f701b869df"
+    },
+    {
+      "relpath": "vault/attachments/Lazy Loading Code.zip",
+      "bytes": 310157325,
+      "sha256": "57c161b439c9feb53957624865ba543b6923e8bf44779e1a7d2e43bc7f71bc41"
+    },
+    {
+      "relpath": "vault/attachments/Low Ticket Ecom Sales Page.pdf",
+      "bytes": 82869,
+      "sha256": "8689389b5390a558a222969125dc571fc1e06f194de77938ee8ded5273118ece"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Argumentative Resistance.docx",
+      "bytes": 178562,
+      "sha256": "40f97a6066d6cd76e1136f481a6cb9ff85aee07c00670c92ca078fb7d6449461"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Conceptual God Model.docx",
+      "bytes": 14050,
+      "sha256": "eea9b6e2aae2d0940251bcb9f7e78e76c39af15962b1e3ad891a967b5a53cbc5"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Converting Audiences.docx",
+      "bytes": 12442,
+      "sha256": "0edf97bfd0c1ffb1ce8e49e6b5d39a90e3e3d841c367ab8da1023ddaf36adfc2"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Creating Moat.docx",
+      "bytes": 506793,
+      "sha256": "ae6290b15096dcab3f5f26ee167adb5fca9797ad1697e7ce3a9581d57d430550"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Criteria Of Markets Implementation Call.docx",
+      "bytes": 78877,
+      "sha256": "da505bd64e2cbba5eea71847ae63618e31593c66f0ad2a2a2c793ab545698c53"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Market Assumptions 2.0.docx",
+      "bytes": 20760,
+      "sha256": "3f9719d7c779a3b1267c1a196e9ab69f8c113abe6006c28a53cd3d0d57cb770e"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Momentum Marketing.docx",
+      "bytes": 112201,
+      "sha256": "b8b860cdf9ee9b3bdf8ab7d30ed13469696575e7d76017ae95ba09da2984af23"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Organic Content Structures.docx",
+      "bytes": 2070253,
+      "sha256": "aa28436037e4f8ea386ed8c68f4dba60db2ba4eccf04d391883f20bf32de82ba"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Perfect Launch Sequence.docx",
+      "bytes": 17844,
+      "sha256": "e26882ebe47e3c750c28fdc9f05bfd0c69eab7ddb27e80415c8cb8f20d902ec6"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Selling To Women 3.0.docx",
+      "bytes": 805504,
+      "sha256": "ecff446f6be90b891541d009db846b5acb9b0224a840239d9553369869d3838c"
+    },
+    {
+      "relpath": "vault/attachments/NHB+ Symbolic Language.docx",
+      "bytes": 197104,
+      "sha256": "7758448670af6e4e6380f9b77e0f12923e4c49d54b0c9bd15391c491bb24be98"
+    },
+    {
+      "relpath": "vault/attachments/OTO 1 Downsell.pptx",
+      "bytes": 372705,
+      "sha256": "0253b7df3716b8bbd4b635e74e4affe9756541b770710f397f0f4fc3415a0df0"
+    },
+    {
+      "relpath": "vault/attachments/OTO 1.pptx",
+      "bytes": 1083529,
+      "sha256": "dd95e586996892d24f48adaaa59633ca3df810d90d1a3b3e0b185377e14d7e30"
+    },
+    {
+      "relpath": "vault/attachments/OTO 2 .pptx",
+      "bytes": 661895,
+      "sha256": "cf200c095427a36498a62a2dc80ccfeeb33473874e58438a8944beb40c03716a"
+    },
+    {
+      "relpath": "vault/attachments/OTO 2 Downsell.pptx",
+      "bytes": 387481,
+      "sha256": "9339fa1db38658b18c259deaeee1d25d083449c480f2a4257bf906a13ac92653"
+    },
+    {
+      "relpath": "vault/attachments/Pick Primary Color.png",
+      "bytes": 151668,
+      "sha256": "dc05701c05ec4b54f08ee0cbe5caa1dd2368ff7e6e9a5c48db499cbd33572e02"
+    },
+    {
+      "relpath": "vault/attachments/Resources Links.txt",
+      "bytes": 132,
+      "sha256": "03e7610aacab2e9596de24c142733184b60fdb4ff741d1b249cb913be956c201"
+    },
+    {
+      "relpath": "vault/attachments/Sales Funnel Template Links.txt",
+      "bytes": 199,
+      "sha256": "d6d2e56cd80daf6076efbbaecf50830c4ba7f2cf12b4cc123db76b467bd04a1e"
+    },
+    {
+      "relpath": "vault/attachments/Stripe or Paypal screenshot templates.pdf",
+      "bytes": 57112,
+      "sha256": "afdbf1b3b1a190cb1f011bdf5979ca27f357ae6070ab75add8e2140de6ab18cb"
+    },
+    {
+      "relpath": "vault/attachments/Swipe.pdf",
+      "bytes": 800587,
+      "sha256": "e4f9ceca21fff4ca296893591ddb884f04c8e6a1c0cf92d968ccc44135c7dc2b"
+    },
+    {
+      "relpath": "vault/attachments/The sheet I use to track split tests.pdf",
+      "bytes": 79477,
+      "sha256": "35d76f8cdaa4f783160416012a14ff8811d19593b93acf1f7a7bc18d3a07b7e9"
+    },
+    {
+      "relpath": "vault/attachments/Ultimate Copywriting Library.pdf",
+      "bytes": 82389,
+      "sha256": "4876eade48e0ce8421a00a6447e679ddf2e37562f9ac8dfaf11b3f9829c0c148"
+    },
+    {
+      "relpath": "vault/attachments/Vimeo gif thumbnail custom code.pdf",
+      "bytes": 48573,
+      "sha256": "f8663865aa91d539983187008f13709c6d64ba6222335b6ccb76810e4b58d600"
+    },
+    {
+      "relpath": "vault/calls/2021/06 June/2021-06-07 How To Sell & Close High Ticket.md",
+      "bytes": 191139,
+      "sha256": "236c026c9732792af68855c68668b412d6ecb13dd71db5ad327d5fc3d439d3f6"
+    },
+    {
+      "relpath": "vault/calls/2022/04 April/2022-04-18 Mike Gandia.md",
+      "bytes": 133168,
+      "sha256": "91d46f060f8970830d7227ac00e8bf4c513998864d6d7a09d382ca40b51f037a"
+    },
+    {
+      "relpath": "vault/calls/2022/04 April/2022-04-25 Dale LAB Profile.md",
+      "bytes": 155794,
+      "sha256": "4c0c9cfa0f28fc125c73c952462d14e62e67bd53640a33af4b469ce0ec5f95c5"
+    },
+    {
+      "relpath": "vault/calls/2022/04 April/2022-04-27 Podcast VSL Training.md",
+      "bytes": 131828,
+      "sha256": "d9eef1c46d65935ce76dac2bfb7b9bc3103e0c9aa808737b4ecae4a7e68754f0"
+    },
+    {
+      "relpath": "vault/calls/2022/05 May/2022-05-30 Ron-Lynch, Uncensored Call.md",
+      "bytes": 140930,
+      "sha256": "28873e5080dc777ec8e735b4aa827a3aac53b728f169a9739020170a71b5f77c"
+    },
+    {
+      "relpath": "vault/calls/2022/06 June/2022-06-13 Matt Bacak, The Birth of High Ticket and Free CD Formula.md",
+      "bytes": 159847,
+      "sha256": "6f04e581d5362349b502a25d999e2cd2d48603f90af01de692663ed7d25f2e6c"
+    },
+    {
+      "relpath": "vault/calls/2022/06 June/2022-06-16 Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS.md",
+      "bytes": 148026,
+      "sha256": "99964cc1bc0c41a946784589b8545ab6e04f0f7d2af795ecea9047420215a1ce"
+    },
+    {
+      "relpath": "vault/calls/2022/06 June/2022-06-23 Weekly Calls - Competing on Economics.md",
+      "bytes": 226760,
+      "sha256": "90c5cb35a1770f973de38695d3b1dcb307e9ba382a79c99597183faec1653e39"
+    },
+    {
+      "relpath": "vault/calls/2022/06 June/2022-06-27 Dale on Equity.md",
+      "bytes": 150858,
+      "sha256": "f3026d21036175228245e09a537338b4b3d27e252da48b249d90de1374111c51"
+    },
+    {
+      "relpath": "vault/calls/2022/06 June/2022-06-30 Weekly Calls - Intentional Business Models.md",
+      "bytes": 227172,
+      "sha256": "a6ab38351488c8f30bfd571c6c4078a9dca4279922e7e982f6261eb5de316c41"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-07 Weekly Calls - The Philosophy of Offers.md",
+      "bytes": 196240,
+      "sha256": "7eb25dd246aa0a12b2f973bbefcb7b97d6c2e468cf5af6a1f6b85a33c90da834"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-11 Double Trouble Publishing.md",
+      "bytes": 155930,
+      "sha256": "99c7a7404775f19fde675c0109c871b954ff78cabd9fc5173e897467d9b7e0e5"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-14 Weekly Calls - Market Based Funnel Architecture & Design.md",
+      "bytes": 238885,
+      "sha256": "1f77f40934178db7953e14382875c154fb8feacc5f921f030b3c976360f8c971"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-16 Secrets of The Game Mindset Call.md",
+      "bytes": 207261,
+      "sha256": "f8732f1a712c6813f03c55a8167c1ea53f27f16cc5d482805cda188efc9f2bc7"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-18 Guest Speaker Loren on FB Ads.md",
+      "bytes": 249642,
+      "sha256": "eda4c4b467677972bdb1a264c537fa2af4c8165b3dc60c3d8430d68cd9c8e6d6"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-20 Guest Speaker Patrick Kenney on Google Ads.md",
+      "bytes": 233749,
+      "sha256": "770af26d7a04f8dda2e7fbf61ec780334c3b4db6343e2e83d71909545536698f"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-21 Evaluative Call Booking Models.md",
+      "bytes": 188937,
+      "sha256": "6be9b2e807c2105a5b4a72f9c4a6018e931cfc23763fc45229a6833d5cab8440"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-25 Guest Speaker Erfan Riahi on Closing.md",
+      "bytes": 145546,
+      "sha256": "cd914b55b2c08ffd68c77a7ebaa1ae7d66098c7998137dfc9f26dd7722727179"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-27 Guest Speaker John Caprani on Network Mastery.md",
+      "bytes": 100929,
+      "sha256": "bd9ae2148a5bdb1418e2676113c925b91795b245d5db0426c323fce69fcdbe2e"
+    },
+    {
+      "relpath": "vault/calls/2022/07 July/2022-07-28 What To Sell & Selling On Outcomes.md",
+      "bytes": 247617,
+      "sha256": "9c138055c5c9e6db1582463cd5ae47ba1d5c1fedce730ecfbb85d0aec0ca86ac"
+    },
+    {
+      "relpath": "vault/calls/2022/08 August/2022-08-01 Guest Speaker Pauline Longdon on Copywriting.md",
+      "bytes": 156210,
+      "sha256": "4a9b5ad8724e72437a3e2107db2b33f7ff2c09cfac3d105907253c3939049f70"
+    },
+    {
+      "relpath": "vault/calls/2022/08 August/2022-08-04 Upsell Masterclass.md",
+      "bytes": 220318,
+      "sha256": "2565a34eef39926117ef890347bd7dbcd4ca97bfd36d8d85ff9f6a3ebe6aed0b"
+    },
+    {
+      "relpath": "vault/calls/2022/08 August/2022-08-11 Integration Call Part 1.md",
+      "bytes": 290712,
+      "sha256": "84fdb87a254da42ee45971c88d5aa68b1f62c5844984dc398ce1e76e629a8c77"
+    },
+    {
+      "relpath": "vault/calls/2022/08 August/2022-08-22 Guest Speaker Rohan Sheth on Event Model.md",
+      "bytes": 88017,
+      "sha256": "7b85d8c6b882a8d98e7a8fe3f63468d2b58607b09d7dd68183311eaa0111af24"
+    },
+    {
+      "relpath": "vault/calls/2022/08 August/2022-08-25 Integration Call Part 2.md",
+      "bytes": 260645,
+      "sha256": "152fc33d6e3249e3b5edaa486e7938c7a95919a043472c96a3e36591d9d8bda0"
+    },
+    {
+      "relpath": "vault/calls/2022/09 September/2022-09-01 VSL Masterclass Part 2 Body Copy.md",
+      "bytes": 240731,
+      "sha256": "f64a5368d065efb2f900bf8c4c01498486925c073b79ed68af6d901cbb0feb0a"
+    },
+    {
+      "relpath": "vault/calls/2022/09 September/2022-09-07 Guest Speaker Call - Sam Park YT Ads Masterclass.md",
+      "bytes": 157846,
+      "sha256": "c24abb9e2a5be5dfa5e85982384c2f82bf25424223e2c97f16a6bd0df64d5300"
+    },
+    {
+      "relpath": "vault/calls/2022/09 September/2022-09-08 VSL Masterclass Part 3 - The Close.md",
+      "bytes": 189464,
+      "sha256": "d88ac22b6d6d27d8847df6d3ffe167e0342c4177e1ac1e9e96b220304ba0ad67"
+    },
+    {
+      "relpath": "vault/calls/2022/09 September/2022-09-15 VSL Masterclass Part 4 - Rhythm - Style - Cadence.md",
+      "bytes": 252407,
+      "sha256": "94ef5f2a76bd96b1bd77883afe2bb44a038c9cd600999f4c410f533277179e0e"
+    },
+    {
+      "relpath": "vault/calls/2022/09 September/2022-09-19 Guest Speaker Call - Jordan Hall.md",
+      "bytes": 212406,
+      "sha256": "8efcebd664d499cec713db37670c85e01de616c0f9c2442e69b691c1bbc1a8c8"
+    },
+    {
+      "relpath": "vault/calls/2022/09 September/2022-09-22 Low Ticket Offers.md",
+      "bytes": 257731,
+      "sha256": "615514ebe09c85978ce8bb7dad1ffaf3b75cbf2857b2a4da45c23d639ed54e50"
+    },
+    {
+      "relpath": "vault/calls/2022/09 September/2022-09-29 CMO-CRO Roles.md",
+      "bytes": 207695,
+      "sha256": "23ccdfad8924901a61a528cd3030f84de83e0ffdfd32385d8c5072dc7130fe00"
+    },
+    {
+      "relpath": "vault/calls/2022/10 October/2022-10-06 Bible Offer + Recurring Membership Models.md",
+      "bytes": 231048,
+      "sha256": "ee0fe83751f4cb4b35fe573db97ab6138adf9efc5cfcd8604313a1f455877c31"
+    },
+    {
+      "relpath": "vault/calls/2022/10 October/2022-10-13 Web Hosting Offers + 5 Step Sales Process.md",
+      "bytes": 253954,
+      "sha256": "da1fa8c172f6a3135a7099601bfd45adfdc90f398e9e34706619b2c0e6465cad"
+    },
+    {
+      "relpath": "vault/calls/2022/10 October/2022-10-20 Astrology + Market Maturation Cycles.md",
+      "bytes": 207902,
+      "sha256": "3eb877b0c735875e12301e2159850744d3cff7b907dece9a3e2216b867d9b3f4"
+    },
+    {
+      "relpath": "vault/calls/2022/10 October/2022-10-27 What and the Who.md",
+      "bytes": 236381,
+      "sha256": "ef6fdf7a7da52f722bf0fea9b9c54802c7078f1326c3f3ebce718efd00a82322"
+    },
+    {
+      "relpath": "vault/calls/2022/10 October/2022-10-31 Mindstream Call.md",
+      "bytes": 149722,
+      "sha256": "b88c591c6abaf7b2be182a58ff88daf11f4479bb380828fee581bf549936e8e0"
+    },
+    {
+      "relpath": "vault/calls/2022/11 November/2022-11-02 Fireside Chat - Offer Creation.md",
+      "bytes": 192108,
+      "sha256": "825344ca21c31997390c4017cc936e7cbbbf72848872d77150d0156bdc65df16"
+    },
+    {
+      "relpath": "vault/calls/2022/11 November/2022-11-03 Core Emotions of Markets - Outcomes - Desire Stacking.md",
+      "bytes": 185729,
+      "sha256": "dcb0bc9a228debeea6b783e0f5a55d3076c72a99a1bae21c646468bd496d2c39"
+    },
+    {
+      "relpath": "vault/calls/2022/11 November/2022-11-10 Biz-Op Blueprint.md",
+      "bytes": 263828,
+      "sha256": "70069784e4ae5182dc66d048931e9aa8139d9fe76e8288586310c92a7fca7994"
+    },
+    {
+      "relpath": "vault/calls/2022/11 November/2022-11-17 Mechanism of Fear & Optimism.md",
+      "bytes": 216264,
+      "sha256": "3821fb20e58cfc8ef98050a055bc2c74c21a51e4dc1557fed158407ca2328c7b"
+    },
+    {
+      "relpath": "vault/calls/2022/11 November/2022-11-25 Real.md",
+      "bytes": 176536,
+      "sha256": "34e1a6dcd1214ec38d6959f227537ae437f2dc2749afb7ea7a4a927766bb8003"
+    },
+    {
+      "relpath": "vault/calls/2022/12 December/2022-12-01 Authority Handover.md",
+      "bytes": 196318,
+      "sha256": "7eef111cedf3064ca0264b4d288d88dd92951d930a52e2e7590e85cf96f8ea3e"
+    },
+    {
+      "relpath": "vault/calls/2022/12 December/2022-12-08 December Integration Call 1.md",
+      "bytes": 217979,
+      "sha256": "15cd4689b0bbbec22ca9c21b2ddad2b68552e3d984574e01e87fcbf0541d1f29"
+    },
+    {
+      "relpath": "vault/calls/2022/12 December/2022-12-15 December Integration Call 2.md",
+      "bytes": 219931,
+      "sha256": "67277377dcfaf14e1e265a44688996babc168b75c79ad227e185b8e11c49a3ca"
+    },
+    {
+      "relpath": "vault/calls/2022/12 December/2022-12-22 December Integration Call 3.md",
+      "bytes": 201118,
+      "sha256": "11b19f3b64341a8c006ec2141faa20b2a5b118f72b9940a58fc0bbdca07c25f1"
+    },
+    {
+      "relpath": "vault/calls/2022/12 December/2022-12-29 Relationship Trust Cycles.md",
+      "bytes": 256625,
+      "sha256": "a781c91b47b69cef4048ede50430b038d7aa329407e2001cf075dab45862cb71"
+    },
+    {
+      "relpath": "vault/calls/2023/01 January/2023-01-05 Limiting Beliefs.md",
+      "bytes": 254933,
+      "sha256": "6f807d8481c7f11c69bfd6feaf4d3e7193e12b556faf73ee81f8c4eba272032c"
+    },
+    {
+      "relpath": "vault/calls/2023/01 January/2023-01-12 Anatomy of Ads.md",
+      "bytes": 196153,
+      "sha256": "cb6f5a16ef69cbb0e3ac911cf4ebc32ba809dc1e62165f889fbc13a8e99dd791"
+    },
+    {
+      "relpath": "vault/calls/2023/01 January/2023-01-19 Publishing Profits.md",
+      "bytes": 213819,
+      "sha256": "24bd08c81716731704e501f29b1a2488b9e0efd01d90e5d09fdac567abf7ec43"
+    },
+    {
+      "relpath": "vault/calls/2023/01 January/2023-01-26 Symbolism.md",
+      "bytes": 217784,
+      "sha256": "95f118d4b5444df2f48a3f476cb40b27eb4958b2a19663292be65992f900c289"
+    },
+    {
+      "relpath": "vault/calls/2023/02 February/2023-02-02 Vitamins & Stuff.md",
+      "bytes": 180108,
+      "sha256": "5efdbed1aae45aa02c813b26d2a11fe525f7048b5cec473b0c2d1a29eaca4cc6"
+    },
+    {
+      "relpath": "vault/calls/2023/02 February/2023-02-09 Theory - Redefine Yourself.md",
+      "bytes": 208205,
+      "sha256": "013907045d6af6bffadbc3d60b5dfa8af02eff9077ac1f1b38e29382b7f9f953"
+    },
+    {
+      "relpath": "vault/calls/2023/02 February/2023-02-15 Mike Gandia Publishing.md",
+      "bytes": 211150,
+      "sha256": "a4bd44c3cc27638d338ba7e7aab73be7307ce1bf368787b729bc5eba18260bc5"
+    },
+    {
+      "relpath": "vault/calls/2023/02 February/2023-02-16 Primary Motivators of Action.md",
+      "bytes": 228825,
+      "sha256": "990e96f04286c8c961b6f158343bb7c8696cb3c56659fdf3d71e97251d558fa7"
+    },
+    {
+      "relpath": "vault/calls/2023/02 February/2023-02-23 Creating Desire.md",
+      "bytes": 226065,
+      "sha256": "c9e9d9dfa4b0ea5d2d9d833e2b6f1321024dac1db99ff480c5330335b59b0356"
+    },
+    {
+      "relpath": "vault/calls/2023/02 February/2023-02-27 Ray Blakney.md",
+      "bytes": 162631,
+      "sha256": "176f8c869ecd9e23f41c1c0e2e74b6d545dd89fad4d0dd419ea3078e7c636dbf"
+    },
+    {
+      "relpath": "vault/calls/2023/03 March/2023-03-02 Absolution of Responsibility.md",
+      "bytes": 211685,
+      "sha256": "7fc0138f5dd03fd666b711d7b70476a5c09631a8496e8899ae7647329ad354f3"
+    },
+    {
+      "relpath": "vault/calls/2023/03 March/2023-03-09 Call - Creating Rationalizations.md",
+      "bytes": 220256,
+      "sha256": "525cec179c6f9ca55745e2ce7d9c24bfb78ce36e9896ca77a548695f53eb1553"
+    },
+    {
+      "relpath": "vault/calls/2023/03 March/2023-03-16 TSL Structures.md",
+      "bytes": 249143,
+      "sha256": "b4e4da0759b134fa2f667baaf705a5113fc20a36a16d84a8945968f9442f9d58"
+    },
+    {
+      "relpath": "vault/calls/2023/03 March/2023-03-23 Basis of Objections.md",
+      "bytes": 245526,
+      "sha256": "c9c6206109c508de2212b901c5e4010313a2ad834762decb081844d0c9418ff8"
+    },
+    {
+      "relpath": "vault/calls/2023/03 March/2023-03-30 Problem - Solution Ratios.md",
+      "bytes": 228042,
+      "sha256": "25d0461d225b1ce60b590311e371ce3ff14e70b567feb8639d95f5ee75411fc1"
+    },
+    {
+      "relpath": "vault/calls/2023/04 April/2023-04-06 Risk Reversals.md",
+      "bytes": 221842,
+      "sha256": "d726d09adddac848c5658612481244c7383806b677074e2fed5f2f83b5b828ba"
+    },
+    {
+      "relpath": "vault/calls/2023/04 April/2023-04-13 Levels of Desire.md",
+      "bytes": 214715,
+      "sha256": "a487ad47e24f3df80a11fdcef84a3a18dd4320d5886f5c1f56a59a6668823af0"
+    },
+    {
+      "relpath": "vault/calls/2023/04 April/2023-04-20 Rapport & Openings.md",
+      "bytes": 256426,
+      "sha256": "b9f7207ee3e7a763a1d24d796b693586d4609f69cf0027c88b6ccf1596381cfc"
+    },
+    {
+      "relpath": "vault/calls/2023/04 April/2023-04-25 Complaints To Conversions.md",
+      "bytes": 231932,
+      "sha256": "26f471d60636b20495bbc3194f772b6f3325d72a7e9994905f16c451efe062f7"
+    },
+    {
+      "relpath": "vault/calls/2023/04 April/2023-04-27 Anatomy of Ads 2.0.md",
+      "bytes": 257251,
+      "sha256": "51cb2192a25244b3d952bf619903937789b40e0e4e06cb21d5ab0f259883f728"
+    },
+    {
+      "relpath": "vault/calls/2023/05 May/2023-05-04 Reading Data Call 1.0.md",
+      "bytes": 246210,
+      "sha256": "0f7a6edbbbc2ed2e9c9e4f9fb1356498ba7ab4eb0b1fbda9bcc79cd5221ab15c"
+    },
+    {
+      "relpath": "vault/calls/2023/05 May/2023-05-11 Seasonal Adjustment Strategies.md",
+      "bytes": 203732,
+      "sha256": "73448be68859b9d6d72be18e67917958a0f1a3eb568dfcc507259c73730132e8"
+    },
+    {
+      "relpath": "vault/calls/2023/05 May/2023-05-18 Educational vs Motivational Copy.md",
+      "bytes": 210259,
+      "sha256": "87118930ace76997a85ea991f2c740dc387cbf6c6cfc1039f03df62756d53c40"
+    },
+    {
+      "relpath": "vault/calls/2023/05 May/2023-05-25 What Not To Say In Copy.md",
+      "bytes": 209394,
+      "sha256": "edd775f00262f12fce1fa9d3f8516d1c85edc5eaeb19adea048d5ebc07c73edc"
+    },
+    {
+      "relpath": "vault/calls/2023/06 June/2023-06-01 Age Cycles.md",
+      "bytes": 203448,
+      "sha256": "50d49a8eff983f95b6ca1316dc9df4f946d2896d5141b18ef27a762142ae85ff"
+    },
+    {
+      "relpath": "vault/calls/2023/06 June/2023-06-08 Instant Promo Technique.md",
+      "bytes": 170309,
+      "sha256": "96ccc2a8c6f28935c9c0eed9f0c95605360eefcf12936aa7f978325a8f6fc692"
+    },
+    {
+      "relpath": "vault/calls/2023/06 June/2023-06-15 Optimizing For Limitations.md",
+      "bytes": 230952,
+      "sha256": "f2de0096d8e809f2b3dba682811e31bcd4d9b5c01e52a7e2b1a9d1f42c157f68"
+    },
+    {
+      "relpath": "vault/calls/2023/06 June/2023-06-22 Timeline Language.md",
+      "bytes": 155563,
+      "sha256": "22be10d350d4d9da171851a08c87290f3ca8b3bb325a0d4721abf16c6caf6e55"
+    },
+    {
+      "relpath": "vault/calls/2023/06 June/2023-06-29 Copy Payoffs.md",
+      "bytes": 155709,
+      "sha256": "b72890c98cc3cec821f4f309d6c2bfaf58a957d430b39a95a4ffdbb2e96183cf"
+    },
+    {
+      "relpath": "vault/calls/2023/07 July/2023-07-06 3 Step Sales Page.md",
+      "bytes": 152203,
+      "sha256": "028e29508f9cb7a7d9c055a1a29e429155ef5417fdbabe2a113add3e8c617d95"
+    },
+    {
+      "relpath": "vault/calls/2023/07 July/2023-07-13 List Management.md",
+      "bytes": 186180,
+      "sha256": "44f9a78490f67699fa7d7aa3cbfe2f93a9c2e71d134d579da411daa9d228e71c"
+    },
+    {
+      "relpath": "vault/calls/2023/07 July/2023-07-20 Selling To Women.md",
+      "bytes": 205767,
+      "sha256": "2c9a1001ab428158fcc7955e2079c1065db31aba13bd3244dcc4ec4b994b68a5"
+    },
+    {
+      "relpath": "vault/calls/2023/07 July/2023-07-27 Emotional Spending.md",
+      "bytes": 209521,
+      "sha256": "75091dc1d4f3681c1ed1e0a695450faa70041ea098a16e67011358b859009cd7"
+    },
+    {
+      "relpath": "vault/calls/2023/08 August/2023-08-03 Selling To The Ego.md",
+      "bytes": 221630,
+      "sha256": "067eb2687425fc4ab76ef2c82ed6c9d71d180ab42378fdaffbdf637f13ac9c17"
+    },
+    {
+      "relpath": "vault/calls/2023/08 August/2023-08-10 Assumptive Questions.md",
+      "bytes": 182687,
+      "sha256": "75a1a7e62e20a2e4eb70685a568942035f2110418cd5e456c71dbe3b71a12538"
+    },
+    {
+      "relpath": "vault/calls/2023/08 August/2023-08-17 Market Assumptions.md",
+      "bytes": 191625,
+      "sha256": "f4599533bc26c7fa1b24fce0e3ffe18b5e4e1751f450f3fb07cff4537b82f9ff"
+    },
+    {
+      "relpath": "vault/calls/2023/08 August/2023-08-24 Sales Format Innovation.md",
+      "bytes": 258361,
+      "sha256": "a84892f038f66107f8e69f0e9c2094e45df1116d1febfe548b148af059f276d9"
+    },
+    {
+      "relpath": "vault/calls/2023/08 August/2023-08-31 Marketing Measures.md",
+      "bytes": 194454,
+      "sha256": "72b583c26b9bbf9c9feb4f2426ebcb866064b128d917caebee1b9dd9def50f11"
+    },
+    {
+      "relpath": "vault/calls/2023/09 September/2023-09-07 Hidden Architecture Of Quiz Funnels.md",
+      "bytes": 215176,
+      "sha256": "1a8d78b90e178ca991816e894bcba2c7744f0da901a019f1494b926a13b69c3d"
+    },
+    {
+      "relpath": "vault/calls/2023/09 September/2023-09-14 POV Process.md",
+      "bytes": 225114,
+      "sha256": "bae9085ec3f2b69d9f8efc6119c1bec8e5a5404f52bab514048067ff00db7181"
+    },
+    {
+      "relpath": "vault/calls/2023/09 September/2023-09-21 POV Process Part 2.md",
+      "bytes": 192717,
+      "sha256": "12f9c8dcd786db1dccc8c090cdd326876561c204e17017bf735dc6c2c51497e7"
+    },
+    {
+      "relpath": "vault/calls/2023/10 October/2023-10-05 Call - Selling To Women Part 2.md",
+      "bytes": 233345,
+      "sha256": "36180cfe3b1fdcb4856b9856e46842536b5b6320af320f9069a6f0fc9486a120"
+    },
+    {
+      "relpath": "vault/calls/2023/10 October/2023-10-12 Creating An Awareness Bridge.md",
+      "bytes": 197467,
+      "sha256": "b8c199818925ac544a43fb0b7bda7a0e1feef63bd1c4e7e0a3b5ceb929c4f4f2"
+    },
+    {
+      "relpath": "vault/calls/2023/10 October/2023-10-19 Cause For Arguments.md",
+      "bytes": 238482,
+      "sha256": "43259452cb2a855d9801262f6ad78bc20e48e4c631b404e392c09004165b5670"
+    },
+    {
+      "relpath": "vault/calls/2023/10 October/2023-10-26 Requirements.md",
+      "bytes": 234699,
+      "sha256": "9099c4afe24bf245c203ddd6e709927d303d64962e1ceaa5b5a3570937504cca"
+    },
+    {
+      "relpath": "vault/calls/2023/11 November/2023-11-02 Catalog Model.md",
+      "bytes": 230758,
+      "sha256": "779106a62c5df94991762a1a87e470bc25551f29c0749cdb0caad446e7d592f6"
+    },
+    {
+      "relpath": "vault/calls/2023/11 November/2023-11-09 Market Positions.md",
+      "bytes": 218649,
+      "sha256": "2cda6e07997a898af9bd50500a3c5f2af2040a527eae798b9e1ef3d9b31481cf"
+    },
+    {
+      "relpath": "vault/calls/2023/11 November/2023-11-16 Go Back Mechanism.md",
+      "bytes": 222378,
+      "sha256": "77c2bfb2defc468f98b0aa8a801542f69ed01e9cbdd1fab3de95458e0bc9f7d8"
+    },
+    {
+      "relpath": "vault/calls/2023/11 November/2023-11-23 Thanksgiving Real.md",
+      "bytes": 186951,
+      "sha256": "6199d3aa886cee4cb60abe06e45daee68905dd18526dce1b6086b003812504d3"
+    },
+    {
+      "relpath": "vault/calls/2023/11 November/2023-11-30 Architecture of Awareness.md",
+      "bytes": 208623,
+      "sha256": "81020f95d306f0e6e4a579b0005113c1b7760a34b3c0c59f8a975373c8058475"
+    },
+    {
+      "relpath": "vault/calls/2023/12 December/2023-12-07 Truth vs Trust.md",
+      "bytes": 214392,
+      "sha256": "edc6405ea35cb3b9b572bb22b6f76048d7aa290e7e7f8775f9f694a4dd967ea3"
+    },
+    {
+      "relpath": "vault/calls/2023/12 December/2023-12-14 Objection Handling Story Structures.md",
+      "bytes": 240095,
+      "sha256": "1c1110aec994b18750276eb3ac100085e04605ced5f1d08908fd5638a305e971"
+    },
+    {
+      "relpath": "vault/calls/2023/12 December/2023-12-21 Clean Biz-Ops.md",
+      "bytes": 212121,
+      "sha256": "7a3e92c8e470987bf269a61ecdb055642e4cf70e0795b76c1f7256d957d9a05c"
+    },
+    {
+      "relpath": "vault/calls/2023/12 December/2023-12-28 Year End Roundtable Call.md",
+      "bytes": 210474,
+      "sha256": "5a0200a8ffd935a646b52344e80de9fff680403393fbd09ae2a5248af7a9af66"
+    },
+    {
+      "relpath": "vault/calls/2024/01 January/2024-01-04 Industry Back Ends.md",
+      "bytes": 246345,
+      "sha256": "615a42cf2b72b8d4f102cb8db39d0716f66e9e346714b3335a0b7bb8948ada56"
+    },
+    {
+      "relpath": "vault/calls/2024/01 January/2024-01-11 Thoughts into Emotions.md",
+      "bytes": 251207,
+      "sha256": "e7388671ef7b4875360138c0e5d3519cb7adc21e69c044ccdda8a98af907b892"
+    },
+    {
+      "relpath": "vault/calls/2024/01 January/2024-01-18 Criteria of Markets Part 1.md",
+      "bytes": 279652,
+      "sha256": "f92eee45a407692b50d7e430b467d7983988186461bf3d919e6af77a8c0ba0a2"
+    },
+    {
+      "relpath": "vault/calls/2024/01 January/2024-01-24 The CRO Audit Accelerator - With Brandon Vasquez.md",
+      "bytes": 213252,
+      "sha256": "9cf7f117b6007c5f7b12cdd16747b92486f7aebd3683b4398a06578c62469f43"
+    },
+    {
+      "relpath": "vault/calls/2024/01 January/2024-01-25 Criteria of Markets Part 2.md",
+      "bytes": 256545,
+      "sha256": "2aec3597beb493e410849938df3f6e0dd680712a44d8b7f97a98ff48b67feb5f"
+    },
+    {
+      "relpath": "vault/calls/2024/01 January/2024-01-31 The CRO Audit Accelerator Pt. 2- With Brandon Vasquez.md",
+      "bytes": 146655,
+      "sha256": "9a47dadb31e7d6dbc6fdf8d0d70b8d0aceda634f42d1d9e484a06aff8d68ddce"
+    },
+    {
+      "relpath": "vault/calls/2024/02 February/2024-02-01 Criteria of Markets Part 3.md",
+      "bytes": 258787,
+      "sha256": "b0218cfb4520c323aad602bc3db422c790e49359d3c9ded3f0ff67e0bd42b374"
+    },
+    {
+      "relpath": "vault/calls/2024/02 February/2024-02-08 Criteria of Markets Implementation Call.md",
+      "bytes": 235806,
+      "sha256": "b9c74435603c63cf2e901438f2c6ecf94910a7daa9931d44c3361391f69fbed2"
+    },
+    {
+      "relpath": "vault/calls/2024/02 February/2024-02-15 Creating MOAT.md",
+      "bytes": 214404,
+      "sha256": "10dd776795b77acba93c5437a9d741a7c72a61fd5975c6b272751394cec26f89"
+    },
+    {
+      "relpath": "vault/calls/2024/02 February/2024-02-19 Ben and Loren FB Ads Masterclass.md",
+      "bytes": 275218,
+      "sha256": "dea69abe094899f5c667357ca5b8bbdf085e3932c9a37b518727af9b0a001b64"
+    },
+    {
+      "relpath": "vault/calls/2024/02 February/2024-02-22 Organic Content Structures.md",
+      "bytes": 201600,
+      "sha256": "59b43df6b7dbbc02eb1c128521ebedd550385ec025cbd1e26bddb9acfd7f8880"
+    },
+    {
+      "relpath": "vault/calls/2024/02 February/2024-02-29 Creating Marketing Models.md",
+      "bytes": 244338,
+      "sha256": "aca985240c1a6695eb29515d7c81dcee27a62f80f1f32e0716fa8f088a7eba9a"
+    },
+    {
+      "relpath": "vault/calls/2024/03 March/2024-03-07 Converting Audiences.md",
+      "bytes": 226036,
+      "sha256": "1e3df73e390230acb9ddcf0a6fe0b9ce8b8c24f868ad6d79baef0e9be01b975b"
+    },
+    {
+      "relpath": "vault/calls/2024/03 March/2024-03-14 Market Assumptions 2.0 (Counter Arguments).md",
+      "bytes": 219697,
+      "sha256": "ce95d96d43e07c03f6b3916ba87ff9e3d718cf9a21fcb95e0f9b3a4cbd24c607"
+    },
+    {
+      "relpath": "vault/calls/2024/03 March/2024-03-21 Conceptual God Model.md",
+      "bytes": 197826,
+      "sha256": "1c4b0004fe0d1a695461557905c34952bceaba31b73ab55fb525123cb7b985c8"
+    },
+    {
+      "relpath": "vault/calls/2024/03 March/2024-03-28 Lowering Argumentative Resistance.md",
+      "bytes": 219332,
+      "sha256": "afb7606fa1279fe968022fee1492523be15f3c5fc226d923ee0297c304b52cda"
+    },
+    {
+      "relpath": "vault/calls/2024/04 April/2024-04-04 Perfect Launch Sequence.md",
+      "bytes": 187611,
+      "sha256": "85302855702a19c0496f79541c7e99652dff8442f7cf375f8e521a5962ebba7e"
+    },
+    {
+      "relpath": "vault/calls/2024/04 April/2024-04-11 Momentum Marketing.md",
+      "bytes": 266321,
+      "sha256": "7f6ea180a5051ef3de55672fc55d2d855ceeda9f75fe8ba5701310687c1e3e9e"
+    },
+    {
+      "relpath": "vault/calls/2024/04 April/2024-04-18 Symbolic Language.md",
+      "bytes": 242832,
+      "sha256": "2046cba0f0a9d09c220999217039c88151a5e29f7d656ec5d6997f8a5a28954f"
+    },
+    {
+      "relpath": "vault/calls/2024/04 April/2024-04-25 Complaints To Conversions on Vimeo.md",
+      "bytes": 231981,
+      "sha256": "317a9dc042dc13177a7c66cfc525ac548a6c93700f48db68bea1d6693b63f807"
+    },
+    {
+      "relpath": "vault/calls/2024/05 May/Market Efficiency Ratios.md",
+      "bytes": 253578,
+      "sha256": "525422e393fb1aa27164f0b28945b6c2c90ae9aa9793bfd0438a42e21af8758c"
+    },
+    {
+      "relpath": "vault/calls/2024/05 May/Mechanism Of Will Power.md",
+      "bytes": 199126,
+      "sha256": "b6a31f39e0535a687b5ab499040805edd16c0015e9dcdc424fc0cc8377c6da4f"
+    },
+    {
+      "relpath": "vault/calls/2024/05 May/Next 5 Years.md",
+      "bytes": 248162,
+      "sha256": "b60a0c37e3858c21d3e162428814436d8959d39389a96157e59475fe7c9c27aa"
+    },
+    {
+      "relpath": "vault/calls/2024/05 May/Selling To Women 3.0.md",
+      "bytes": 216844,
+      "sha256": "c19de58454d05d591099c5b5949f1455ee0c1688054cc1d2282efa1f417d40ae"
+    },
+    {
+      "relpath": "vault/calls/2024/06 June/2024-06-03 with Isaac Lara - How To Selll to Women Addendum.md",
+      "bytes": 147105,
+      "sha256": "16398e7d7b9e1fc99da81851bdd5b31a48f1e1b27e186f7a63643bd948413ec2"
+    },
+    {
+      "relpath": "vault/calls/2024/06 June/2024-06-06 Reading Offers 1.md",
+      "bytes": 219406,
+      "sha256": "4be39eec96ce11c02218173a0991d068d1b1a514e250f8c4c32e0d5facd0c6e1"
+    },
+    {
+      "relpath": "vault/calls/2024/06 June/2024-06-13 Creating And Spotting Opportunities.md",
+      "bytes": 217809,
+      "sha256": "3fc4029a94afc0b7f828650d93187fa5532b9946710b0c3ba9fd59872e67ebdf"
+    },
+    {
+      "relpath": "vault/calls/2024/06 June/2024-06-20 Right Now Process.md",
+      "bytes": 196701,
+      "sha256": "273c6bfa86e0810e6f042d3ee8d3ced5138dee0a36f68f695b4056ba02fde2b0"
+    },
+    {
+      "relpath": "vault/calls/2024/06 June/2024-06-24 Brandon Vasquez on CRO Tactical Tips To Move The Needle Part 1.md",
+      "bytes": 145474,
+      "sha256": "28db75a034f52ede5024f33a231d6aa7a0860ff6d7b16e11852bd34640489172"
+    },
+    {
+      "relpath": "vault/calls/2024/06 June/2024-06-27 Increasing Beliefs.md",
+      "bytes": 205647,
+      "sha256": "5d2865dfa840b971752f5b1117f5bf7bb265d48cdfa59892335723769399b14f"
+    },
+    {
+      "relpath": "vault/calls/2024/07 July/2024-07-04 Reading Offers 2.md",
+      "bytes": 217640,
+      "sha256": "de17fddb8f912e62770c8374fa06ecac16cc7827e3d44944c680b2fd9e3b071e"
+    },
+    {
+      "relpath": "vault/calls/2024/07 July/2024-07-11 Engineering Commitment.md",
+      "bytes": 224740,
+      "sha256": "6445cb873fad3bda8694f709a75cac988c09aa7b665a86da05910991dbacc5a9"
+    },
+    {
+      "relpath": "vault/calls/2024/07 July/2024-07-18 Short Term Vs Long Term Thinking Audiences.md",
+      "bytes": 193774,
+      "sha256": "9e33958ff91bc8d15d3d5721975e9bcffae33728f3802a8903503b570ae448a0"
+    },
+    {
+      "relpath": "vault/calls/2024/07 July/2024-07-25 Controlling The Evaluation Process.md",
+      "bytes": 185645,
+      "sha256": "f4d5b803598519065825e5b5d92408110715aeddf84cb6a71342d9d3cbde7c5f"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-01 Reading Offers 3.md",
+      "bytes": 173911,
+      "sha256": "9f9247cc0587ead16eae795a01639ff3a43c20f65e4189cb30987e8d305589fc"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-05 Lonnie Jones on SEO.md",
+      "bytes": 159337,
+      "sha256": "e02fbd75ee14d6e36436685ef73369a37aa46cdb90d79c1d9428d886cc179faf"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-08 Basis of Business Strategy.md",
+      "bytes": 178317,
+      "sha256": "ebaae7abd4c45b0181d3e11bed2cb63a2a6dedcb4b4ea6116bab131f64bd740b"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-12 Luke Jaten on Direct Mail Secrets.md",
+      "bytes": 141734,
+      "sha256": "12f63da5bc7896f1b4a38615e800783f44628d8a3d7f1db03950cca395680995"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-15 Call of Duty Biz-Ops.md",
+      "bytes": 245266,
+      "sha256": "24c14efae1b54e4236feac3fcc6aa18b20c0c4562afef511be8fe1339990c63a"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-22 Call of Duty Biz Ops Part 2.md",
+      "bytes": 246842,
+      "sha256": "c214e4923a13dc763bb339f42a0f93a7a34ed93086e9df6342e0703ae3e7b804"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-26 Charles Kirkland Local Lead Gen Unveiled.md",
+      "bytes": 172278,
+      "sha256": "6374c32a9a2bb0b9efb43f6a17e21e37b5d7dbd142ddc9986bc6e98d40ea403f"
+    },
+    {
+      "relpath": "vault/calls/2024/08 August/2024-08-29 Market Pendulums.md",
+      "bytes": 218253,
+      "sha256": "68e37aa4f5b3c372f82ab014be9705882ca06a78c2d8953e4ab282c8c7d43f30"
+    },
+    {
+      "relpath": "vault/calls/2024/09 September/2024-09-05 Psychology of Business Models.md",
+      "bytes": 216820,
+      "sha256": "adbb41c7a3cfe6b5a4fcfbc8388e8642c04a6a2c2c0ea0fec9ccde50bf5b06d3"
+    },
+    {
+      "relpath": "vault/calls/2024/09 September/2024-09-12 September 2024 Reading Offers Call.md",
+      "bytes": 224718,
+      "sha256": "0102df27b5645366bc2758e3c572f76386c29e721521ccd104c950950829d20c"
+    },
+    {
+      "relpath": "vault/calls/2024/09 September/2024-09-19 Selling To Outcomes 2.0.md",
+      "bytes": 199845,
+      "sha256": "b5013a2cc97c0f5daaf2f23a8cae02f6d5d0a6ce83d8fe7d42832af1fb63072f"
+    },
+    {
+      "relpath": "vault/calls/2024/09 September/2024-09-26 How To Create Good Products.md",
+      "bytes": 196843,
+      "sha256": "0ad8eeebdf6d379a8893a3035fd5baca8529d0d57563bb1cc726c787ecb138d7"
+    },
+    {
+      "relpath": "vault/calls/2024/09 September/2024-09-27 Coffee Room Impromptu Call.md",
+      "bytes": 152374,
+      "sha256": "784aebd166e6ddc2a7646a4859a4a94c36b706a3e224b3576c1080f8746066c8"
+    },
+    {
+      "relpath": "vault/calls/2024/10 October/2024-10-03 Call - October Reading Offers Call.md",
+      "bytes": 252895,
+      "sha256": "4d366406a459ab2e15490e98ae7bcc633d657e369000d0c1c1b34d101cd83252"
+    },
+    {
+      "relpath": "vault/calls/2024/10 October/2024-10-10 Building Beliefs.md",
+      "bytes": 175800,
+      "sha256": "fb5bd5ba586ffa3073addc4fb76860bc9dcb47178bd16410f356cfc41ab790c6"
+    },
+    {
+      "relpath": "vault/calls/2024/10 October/2024-10-17 Hierarchy of a Pitch & Deep Optimizations.md",
+      "bytes": 201617,
+      "sha256": "3b0535d360c18b4361c7cf1f089e9a42b4d7170bdb34c06195a92d8975452591"
+    },
+    {
+      "relpath": "vault/calls/2024/10 October/2024-10-24 Pre-Openings.md",
+      "bytes": 194589,
+      "sha256": "655c102b2898fe197f6da7f3d569cda62d13718ee5d68ded5c3b1d46de76ea6c"
+    },
+    {
+      "relpath": "vault/calls/2024/10 October/2024-10-31 Mechanism of Motivation.md",
+      "bytes": 236456,
+      "sha256": "38ee2fed6db97e57cfb22986451727bae3e815a83ca833bbe8903dd962a664e7"
+    },
+    {
+      "relpath": "vault/calls/2024/11 November/2024-11-07 Theory - November Reading Offers Call.md",
+      "bytes": 212075,
+      "sha256": "c4f8a13ce3e648efa2ac6bd427daaebf3e342d0a91add2c428d4e4e6eb214ece"
+    },
+    {
+      "relpath": "vault/calls/2024/11 November/2024-11-14 Mechanism of Love.md",
+      "bytes": 203506,
+      "sha256": "ae9c70c3e2bc4cac3c3eacf2eef1f16247beeadec9b8c66626ee96e9754b27c3"
+    },
+    {
+      "relpath": "vault/calls/2024/11 November/2024-11-21 Installing Decisions.md",
+      "bytes": 211801,
+      "sha256": "db597cd4cf52f8336f62dc2c97e66ab3c492ca7284745e09288031184e062c79"
+    },
+    {
+      "relpath": "vault/calls/2024/11 November/2024-11-28 2024 Thanksgiving Round Table.md",
+      "bytes": 178840,
+      "sha256": "7cdddff679df5beda832df20d4e154eb355014bd62ca057736fb1bcb0392a27d"
+    },
+    {
+      "relpath": "vault/calls/2024/12 December/2024-12-05 December Reading Offers.md",
+      "bytes": 223950,
+      "sha256": "45f0817fcb0af201a890b5985633c42fdab515e41d4ab71a2ec4e33dc519051f"
+    },
+    {
+      "relpath": "vault/calls/2024/12 December/2024-12-12 Call - Value Matrix.md",
+      "bytes": 221559,
+      "sha256": "52a27af64ed0251d3bb6f5aaddad3f10c92a9bf243f3bc6450f916c8baa0589b"
+    },
+    {
+      "relpath": "vault/calls/2024/12 December/2024-12-12 Value Matrix.md",
+      "bytes": 222051,
+      "sha256": "462c5bc6dfe37dc2a13a3411ce950eb83a41ceda87c406eea0627d70be98011f"
+    },
+    {
+      "relpath": "vault/calls/2024/12 December/2024-12-19 Copy Logic.md",
+      "bytes": 235334,
+      "sha256": "f5282bad3bff7a3ba0c58c60257cd70ba92264e91fcac369f1e1738f7c679abe"
+    },
+    {
+      "relpath": "vault/calls/2024/12 December/2024-12-26 Who Campaign.md",
+      "bytes": 204164,
+      "sha256": "afac8ca33caa9209705b66986d3649d67a7449fa7dbb2ae671c88281ab70e9c1"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-02 January Reading Offers.md",
+      "bytes": 246004,
+      "sha256": "8c7872fd97f9f56b86cdcbf5a2aa35774b8fbc80b645cf220809c6e37803930b"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-09 Perfect Path To Coaching.md",
+      "bytes": 202531,
+      "sha256": "15e10a3738d0d13b27d4b44887a12d21f5893816d9d0ddce780031ba29b91cc2"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-16 Call - Mechanism Of Comprehension.md",
+      "bytes": 229471,
+      "sha256": "7926c46d124a88adb09c0bd361e94df35ecd332b5836d23f46bafe5b61389491"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-20 Introduction To Google Ads - With Charles Kirkland.md",
+      "bytes": 202422,
+      "sha256": "2e34aa3d960ce2a5f8012c3ac5180da809e90466ebc9ae1fc2be0c8fd65de6cb"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-21 Tangible vs. Intangible Bumps - With Kevin Sheerin.md",
+      "bytes": 135803,
+      "sha256": "19220a65d1e06b496f201f30ea322689546af154c065b51ac08a4a654fad0ef7"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-22 Coaching Calls - Meta Ads Mastery - With Loren Pinilis.md",
+      "bytes": 210453,
+      "sha256": "9659b59a9e29e75ddc547e738c05130f68e650d1a9d3c13256c322f3dbbbe8c7"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-23 Breaking Through Impossibilities.md",
+      "bytes": 305330,
+      "sha256": "e01ec118fe058588443a71d1a13f228cfb429996805aba8598d03ceab56e0d23"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-27 Google Search Ads 101 - With Charles Kirkland.md",
+      "bytes": 237799,
+      "sha256": "581ea9b66665208ca2f9c548baebf5af511a263e333c090d40fdf3250a84b7f6"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-28 Reading Offers - With Kevin Sheerin.md",
+      "bytes": 270138,
+      "sha256": "bc385541108ea604c168a67e0f96ff11a51662e2ac688f893e91d14448654857"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-29 Digging Into Data Part 1 - With Loren Pinilis.md",
+      "bytes": 207363,
+      "sha256": "011e2aef14e3f08eaa9549fcc66ba46147ce88d79349a348a526c7d44bbb5751"
+    },
+    {
+      "relpath": "vault/calls/2025/01 January/2025-01-30 Conspiracy Marketing.md",
+      "bytes": 226766,
+      "sha256": "ebaae1e2ccd5144fd4e4f3cf38f15588f707fa472e1749b3ef68fec55066b535"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-03 Google Case Studies - With Charles Kirkland.md",
+      "bytes": 222453,
+      "sha256": "b35e645b13dc4de7af5502728d940e1971f5bc7ad598a611ab28a8ffd9d4f772"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-04 Offer Fundamentals - With Kevin Sheerin.md",
+      "bytes": 101532,
+      "sha256": "3af18bd111d8fa37287788f68a735da53a6396805781aeb320c01c9b3c4d0eec"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-05 Digging Into Data Part 2 - With Loren Pinilis.md",
+      "bytes": 192278,
+      "sha256": "bf4cd548eb790a6bf3ef4464fce145192e8bc5e942c75daf3dc00578cca96d29"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-06 February Reading Offers.md",
+      "bytes": 300738,
+      "sha256": "b6c5011ea6ba50351a316a0e11bb22029109f5661dbbb43ed70577afdf108c6f"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-07 Adventures In CRO - With Brandon Vasquez.md",
+      "bytes": 159181,
+      "sha256": "cfc69986c7dbdeb69aaea358582b6e5df22461e193011af560dad1949a45207c"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-10 How To Be A Media Buyer - With Charles Kirkland.md",
+      "bytes": 210018,
+      "sha256": "96ecbcea622b7768f1a4e38f74d4b95eac43dcb6c7304e9df546223c8ac166da"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-11 Avatar Assumptions 1.0 - With Kevin Sheerin.md",
+      "bytes": 88650,
+      "sha256": "e7fd2d1bc01bb7e5bc03eda11a9f6397e46eb503a822b3ab32e4a4fc0bd851bc"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-12 Diving Into Data Part 3 - With Loren Pinilis.md",
+      "bytes": 182258,
+      "sha256": "48245b03278f1a584b882fb067a335d03557ce56fc60a1c3de0a5d653c94971d"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-13 Depth of Copy.md",
+      "bytes": 283396,
+      "sha256": "df2fdb35ca373910e6fea4145387412591cdb61915fde7c6f2585d8fd70daaf3"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-14 CRO Adventures Reading Offers - With Brandon Vasquez.md",
+      "bytes": 179563,
+      "sha256": "6f59ec28f7ad9e8772ec097bd8df003db959efed4ee97ff96726472d34b7b0e5"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-16 AI Hack That Writes Your Google Ads on Autopilot.md",
+      "bytes": 186911,
+      "sha256": "6e464343ed5c871ffeacda413e0fad2581ddaafbca5be12ed4353da366d97e99"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-17 AI Hack That Writes Your Google Ads on Autopilot - With Charles Kirkland.md",
+      "bytes": 186825,
+      "sha256": "4a8f5b9873715356fc73acf7439b3fd68f62f1196edfadbd2bf75a9e9706b5ca"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-18 The Nature Of Needs - With Kevin Sheerin.md",
+      "bytes": 129146,
+      "sha256": "be84862b33eb6d8cd6a7a370842d94cf2db0a5225e409cc9f7092484cc82c382"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-19 February Reading Offers - With Loren Pinilis.md",
+      "bytes": 310611,
+      "sha256": "65031df9e25b51cfb4e2c361d289c62f00879ebbb82f97db5458aa5783c8ea06"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-20 Releasing Emotions.md",
+      "bytes": 275188,
+      "sha256": "96b723a75de283676e78c7d5a8630fb12eda74a3b470a2c5bfd42c5daa60bcf0"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-21 DTC Brand Case Study Part 1 - With Brandon Vasquez.md",
+      "bytes": 103051,
+      "sha256": "43a3216b23304774cfe2b09e43149fbfd9ff1fbafb65c98c3765c8dd8e6759ad"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-24 February Reading Offers - With Charles Kirkland.md",
+      "bytes": 199063,
+      "sha256": "3f545a29614ea5f3c5bbbf074d2549744695b8c502c9624bc6e67770feceabc7"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-25 Low Ticket Mastery - With Kevin Sheerin.md",
+      "bytes": 264933,
+      "sha256": "142303fb4a65ecb18275a3f2197af9feea0d6c3db50812caa8278163e68d175f"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-27 Root Beliefs.md",
+      "bytes": 208168,
+      "sha256": "2f825a224398b8ba2369ad7f1cb521a573a2c7ae1c4c6fa97eb1252b87889a0d"
+    },
+    {
+      "relpath": "vault/calls/2025/02 February/2025-02-28 DTC Brand Case Study Part 2.md",
+      "bytes": 118134,
+      "sha256": "dace1e7f0bd726aac3c5a4fa08116a2e251b36f1be2b9fcdfb62b32363b494d6"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/1 7-FIGURE MATH & AC FORMULA.md",
+      "bytes": 172361,
+      "sha256": "308adc74f9292a5d7f43a6f9fa3679ecd0c314435a58648388c2d7203d02f0d5"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/2 YOUR MARKET, SUPERPOWER & DISRUPTIVE IDEA.md",
+      "bytes": 132490,
+      "sha256": "b51737682495b6bda471eb91ffc85ce4c23157b24be325c2d3870750b2f5071c"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/3 YOUR ACQUISITION OFFER.md",
+      "bytes": 121396,
+      "sha256": "ae2cdf187cd10fc97f992e6e9037ac0182391bca48b13aa4f6ec1a9f80a5a966"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/4 THE AWARENESS BRIDGE & YOUR PROFIT CENTER.md",
+      "bytes": 89207,
+      "sha256": "18b5c415dddfe97fa0798461f8482e27f0fd8c0659b200b4f4c04e7285891643"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/5 GETTING YOUR FIRST 1,000 CUSTOMERS.md",
+      "bytes": 129822,
+      "sha256": "85a766747456a576de76212e6ef5b27c4bdead13c3334a28250ee5fae108d155"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/6 GETTING YOUR FIRST 10 HIGH TICKET CLIENTS.md",
+      "bytes": 107924,
+      "sha256": "3672545c92c7d423f721be1d7863ec9427f40f92010a40478c03bf3dd52ff133"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/7 SCALING & OPTIMIZING YOUR OFFER.md",
+      "bytes": 107880,
+      "sha256": "62b070eee194d0e6d9739edb4ac148383db05d81b95f4b9fec2aa6a815bbc2e1"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/AC Calculator.md",
+      "bytes": 205,
+      "sha256": "b9ce71886d8757ce7a8be27c0530d90fef87e5a69ebb02de3877f37365285028"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/Automatic Clients Market Selection Matrix.md",
+      "bytes": 258,
+      "sha256": "66cd897313f05498730b689c1b87533d19d6eb1662fe35519ba3fa50d6c34adc"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/Automatic Clients Offer Name Generator.md",
+      "bytes": 261,
+      "sha256": "c2ae461ef71fecbcca00d893292424bf523fc7ad4df933092d18b51a47203296"
+    },
+    {
+      "relpath": "vault/courses/7 Day Fast Start/Our Best Ads.md",
+      "bytes": 458,
+      "sha256": "40dcdef72a35750c12ae7c50ac036b01315664354041980f3e09b0a7e86b75cb"
+    },
+    {
+      "relpath": "vault/courses/7 Figure Sales Funnel/2-1 Sales Funnel Assembly.md",
+      "bytes": 1151,
+      "sha256": "043a210731137283fa606a2f176309ed10c6a3360f19f7e9dac416bf593f79ae"
+    },
+    {
+      "relpath": "vault/courses/7 Figure Sales Funnel/2-2 Sales Page Assembly.md",
+      "bytes": 12982,
+      "sha256": "6717695bcb030aa79a7a868c72e4b4540b802d5a0da44eeba79d86b825300106"
+    },
+    {
+      "relpath": "vault/courses/7 Figure Sales Funnel/2-3 Order Form Assembly.md",
+      "bytes": 6452,
+      "sha256": "ed61db842bbbfeb263c2f83ffd716c9f78211dc01a349df6cfd48a7289e57729"
+    },
+    {
+      "relpath": "vault/courses/7 Figure Sales Funnel/2-4 One Time Offers.md",
+      "bytes": 11177,
+      "sha256": "05e2ec88c50b21b372c041b4545814c8e5a787c268f2ed0f014fcde06fe47834"
+    },
+    {
+      "relpath": "vault/courses/7 Figure Sales Funnel/2-5 Call Booking Page.md",
+      "bytes": 9794,
+      "sha256": "9348e7404f050d064c06b7986c8b79dc55e1914eccdebd74736a986051150ce3"
+    },
+    {
+      "relpath": "vault/courses/7 Figure Sales Funnel/2-6 Call Booking Confirmation.md",
+      "bytes": 2761,
+      "sha256": "302f6c9faf228034a216b2818fbeed5ae736c03f3c81c3fe0d5963b272f1281b"
+    },
+    {
+      "relpath": "vault/courses/7 Figure Sales Funnel/Sales Funnel Template Links.md",
+      "bytes": 301,
+      "sha256": "2c3f02cdc4c16f1e6b1d112ffd3802cf2dab13ddf9d2edd3073dc1cbf9c3e3d5"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/1 100 BOOKS A DAY.md",
+      "bytes": 78945,
+      "sha256": "a11e7916ed51b962d8656412849d0a1a0550ddaa38d0f1f325c058712fac3440"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/10 PRIVATE INVITATION TO THE AUTOMATIC CLIENTS PROGRAM.md",
+      "bytes": 26115,
+      "sha256": "5ef76c76d46ec49fb35b807440c42e795367923dd5001b6c5c715614435d1915"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/2 TRANSITION PERIODS.md",
+      "bytes": 73661,
+      "sha256": "00fbdf12807b824472eeb18749dba74995b309373478be33951507535283ec54"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/3 SALES VELOCITY.md",
+      "bytes": 30370,
+      "sha256": "dfe8eb30e92b469e09ce48daced598efae842a3e8cd1ac4b92e153c0db40e29d"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/4 10X FACTOR OF SCALING.md",
+      "bytes": 70105,
+      "sha256": "f49f178e0a902f0b2f12f894cf3ee022c40a63c6731ac1db3f5131ea7dd2d2f3"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/5 DOMINATING FACEBOOK, GOOGLE AND YOUTUBE.md",
+      "bytes": 46759,
+      "sha256": "343c1c684e691de876698e6ef4ec772e7ebf40139c784012296c77243e8f95ea"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/6 3 LEVELS OF CUSTOMERS.md",
+      "bytes": 31568,
+      "sha256": "6191d496350a3b508e527bc3979fa08f429cfae7763a49874766691cfdf8eca7"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/7 WHY EVERYTHING WE DO IS MOBILE FIRST.md",
+      "bytes": 26265,
+      "sha256": "41eb240dbc60250eddfdd7e9984bfd9a2caef76c14bc4f7fd8fbb74725307a19"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/8 OUR 7-FIGURE SALES FUNNEL.md",
+      "bytes": 13264,
+      "sha256": "d72f00b213e723c1c38a42dd908a8e83a2d33979ef512efe06dcf2b672c21260"
+    },
+    {
+      "relpath": "vault/courses/Advanced Acquisition Theory Course/9 THE 7-FIGURE AUTOMATIC CLIENTS FORMULA.md",
+      "bytes": 64330,
+      "sha256": "f6540952f3bc7813a4f02e112cb5586b8943466944d116d837cb19ae0a927454"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/0 AC Welcome Video.md",
+      "bytes": 6930,
+      "sha256": "931d101999311902737012292f2effbd531d25f3fc659473169882eb68b49e96"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/2,498 Automatic Client Niche Markets.md",
+      "bytes": 179701,
+      "sha256": "655e0e3c7560951aaaabdb8b3642f26918d3e7476fa63862e2f0fc73f25baa42"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/2,498 Niches Spreadsheet.md",
+      "bytes": 232,
+      "sha256": "be881349146d2f56420250dfd1d6e7d96977906d239976f343af431afa3a6943"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/200,000 Ad Template.md",
+      "bytes": 465,
+      "sha256": "79cc0dba1860e3d6c1c829fa507ccb2d99648d251f49d4f19f6c3ed477e0f0bc"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/7 AC - Unannounced bonus.md",
+      "bytes": 128778,
+      "sha256": "bdfb9c5b9bef291b84c116f3c8bcbcd4783c6f03aeb87c0fe9736d8aeff59d7f"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/7-Figure VSL Script Template.md",
+      "bytes": 5991,
+      "sha256": "03390abb95be143ce600bc4220b94c1c72bf54f4a4030c61f9b4667b9d74bd17"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/AC eBook.md",
+      "bytes": 9150,
+      "sha256": "9ab4bb62d4d489bc8718f1d1e26e997c8cbc5ffc2d065caa844a30b609764cea"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/Automatic Clients Step.md",
+      "bytes": 1148,
+      "sha256": "06a76bb6dab897a88d9e55d068f8b12f6f1b4b15d3b5052c1451aa3aceaed4ee"
+    },
+    {
+      "relpath": "vault/courses/Automatic Clients Course/Economics Calculator.md",
+      "bytes": 233,
+      "sha256": "0768ff4408ec16952be61916dd123a98c6e862d10c45bf56f28a3fccd620aa07"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/1 What is advertising.md",
+      "bytes": 11554,
+      "sha256": "c33f7bcc04dbf2b2465edd3ec317c02787436da753ff21a552408e7e3bd71259"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/2 What advertising is not.md",
+      "bytes": 12467,
+      "sha256": "02e4926dd5cc7e718746923d46e245f7f5ae2dc0a7a67933ae0dfc3d575e2c8f"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/3 How to succeed in advertising.md",
+      "bytes": 103942,
+      "sha256": "26b05ba9638c36d2a26285706a9b5220f86d0d6a4dc5846f0520eb6cc118d845"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/5 things to consider when creating ads.md",
+      "bytes": 46331,
+      "sha256": "f38401265d7467c2073cd6bcdd5fddf04e71063f64abd38e8dd098e26d91cc79"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/6 Ad networks & why people visit them.md",
+      "bytes": 90758,
+      "sha256": "86db5e0fdeb706349f3a1db1868990eac02b9cabe655f7312f8db070683bce4e"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/7 Creating Ads.md",
+      "bytes": 78548,
+      "sha256": "1a4cb120f62e8b36775c90e720ef6eba303a2458b36203c041248828807b1ee4"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/8 How to scale ads.md",
+      "bytes": 15714,
+      "sha256": "db971869c958dc5012ed79817e20bc72bcd9f0e41abc0a9cf7136785d1a28c75"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/9 When ads stop working.md",
+      "bytes": 23599,
+      "sha256": "e6cc676fa653c5dd5340a00b917a8d52cf45d5d2c8321b8ebbea61d9e09b0d2f"
+    },
+    {
+      "relpath": "vault/courses/Converting ads/Converting-Ads.md",
+      "bytes": 259494,
+      "sha256": "8867632fc6736f6f78421b373c6ff8806b5c2bd4edf81cde21b63c173aaba336"
+    },
+    {
+      "relpath": "vault/courses/Converting Upsells/5 Recording Video Sales Letters.md",
+      "bytes": 8972,
+      "sha256": "215b871e9ca7e3f9f1a0608cbffd488cc0bc18c9ba5d88343191d6d427df5e1f"
+    },
+    {
+      "relpath": "vault/courses/Converting Upsells/OTO 1 Downsell.md",
+      "bytes": 715,
+      "sha256": "b980bdb60708f8408ee8fb80448e156092eb1385cbbad8b0bc7fa0c51a994f81"
+    },
+    {
+      "relpath": "vault/courses/Converting Upsells/OTO 1.md",
+      "bytes": 19859,
+      "sha256": "36facf7485d545b95a0914a56f80c4b43a9bfbfcaa85a9ce4e26b7399bb5498b"
+    },
+    {
+      "relpath": "vault/courses/Converting Upsells/OTO 2 Downsell.md",
+      "bytes": 944,
+      "sha256": "b2eb7b3c4d4c9dd9e0ef6a3f287e0df47c1092e3ebe2be53fe2001e72cad038a"
+    },
+    {
+      "relpath": "vault/courses/Converting Upsells/OTO 2.md",
+      "bytes": 7303,
+      "sha256": "118e811b4da9907a484f62b766cfa3da5af8a5cb9f4ce8e22f4115f71f38a579"
+    },
+    {
+      "relpath": "vault/courses/Converting Upsells/Resources Links.md",
+      "bytes": 280,
+      "sha256": "f74c0cb1f757fbab07a3d12f12f4f19dcc19a3928f494d45dfb7e978008851f7"
+    },
+    {
+      "relpath": "vault/courses/Get Ready To Launch/7-1 Tech Integration.md",
+      "bytes": 31280,
+      "sha256": "4c7c3367159c1f01ebe1d70bff917542f1e02034d2d8edfcf8589f3850a39918"
+    },
+    {
+      "relpath": "vault/courses/Get Ready To Launch/7-2 Schedule Once Setup.md",
+      "bytes": 4727,
+      "sha256": "387dbabfae25e0fc6f643d81a3feea9599fb0071de22891319345133cf480c29"
+    },
+    {
+      "relpath": "vault/courses/Get Ready To Launch/Resources Links.md",
+      "bytes": 222,
+      "sha256": "93b2907fcb8ad143f3fd6cdbfc9cfe1820159af0c3468f979df932770a4e3252"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/3-1 Color Schemes.md",
+      "bytes": 9060,
+      "sha256": "1e215252ad628d5edf50bbec75fd8a24bc3fe94d5da6fae795dc5cf9f440d01a"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/3-2 Font Pairings.md",
+      "bytes": 5997,
+      "sha256": "23df29e77138a7c99b266d094869b8260417c02a306abce2ee2024b39e9135df"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/3-3 Brand Graphics.md",
+      "bytes": 46004,
+      "sha256": "16874a7385f6249e54a4d9ba5d93b59d9ffebce6b94fb0f9628114c06a1bf5a6"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Background Graphics.md",
+      "bytes": 451,
+      "sha256": "0f48e9e4eb917d48f064d67f4a3f94ba33e9dc89300015bb88cca24ef8a3b0ea"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Graphics - 2D Book Mockup Landscape.md",
+      "bytes": 1119,
+      "sha256": "794557c5087f9fbf526566e04551a5b74ceec0e13ce5c773776517ec07762b9a"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Graphics - Image Collage.md",
+      "bytes": 401,
+      "sha256": "d73bdc23fb6ba8fbd58ca4a47cbdcc380e363fdca52c3e3ef6516e70872d7f21"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Graphics - Open Book Landscape.md",
+      "bytes": 2135,
+      "sha256": "a34931c35664ac18c8e1c2ddb2ac93769ec1acaec48aff2036c6660f18bbdd70"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Graphics - Process Graphic.md",
+      "bytes": 1033,
+      "sha256": "dab872c18dde4c052cbfb148e005bc038570595906695ec9efbcb12d135f14fd"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Graphics - Product Stack - Singles.md",
+      "bytes": 451,
+      "sha256": "998acaf379f136c6bc60ece1c16d0edd7048dcaf802bfcdb55903bcb25585cbf"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Graphics - Product Stack.md",
+      "bytes": 440,
+      "sha256": "f4134058091c95585d0c4d7c5a54e7541b8d4ca9e3303e1a6b3392fc15a0d663"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Graphics - Testimonials.md",
+      "bytes": 426,
+      "sha256": "4ea33c43a55abc3b48da06580288400cb8f688e17b0eabf00c482e4cab4c7651"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Pick Primary Color.md",
+      "bytes": 386,
+      "sha256": "97a54edbddb106881e06a4e10560b705463100c88e60121295df2bd0f4973894"
+    },
+    {
+      "relpath": "vault/courses/Million Dollar Branding/Resources Links.md",
+      "bytes": 207,
+      "sha256": "873020d5da6429c721df4648c434c03c5101fd81ad45204ab1ad614209c3adc8"
+    },
+    {
+      "relpath": "vault/courses/Plug & Play High Converting Sales Letter/4 7-Figure Fill-In-The-Blank Sales Letter.md",
+      "bytes": 6641,
+      "sha256": "39c27348209b20955f41611458d9963aece361f7d4afe989a9685d73e86120b3"
+    },
+    {
+      "relpath": "vault/courses/Plug & Play High Converting Sales Letter/Fill In The Blank Sales Letter.md",
+      "bytes": 26399,
+      "sha256": "9965bb542e00c4cbeadbee390123c5392e2fbf2399b19463faa8c4f90e6de248"
+    },
+    {
+      "relpath": "vault/courses/Plug & Play High Converting Sales Letter/Resources Links.md",
+      "bytes": 375,
+      "sha256": "64ed1603470c80faa52c2a5e24b3fcce8e01c6a3615a0d214f00447af6afcefa"
+    },
+    {
+      "relpath": "vault/courses/Rapid Launch Stack/1 Rapid Launch Stack.md",
+      "bytes": 18459,
+      "sha256": "a85081f894cf772757a139291a12cbecd31076ea90545d2f0afea257591a3ac6"
+    },
+    {
+      "relpath": "vault/courses/Revenue Generating Emails/1-Retarget-BOOK-Non-Buyers-Email-Template.md",
+      "bytes": 6182,
+      "sha256": "e97844a0fcbbce54d3214dbb7cc1bf6fc6f4968e5f01bcccb1208811808c9f19"
+    },
+    {
+      "relpath": "vault/courses/Revenue Generating Emails/2-BOOK-Fulfillment-Email-Template.md",
+      "bytes": 1456,
+      "sha256": "11871f1df85f467b6934d648afa29d185d64afbcb7d63fbd55e1a1a53c69c646"
+    },
+    {
+      "relpath": "vault/courses/Revenue Generating Emails/3-OTO-1-Email-Templates.md",
+      "bytes": 5915,
+      "sha256": "83cbadc54a5387ce7506c18b1cf771fd748d0bb1edae9e0ba1a807ef2379f8db"
+    },
+    {
+      "relpath": "vault/courses/Revenue Generating Emails/4-Book-A-Call-Email-Templates.md",
+      "bytes": 6268,
+      "sha256": "368e6e1290a5274d6e386e8c12458e23a3e24a6fe635852454d78d38ac0e234d"
+    },
+    {
+      "relpath": "vault/courses/Revenue Generating Emails/6 Email Autoresponders.md",
+      "bytes": 7988,
+      "sha256": "b2ba7a8d13ae5ab8fa5da4a96bf37358899486c46ab3792e05c3a1e3bec92b6c"
+    },
+    {
+      "relpath": "vault/courses/Revenue Generating Emails/Resources Links.md",
+      "bytes": 154,
+      "sha256": "5bb979f5c978d1b4012fd37200d87f9e945a4087d4274c015950a09b117bb922"
+    },
+    {
+      "relpath": "_meta/AUDIT.md",
+      "bytes": 23696,
+      "sha256": "95a01de0d3286f922bb5b4d9e5164bbb928dbca3e9b41a8cd127f5ed62ba187d"
+    },
+    {
+      "relpath": "_meta/manifest.json",
+      "bytes": 101906,
+      "sha256": "ad9fe8db4e8ed4bd6446815d9f3eb4fe4d34698a7de1e460b18ad090bb069c78"
+    },
+    {
+      "relpath": "_meta/spend.json",
+      "bytes": 2580,
+      "sha256": "73455e304aadb96233b72a3fb18e404ca8ce81349b74be26b0feffefa01163a2"
+    },
+    {
+      "relpath": "_meta/spend.json.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "total_files": 382,
+  "notes_found": 273,
+  "typography_checked": 273,
+  "typography_passed": 273,
+  "status": "PASS"
+}

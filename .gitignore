@@ -16,6 +16,7 @@ venv/
 run/
 run2/
 chain/
+vault/
 
 # Transient scratch used while scoping. The scripts that matter are tracked.
 pipeline/scripts/_*.py
