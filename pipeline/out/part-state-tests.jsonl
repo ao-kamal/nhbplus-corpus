@@ -7,5 +7,6 @@
 {"test": "504-timeout-truncated-is-paid-then-lost", "artifact": "part-state.py", "input_digest": "8270ce4f645474ac", "verdict": "PASS", "note": ""}
 {"test": "unit-with-queued-part-emits-no-note", "artifact": "part-state.py", "input_digest": "70da3a0f82ea0287", "verdict": "PASS", "note": ""}
 {"test": "queued-replay-idempotent-no-commit-never-paid-unknown", "artifact": "part-state.py", "input_digest": "86b92d8c955f59af", "verdict": "PASS", "note": ""}
+{"test": "extras-merge-but-never-overwrite-load-bearing", "artifact": "part-state.py", "input_digest": "211b8b01750931b9", "verdict": "PASS", "note": ""}
 {"test": "illegal-transitions-refused", "artifact": "part-state.py", "input_digest": "a59dd69b609da481", "verdict": "PASS", "note": ""}
 {"test": "402-stops-run-committed-intact-for-secondary", "artifact": "part-state.py", "input_digest": "72a0334fe4673f25", "verdict": "PASS", "note": ""}

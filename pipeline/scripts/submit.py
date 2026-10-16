@@ -83,7 +83,10 @@ def check_arrival(obj):
 
 
 def post_file(url, api_key, part_path, response_path, timeout=600, opener=None):
-    """Stream body up, stream response down. Returns (http_status, complete)."""
+    """Stream body up, stream response down.
+    Returns (http_status, complete, socket_open_ts). Any timeout or transport
+    failure -> PaidUnknown (never a clean zero)."""
+    import time
     size = os.path.getsize(part_path)
     if size == 0:
         raise SubmitFail("refusing to submit an empty part")
@@ -96,6 +99,7 @@ def post_file(url, api_key, part_path, response_path, timeout=600, opener=None):
             req.add_header("Content-Length", str(size))
             if opener is None:
                 opener = urllib.request.build_opener()
+            socket_open_ts = time.time()  # the socket opens HERE, after sent
             try:
                 resp = opener.open(req, timeout=timeout)
             except TimeoutError as e:
@@ -109,7 +113,7 @@ def post_file(url, api_key, part_path, response_path, timeout=600, opener=None):
                     break
                 towrite.write(chunk)
             complete = True
-            return status, complete
+            return status, complete, socket_open_ts
     finally:
         towrite.close()
         if not complete:

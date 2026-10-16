@@ -182,6 +182,22 @@ def _():
     assert verdict == ps.QUEUED and action == "replay_idempotent_no_commit"
 
 
+@T("extras-merge-but-never-overwrite-load-bearing")
+def _():
+    import importlib.util as iu
+    d = unit("extras")
+    ps.admit(d, "p00")
+    ps.reserve(d, "p00", 0.1, "h", {"m": 1}, 1)
+    ps.mark_sent(d, extras={"sent_ts": 100.0, "transport": "sync"})
+    r = ps.read_json(os.path.join(d, "receipt.json"))
+    assert r["sent_ts"] == 100.0 and r["transport"] == "sync", r
+    try:
+        ps.mark_sent(d, extras={"status": "settled"})
+        raise SystemExit("extras overwrote status")
+    except ps.Refused:
+        pass
+
+
 @T("illegal-transitions-refused")
 def _():
     d = unit("illegal")

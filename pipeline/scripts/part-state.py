@@ -137,14 +137,20 @@ def reserve(unit_dir, part_id, amount_usd, part_sha256, request, input_channels)
     return receipt
 
 
-def mark_sent(unit_dir):
-    """sent: durable BEFORE the socket opens. The whole protection."""
+def mark_sent(unit_dir, extras=None):
+    """sent: durable BEFORE the socket opens. The whole protection.
+    extras (e.g. sent_ts) merge into the receipt in the same atomic write,
+    never into the seven load-bearing keys."""
     refund = read_receipt(unit_dir)
     if refund["status"] != RESERVED:
         raise Refused(f"mark_sent from {refund['status']}, need reserved")
     if refund.get("paid_unknown"):
         raise Refused("mark_sent on PAID_UNKNOWN part")
     refund["status"] = SENT
+    for k, v in (extras or {}).items():
+        if k in REQUIRED_RECEIPT_KEYS:
+            raise Refused(f"extras may not overwrite receipt key {k}")
+        refund[k] = v
     atomic_write_json(os.path.join(unit_dir, "receipt.json"), refund)
     state = read_json(os.path.join(unit_dir, "state.json"))
     state["status"] = SENT
@@ -169,8 +175,8 @@ def submit(unit_dir):
     return receipt
 
 
-def settle(unit_dir, http_status, response_complete, response_path=None):
-    """Record the vendor verdict. Returns (status, action)."""
+def settle(unit_dir, http_status, response_complete, response_path=None, extras=None):
+    """Record the vendor verdict. Returns (status, action). extras merge."""
     receipt = read_receipt(unit_dir)
     validate_receipt(receipt)
     if receipt["status"] != SENT:
@@ -204,6 +210,10 @@ def settle(unit_dir, http_status, response_complete, response_path=None):
     else:
         raise Refused(f"unhandled http_status {http_status}")
 
+    for k, v in (extras or {}).items():
+        if k in REQUIRED_RECEIPT_KEYS:
+            raise Refused(f"extras may not overwrite receipt key {k}")
+        receipt[k] = v
     atomic_write_json(os.path.join(unit_dir, "receipt.json"), receipt)
     if action == "paid_unknown_then_lost":
         atomic_write_json(os.path.join(unit_dir, "state.json"),
