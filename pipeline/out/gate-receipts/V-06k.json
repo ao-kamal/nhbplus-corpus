@@ -1,0 +1,8 @@
+{
+ "gate": "V-06k",
+ "script": "test-disk-cap.py",
+ "subject": "disk-cap.py",
+ "verdict": "PASS",
+ "detail": "5/5 disk-cap tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\disk-cap-tests.jsonl\r\n",
+ "ts": "2026-10-16T00:59:46Z"
+}
