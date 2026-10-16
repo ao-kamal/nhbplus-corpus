@@ -1650,9 +1650,22 @@ discarded for filing 7 readable documents as degraded and discarding real text.
 
 **48 + 2 + 0 = 50, and the gate is closed on 50 of 50.**
 
-**65,985 recoverable words**, and the parts account for every one of them:
-`already_text` 42,683 + `recovered_text` 21,930 + `sparse_text` 1,372 +
-`raster` 0 = **65,985**. Zero documents require OCR.
+**65,985 recoverable words** (probe method, 2026-10-15), and the parts account
+for every one of them: `already_text` 42,683 + `recovered_text` 21,930 +
+`sparse_text` 1,372 + `raster` 0 = **65,985**. Zero documents require OCR.
+
+> RECOUNT 2026-10-16 (pipeline method, span-sum over content spans, pypdf
+> 4.0.2, page_cap 200): **83,315 words** — `text` 81,564 + `sparse` 1,751 +
+> `raster` 0. Six tokenizers (plain, span-sum, both line-joins, dedup,
+> length/uniqueness filters, repeated-line removal) were tried against the
+> probe's per-doc counts and NONE reproduces them — including in opposite
+> directions on one document (Swipe: pipeline 1,812 vs probe 2,998) — so
+> the probe's tokenizer is unrecoverable from its artifacts and the total
+> is re-derived, not inherited. Evidence:
+> `evidence/probes/nhbplus-docs-e2e-2026-10-16.jsonl` (per-doc both counts).
+> Gates assert parts==total on the pipeline's own counting plus 48/2/0
+> classes; the total is recorded, never asserted exact, so a tokenizer
+> improvement fails nothing.
 
 #### WHY THE FIRST ARTIFACT SAID 47, AND WHY THE ORIGINAL 48 WAS RIGHT
 
@@ -2279,17 +2292,44 @@ it matched, not only what it found.**
 #### V0 — worklist integrity: 344 rows, never a glob
 
 ```
-V0(scope_final, manifest_v3) :=
-    rows = scope_final.rows                      # NEVER a glob over disk
-    FAIL if len(rows) != 344                     # 193 calls + 42 lessons + 109 docs
-    FAIL if len({r.handle for r in rows}) != 344 # handles are unique
-    FAIL if {r.handle for r in rows} !=
-            {u.media.handle for u in manifest_v3.units}
+V0(scope_final, manifest_v3, clean_names) :=
+    # NEVER a glob. A glob derives its population from whatever is on disk, so a
+    # fetch that silently produced nothing yields an empty worklist and every
+    # downstream count agrees with it. DECLARE the population, then CHECK it.
+    rows = scope_final.targets                    # 344, and they are TARGETS
+    FAIL if len(rows) != 344                      # 193 calls + 42 lessons + 109 docs
+    FAIL if len({r.handle for r in rows}) != 344  # handles are unique
 
-    # NON-VACUITY. A glob over an empty or partial directory satisfies a
-    # count derived from that same directory. The worklist is only meaningful
-    # if it was CONSTRUCTED, not discovered.
-    NON_VACUOUS iff len(rows) == 344 == len(manifest_v3.units)
+    # TWO SEPARATE EQUALITIES, NOT ONE - and this is a measured correction.
+    #
+    # The first version of this formula compared all 344 scope handles against
+    # manifest_v3's 235 and treated inequality as a failure. MEASURED
+    # 2026-10-16: scope-final holds 344 targets with 344 unique handles;
+    # manifest-v3 holds 235 units whose handles are a SUBSET - all 235 present,
+    # 0 missing, and 109 handles in scope that manifest does not carry, because
+    # those 109 are the DOCUMENTS. The single-equality form therefore FAILS ON
+    # EVERY CORRECT RUN.
+    #
+    # It also made the old NON_VACUOUS clause unsatisfiable:
+    # `len(rows) == 344 == len(manifest_v3.units)` requires 344 == 235, which is
+    # false. A correct run could never report non-vacuous.
+    audio_rows = [r for r in rows if r.kind == "audio"]
+    doc_rows   = [r for r in rows
+                  if r.kind in ("written_hand", "course_doc", "orphan_doc")]
+
+    FAIL if len(audio_rows) != 235
+    FAIL if {r.handle for r in audio_rows} !=
+            {u.media.handle for u in manifest_v3.units}   # exactly the 235 units
+    FAIL if len(doc_rows) != 109
+    FAIL if {r.handle for r in doc_rows} !=
+            {d.handle for d in clean_names.documents}     # exactly the 109 docs
+
+    # NON-VACUITY. A glob over an empty or partial directory satisfies a count
+    # derived from that same directory. The worklist is only meaningful if it was
+    # CONSTRUCTED, not discovered.
+    NON_VACUOUS iff len(rows) == 344
+                   and len(audio_rows) == 235 == len(manifest_v3.units)
+                   and len(doc_rows) == 109 == len(clean_names.documents)
 ```
 
 **Why "never a glob":** every gate below is checked against this row set. A glob

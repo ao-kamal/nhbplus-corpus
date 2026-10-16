@@ -89,8 +89,8 @@ def xlsx_to_markdown(data):
             cells = []
             for c in row.iter(f"{{{NS['s']}}}c"):
                 t = c.get("t")
-                v = c.find(f"{{{NS['s']}}}v")
-                v = v.text if v is not None else ""
+                vnode = c.find(f"{{{NS['s']}}}v")
+                v = (vnode.text or "") if vnode is not None else ""
                 if t == "s" and v.isdigit() and int(v) < len(shared):
                     cells.append(shared[int(v)])
                 elif (c.find(f"{{{NS['s']}}}is") is not None):

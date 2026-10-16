@@ -129,6 +129,23 @@ def _():
     assert lines == ["a | b", "c | d"], lines
 
 
+@T("xlsx-empty-v-cell-is-empty-string-never-none")
+def _():
+    # Live 2026-10-16: a real sheet carries an empty <v/> element. The old
+    # code kept None and join() died. Empty cells are empty strings.
+    buf = io.BytesIO()
+    sst = ('<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+           "<si><t>a</t></si></sst>")
+    sheet = ('<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+             "<sheetData><row><c t=\"s\"><v>0</v></c><c><v/></c></row></sheetData></worksheet>")
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr("[Content_Types].xml", "<t/>")
+        z.writestr("xl/sharedStrings.xml", sst)
+        z.writestr("xl/worksheets/sheet1.xml", sheet)
+    kind, lines = xo.extract_any("sheet.xlsx", buf.getvalue())
+    assert lines == ["a | "], lines
+
+
 @T("oversized-member-streams-peak-bounded")
 def _():
     big = b"\x00" * (20 * 1024 * 1024)  # 20 MiB declared, guard lowered to 1 MiB

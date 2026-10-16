@@ -84,7 +84,13 @@ def collect_spans(page):
 
 
 def group_lines(spans, y_tol=Y_TOL):
-    """Order spans top-to-bottom, left-to-right; group baselines within tol."""
+    """Order spans top-to-bottom, left-to-right; group baselines within tol.
+
+    Spans join with a SPACE, collapsed later: joining with "" merges span
+    boundaries and silently deletes words (live 2026-10-16: Converting-Ads
+    collapsed 46,240 span-words to 5,893). Mid-word splits may gain a token;
+    completeness beats exactness, and the direction is documented.
+    """
     ordered = sorted(spans, key=lambda s: (-round(s["y"] / 0.01), s["x"]))
     lines = []
     for s in ordered:
@@ -95,7 +101,9 @@ def group_lines(spans, y_tol=Y_TOL):
     out = []
     for line in lines:
         line.sort(key=lambda s: s["x"])
-        out.append({"y": line[0]["y"], "text": "".join(s["text"] for s in line),
+        text = " ".join(s["text"] for s in line)
+        text = " ".join(text.split())
+        out.append({"y": line[0]["y"], "text": text,
                     "sizes": [s["size"] for s in line]})
     return [ln for ln in out if ln["text"].strip()]
 
