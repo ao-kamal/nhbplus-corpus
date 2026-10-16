@@ -405,6 +405,10 @@ def main():
     workers = int(sys.argv[2]) if len(sys.argv) > 2 else 4
     rows = [r for r in csv.DictReader(open(os.path.join(BASE, "worklist", "targets.csv")))
             if r["block"] == block and r["kind"] == "audio"]
+    only = os.environ.get("HANDLES")
+    if only:
+        want = set(only.split(","))
+        rows = [r for r in rows if r["handle"] in want]
     sf = json.load(open(os.path.join(BASE, "out", "scope-final.json")))
     surl = {r["handle"]: r["url"] for r in sf["targets"]}
     for r in rows:
