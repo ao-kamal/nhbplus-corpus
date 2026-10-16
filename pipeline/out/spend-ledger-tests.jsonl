@@ -1,0 +1,7 @@
+{"test": "hour-part-commits-0336-not-2016", "artifact": "spend-ledger.py", "input_digest": "9a6ad6e2536ca9ce", "verdict": "PASS", "note": ""}
+{"test": "double-release-changes-once", "artifact": "spend-ledger.py", "input_digest": "3ee0ca30eb56e2c5", "verdict": "PASS", "note": ""}
+{"test": "stereo-settles-2x-on-input-count-downmix-1x", "artifact": "spend-ledger.py", "input_digest": "503e6d8c2a28c89d", "verdict": "PASS", "note": ""}
+{"test": "lessons-rescan-879-to-the-cent", "artifact": "spend-ledger.py", "input_digest": "bb1b70beeef16af2", "verdict": "PASS", "note": ""}
+{"test": "paid-unknown-counts-against-stop", "artifact": "spend-ledger.py", "input_digest": "a5909c365090ec19", "verdict": "PASS", "note": ""}
+{"test": "per-account-schema-totals-released-present", "artifact": "spend-ledger.py", "input_digest": "3cb4b6f2b3ec8450", "verdict": "PASS", "note": ""}
+{"test": "report-two-lines-never-one", "artifact": "spend-ledger.py", "input_digest": "6b77dc69ce133df1", "verdict": "PASS", "note": ""}

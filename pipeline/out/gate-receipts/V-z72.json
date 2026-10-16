@@ -1,0 +1,8 @@
+{
+ "gate": "V-z72",
+ "script": "test-submit.py",
+ "subject": "submit.py",
+ "verdict": "PASS",
+ "detail": "6/6 submit tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\submit-tests.jsonl\r\n",
+ "ts": "2026-10-16T01:55:23Z"
+}

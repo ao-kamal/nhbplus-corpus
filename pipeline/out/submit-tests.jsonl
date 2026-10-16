@@ -1,0 +1,6 @@
+{"test": "url-eight-params-diarize-mandatory", "artifact": "submit.py", "input_digest": "32ef9425f78aed35", "verdict": "PASS", "note": ""}
+{"test": "retry-identical-mipoptout-always", "artifact": "submit.py", "input_digest": "bb5b1bc7b0019f14", "verdict": "PASS", "note": ""}
+{"test": "arrival-both-shapes-or-fail", "artifact": "submit.py", "input_digest": "ec10447f0693fb78", "verdict": "PASS", "note": ""}
+{"test": "container-m4a-rejected-mp4-timeout-unknown", "artifact": "submit.py", "input_digest": "89326a67e3e67aef", "verdict": "PASS", "note": ""}
+{"test": "no-curl-no-async", "artifact": "submit.py", "input_digest": "61a5671e6a8a26fd", "verdict": "PASS", "note": ""}
+{"test": "streaming-body-never-readall", "artifact": "submit.py", "input_digest": "4d1765980deaf354", "verdict": "PASS", "note": ""}
