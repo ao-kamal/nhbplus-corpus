@@ -83,13 +83,15 @@ def collect_spans(page):
     return spans
 
 
-def group_lines(spans, y_tol=Y_TOL):
+def group_lines(spans, y_tol=Y_TOL, page=None):
     """Order spans top-to-bottom, left-to-right; group baselines within tol.
 
     Spans join with a SPACE, collapsed later: joining with "" merges span
     boundaries and silently deletes words (live 2026-10-16: Converting-Ads
     collapsed 46,240 span-words to 5,893). Mid-word splits may gain a token;
     completeness beats exactness, and the direction is documented.
+    Lines carry their 1-based page number: sparse stubs render per-page
+    #### p. N sections, so page attribution must survive grouping.
     """
     ordered = sorted(spans, key=lambda s: (-round(s["y"] / 0.01), s["x"]))
     lines = []
@@ -104,7 +106,7 @@ def group_lines(spans, y_tol=Y_TOL):
         text = " ".join(s["text"] for s in line)
         text = " ".join(text.split())
         out.append({"y": line[0]["y"], "text": text,
-                    "sizes": [s["size"] for s in line]})
+                    "sizes": [s["size"] for s in line], "page": page})
     return [ln for ln in out if ln["text"].strip()]
 
 
@@ -221,14 +223,18 @@ def extract_pdf(path, page_cap=PAGE_CAP):
     pages = reader.pages[:page_cap]
     all_spans, content_lines, images, urls = [], [], 0, set()
     frag_total, content_words = 0, 0
-    for page in pages:
+    pages_detail = []
+    for pageno, page in enumerate(pages, 1):
         spans = collect_spans(page)
         all_spans.extend(spans)
         content, frag = split_content(spans)
         frag_total += len(frag)
-        page_lines = group_lines(content)
+        page_lines = group_lines(content, page=pageno)
         content_lines.extend(page_lines)
-        content_words += sum(len(ln["text"].split()) for ln in page_lines)
+        pw = sum(len(ln["text"].split()) for ln in page_lines)
+        content_words += pw
+        pages_detail.append({"page": pageno, "words": pw,
+                             "lines": [ln["text"] for ln in page_lines]})
         images += enumerate_images(page)
         urls |= annot_urls(page)
     words = content_words
@@ -247,6 +253,7 @@ def extract_pdf(path, page_cap=PAGE_CAP):
         "class": cls, "title_pt": title, "body_pt": body,
         "heading_pts": headings, "urls": sorted(urls),
         "digest": line_digest(content_lines),
+        "pages": pages_detail,
         "image_bytes_decoded": 0,
     }
 
