@@ -57,6 +57,18 @@ def _():
     assert out["authoritative"] == 5431.8, out  # ledger writes decoded
 
 
+@T("string-manifest-zero-excluded-live-shape")
+def _():
+    # Live 2026-10-16: gate-inputs carries CSV strings. "0" must coerce and
+    # exclude (else ratio 1.0000 FAIL); "10663" must coerce and include.
+    out = g.v4("0", 5431.8, 5431.8)
+    assert out["manifest_excluded"] is True and out["ratio"] == 0.0, out
+    out = g.v4("10663", 10663.188, 10663.211)
+    assert out["manifest_excluded"] is False, out
+    assert g.is_sentinel_manifest("0") is True
+    assert g.is_sentinel_manifest("10663") is False
+
+
 @T("sentinel-manifest-excluded-pass-with-note")
 def _():
     out = g.v4(2 * 1024 ** 3, 1436.9, 1436.885)

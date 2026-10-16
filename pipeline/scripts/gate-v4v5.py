@@ -36,12 +36,26 @@ class V5Fail(Exception):
     pass
 
 
+def _num(v):
+    """Coerce manifest/header/decoded to float. CSV-sourced gate-inputs carry
+    strings ('0', '10663'); a string '0' is the pjFQiLQQ class (recorded dur
+    was 0) and must coerce before the sentinel test, or '0' == 0 fails and
+    the sentinel enters the spread (live 2026-10-16: ratio 1.0000)."""
+    if v is None or v == "":
+        return None
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
 def is_sentinel_manifest(d):
     """A manifest duration that is a display value, not a measurement: zero,
     missing, or GiB-scale (a byte-count leaked into a seconds field, e.g. a
     2 GiB d_manifest = 68 years of audio). Small KiB-exact second counts are
     ordinary durations, not sentinels: the test is scale, not exactness."""
-    return d is None or d == 0 or (isinstance(d, (int, float)) and d >= 2 ** 30)
+    d = _num(d)
+    return d is None or d == 0 or d >= 2 ** 30
 
 
 def v4(d_manifest, d_header, d_decoded):
@@ -56,10 +70,11 @@ def v4(d_manifest, d_header, d_decoded):
     disagreement); the correct verdict excludes and passes, with the
     exclusion recorded here. Spec/formula wins over the bullet.
     """
+    d_decoded = _num(d_decoded)
     if d_decoded is None:
         raise V4Fail("no decoded duration: no authority")
     excluded = is_sentinel_manifest(d_manifest)
-    vals = [float(v) for v in (d_header, d_decoded) if v is not None]
+    vals = [float(v) for v in (_num(d_header), d_decoded) if v is not None]
     if not excluded:
         vals.append(float(d_manifest))
     spread = max(vals) - min(vals)
@@ -75,6 +90,7 @@ def v4(d_manifest, d_header, d_decoded):
 def v5(first_start, last_end, d_manifest, n_words):
     if n_words == 0:
         raise V5Fail("EMPTY: no words (fetch/decode failure, retry costs money)")
+    d_manifest = _num(d_manifest)
     if d_manifest is None or d_manifest <= 0:
         raise V5Fail("EMPTY: no duration")
     head, tail = float(first_start), float(d_manifest) - float(last_end)

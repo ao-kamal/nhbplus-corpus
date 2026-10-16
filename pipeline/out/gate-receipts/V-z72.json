@@ -3,6 +3,6 @@
  "script": "test-submit.py",
  "subject": "submit.py",
  "verdict": "PASS",
- "detail": "6/6 submit tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\submit-tests.jsonl\r\n",
- "ts": "2026-10-16T02:56:08Z"
+ "detail": "7/7 submit tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\submit-tests.jsonl\r\n",
+ "ts": "2026-10-16T10:47:23Z"
 }

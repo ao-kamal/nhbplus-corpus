@@ -46,7 +46,9 @@ def v10(receipts, loss_allowance=LOSS_ALLOWANCE):
             raise V10Fail(f"{r.get('part')}: settle_quantity None (defaults to 0 rejected)")
         if r.get("metadata_duration") is None:
             raise V10Fail(f"{r.get('part')}: metadata_duration missing: nothing to recompute from")
-        if abs(r["settle_quantity"] - settle_from(r)) > 1e-6:
+        # Tolerance 1e-3 s: settle_quantity is stored at 3 dp. A ms is
+        # $0.0000000933 of billing: asserting tighter manufactures findings.
+        if abs(r["settle_quantity"] - settle_from(r)) > 1e-3:
             raise V10Fail(f"{r.get('part')}: stored {r['settle_quantity']} != fresh {settle_from(r)}")
     committed = sum(commit_cost(r["metadata_duration"], r["input_channel_count"])
                     for r in receipts if r.get("status") == "settled")

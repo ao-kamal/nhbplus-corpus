@@ -10,11 +10,11 @@
 {"gate": "V-geo", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-geo.json", "counts": {"PASS": 5}}
 {"gate": "V-md5", "verdict": "STARTED", "script": "test-spend-ledger.py", "script_digest": "2d7a818a177e3c72"}
 {"gate": "V-md5", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-md5.json", "counts": {"PASS": 6}}
-{"gate": "V-z72", "verdict": "STARTED", "script": "test-submit.py", "script_digest": "505884faa693fb46"}
+{"gate": "V-z72", "verdict": "STARTED", "script": "test-submit.py", "script_digest": "bdd11ab33153d6b1"}
 {"gate": "V-z72", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-z72.json", "counts": {"PASS": 7}}
-{"gate": "V4", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "919e607bfb6d9d6e"}
+{"gate": "V4", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "b76fc179f6ea08df"}
 {"gate": "V4", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V4.json", "counts": {"PASS": 8}}
-{"gate": "V5", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "919e607bfb6d9d6e"}
+{"gate": "V5", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "b76fc179f6ea08df"}
 {"gate": "V5", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V5.json", "counts": {"PASS": 9}}
 {"gate": "V3", "verdict": "STARTED", "script": "test-gate-v3.py", "script_digest": "4fb5bac714ea1645"}
 {"gate": "V3", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V3.json", "counts": {"PASS": 10}}
@@ -30,7 +30,7 @@
 {"gate": "V8", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V8.json", "counts": {"PASS": 15}}
 {"gate": "V-a7z", "verdict": "STARTED", "script": "test-assemble.py", "script_digest": "0e63106242f15821"}
 {"gate": "V-a7z", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-a7z.json", "counts": {"PASS": 16}}
-{"gate": "V-kgb", "verdict": "STARTED", "script": "test-part-state.py", "script_digest": "8555d5f1ef88aa9f"}
+{"gate": "V-kgb", "verdict": "STARTED", "script": "test-part-state.py", "script_digest": "e46344b8030075d1"}
 {"gate": "V-kgb", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-kgb.json", "counts": {"PASS": 17}}
 {"gate": "V-06k", "verdict": "STARTED", "script": "test-disk-cap.py", "script_digest": "666b0ad2387921af"}
 {"gate": "V-06k", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-06k.json", "counts": {"PASS": 18}}
