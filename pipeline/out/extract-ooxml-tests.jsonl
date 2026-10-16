@@ -1,0 +1,7 @@
+{"test": "docx-round-trips-to-markdown", "artifact": "extract-ooxml.py", "input_digest": "492d514bb516a3ed", "verdict": "PASS", "note": ""}
+{"test": "pptx-slide-order-survives", "artifact": "extract-ooxml.py", "input_digest": "f7d449aad38d5be3", "verdict": "PASS", "note": ""}
+{"test": "xlsx-rows-in-order", "artifact": "extract-ooxml.py", "input_digest": "a8d8da3b9828a0d8", "verdict": "PASS", "note": ""}
+{"test": "oversized-member-streams-peak-bounded", "artifact": "extract-ooxml.py", "input_digest": "fd13c08e7b4aaf76", "verdict": "PASS", "note": ""}
+{"test": "stdlib-only-no-third-party-import", "artifact": "extract-ooxml.py", "input_digest": "ae69719b4640a420", "verdict": "PASS", "note": ""}
+{"test": "no-text-ships-empty-extraction-never-fabrication", "artifact": "extract-ooxml.py", "input_digest": "75531eff8b44a2b0", "verdict": "PASS", "note": ""}
+{"test": "population-51-not-59-live-scope-count", "artifact": "extract-ooxml.py", "input_digest": "9bab761e683501f9", "verdict": "PASS", "note": ""}

@@ -1,0 +1,6 @@
+{"test": "population-8-by-class-never-by-name", "artifact": "extract-misc.py", "input_digest": "15880e59feb1a4c1", "verdict": "PASS", "note": ""}
+{"test": "txt-reads-and-empty-is-empty-extraction", "artifact": "extract-misc.py", "input_digest": "a0dc7fe4adca8cda", "verdict": "PASS", "note": ""}
+{"test": "resources-links-paths-distinct", "artifact": "extract-misc.py", "input_digest": "a39d4616738311fe", "verdict": "PASS", "note": ""}
+{"test": "png-note-never-file-hash-and-dims-recorded", "artifact": "extract-misc.py", "input_digest": "f3b94b9e4e177ab3", "verdict": "PASS", "note": ""}
+{"test": "zip-enumerate-before-parse-guard-live", "artifact": "extract-misc.py", "input_digest": "3abfea751457031c", "verdict": "PASS", "note": ""}
+{"test": "no-attachments-anywhere", "artifact": "extract-misc.py", "input_digest": "8eb12b272521cf45", "verdict": "PASS", "note": ""}
