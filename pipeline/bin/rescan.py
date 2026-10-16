@@ -15,7 +15,12 @@ import sys
 
 HOME = os.path.expanduser("~")
 BASE = os.path.join(HOME, "nhbplus")
-WORK = os.environ.get("NHBPLUS_WORK", BASE)
+# The loopback tree is where bulk receipts live; default to it when present
+# (running rescan without NHBPLUS_WORK set scanned BASE twice and missed the
+# loopback entirely: 2 receipts found, settled diff -5.57, false FAIL).
+_LOOP = "/home/azureuser/nhbplus-work"
+WORK = os.environ.get("NHBPLUS_WORK",
+                      _LOOP if os.path.isdir(os.path.join(_LOOP, "units")) else BASE)
 LEDGER = os.path.join(BASE, "_meta", "spend.json")
 RATE = 0.0043
 KEYTERM_RATE = 0.0013
