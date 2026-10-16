@@ -286,8 +286,29 @@ def submit_one(prep, keys, ledger, title, topic):
             "server_words": gi["words"]}
 
 
+def disk_used_pct():
+    import shutil
+    u = shutil.disk_usage(UNITS)
+    return u.used / (u.used + u.free)
+
+
+def reap_done(futs, log):
+    done = [f for f in futs if f.done()]
+    for f in done:
+        p = futs.pop(f)
+        try:
+            out = f.result()
+        except Exception as e:
+            out = {"handle": p["handle"], "outcome": "ERROR", "note": str(e)[:300]}
+        log.write(json.dumps(out) + "\n")
+        log.flush()
+        print(json.dumps(out), flush=True)
+    return len(done)
+
+
 def main():
     block = sys.argv[1] if len(sys.argv) > 1 else "lpt16"
+    workers = int(sys.argv[2]) if len(sys.argv) > 2 else 4
     rows = [r for r in csv.DictReader(open(os.path.join(BASE, "worklist", "targets.csv")))
             if r["block"] == block and r["kind"] == "audio"]
     sf = json.load(open(os.path.join(BASE, "out", "scope-final.json")))
@@ -308,29 +329,35 @@ def main():
             titles[u["media"]["handle"]] = (u.get("title", ""), u.get("topic", ""))
     except Exception:
         pass
-    preps = []
-    for row in rows:
-        if row["dur_s"] == "unknown":
-            print(f"SKIP unknown-duration {row['handle']}", flush=True)
-            continue
-        try:
-            preps.append(process_unit(row, keys, ledger, remux_sem, log_path))
-        except Exception as e:
-            print(json.dumps({"handle": row["handle"], "outcome": "PREP_ERROR",
-                              "note": str(e)[:300]}), flush=True)
+    # INTERLEAVED: prep one unit, hand to the pool immediately, backpressure
+    # on pool depth AND disk use. Two-phase (all preps then all submits)
+    # overflows the loopback: sources+parts accumulate with no drain.
     with open(log_path, "a", encoding="utf-8") as log:
-        with ThreadPoolExecutor(max_workers=25) as pool:
-            futs = {pool.submit(submit_one, p, keys, ledger,
-                                *titles.get(p["handle"], ("", ""))): p
-                    for p in preps if "part" in p}
-            for fut in futs:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futs = {}
+            for row in rows:
+                if row["dur_s"] == "unknown":
+                    print(f"SKIP unknown-duration {row['handle']}", flush=True)
+                    continue
+                while len(futs) >= workers or disk_used_pct() > 0.85:
+                    reap_done(futs, log)
+                    time.sleep(10)
                 try:
-                    out = fut.result()
+                    prep = process_unit(row, keys, ledger, remux_sem, log_path)
                 except Exception as e:
-                    out = {"handle": futs[fut]["handle"], "outcome": "ERROR",
-                           "note": str(e)[:300]}
-                log.write(json.dumps(out) + "\n")
-                print(json.dumps(out), flush=True)
+                    raw = getattr(e, "stderr", "") or ""
+                    err = raw.decode(errors="replace")[-300:] if isinstance(raw, bytes) else str(raw)[-300:]
+                    print(json.dumps({"handle": row["handle"], "outcome": "PREP_ERROR",
+                                      "note": (str(e)[:200] + " | " + err)}), flush=True)
+                    continue
+                if "part" not in prep:
+                    print(json.dumps(prep), flush=True)
+                    continue
+                futs[pool.submit(submit_one, prep, keys, ledger,
+                                 *titles.get(prep["handle"], ("", "")))] = prep
+            while futs:
+                reap_done(futs, log)
+                time.sleep(10)
     print("LEDGER " + json.dumps(ledger.totals()), flush=True)
 
 
