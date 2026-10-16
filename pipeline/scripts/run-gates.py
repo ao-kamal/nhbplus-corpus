@@ -39,9 +39,12 @@ RECEIPT_DIR = os.path.join(OUT, "gate-receipts")
 # Registry order IS the gate index. Only implemented gates are listed;
 # a registered gate whose script is missing FAILS (it does not go quiet).
 GATES = [
-    {"id": "V0", "script": "test-worklist.py",
+    {"id": "V-0em", "script": "test-worklist.py",
      "subject": "worklist/targets.csv",
      "log": "worklist-tests.jsonl"},
+    {"id": "V0", "script": "test-gate-v0.py",
+     "subject": "worklist/targets.csv",
+     "log": "gate-v0-tests.jsonl"},
     {"id": "V-kgb", "script": "test-part-state.py",
      "subject": "part-state.py",
      "log": "part-state-tests.jsonl"},

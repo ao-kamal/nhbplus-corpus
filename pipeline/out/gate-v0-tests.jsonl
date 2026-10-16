@@ -1,0 +1,6 @@
+{"test": "deleted-row-fails-with-count", "artifact": "gate-v0.py", "input_digest": "4b9b955ca333a7fd", "verdict": "PASS", "note": ""}
+{"test": "duplicated-row-fails-uniqueness", "artifact": "gate-v0.py", "input_digest": "ce477d85e17b357f", "verdict": "PASS", "note": ""}
+{"test": "partial-glob-fails-inequality", "artifact": "gate-v0.py", "input_digest": "12ce9441a2c3922e", "verdict": "PASS", "note": ""}
+{"test": "empty-scope-never-passes", "artifact": "gate-v0.py", "input_digest": "cdb3dac3923249fe", "verdict": "PASS", "note": ""}
+{"test": "verdict-follows-csv-not-disk", "artifact": "gate-v0.py", "input_digest": "7f9d4c90427d4ac2", "verdict": "PASS", "note": ""}
+{"test": "e2e-real-artifacts-pass-nonvacuous", "artifact": "gate-v0.py", "input_digest": "5083993f13230d39", "verdict": "PASS", "note": ""}
