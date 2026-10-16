@@ -1,0 +1,5 @@
+{"test": "sentinel-predicate-kib-not-gib", "artifact": "disk-cap.py", "input_digest": "2e5df351c4d6f781", "verdict": "PASS", "note": ""}
+{"test": "census-335-kib-exact-zero-kills", "artifact": "disk-cap.py", "input_digest": "a8e5cf8912951917", "verdict": "PASS", "note": ""}
+{"test": "gib-subpopulation-77-38-39-75pct", "artifact": "disk-cap.py", "input_digest": "5d13df81ae6a69fd", "verdict": "PASS", "note": ""}
+{"test": "no-max-threshold-arm", "artifact": "disk-cap.py", "input_digest": "cacd79ab78d94707", "verdict": "PASS", "note": ""}
+{"test": "else-arm-never-taken-recorded", "artifact": "disk-cap.py", "input_digest": "1a9cda36f53127b9", "verdict": "PASS", "note": ""}
