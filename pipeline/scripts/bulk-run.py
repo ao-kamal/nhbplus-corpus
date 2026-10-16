@@ -227,6 +227,17 @@ def submit_one(prep, keys, ledger, title, topic):
         st = ps.read_json(st_path)
         n = int(st.get("submit_attempts", 0)) + 1
         trial = f"{h}-p00-a{n}"
+        if v == ps.SENT or v == ps.PAID_UNKNOWN:
+            # Killed mid-POST (or a prior PAID_UNKNOWN): the bytes may have
+            # billed and the outcome is unknowable. NEVER auto-resubmit:
+            # PAID_UNKNOWN stops here and the operator decides. A resume
+            # that crashes on reserve-Refused would hide this branch.
+            rec = ps.read_json(os.path.join(udir, "receipt.json"))
+            if rec.get("http_status") is None:
+                return {"handle": h, "outcome": "PAID_UNKNOWN",
+                        "note": "sent with no outcome on resume: operator decides"}
+            return {"handle": h, "outcome": "PAID_UNKNOWN",
+                    "note": f"sent with http {rec.get('http_status')}: operator decides"}
         if v == ps.RESERVED:
             old = ps.read_json(os.path.join(udir, "receipt.json"))
             ledger.release("primary", f"{h}-p00-a{n-1}",
