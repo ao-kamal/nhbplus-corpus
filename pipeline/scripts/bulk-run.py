@@ -136,14 +136,14 @@ def process_unit(row, keys, ledger, remux_sem, log):
     udir = os.path.join(UNITS, unit)
     os.makedirs(udir, exist_ok=True)
     verdict, action = ps.recover(udir)
-    if verdict in (ps.SETTLED, ps.LOST):
-        if verdict == ps.LOST and os.environ.get("FAILOVER") == "1":
-            rec = ps.read_json(os.path.join(udir, "receipt.json"))
-            if not rec.get("paid_unknown"):
-                return {"handle": h, "outcome": "skip-" + verdict}
-            # else: operator-authorized failover retry below (fresh trial)
-        else:
-            return {"handle": h, "outcome": "skip-" + verdict}
+    failover_set = set(os.environ.get("FAILOVER_HANDLES", "").split(","))
+    if verdict == ps.SETTLED:
+        return {"handle": h, "outcome": "skip-settled"}
+    if verdict == ps.LOST:
+        # Only the operator-enumerated 402 batch retries (402 = not billed).
+        # Every other lost unit skips: its money is gone, not recoverable.
+        if not (os.environ.get("FAILOVER") == "1" and h in failover_set):
+            return {"handle": h, "outcome": "skip-lost"}
     if verdict == ps.PAID_UNKNOWN:
         if os.environ.get("FAILOVER") == "1":
             pass  # same authorization via state: receipt check in submit_one
@@ -245,8 +245,12 @@ def submit_one(prep, keys, ledger, title, topic):
             # will meet the table again (including 402 -> failover).
             rec = ps.read_json(os.path.join(udir, "receipt.json"))
             http = rec.get("http_status")
-            if (os.environ.get("FAILOVER") == "1"
-                    and rec.get("status") == ps.LOST and rec.get("paid_unknown")):
+            failover_set = set(os.environ.get("FAILOVER_HANDLES", "").split(","))
+            if (os.environ.get("FAILOVER") == "1" and h in failover_set
+                    and rec.get("status") == ps.LOST):
+                # Operator-enumerated 402 batch (402 = not billed): release
+                # the stranded commit and requeue. Never fires for unlisted
+                # units: true unknowns keep their commits.
                 ledger.release("primary", f"{h}-p00-a{n-1}",
                                rec.get("committed_usd", 0.0))
                 st["status"] = ps.QUEUED  # 402 batch: not billed, safe retry
