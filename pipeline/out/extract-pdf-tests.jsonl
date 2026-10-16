@@ -1,0 +1,7 @@
+{"test": "hex-glyph-stream-yields-no-words-and-regex-absent", "artifact": "extract-pdf.py", "input_digest": "29b5bb43c4b8dd85", "verdict": "PASS", "note": ""}
+{"test": "47-refuted-7figure-present-parts-equal-total", "artifact": "extract-pdf.py", "input_digest": "2a7d1e964dfba1a9", "verdict": "PASS", "note": ""}
+{"test": "degeneracy-gate-is-font-size-never-wpp", "artifact": "extract-pdf.py", "input_digest": "6160b1620fc2f587", "verdict": "PASS", "note": ""}
+{"test": "ytol-digest-stable-and-lines-grouped", "artifact": "extract-pdf.py", "input_digest": "e0f56145f3b5be4c", "verdict": "PASS", "note": ""}
+{"test": "tier-rule-title-body-headings", "artifact": "extract-pdf.py", "input_digest": "6250df6d462b4373", "verdict": "PASS", "note": ""}
+{"test": "urls-from-annots-never-display-text", "artifact": "extract-pdf.py", "input_digest": "7b808f2e3fe5b579", "verdict": "PASS", "note": ""}
+{"test": "page-cap-recorded-by-name", "artifact": "extract-pdf.py", "input_digest": "5434aae1f5ef6aca", "verdict": "PASS", "note": ""}
