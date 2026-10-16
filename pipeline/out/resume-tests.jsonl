@@ -1,0 +1,3 @@
+{"test": "reserved-kill-resume-equals-uninterrupted", "artifact": "resume", "input_digest": "882249378e6ce7d6", "verdict": "PASS", "note": ""}
+{"test": "sent-kill-paid-unknown-never-resubmitted-idempotent", "artifact": "resume", "input_digest": "c10617094ce6050c", "verdict": "PASS", "note": ""}
+{"test": "resume-429-retried-not-retired", "artifact": "resume", "input_digest": "d00d1e5182bf946d", "verdict": "PASS", "note": ""}
