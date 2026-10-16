@@ -291,6 +291,19 @@ def submit_one(prep, keys, ledger, title, topic):
                 data = fh.read()
             with open(os.path.join(mirror, f), "wb") as fh:
                 fh.write(data)
+    # Responses live on the MIRROR (root disk): assembly reads them there.
+    # The loopback keeps only in-flight bytes; settled responses are moved
+    # off (size-verified) the moment they land. Live 2026-10-16: 135
+    # responses (~1 GB) pruned mid-run to unstick a 100% loopback.
+    rpath = os.path.join(udir, "response-part-00.json")
+    rdest = os.path.join(mirror, "response-part-00.json")
+    if os.path.exists(rpath):
+        with open(rpath, "rb") as fh:
+            rdata = fh.read()
+        with open(rdest, "wb") as fh:
+            fh.write(rdata)
+        if os.path.getsize(rdest) == len(rdata):
+            os.remove(rpath)
     # Post-settle disk assertion: deleting parts must grow free room.
     before = work_free_bytes()
     for f in os.listdir(udir):
