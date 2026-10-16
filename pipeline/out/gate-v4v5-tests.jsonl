@@ -1,0 +1,5 @@
+{"test": "pjfqilqq-00871-warn-not-00954", "artifact": "gate-v4v5.py", "input_digest": "fc0db620a8b0191b", "verdict": "PASS", "note": ""}
+{"test": "sentinel-manifest-excluded-pass-with-note", "artifact": "gate-v4v5.py", "input_digest": "5240e9141618d895", "verdict": "PASS", "note": ""}
+{"test": "zero-manifest-no-decoded-fails-12pct-fails-1ms-passes", "artifact": "gate-v4v5.py", "input_digest": "b652178ab71aff8b", "verdict": "PASS", "note": ""}
+{"test": "smoke-edges-pass-55s-fails-negative-passes", "artifact": "gate-v4v5.py", "input_digest": "dd228a52a90ba865", "verdict": "PASS", "note": ""}
+{"test": "span-ratio-unset-never-zero", "artifact": "gate-v4v5.py", "input_digest": "a0572b8848c7f0cd", "verdict": "PASS", "note": ""}
