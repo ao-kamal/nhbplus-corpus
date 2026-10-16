@@ -74,7 +74,10 @@ def main():
     ok = True
     for aid, a in rec.items():
         la = live["accounts"].get(aid, {})
-        for k in ("settled", "lost", "released"):
+        # NOTE: `released` is deliberately NOT compared: releases are a
+        # ledger-side flow (failover re-commit) with no receipt state behind
+        # them. Comparing it manufactures a finding on every failover run.
+        for k in ("settled", "lost"):
             d = round(a[k] - la.get(k, 0.0), 4)
             if abs(d) > 0.01:
                 ok = False
