@@ -399,6 +399,10 @@ for t in drows:
 by_path = defaultdict(list)
 for t in drows: by_path[t["path"].casefold()].append(t)
 dpdups = {k: v for k, v in by_path.items() if len(v) > 1}
+# Residual unprefixed-name collisions AFTER the course prefix ran: this is
+# the load-bearing count (wi6: must be 0). The pre-prefix `dups` above is the
+# DECISION input (1 key, "resources links", that triggered prefixing); it is
+# kept as prefix_triggers for transparency, not as a defect count.
 print(f"  documents with a path        : {sum(1 for t in drows if t.get('path'))} of {len(drows)}")
 print(f"  written hands linked to a call: {f11_linked} linked, {f11_unlinked} unlinked  [F11]")
 for t in drows:
@@ -435,7 +439,11 @@ out = {"calls": call_rows, "lessons": lesson_rows,
        # pre-prefix count that DECIDES whether a prefix is applied;
        # `paths` is the post-prefix count that is actually load-bearing.
        "collisions": {"calls": len(coll), "lessons": len(lcoll),
-                      "document_names_unprefixed": len(dups),
+                      "document_names_unprefixed": sum(
+                          1 for _k, _v in Counter(
+                              t["clean"].casefold() for t in drows).items()
+                          if _v > 1),
+                      "prefix_triggers": len(dups),
                       "document_paths": len(dpdups)},
        "decision": "2026-10-15 operator: clean names, NOT verbatim MEGA filenames. "
                    "Verbatim preserved in _meta/manifest.json for every unit."}

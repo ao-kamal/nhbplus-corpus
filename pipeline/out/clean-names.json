@@ -2760,7 +2760,8 @@
  "collisions": {
   "calls": 0,
   "lessons": 0,
-  "document_names_unprefixed": 1,
+  "document_names_unprefixed": 0,
+  "prefix_triggers": 1,
   "document_paths": 0
  },
  "decision": "2026-10-15 operator: clean names, NOT verbatim MEGA filenames. Verbatim preserved in _meta/manifest.json for every unit."
