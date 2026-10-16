@@ -25,7 +25,7 @@ Transcribed verbatim with Deepgram Nova-3 diarization, cross-verified with crypt
 <h3>Quick Clone</h3>
 
 ```bash
-git clone https://github.com/user/nhbplus-corpus.git
+git clone https://github.com/ao-kamal/nhbplus-corpus.git
 ```
 
 **Open in Obsidian:** Launch Obsidian → *Open folder as vault* → select `vault/`
@@ -264,7 +264,7 @@ If you prefer browsing visually:
 
 ```bash
 # Clone the repository
-git clone https://github.com/user/nhbplus-corpus.git
+git clone https://github.com/ao-kamal/nhbplus-corpus.git
 cd nhbplus-corpus
 
 # Open the vault directory in Obsidian
@@ -280,7 +280,7 @@ obsidian vault/
 
 ```bash
 # Clone directly into your personal knowledge base or agent workspace
-git clone https://github.com/user/nhbplus-corpus.git ~/knowledge/nhbplus
+git clone https://github.com/ao-kamal/nhbplus-corpus.git ~/knowledge/nhbplus
 
 # Test search across the corpus
 rg -l "Awareness Bridge" ~/knowledge/nhbplus/vault/
@@ -319,7 +319,7 @@ Integrity was the primary engineering constraint of this pipeline. Every claim i
 
 ### 5. "Git clone fails or times out on `Lazy Loading Code.zip`"
 - **Cause:** `Lazy Loading Code.zip` in `vault/attachments/` is ~296 MB.
-- **Fix:** Ensure stable internet connectivity or perform a shallow clone: `git clone --depth 1 https://github.com/user/nhbplus-corpus.git`.
+- **Fix:** Ensure stable internet connectivity or perform a shallow clone: `git clone --depth 1 https://github.com/ao-kamal/nhbplus-corpus.git`.
 
 ---
 
