@@ -3,6 +3,6 @@
  "script": "test-extract-ooxml.py",
  "subject": "extract-ooxml.py",
  "verdict": "PASS",
- "detail": "7/7 extract-ooxml tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\extract-ooxml-tests.jsonl\r\n",
- "ts": "2026-10-16T01:20:27Z"
+ "detail": "8/8 extract-ooxml tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\extract-ooxml-tests.jsonl\r\n",
+ "ts": "2026-10-16T01:51:35Z"
 }

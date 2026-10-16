@@ -1,0 +1,6 @@
+{"test": "smoke-unit-bit-identical-live-values", "artifact": "channels.py", "input_digest": "ebf939b7ffe79a3e", "verdict": "PASS", "note": ""}
+{"test": "bug-repro-pan-before-astats-collapses", "artifact": "channels.py", "input_digest": "b6683d2c5e3797ec", "verdict": "PASS", "note": ""}
+{"test": "five-branches-boundaries", "artifact": "channels.py", "input_digest": "ed107177a3a1f276", "verdict": "PASS", "note": ""}
+{"test": "downmix-commands-exact", "artifact": "channels.py", "input_digest": "f481b3ded5039766", "verdict": "PASS", "note": ""}
+{"test": "no-v-error-around-astats-90s-window-only", "artifact": "channels.py", "input_digest": "e34918e13de11363", "verdict": "PASS", "note": ""}
+{"test": "parse-rejects-silent-inf-trap", "artifact": "channels.py", "input_digest": "d2f6a24c4645110d", "verdict": "PASS", "note": ""}

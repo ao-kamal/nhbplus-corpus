@@ -4,5 +4,5 @@
  "subject": "worklist/targets.csv",
  "verdict": "PASS",
  "detail": "lob-partial-fails-equality - correctly failed: partial glob equals manifest\r\n  [PASS] T3-orders-on-cost-not-minutes-not-alpha - cost order differs from both alpha and minutes\r\n  [PASS] T4-section9-block-order - 10/99/1/16/218 smoke=V7U0mT4Q $0.134\r\n  [PASS] T5-no-kind-call - audio/written_hand/course_doc/orphan_doc only\r\n  [PASS] T6-duration-or-unknown-never-none - 109 docs unknown + 1 audio unknown, rest numeric\r\n  [PASS] T7-e2e-344-and-no-gate-reads-glob - 344, sets equal, no glob in builder\r\n",
- "ts": "2026-10-16T01:20:25Z"
+ "ts": "2026-10-16T01:51:33Z"
 }

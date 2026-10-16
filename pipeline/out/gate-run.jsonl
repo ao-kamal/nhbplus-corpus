@@ -6,16 +6,18 @@
 {"gate": "V1", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V1.json", "counts": {"PASS": 3}}
 {"gate": "V-zyg", "verdict": "STARTED", "script": "test-fetch-pool.py", "script_digest": "e8c7012223c4b319"}
 {"gate": "V-zyg", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-zyg.json", "counts": {"PASS": 4}}
+{"gate": "V-geo", "verdict": "STARTED", "script": "test-channels.py", "script_digest": "24ebfb8e5a7dd6ca"}
+{"gate": "V-geo", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-geo.json", "counts": {"PASS": 5}}
 {"gate": "V-kgb", "verdict": "STARTED", "script": "test-part-state.py", "script_digest": "936afe63960e6c4c"}
-{"gate": "V-kgb", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-kgb.json", "counts": {"PASS": 5}}
+{"gate": "V-kgb", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-kgb.json", "counts": {"PASS": 6}}
 {"gate": "V-06k", "verdict": "STARTED", "script": "test-disk-cap.py", "script_digest": "666b0ad2387921af"}
-{"gate": "V-06k", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-06k.json", "counts": {"PASS": 6}}
+{"gate": "V-06k", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-06k.json", "counts": {"PASS": 7}}
 {"gate": "V-dqh", "verdict": "STARTED", "script": "test-extract-pdf.py", "script_digest": "23be969da0f6b3fc"}
-{"gate": "V-dqh", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-dqh.json", "counts": {"PASS": 7}}
-{"gate": "V-5zb", "verdict": "STARTED", "script": "test-extract-ooxml.py", "script_digest": "49988cc100e074a8"}
-{"gate": "V-5zb", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-5zb.json", "counts": {"PASS": 8}}
+{"gate": "V-dqh", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-dqh.json", "counts": {"PASS": 8}}
+{"gate": "V-5zb", "verdict": "STARTED", "script": "test-extract-ooxml.py", "script_digest": "5b21ea037cc26f87"}
+{"gate": "V-5zb", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-5zb.json", "counts": {"PASS": 9}}
 {"gate": "V-8pt", "verdict": "STARTED", "script": "test-extract-misc.py", "script_digest": "d4e1a9d216ed726a"}
-{"gate": "V-8pt", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-8pt.json", "counts": {"PASS": 9}}
+{"gate": "V-8pt", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-8pt.json", "counts": {"PASS": 10}}
 {"gate": "V-emn", "verdict": "STARTED", "script": "test-harness.py", "script_digest": "d58a1174434645ae"}
-{"gate": "V-emn", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-emn.json", "counts": {"PASS": 10}}
-{"run": "complete", "gates": 10, "counts": {"PASS": 10}, "verdict": "PASS"}
+{"gate": "V-emn", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-emn.json", "counts": {"PASS": 11}}
+{"run": "complete", "gates": 11, "counts": {"PASS": 11}, "verdict": "PASS"}
