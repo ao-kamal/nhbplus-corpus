@@ -49,7 +49,7 @@ This repository contains the **complete verbatim transcription and indexing of t
 | Dimension | The Raw Archive | This Corpus |
 |---|---|---|
 | **Audio Volume** | ~320 GB raw video/audio | **619.8 hours** transcribed verbatim (zero audio files needed locally) |
-| **Searchability** | ❌ None (scrub audio manually) | ✅ **Full-text search across 6,953,849 words** in Obsidian or via CLI |
+| **AI Agent Research** | ❌ Impossible (cannot prompt raw audio) | ✅ **Instant agent synthesis (Claude Code, Antigravity, OpenCode)** |
 | **Diarization** | ❌ None | ✅ **Timestamped speaker diarization** (`Speaker 0`, `Speaker 1`, etc.) |
 | **Chronological Index** | ❌ Scattered across folders | ✅ **`00 Topics.md`**: 235 chronological rows linking dates, topics & words |
 | **Companion Files** | ⚠️ Lost in subdirectories | ✅ **105 original attachments** (.docx, .xlsx, .pdf, code) directly linked |
@@ -192,42 +192,55 @@ Speaker 1: When you look at the bridge between awareness stages, how do you hand
 
 ---
 
-## Quick Example: Exploring the Corpus
+## The Agent Advantage: Why Text Outperforms 620 Hours of Audio
 
-### 1. In Obsidian (GUI)
-1. Open Obsidian and select **Open folder as vault**.
-2. Point Obsidian to the `vault/` folder in this repo.
-3. Open `00 Topics.md` to see the entire 4-year curriculum sorted chronologically.
-4. Press `Ctrl + Shift + F` to run global regex or text searches across 6.95 million words.
+Listening to 619.8 hours of audio in real-time requires **15.5 continuous 40-hour work weeks**—nearly 4 solid months of non-stop listening just to absorb the material once.
 
-### 2. From the Command Line (CLI / Ripgrep)
-Find every discussion of customer acquisition economics or VSL structure in milliseconds:
+By converting the entire archive into a clean, machine-readable markdown corpus, **zero local audio is not a limitation; it is an unfair leverage multiplier**:
+- **Instant Global Synthesis:** An AI agent (Claude Code, Antigravity, OpenCode, Cursor) can comb through 45 months of continuous direct-response training in seconds.
+- **Cross-Era Correlation:** Connect a passing remark on offer architecture in June 2021 to a refined financial economics framework taught in February 2025.
+- **Actionable Execution:** Instruct your agent to extract exact copy templates, build custom economics spreadsheets, or stress-test your live sales funnels against Alen Sultanic's direct critique.
 
-```bash
-# Search for Blake Wyatt's economics breakdown
-rg "competing on economics" vault/calls/
+---
 
-# Search across all calls for the 5-step closing framework
-rg -i "5 step sales process" vault/
+## Agent-Native Exploration: How to Put This Corpus to Work
 
-# Find every mention of upsell take-rate optimization
-rg -C 3 "upsell take rate" vault/courses/
+This corpus is purpose-built for pairing with modern AI coding and research agents (**Claude Code**, **Gemini Antigravity**, **OpenCode**, **Cursor**, **Codex**). Instead of running manual scripts or listening to recordings, direct your agent straight at the `vault/` directory.
+
+### 1. Framework Extraction & Copy Generation
+```markdown
+"Read through the 2024 theory calls on awareness bridges and audience conversion in vault/calls/2024/. 
+Extract Alen Sultanic's core mental model for breaking cold-market skepticism, and use it to 
+write a 5-stage VSL lead script for our B2B high-ticket offer."
 ```
 
-### 3. Programmatic Querying with Python
-Read frontmatter and search notes programmatically:
-
-```python
-import frontmatter
-from pathlib import Path
-
-vault_path = Path("vault")
-for note in vault_path.glob("**/*.md"):
-    if note.name.startswith("00"): continue
-    post = frontmatter.load(note)
-    if post.get("type") == "theory" and "economics" in post.content.lower():
-        print(f"[{post.get('date')}] {post.get('title')} ({post.get('words')} words)")
+### 2. Unit Economics & Acquisition Auditing
+```markdown
+"Examine Blake Wyatt's guest masterclass on ultimate economics tracking and the 2023 calls 
+on competing on economics. Extract the mathematical rules for allowable customer acquisition cost (CAC) 
+relative to 60-day average order value (AOV) multipliers, and format them into a decision table."
 ```
+
+### 3. Cross-Referencing Spreadsheets with Coaching Calls
+```markdown
+"Inspect the CRO Audit Accelerator spreadsheet in vault/attachments/ and cross-reference it 
+with the January 31, 2024 coaching call note. Walk me through the exact checkout optimization 
+steps Alen recommends when cart conversion drops below 2.5%."
+```
+
+### 4. Longitudinal Evolution of Strategy
+```markdown
+"Analyze how Alen's teachings on high-ticket closing evolved from the June 2021 launch call 
+to the February 2025 coaching sessions in vault/calls/. Identify what tactics were phased out 
+and what fundamental principles remained unchanged."
+```
+
+### 5. Interactive Visual Exploration (Obsidian GUI)
+If you prefer browsing visually:
+1. Open Obsidian and click **Open folder as vault** → select `vault/`.
+2. Open [`00 Topics.md`](file:///C:/Users/layiw/Documents/Kamal/nhbplus-corpus/vault/00%20Topics.md) to explore all 235 sessions sorted chronologically with topic descriptions and word counts.
+3. Use `Ctrl + Shift + F` for instant global text search across all 6.95 million words.
+
 
 ---
 
@@ -239,7 +252,7 @@ for note in vault_path.glob("**/*.md"):
 | **Speaker Diarization** | ❌ None | ❌ Single wall of text | ✅ **Clean speaker separation** |
 | **Chronological IA** | ❌ No topic index | ❌ Raw filenames | ✅ **Full `00 Topics.md` directory** |
 | **Companion Materials** | ⚠️ Scattered across MEGA | ❌ Missing | ✅ **105 attached files linked** |
-| **Search Performance** | ❌ Impossible | ⚠️ Sluggish | ✅ **Sub-second Ripgrep / Obsidian** |
+| **Agent Leverage** | ❌ Impossible (can't prompt audio) | ⚠️ Exceeds token limits with zero structure | ✅ **Structured for AI Agents (Claude Code, Antigravity, OpenCode)** |
 | **Storage Footprint** | ❌ ~320 GB disk space | ⚠️ ~3 GB | ✅ **542 MB total (text + attachments)** |
 | **Provenance Audit** | ❌ Zero proof of completeness | ❌ Silent truncation | ✅ **100% verified against SHA-256** |
 
@@ -300,9 +313,9 @@ Integrity was the primary engineering constraint of this pipeline. Every claim i
 - **Cause:** Native operating system file associations for `.docx`, `.xlsx`, or `.pptx` are missing.
 - **Fix:** Ensure you have Microsoft Office, LibreOffice, or compatible readers installed. Attachments reside in `vault/attachments/`.
 
-### 4. "Ripgrep returns encoding errors on Windows PowerShell"
-- **Cause:** PowerShell default console output encoding might not be set to UTF-8.
-- **Fix:** Run `$OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding` before querying, or use `chcp 65001`.
+### 4. "Agent exceeds context window when analyzing the whole corpus"
+- **Cause:** Prompting an AI agent to ingest all 6.95 million words in a single context window will exceed model token limits.
+- **Fix:** Have your agent consult `vault/00 Topics.md` first to identify target dates and topics, or scope queries to specific directories (e.g. `vault/calls/2024/` or `vault/courses/`).
 
 ### 5. "Git clone fails or times out on `Lazy Loading Code.zip`"
 - **Cause:** `Lazy Loading Code.zip` in `vault/attachments/` is ~296 MB.
@@ -310,12 +323,11 @@ Integrity was the primary engineering constraint of this pipeline. Every claim i
 
 ---
 
-## Limitations
+## Scope & Design Boundaries
 
-- **No Media Playback:** This repository does **not** host, store, or distribute raw `.mp3` or `.mp4` media files. It is strictly a textual transcription corpus and research database.
-- **Verbatim Transcripts (Not AI Summaries):** Notes contain the raw, verbatim spoken words of Alen Sultanic, guest speakers, and attendees. They have intentionally **not** been summarized or compressed by an LLM so that the original cadence, nuance, and unfiltered teaching remain intact.
-- **Speaker Attribution:** While Deepgram Nova-3 accurately separates turns of speech by speaker (`Speaker 0`, `Speaker 1`, etc.), automated diarization does not infer the legal identity of unnamed audience questioners in live calls.
-- **Document Text Extraction:** Original documents (`.pdf`, `.docx`, `.pptx`) are preserved as native binary files in `vault/attachments/` rather than converted into lossy markdown.
+- **Verbatim Source Truth:** Notes contain the raw, verbatim spoken words of Alen Sultanic, guest speakers, and attendees. They have intentionally **not** been summarized or compressed by an LLM so that the unfiltered teaching, phrasing, and tactical nuances remain completely intact.
+- **Speaker Attribution:** Deepgram Nova-3 accurately separates turns of speech by speaker (`Speaker 0`, `Speaker 1`, etc.), but does not infer the legal identities of unnamed attendee questioners in open hot-seat calls.
+- **Native Companion Binaries:** Original companion files (`.docx`, `.xlsx`, `.pdf`, `.pptx`, `.zip`) are preserved as native binary files in `vault/attachments/` rather than converted into lossy markdown.
 
 ---
 
