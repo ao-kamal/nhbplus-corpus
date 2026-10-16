@@ -1,0 +1,2 @@
+{"test": "shared-six-rejected", "artifact": "gate-v8.py", "input_digest": "704b5ef2126043c5", "verdict": "PASS", "note": ""}
+{"test": "design-doc-parses-None-floor-344", "artifact": "gate-v8.py", "input_digest": "f0bc0e99318ae2dd", "verdict": "PASS", "note": ""}
