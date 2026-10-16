@@ -204,8 +204,12 @@ def process_unit(row, keys, ledger, remux_sem, log):
 def submit_one(prep, keys, ledger, title, topic):
     h = prep["handle"]
     udir = os.path.join(UNITS, prep["unit"])
-    part_size = os.path.getsize(prep["part"])
-    wait_for_room(part_size * 2 + 256 * 1024 * 1024)  # room for response + headroom
+    # Room for the RESPONSE + journal headroom. The part is already on disk:
+    # requiring 2x its size double-counts and deadlocks the pool (live
+    # 2026-10-16: two 1.4 GB parts, 847 MB free, submits waiting on room
+    # that only submits can free). In-flight bytes are bounded upstream by
+    # the main loop's 85% backpressure + post-settle deletes.
+    wait_for_room(256 * 1024 * 1024)  # response + headroom
     dur = ffprobe_duration(prep["part"])
     cost = round(sl.commit_cost(dur, prep["in_ch"]), 4)
     kt = keyterms_for(title, topic)
@@ -266,7 +270,9 @@ def submit_one(prep, keys, ledger, title, topic):
                    + (md / 60.0) * sl.KEYTERM_RATE * prep["in_ch"] * (1 if kt else 0), 4)
     st, action = ps.settle(udir, status, complete,
                            extras={"transport": "sync", "socket_open_ts": opened,
-                                   "account": acct, "keyterms_sent": kt})
+                                   "account": acct, "keyterms_sent": kt,
+                                   "metadata_duration": md,
+                                   "settle_quantity": round(md * prep["in_ch"], 3)})
     ledger.settle(acct, cost, actual)
     utts = obj["results"]["utterances"]
     gi = {"handle": h, "d_response": md, "d_decoded": dur,
