@@ -148,6 +148,10 @@ def _():
     del raw["accounts"]["primary"]["dead"]
     json.dump(raw, open(L.path, "w"))
     assert L.write_down("primary", 0.0, "zero-move") == 0.0
+    assert L.note_commitment("primary", 3.05, "kill mid-submit") is True
+    raw = json.load(open(L.path, encoding="utf-8"))
+    assert raw["commitments"] == [
+        {"account": "primary", "amount": 3.05, "reason": "kill mid-submit"}], raw
 
 
 def main():

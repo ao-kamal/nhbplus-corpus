@@ -182,6 +182,17 @@ class Ledger:
             return t["settled"]
         return self._locked(fn)
 
+    def note_commitment(self, aid, amount, reason):
+        """Memorialize committed money with no receipt (kill mid-submit: the
+        bytes may have billed, the receipt never landed). It stays inside
+        committed (counts against the stop); this entry explains WHY rescan
+        cannot rebuild it. Informational: changes no total."""
+        def fn(ledger):
+            ledger.setdefault("commitments", []).append(
+                {"account": aid, "amount": amount, "reason": reason})
+            return True
+        return self._locked(fn)
+
     def report(self, vm_days=None):
         t = self.totals()
         return {"stt_actual_usd": round(t["settled"] + t["lost"], 4),
