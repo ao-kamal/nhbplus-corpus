@@ -83,6 +83,21 @@ def sh(cmd, **kw):
     return subprocess.run(cmd, **kw)
 
 
+def work_free_bytes():
+    import shutil
+    return shutil.disk_usage(UNITS).free
+
+
+def wait_for_room(need, timeout=1800):
+    """Disk admission: never over-admit the loopback. Completions free
+    space, so waiting always terminates unless the box is wedged."""
+    t0 = time.time()
+    while work_free_bytes() < need:
+        if time.time() - t0 > timeout:
+            raise RuntimeError(f"DISK_STALL: free {work_free_bytes()} < need {need}")
+        time.sleep(15)
+
+
 def ffprobe_channels(path):
     r = sh(["ffprobe", "-v", "error", "-select_streams", "a:0",
             "-show_entries", "stream=channels",
@@ -157,6 +172,11 @@ def process_unit(row, keys, ledger, remux_sem, log):
             if r.returncode != 0:
                 raise RuntimeError(f"{h}: remux rc={r.returncode}")
     assert os.path.getsize(part) < 2_000_000_000, f"{h}: V2 CAP hit"
+    # Source deleted IMMEDIATELY after remux (7k7): the loopback holds one
+    # unit at a time, never the block. Deleting before submit is safe: the
+    # part is hashed and receipted; the source is reproducible from MEGA.
+    if os.path.exists(landed):
+        os.remove(landed)
 
     # channels
     branch, in_ch, note = classify_part(part)
@@ -184,6 +204,8 @@ def process_unit(row, keys, ledger, remux_sem, log):
 def submit_one(prep, keys, ledger, title, topic):
     h = prep["handle"]
     udir = os.path.join(UNITS, prep["unit"])
+    part_size = os.path.getsize(prep["part"])
+    wait_for_room(part_size * 2 + 256 * 1024 * 1024)  # room for response + headroom
     dur = ffprobe_duration(prep["part"])
     cost = round(sl.commit_cost(dur, prep["in_ch"]), 4)
     kt = keyterms_for(title, topic)
@@ -252,6 +274,14 @@ def submit_one(prep, keys, ledger, title, topic):
           "first_start": utts[0]["start"], "last_end": utts[-1]["end"],
           "words": sum(len(u.get("transcript", "").split()) for u in utts)}
     json.dump(gi, open(os.path.join(udir, "gate-inputs.json"), "w"))
+    # Parts leave the loopback after settle: transcripts+receipts stay (small),
+    # audio does not. Post-settle disk assertion: room must have grown.
+    before = work_free_bytes()
+    for f in os.listdir(udir):
+        if f.startswith("part-00") and f.endswith(".mka"):
+            os.remove(os.path.join(udir, f))
+    if work_free_bytes() < before:
+        raise RuntimeError(f"{h}: post-settle disk did not grow (overrun)")
     return {"handle": h, "outcome": st, "account": acct, "actual": actual,
             "server_words": gi["words"]}
 
