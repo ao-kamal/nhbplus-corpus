@@ -22,8 +22,21 @@ KEYTERM_RATE = 0.0013
 
 
 def settle_usd(receipt, md, channels, keyterms):
+    # Mirrors ledger.settle call sites exactly: base rate always, keyterm
+    # rate only when keyterms actually rode the request (smoke sent none).
     rate = RATE + (KEYTERM_RATE if keyterms else 0.0)
     return round((md / 60.0) * rate * channels, 4)
+
+
+def load_ledger_locked():
+    """Shared-lock read: never judge a torn write in flight."""
+    import fcntl
+    with open(LEDGER, encoding="utf-8") as f:
+        fcntl.flock(f.fileno(), fcntl.LOCK_SH)
+        try:
+            return json.load(f)
+        finally:
+            fcntl.flock(f.fileno(), fcntl.LOCK_UN)
 
 
 def main():
@@ -51,7 +64,7 @@ def main():
                     a["settled"] += c  # pre-V10-field receipt: commit as proxy
             elif st == "lost":
                 a["lost"] += c
-    live = json.load(open(LEDGER, encoding="utf-8"))
+    live = load_ledger_locked()
     diffs = {}
     ok = True
     for aid, a in rec.items():
