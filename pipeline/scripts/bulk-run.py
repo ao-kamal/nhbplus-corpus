@@ -253,7 +253,8 @@ def submit_one(prep, keys, ledger, title, topic):
                 # units: true unknowns keep their commits.
                 ledger.release("primary", f"{h}-p00-a{n-1}",
                                rec.get("committed_usd", 0.0))
-                st["status"] = ps.QUEUED  # 402 batch: not billed, safe retry
+                st["status"] = ps.QUEUED
+                st.pop("paid_unknown", None)  # enumerated Batch: proven not-billed  # 402 batch: not billed, safe retry
             elif http is None:
                 return {"handle": h, "outcome": "PAID_UNKNOWN",
                         "note": "sent with no outcome on resume: operator decides"}
