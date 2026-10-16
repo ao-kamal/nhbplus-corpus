@@ -215,9 +215,13 @@ def settle(unit_dir, http_status, response_complete, response_path=None, extras=
             raise Refused(f"extras may not overwrite receipt key {k}")
         receipt[k] = v
     atomic_write_json(os.path.join(unit_dir, "receipt.json"), receipt)
-    if action == "paid_unknown_then_lost":
+    # State follows the receipt on every terminal path: resume must see
+    # settled/lost in state.json, not just in the receipt (live 2026-10-16:
+    # settled units kept state=sent, a keep-loop skipped them, 2 transcripts
+    # wiped and $2.69 re-billed).
+    if action in ("skip", "paid_unknown_then_lost"):
         atomic_write_json(os.path.join(unit_dir, "state.json"),
-                          {**state, "status": LOST})
+                          {**state, "status": receipt["status"]})
     elif action == "reroute_secondary":
         atomic_write_json(os.path.join(unit_dir, "state.json"),
                           {**state, "status": RESERVED, "committed_usd": 0.0,
@@ -243,6 +247,11 @@ def recover(unit_dir):
         return ("nothing_happened", "redo")
     receipt = read_json(receipt_path)
     validate_receipt(receipt)
+    # Receipt wins on terminal states (md5 single-authority): a settled/lost
+    # receipt skips even if state lags (state is updated on the same path,
+    # but a crash between the two writes must still resolve safe).
+    if receipt.get("status") in (SETTLED, LOST):
+        return (receipt["status"], "skip")
     st, http, complete = receipt["status"], receipt.get("http_status"), receipt.get("response_complete")
     if st == RESERVED:
         return (RESERVED, "release_commit_rereserve_submit")

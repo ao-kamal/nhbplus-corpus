@@ -220,11 +220,26 @@ def _():
         pass
 
 
+@T("settle-writes-state-and-recover-trusts-receipt")
+def _():
+    import importlib.util as iu
+    d = unit("st8")
+    ps.admit(d, "p00")
+    ps.reserve(d, "p00", 0.2, "h", {"m": 1}, 1)
+    ps.mark_sent(d)
+    st, _ = ps.settle(d, 200, True)
+    assert st == ps.SETTLED
+    s = ps.read_json(os.path.join(d, "state.json"))
+    assert s["status"] == ps.SETTLED, s  # durable marker, not lagging sent
+    # Crash between receipt and state writes: state lags, receipt wins.
+    s["status"] = ps.SENT
+    ps.atomic_write_json(os.path.join(d, "state.json"), s)
+    v, a = ps.recover(d)
+    assert (v, a) == (ps.SETTLED, "skip"), (v, a)
+
+
 @T("402-stops-run-committed-intact-for-secondary")
 def _():
-    # E2E: two parts admitted; first hits 402. Run stops, its commit is
-    # released for the secondary ledger (not charged, not lost), second part
-    # stays queued with zero commit.
     bills = []
     for pid in ("p00", "p01"):
         d = unit(f"e2e-{pid}")

@@ -280,8 +280,19 @@ def submit_one(prep, keys, ledger, title, topic):
           "first_start": utts[0]["start"], "last_end": utts[-1]["end"],
           "words": sum(len(u.get("transcript", "").split()) for u in utts)}
     json.dump(gi, open(os.path.join(udir, "gate-inputs.json"), "w"))
-    # Parts leave the loopback after settle: transcripts+receipts stay (small),
-    # audio does not. Post-settle disk assertion: room must have grown.
+    # Mirror small files to the root disk after settle: loopback wipes must
+    # never again take receipts (live 2026-10-16: 2 settles wiped, $2.69
+    # re-billed). Responses stay on the loopback (assembly runs there).
+    mirror = os.path.join(BASE, "out", "units-mirror", prep["unit"])
+    os.makedirs(mirror, exist_ok=True)
+    for f in ("receipt.json", "gate-inputs.json", "state.json"):
+        src = os.path.join(udir, f)
+        if os.path.exists(src):
+            with open(src, "rb") as fh:
+                data = fh.read()
+            with open(os.path.join(mirror, f), "wb") as fh:
+                fh.write(data)
+    # Post-settle disk assertion: deleting parts must grow free room.
     before = work_free_bytes()
     for f in os.listdir(udir):
         if f.startswith("part-00") and f.endswith(".mka"):
