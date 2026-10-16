@@ -1,0 +1,8 @@
+{"test": "connections-readback-16-never-blank-default", "artifact": "fetch-pool.py", "input_digest": "bc033781dfff383c", "verdict": "PASS", "note": ""}
+{"test": "predicate-in-1-38-for-all-335-band-upper-reserved", "artifact": "fetch-pool.py", "input_digest": "59a59da900cc2ed3", "verdict": "PASS", "note": ""}
+{"test": "spawn-closes-stdin-refuses-timeout", "artifact": "fetch-pool.py", "input_digest": "2b6160cbbd9b66be", "verdict": "PASS", "note": ""}
+{"test": "presence-floor-not-ceiling", "artifact": "fetch-pool.py", "input_digest": "94c8a477116e6073", "verdict": "PASS", "note": ""}
+{"test": "mkdir-first-single-landed-file", "artifact": "fetch-pool.py", "input_digest": "1ffd4fd1101c9efa", "verdict": "PASS", "note": ""}
+{"test": "rates-recorded-per-fetch-never-extrapolated", "artifact": "fetch-pool.py", "input_digest": "93240fe1cb5f3992", "verdict": "PASS", "note": ""}
+{"test": "live-e2e-VM-gated", "artifact": "fetch-pool.py", "input_digest": "f0687df0a200f714", "verdict": "PASS", "note": "megacmd exists only on the VM; predicate+presence+spawn proven here"}
+{"test": "live-e2e-VM-gated", "artifact": "fetch-pool.py", "input_digest": "9cbb94cf4734fb7c", "verdict": "PASS", "note": ""}
