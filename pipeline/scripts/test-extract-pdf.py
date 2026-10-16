@@ -157,6 +157,43 @@ def _():
     assert xp.classify(11.04, 7.0, 0.0, 700) != "sparse"
 
 
+@T("fragment-spans-excluded-from-words-kept-for-gate")
+def _():
+    # Two Baselines-scattered 1.0pt single glyphs (the eBook shape) plus one
+    # real 12pt line: words count the line, the gate still sees the fragments.
+    # Two scattered 1pt single characters (the eBook fragment shape; ASCII
+    # here - the property under test is span text volume, not glyph encoding)
+    # plus one real 12pt line.
+    ops = (b"BT /F1 1 Tf 72 700 Td (q) Tj ET "
+           b"BT /F1 1 Tf 72 650 Td (q) Tj ET "
+           b"BT /F1 12 Tf 72 600 Td (real words here) Tj ET")
+    p = make_pdf([(ops, 792)])
+    reader = PdfReader(p)
+    spans = xp.collect_spans(reader.pages[0])
+    assert len(spans) == 3, spans
+    content, frag = xp.split_content(spans)
+    assert len(content) == 1 and len(frag) == 2, (len(content), len(frag))
+    assert xp.dominant_pt(spans) == 1.0  # gate sees everything
+    r = xp.extract_pdf(p)
+    assert r["words"] == 3, r["words"]
+    assert r["fragment_spans"] == 2, r
+    assert r["class"] == "text", r["class"]  # not degenerate-gated either
+
+
+@T("multiword-small-spans-are-content-vsl-shape")
+def _():
+    # VSL shape: every span at 1.0pt raw size, each carrying ~10 real words
+    # under a scaled text matrix. Raw-size filtering would zero this document.
+    ops = (b"BT /F1 1 Tf 72 720 Td (one two three four five six seven eight nine ten) Tj ET "
+           b"BT /F1 1 Tf 72 700 Td (eleven twelve thirteen fourteen fifteen sixteen) Tj ET")
+    p = make_pdf([(ops, 792)])
+    r = xp.extract_pdf(p)
+    assert r["words"] == 16, r["words"]
+    assert r["fragment_spans"] == 0, r
+    assert r["dominant_pt"] == 1.0, r  # degenerate flag set...
+    assert r["class"] == "text", r["class"]  # ...but high wpp says text
+
+
 @T("ytol-digest-stable-and-lines-grouped")
 def _():
     ops = (b"BT /F1 12 Tf 72 720 Td (upper baseline text) Tj ET "

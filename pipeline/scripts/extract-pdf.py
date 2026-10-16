@@ -129,6 +129,27 @@ def dominant_pt(spans):
     return c.most_common(1)[0][0] if c else 0.0
 
 
+def is_fragment(span):
+    """Single-character spans at degenerate raw size are glyph-index leakage,
+    not characters (live: 'b'/'ǧ' at 1.0pt, one per baseline, 170k of them on
+    the sparse books). Multi-word spans at small raw size are real text under
+    a scaled text matrix (live: 81 of 82 spans on the 1-page VSL, ~10
+    words/span; 2,746 of 4,103 on Swipe). Raw size alone cannot tell them
+    apart; span text volume can."""
+    return len(span["text"].strip()) <= 1 and span["size"] <= DEGENERATE_PT
+
+
+def split_content(spans):
+    """Content spans carry characters; fragments ARE the degenerate geometry.
+    Counting fragments as words double-counts the disease as health (live:
+    4,877 phantom words on AC eBook vs the probe's 691). Words, lines,
+    digests and tiers derive from content spans only; the gate still sees
+    every span, so dominant_pt is unchanged."""
+    content = [s for s in spans if not is_fragment(s)]
+    frag = [s for s in spans if is_fragment(s)]
+    return content, frag
+
+
 def enumerate_images(page):
     """Count image XObjects. Decode nothing; 0 bytes written, always."""
     try:
@@ -190,28 +211,34 @@ def extract_pdf(path, page_cap=PAGE_CAP):
     reader = PdfReader(path)
     total = len(reader.pages)
     pages = reader.pages[:page_cap]
-    all_spans, all_lines, images, urls = [], [], 0, set()
+    all_spans, content_lines, images, urls = [], [], 0, set()
+    frag_total, content_words = 0, 0
     for page in pages:
         spans = collect_spans(page)
         all_spans.extend(spans)
-        all_lines.extend(group_lines(spans))
+        content, frag = split_content(spans)
+        frag_total += len(frag)
+        page_lines = group_lines(content)
+        content_lines.extend(page_lines)
+        content_words += sum(len(ln["text"].split()) for ln in page_lines)
         images += enumerate_images(page)
         urls |= annot_urls(page)
-    words = sum(len(ln["text"].split()) for ln in all_lines)
+    words = content_words
     dom = dominant_pt(all_spans)
     wpp = words / max(1, len(pages))
     ipp = images / max(1, len(pages))
     cls = classify(dom, wpp, ipp, words)
-    tier_map = tiers(all_lines)
-    title, body, headings = title_body_headings(tier_map, all_lines)
+    tier_map = tiers(content_lines)
+    title, body, headings = title_body_headings(tier_map, content_lines)
     return {
         "pages_read": len(pages), "pages_total": total,
         "words": words, "dominant_pt": dom,
+        "fragment_spans": frag_total,
         "words_per_page": round(wpp, 2), "images": images,
         "images_per_page": round(ipp, 3),
         "class": cls, "title_pt": title, "body_pt": body,
         "heading_pts": headings, "urls": sorted(urls),
-        "digest": line_digest(all_lines),
+        "digest": line_digest(content_lines),
         "image_bytes_decoded": 0,
     }
 

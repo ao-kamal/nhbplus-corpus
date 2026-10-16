@@ -10,7 +10,7 @@
 {"gate": "V-kgb", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-kgb.json", "counts": {"PASS": 5}}
 {"gate": "V-06k", "verdict": "STARTED", "script": "test-disk-cap.py", "script_digest": "666b0ad2387921af"}
 {"gate": "V-06k", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-06k.json", "counts": {"PASS": 6}}
-{"gate": "V-dqh", "verdict": "STARTED", "script": "test-extract-pdf.py", "script_digest": "3dce912b0db0c144"}
+{"gate": "V-dqh", "verdict": "STARTED", "script": "test-extract-pdf.py", "script_digest": "23be969da0f6b3fc"}
 {"gate": "V-dqh", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-dqh.json", "counts": {"PASS": 7}}
 {"gate": "V-5zb", "verdict": "STARTED", "script": "test-extract-ooxml.py", "script_digest": "49988cc100e074a8"}
 {"gate": "V-5zb", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-5zb.json", "counts": {"PASS": 8}}
