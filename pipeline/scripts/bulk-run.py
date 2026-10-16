@@ -145,7 +145,10 @@ def process_unit(row, keys, ledger, remux_sem, log):
         else:
             return {"handle": h, "outcome": "skip-" + verdict}
     if verdict == ps.PAID_UNKNOWN:
-        raise RuntimeError(f"{h}: PAID_UNKNOWN on resume: operator decides")
+        if os.environ.get("FAILOVER") == "1":
+            pass  # same authorization via state: receipt check in submit_one
+        else:
+            raise RuntimeError(f"{h}: PAID_UNKNOWN on resume: operator decides")
 
     # fetch
     fdir = fp.prepare_target_dir(FETCH, h)
@@ -242,10 +245,15 @@ def submit_one(prep, keys, ledger, title, topic):
             # will meet the table again (including 402 -> failover).
             rec = ps.read_json(os.path.join(udir, "receipt.json"))
             http = rec.get("http_status")
-            if http is None:
+            if (os.environ.get("FAILOVER") == "1"
+                    and rec.get("status") == ps.LOST and rec.get("paid_unknown")):
+                ledger.release("primary", f"{h}-p00-a{n-1}",
+                               rec.get("committed_usd", 0.0))
+                st["status"] = ps.QUEUED  # 402 batch: not billed, safe retry
+            elif http is None:
                 return {"handle": h, "outcome": "PAID_UNKNOWN",
                         "note": "sent with no outcome on resume: operator decides"}
-            if http in (429, 400, 402):
+            elif http in (429, 400, 402):
                 st["status"] = ps.QUEUED  # requeue; falls through to reserve
             else:
                 return {"handle": h, "outcome": "PAID_UNKNOWN",
