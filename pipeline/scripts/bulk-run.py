@@ -214,7 +214,6 @@ def submit_one(prep, keys, ledger, title, topic):
     cost = round(sl.commit_cost(dur, prep["in_ch"]), 4)
     kt = keyterms_for(title, topic)
     sha = ps.sha256_file(prep["part"])
-    # Trial-scoped ledger ids: a re-reserve must not collide with an earlier
     # release of the same part (compare-and-set is per id). Receipt keeps p00.
     st_path = os.path.join(udir, "state.json")
     if not os.path.exists(st_path):
@@ -309,7 +308,7 @@ def disk_used_pct():
     return u.used / (u.used + u.free)
 
 
-def reap_done(futs, log):
+def reap_done(futs, log, ledger=None):
     done = [f for f in futs if f.done()]
     for f in done:
         p = futs.pop(f)
@@ -317,6 +316,22 @@ def reap_done(futs, log):
             out = f.result()
         except Exception as e:
             out = {"handle": p["handle"], "outcome": "ERROR", "note": str(e)[:300]}
+            # A commit may have landed with no receipt update (kill/ENOSPC
+            # mid-submit): memorialize the receipt's committed_usd so rescan
+            # can tell stranded-but-possibly-spent from a real leak.
+            if ledger is not None:
+                try:
+                    rp = os.path.join(UNITS, p["unit"], "receipt.json")
+                    stp = os.path.join(UNITS, p["unit"], "state.json")
+                    if os.path.exists(rp):
+                        r = json.load(open(rp, encoding="utf-8"))
+                        n = json.load(open(stp, encoding="utf-8")).get("submit_attempts", 1) \
+                            if os.path.exists(stp) else 1
+                        ledger.note_commitment(
+                            "primary", r.get("committed_usd", 0.0),
+                            f"{p['handle']}-p00-a{n}: submit_one exception post-commit")
+                except Exception:
+                    pass
         log.write(json.dumps(out) + "\n")
         log.flush()
         print(json.dumps(out), flush=True)
@@ -357,7 +372,7 @@ def main():
                     print(f"SKIP unknown-duration {row['handle']}", flush=True)
                     continue
                 while len(futs) >= workers or disk_used_pct() > 0.85:
-                    reap_done(futs, log)
+                    reap_done(futs, log, ledger)
                     time.sleep(10)
                 try:
                     prep = process_unit(row, keys, ledger, remux_sem, log_path)
@@ -373,7 +388,7 @@ def main():
                 futs[pool.submit(submit_one, prep, keys, ledger,
                                  *titles.get(prep["handle"], ("", "")))] = prep
             while futs:
-                reap_done(futs, log)
+                reap_done(futs, log, ledger)
                 time.sleep(10)
     print("LEDGER " + json.dumps(ledger.totals()), flush=True)
 
