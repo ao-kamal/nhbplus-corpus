@@ -1,6 +1,0 @@
-{"test": "six-bad-outputs-unwritable", "artifact": "frontmatter+assemble", "input_digest": "d3dea8fbf03e43ad", "verdict": "PASS", "note": ""}
-{"test": "domains-good-and-title-from-stem", "artifact": "frontmatter+assemble", "input_digest": "a4bf8b2b95f380f6", "verdict": "PASS", "note": ""}
-{"test": "emitter-never-creates-notes", "artifact": "frontmatter+assemble", "input_digest": "ddf319b7328c42f1", "verdict": "PASS", "note": ""}
-{"test": "smoke-utterances-assemble", "artifact": "frontmatter+assemble", "input_digest": "e354a8f565c47205", "verdict": "PASS", "note": ""}
-{"test": "sparse-stub-verbatim-per-page", "artifact": "frontmatter+assemble", "input_digest": "7cae5ea0cdb87b11", "verdict": "PASS", "note": ""}
-{"test": "paths-344-unique-ci-empty-tree-rejected", "artifact": "frontmatter+assemble", "input_digest": "48541ea184e1c6dc", "verdict": "PASS", "note": ""}

@@ -1,4 +1,0 @@
-{"test": "paths-344-unique-docs-109", "artifact": "clean-names.json", "input_digest": "1f8b800f05b9a433", "verdict": "PASS", "note": ""}
-{"test": "ordinals-docs-stripped-lessons-source", "artifact": "clean-names.json", "input_digest": "d1ddb0f5cb05ba8d", "verdict": "PASS", "note": ""}
-{"test": "no-none-no-media-ext-no-brand", "artifact": "clean-names.json", "input_digest": "07f0172802cedc96", "verdict": "PASS", "note": ""}
-{"test": "hands-resolve-to-calls-37", "artifact": "clean-names.json", "input_digest": "a8ed7875dc2b8791", "verdict": "PASS", "note": ""}

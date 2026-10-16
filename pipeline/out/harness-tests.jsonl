@@ -1,9 +1,0 @@
-{"test": "M1-deleted-subject-is-failed-with-receipt-and-count", "artifact": "run-gates.py", "input_digest": "c036e433c4074b77", "verdict": "PASS", "note": ""}
-{"test": "M2-stage1-as-subject-caught", "artifact": "run-gates.py", "input_digest": "bb359f89ff57a463", "verdict": "PASS", "note": ""}
-{"test": "M3-empty-tree-ceilings-fail-nonvacuous", "artifact": "run-gates.py", "input_digest": "a501b19d70bad6cc", "verdict": "PASS", "note": ""}
-{"test": "M4-exception-in-V0-exits-1-not-0-not-10", "artifact": "run-gates.py", "input_digest": "e2273dd7592fc39a", "verdict": "PASS", "note": ""}
-{"test": "M5-exit-form-is-index-plus-one-times-ten", "artifact": "run-gates.py", "input_digest": "9673c9d38715244f", "verdict": "PASS", "note": ""}
-{"test": "M6-equality-without-floor-rejected", "artifact": "run-gates.py", "input_digest": "0e84952d3d9caa22", "verdict": "PASS", "note": ""}
-{"test": "M7-every-child-spawn-closes-stdin", "artifact": "run-gates.py", "input_digest": "752f6923e518f630", "verdict": "PASS", "note": ""}
-{"test": "M8-no-early-exit-pipe-consumer", "artifact": "run-gates.py", "input_digest": "ec75d7fa654b0640", "verdict": "PASS", "note": ""}
-{"test": "M9-killed-run-detected-not-green", "artifact": "run-gates.py", "input_digest": "900f56574cd659bd", "verdict": "PASS", "note": ""}

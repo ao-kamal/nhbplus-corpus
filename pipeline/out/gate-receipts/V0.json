@@ -1,8 +1,0 @@
-{
- "gate": "V0",
- "script": "test-gate-v0.py",
- "subject": "worklist/targets.csv",
- "verdict": "PASS",
- "detail": "6/6 V0 gate tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-v0-tests.jsonl\r\n",
- "ts": "2026-10-16T12:02:22Z"
-}

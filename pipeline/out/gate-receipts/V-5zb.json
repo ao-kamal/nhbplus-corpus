@@ -1,8 +1,0 @@
-{
- "gate": "V-5zb",
- "script": "test-extract-ooxml.py",
- "subject": "extract-ooxml.py",
- "verdict": "PASS",
- "detail": "8/8 extract-ooxml tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\extract-ooxml-tests.jsonl\r\n",
- "ts": "2026-10-16T12:02:31Z"
-}

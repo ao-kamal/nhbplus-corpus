@@ -52,7 +52,7 @@ This repository contains the **complete verbatim transcription and indexing of t
 | **AI Agent Research** | ❌ Impossible (cannot prompt raw audio) | ✅ **Instant agent synthesis (Claude Code, Antigravity, OpenCode)** |
 | **Diarization** | ❌ None | ✅ **Timestamped speaker diarization** (`Speaker 0`, `Speaker 1`, etc.) |
 | **Chronological Index** | ❌ Scattered across folders | ✅ **`00 Topics.md`**: 235 chronological rows linking dates, topics & words |
-| **Companion Files** | ⚠️ Lost in subdirectories | ✅ **105 original attachments** (.docx, .xlsx, .pdf, code) directly linked |
+| **Companion Files** | ⚠️ Lost in subdirectories | ✅ **104 original attachments** (.docx, .xlsx, .pdf, .pptx) directly linked |
 | **Audit Verification** | ❌ Unknown completeness | ✅ **`_meta/AUDIT.md`**: 235/235 units pass cryptographic integrity gates |
 
 ---
@@ -66,7 +66,7 @@ Time Span Covered    : June 7, 2021 – February 28, 2025 (45 Consecutive Months
 Total Audio Sessions : 235 Unique Recordings
   ├─ Chronological Calls : 193 Intensive Mentorship Sessions
   └─ Bonus Curriculum   : 78 Structured Lessons across 11 Specialized Courses
-Total Companion Files: 105 Original Attachments (~500 MB Workbooks, Swipes & Models)
+Total Companion Files: 104 Original Attachments (~190 MB Workbooks, Swipes & Models)
 Verification Status  : 235 / 235 PASS (100% Settled, Zero Audio Left On Disk)
 ```
 
@@ -120,12 +120,11 @@ The corpus spans 45 months of continuous direct-response warfare, documenting of
 11. **Revenue Generating Emails** (6 lessons): In-depth broadcast sequences, relationship-building flows, and offer re-engagement campaigns.
 
 ### 3. Original Attachments & Swipes (`vault/attachments/`)
-105 source documents (~500 MB) preserved intact in their native file formats:
-- **50 PDF Guides & Cheatsheets:** Including the *Low Ticket Ecom Sales Page Guide*, *AC Book Writing Worksheet*, and *Master Copywriting Templates*.
+104 source documents (~190 MB) preserved intact in their native file formats:
+- **50 PDF Guides & Cheatsheets:** Including the *Low Ticket Ecom Sales Page Guide*, *AC Book Writing Worksheet*, *500-Page Clayton Makepeace Swipe File*, and *Master Copywriting Templates*.
 - **36 DOCX Working Documents:** Source transcripts, working copy outlines, and offer review documents.
-- **12 PPTX Slide Decks:** Presentation slides from high-impact guest speaker masterclasses and training sessions.
+- **15 PPTX Slide Decks:** Presentation slides from high-impact guest speaker masterclasses and training sessions.
 - **3 XLSX Financial Models:** Live financial calculators including the *Economics Calculator* and the *CRO Audit Accelerator*.
-- **Full Code Repository (`Lazy Loading Code.zip` — 296 MB):** Production-ready lazy-loading scripts and performance optimization code for landing pages.
 
 ---
 
@@ -144,7 +143,7 @@ nhbplus-corpus/
 └─ vault/                         # The Obsidian Vault (542 MB total)
    ├─ 00 Home.md                  # Central vault landing note
    ├─ 00 Topics.md                # Master chronological index (235 rows, direct wikilinks)
-   ├─ attachments/                # 105 original PDFs, sheets, slides, and codebases
+   ├─ attachments/                # 104 original PDFs, Word documents, sheets, and slides
    ├─ calls/                      # 193 chronological call transcripts
    │  ├─ 2021/
    │  │  └─ 06 June/
@@ -251,7 +250,7 @@ If you prefer browsing visually:
 | **Usability** | ❌ 320 GB download required | ⚠️ Huge unformatted dump | ✅ **Instant Obsidian vault** |
 | **Speaker Diarization** | ❌ None | ❌ Single wall of text | ✅ **Clean speaker separation** |
 | **Chronological IA** | ❌ No topic index | ❌ Raw filenames | ✅ **Full `00 Topics.md` directory** |
-| **Companion Materials** | ⚠️ Scattered across MEGA | ❌ Missing | ✅ **105 attached files linked** |
+| **Companion Materials** | ⚠️ Scattered across MEGA | ❌ Missing | ✅ **104 attached files linked** |
 | **Agent Leverage** | ❌ Impossible (can't prompt audio) | ⚠️ Exceeds token limits with zero structure | ✅ **Structured for AI Agents (Claude Code, Antigravity, OpenCode)** |
 | **Storage Footprint** | ❌ ~320 GB disk space | ⚠️ ~3 GB | ✅ **542 MB total (text + attachments)** |
 | **Provenance Audit** | ❌ Zero proof of completeness | ❌ Silent truncation | ✅ **100% verified against SHA-256** |
@@ -317,17 +316,13 @@ Integrity was the primary engineering constraint of this pipeline. Every claim i
 - **Cause:** Prompting an AI agent to ingest all 6.95 million words in a single context window will exceed model token limits.
 - **Fix:** Have your agent consult `vault/00 Topics.md` first to identify target dates and topics, or scope queries to specific directories (e.g. `vault/calls/2024/` or `vault/courses/`).
 
-### 5. "Git clone fails or times out on `Lazy Loading Code.zip`"
-- **Cause:** `Lazy Loading Code.zip` in `vault/attachments/` is ~296 MB.
-- **Fix:** Ensure stable internet connectivity or perform a shallow clone: `git clone --depth 1 https://github.com/ao-kamal/nhbplus-corpus.git`.
-
 ---
 
 ## Scope & Design Boundaries
 
 - **Verbatim Source Truth:** Notes contain the raw, verbatim spoken words of Alen Sultanic, guest speakers, and attendees. They have intentionally **not** been summarized or compressed by an LLM so that the unfiltered teaching, phrasing, and tactical nuances remain completely intact.
 - **Speaker Attribution:** Deepgram Nova-3 accurately separates turns of speech by speaker (`Speaker 0`, `Speaker 1`, etc.), but does not infer the legal identities of unnamed attendee questioners in open hot-seat calls.
-- **Native Companion Binaries:** Original companion files (`.docx`, `.xlsx`, `.pdf`, `.pptx`, `.zip`) are preserved as native binary files in `vault/attachments/` rather than converted into lossy markdown.
+- **Native Companion Binaries:** Original companion files (`.docx`, `.xlsx`, `.pdf`, `.pptx`) are preserved as native binary files in `vault/attachments/` rather than converted into lossy markdown.
 
 ---
 
@@ -346,7 +341,7 @@ All transcriptions were processed through Deepgram's Nova-3 speech-to-text model
 Yes. Because the entire corpus is clean, UTF-8 markdown organized with YAML frontmatter, you can point local retrieval systems (e.g., Obsidian Smart Connections, Cursor, Claude Code, or LangChain / LlamaIndex pipelines) directly at `vault/`.
 
 #### Are the original course worksheets included?
-Yes. All 105 companion files (including Excel calculators, copy worksheets, and code archives) are stored in `vault/attachments/` exactly as originally distributed.
+Yes. All 104 companion files (including Excel calculators, copy worksheets, and slide decks) are stored in `vault/attachments/` exactly as originally distributed.
 
 ---
 

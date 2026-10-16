@@ -1,7 +1,0 @@
-{"test": "T1-empty-scope-fails-344", "artifact": "worklist/targets.csv", "input_digest": "f79e067be0e8e75b", "verdict": "PASS", "note": "correctly failed: scope rows 0 != 344"}
-{"test": "T2-glob-partial-fails-equality", "artifact": "worklist/targets.csv", "input_digest": "eb2d441bdb45d8a2", "verdict": "PASS", "note": "correctly failed: partial glob equals manifest"}
-{"test": "T3-orders-on-cost-not-minutes-not-alpha", "artifact": "predicate", "input_digest": "4a48f5b217bd169f", "verdict": "PASS", "note": "cost order differs from both alpha and minutes"}
-{"test": "T4-section9-block-order", "artifact": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\worklist\\targets.csv", "input_digest": "7020e4d5f90de248", "verdict": "PASS", "note": "10/99/1/16/218 smoke=V7U0mT4Q $0.134"}
-{"test": "T5-no-kind-call", "artifact": "scope-final.json", "input_digest": "7020e4d5f90de248", "verdict": "PASS", "note": "audio/written_hand/course_doc/orphan_doc only"}
-{"test": "T6-duration-or-unknown-never-none", "artifact": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\worklist\\targets.csv", "input_digest": "7020e4d5f90de248", "verdict": "PASS", "note": "109 docs unknown + 1 audio unknown, rest numeric"}
-{"test": "T7-e2e-344-and-no-gate-reads-glob", "artifact": "worklist/targets.csv", "input_digest": "7020e4d5f90de248", "verdict": "PASS", "note": "344, sets equal, no glob in builder"}

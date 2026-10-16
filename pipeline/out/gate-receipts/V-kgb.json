@@ -1,8 +1,0 @@
-{
- "gate": "V-kgb",
- "script": "test-part-state.py",
- "subject": "part-state.py",
- "verdict": "PASS",
- "detail": "13/13 state-machine tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\part-state-tests.jsonl\r\n",
- "ts": "2026-10-16T12:02:30Z"
-}

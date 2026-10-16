@@ -1,8 +1,0 @@
-{
- "gate": "V-uff",
- "script": "test-assemble.py",
- "subject": "frontmatter.py",
- "verdict": "PASS",
- "detail": "6/6 emitter/assembly tests passed; log: C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\assemble-tests.jsonl\r\n",
- "ts": "2026-10-16T12:02:26Z"
-}

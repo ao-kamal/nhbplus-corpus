@@ -1,3 +1,0 @@
-{"test": "async-inverted-equal-truncated-missing-all-fail", "artifact": "gate-v3.py", "input_digest": "b0cc90098e8ccbe5", "verdict": "PASS", "note": ""}
-{"test": "empty-receipts-never-pass", "artifact": "gate-v3.py", "input_digest": "94b0e73df10900d4", "verdict": "PASS", "note": ""}
-{"test": "good-receipts-pass", "artifact": "gate-v3.py", "input_digest": "05c1d6f88a1ea70b", "verdict": "PASS", "note": ""}
