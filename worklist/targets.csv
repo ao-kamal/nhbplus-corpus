@@ -1,0 +1,345 @@
+seq,block,handle,kind,unit,path,dur_s,commit_cost_usd_mono,ext,bytes
+0,shakedown,snViEZ6C,course_doc,,courses/Automatic Clients Course/AC eBook.md,unknown,,pdf,38797312
+1,shakedown,52c22T5D,orphan_doc,,library/AC Book.md,unknown,,pdf,38797312
+2,shakedown,xyUQhDAa,orphan_doc,,library/Lazy Loading Code.md,unknown,,zip,310378496
+3,shakedown,g2U0UDLb,orphan_doc,,library/500-page-swipe-file-clayton-makepeace compress 1.md,unknown,,pdf,70254592
+4,shakedown,46cEGZpD,course_doc,,courses/Automatic Clients Course/7-Figure VSL Script Template.md,unknown,,pdf,58368
+5,shakedown,1mcEVBLS,course_doc,,"courses/Automatic Clients Course/200,000 Ad Template.md",unknown,,pdf,2097152
+6,shakedown,s2MGiDJb,written_hand,2024-03-07-theory-3-EqN2UTLK,written-hands/2024/03 March/Converting Audiences (written hand).md,unknown,,docx,12288
+7,shakedown,YvNyGbqS,course_doc,,courses/7 Figure Sales Funnel/Sales Funnel Template Links.md,unknown,,txt,
+8,shakedown,guNkBLaZ,course_doc,,courses/Million Dollar Branding/Pick Primary Color.md,unknown,,png,151552
+9,shakedown,A2Mk1DQC,course_doc,,courses/Million Dollar Branding/Background Graphics.md,unknown,,pptx,2097152
+10,docs_rest,x7Ug3TwT,written_hand,2024-03-14-theory-3-tuNGSDJC,written-hands/2024/03 March/Market Assumptions 2.0 (Counter Arguments) (written hand).md,unknown,,docx,20480
+11,docs_rest,M2E2lZxb,written_hand,2024-03-21-theory-3-B3V2gDzT,written-hands/2024/03 March/Conceptual God Model (written hand).md,unknown,,docx,14336
+12,docs_rest,kyVGRJTB,written_hand,2024-03-28-theory-3-AmMiWTjS,written-hands/2024/03 March/Lowering Argumentative Resistance (written hand).md,unknown,,docx,178176
+13,docs_rest,ciEG3TRT,written_hand,2024-04-04-theory-4-M6dm2TzR,written-hands/2024/04 April/Perfect Launch Sequence (written hand).md,unknown,,docx,17408
+14,docs_rest,M2FigTzL,written_hand,2024-04-11-theory-4-lzFSHZRI,written-hands/2024/04 April/Momentum Marketing (written hand).md,unknown,,docx,112640
+15,docs_rest,03U0GLIL,written_hand,2024-04-18-theory-4-4jMUBZ5Y,written-hands/2024/04 April/Symbolic Language (written hand).md,unknown,,docx,196608
+16,docs_rest,c2MSVJ6Y,written_hand,2024-07-04-theory-7-VqdiCRrJ,written-hands/2024/07 July/Reading Offers 2 (written hand).md,unknown,,docx,509952
+17,docs_rest,lqVWBTyB,written_hand,2024-07-11-theory-7-8yUwHDCA,written-hands/2024/07 July/Engineering Commitment (written hand).md,unknown,,docx,22528
+18,docs_rest,t6FQCLSI,written_hand,2024-07-18-theory-7-0vVmhR6L,written-hands/2024/07 July/Short Term Vs Long Term Thinking Audiences (written hand).md,unknown,,docx,515072
+19,docs_rest,wzdU0BaD,written_hand,2023-09-07-theory-9-hydijL6I,written-hands/2023/09 September/Hidden Architecture Of Quiz Funnels (written hand).md,unknown,,docx,2097152
+20,docs_rest,BmM0UZQR,written_hand,2023-09-14-theory-9-AmFCHRJB,written-hands/2023/09 September/POV Process (written hand).md,unknown,,docx,2097152
+21,docs_rest,5rUmXDIL,written_hand,2023-10-05-other-10-xmNG3D4L,written-hands/2023/10 October/Call - Selling To Women Part 2 (written hand).md,unknown,,docx,231424
+22,docs_rest,FuF0TRqA,written_hand,2023-10-12-theory-10-4nEQGBoK,written-hands/2023/10 October/Creating An Awareness Bridge (written hand).md,unknown,,docx,229376
+23,docs_rest,omVQnbwb,written_hand,2023-10-19-theory-10-8jd2nB5Y,written-hands/2023/10 October/Cause For Arguments (written hand).md,unknown,,docx,225280
+24,docs_rest,87cSnTyZ,written_hand,2023-10-26-theory-10-8rVkyBSQ,written-hands/2023/10 October/Requirements (written hand).md,unknown,,docx,11264
+25,docs_rest,k6VSwZQa,written_hand,2024-01-11-theory-1-F6F2HJRJ,written-hands/2024/01 January/Thoughts into Emotions (written hand).md,unknown,,docx,539648
+26,docs_rest,FqckHZoL,written_hand,2024-01-25-theory-1-N3NGVLxR,written-hands/2024/01 January/Criteria of Markets Part 2 (written hand).md,unknown,,docx,43008
+27,docs_rest,RuMAnBKJ,written_hand,2023-12-07-theory-12-ZjNGhTSA,written-hands/2023/12 December/Truth vs Trust (written hand).md,unknown,,docx,224256
+28,docs_rest,FmFSxb6Q,written_hand,2023-12-14-theory-12-RnEASRBT,written-hands/2023/12 December/Objection Handling Story Structures (written hand).md,unknown,,docx,299008
+29,docs_rest,l7dGgZLL,written_hand,2023-12-21-theory-12-E7U2hBKC,written-hands/2023/12 December/Clean Biz-Ops (written hand).md,unknown,,docx,225280
+30,docs_rest,BzVAwJrA,written_hand,2023-12-28-other-12-0vEyQTjI,written-hands/2023/12 December/Year End Roundtable Call (written hand).md,unknown,,docx,218112
+31,docs_rest,InVgWDgb,written_hand,2023-11-02-theory-11-ZzNkyRhK,written-hands/2023/11 November/Catalog Model (written hand).md,unknown,,docx,16384
+32,docs_rest,FuF2kBxa,written_hand,2023-11-09-theory-11-IzFmGbhB,written-hands/2023/11 November/Market Positions (written hand).md,unknown,,docx,983040
+33,docs_rest,BiEmBRQQ,written_hand,2023-11-16-theory-11-Bjc0SLRC,written-hands/2023/11 November/Go Back Mechanism (written hand).md,unknown,,docx,228352
+34,docs_rest,NqF2yRKB,written_hand,2023-11-30-theory-11-l6NGTR5D,written-hands/2023/11 November/Architecture of Awareness (written hand).md,unknown,,docx,223232
+35,docs_rest,hmdGiTJL,written_hand,2022-06-16-guest-6-V3dSBLYZ,"written-hands/2022/06 June/Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS (written hand).md",unknown,,xlsx,786432
+36,docs_rest,pzF02Bza,written_hand,2024-02-08-theory-2-gncA0DZZ,written-hands/2024/02 February/Criteria of Markets Implementation Call (written hand).md,unknown,,docx,78848
+37,docs_rest,gvdyxZhB,written_hand,2024-02-15-theory-2-IiUghJRL,written-hands/2024/02 February/Creating MOAT (written hand).md,unknown,,docx,506880
+38,docs_rest,43cWVRzD,written_hand,2024-02-22-theory-2-UuV2XRII,written-hands/2024/02 February/Organic Content Structures (written hand).md,unknown,,docx,2097152
+39,docs_rest,Nvcw0brR,written_hand,undated-other-5-MmMmABhJ,written-hands/undated/Selling To Women 3.0 (written hand).md,unknown,,docx,805888
+40,docs_rest,xuViWLbC,written_hand,2024-01-31-coaching-1-17ESRbBJ,written-hands/2024/01 January/The CRO Audit Accelerator Pt. 2- With Brandon Vasquez (written hand).md,unknown,,xlsx,145408
+41,docs_rest,BjEQyTza,written_hand,2023-08-31-theory-8-92FUjTqZ,written-hands/2023/08 August/Marketing Measures (written hand).md,unknown,,docx,14336
+42,docs_rest,omUw2BwC,written_hand,2024-06-06-theory-6-t3VAkb5J,written-hands/2024/06 June/Reading Offers 1 (written hand).md,unknown,,docx,3145728
+43,docs_rest,wqFAAbbB,written_hand,2024-06-13-theory-6-9ycSBZxA,written-hands/2024/06 June/Creating And Spotting Opportunities (written hand).md,unknown,,docx,228352
+44,docs_rest,ZuMCiBgL,written_hand,2024-06-20-theory-6-UucgQBZR,written-hands/2024/06 June/Right Now Process (written hand).md,unknown,,docx,590848
+45,docs_rest,x2U2VJjK,written_hand,2024-06-27-theory-6-82NAmB7T,written-hands/2024/06 June/Increasing Beliefs (written hand).md,unknown,,docx,14336
+46,docs_rest,1rV0yDDB,course_doc,,courses/Automatic Clients Course/Automatic Clients Step.md,unknown,,pdf,124928
+47,docs_rest,dnUm0DCA,course_doc,,courses/Automatic Clients Course/Economics Calculator.md,unknown,,pdf,64512
+48,docs_rest,RnVC1LCR,course_doc,,"courses/Automatic Clients Course/2,498 Niches Spreadsheet.md",unknown,,pdf,67584
+49,docs_rest,tnE0XTqB,course_doc,,"courses/Automatic Clients Course/2,498 Automatic Client Niche Markets.md",unknown,,xlsx,347136
+50,docs_rest,hqFWhZLL,course_doc,,courses/Million Dollar Branding/Graphics - 2D Book Mockup Landscape.md,unknown,,pptx,5242880
+51,docs_rest,wmEU2ZqJ,course_doc,,courses/Million Dollar Branding/Graphics - Image Collage.md,unknown,,pptx,6291456
+52,docs_rest,RmEw2ZjY,course_doc,,courses/Million Dollar Branding/Graphics - Open Book Landscape.md,unknown,,pptx,2097152
+53,docs_rest,47E2RLzK,course_doc,,courses/Million Dollar Branding/Graphics - Process Graphic.md,unknown,,pptx,410624
+54,docs_rest,5mUCkRhL,course_doc,,courses/Million Dollar Branding/Graphics - Product Stack - Singles.md,unknown,,pptx,962560
+55,docs_rest,hqU0BRhR,course_doc,,courses/Million Dollar Branding/Graphics - Product Stack.md,unknown,,pptx,1048576
+56,docs_rest,N3UkQBiQ,course_doc,,courses/Million Dollar Branding/Graphics - Testimonials.md,unknown,,pptx,408576
+57,docs_rest,VvVSGbhJ,course_doc,,courses/Million Dollar Branding/Resources Links.md,unknown,,txt,
+58,docs_rest,4nV2SRCA,course_doc,,courses/Converting ads/Converting-Ads.md,unknown,,pdf,9437184
+59,docs_rest,56MQ3RLZ,course_doc,,courses/Plug & Play High Converting Sales Letter/Fill In The Blank Sales Letter.md,unknown,,docx,2097152
+60,docs_rest,knMmWRSD,course_doc,,courses/Plug & Play High Converting Sales Letter/Resources Links.md,unknown,,txt,
+61,docs_rest,FqMUwRJQ,course_doc,,courses/7 Day Fast Start/AC Calculator.md,unknown,,pdf,56320
+62,docs_rest,pqEyEBQZ,course_doc,,courses/7 Day Fast Start/Automatic Clients Market Selection Matrix.md,unknown,,pdf,65536
+63,docs_rest,UiUWQDrY,course_doc,,courses/7 Day Fast Start/Automatic Clients Offer Name Generator.md,unknown,,pdf,71680
+64,docs_rest,1ydGXbCL,course_doc,,courses/7 Day Fast Start/Our Best Ads.md,unknown,,pdf,2097152
+65,docs_rest,wvMgBJoA,course_doc,,courses/Converting Upsells/OTO 1 Downsell.md,unknown,,pptx,372736
+66,docs_rest,F2Mw1LxR,course_doc,,courses/Converting Upsells/OTO 1.md,unknown,,pptx,1048576
+67,docs_rest,hjUGmDrQ,course_doc,,courses/Converting Upsells/OTO 2.md,unknown,,pptx,661504
+68,docs_rest,M3UyRZhJ,course_doc,,courses/Converting Upsells/OTO 2 Downsell.md,unknown,,pptx,387072
+69,docs_rest,ErdCVRgJ,course_doc,,courses/Converting Upsells/Resources Links.md,unknown,,txt,
+70,docs_rest,M7FCAJCD,course_doc,,courses/Revenue Generating Emails/1-Retarget-BOOK-Non-Buyers-Email-Template.md,unknown,,pdf,271360
+71,docs_rest,tvdywBBR,course_doc,,courses/Revenue Generating Emails/2-BOOK-Fulfillment-Email-Template.md,unknown,,pdf,207872
+72,docs_rest,0idwVDSb,course_doc,,courses/Revenue Generating Emails/3-OTO-1-Email-Templates.md,unknown,,pdf,282624
+73,docs_rest,c7UyXTgQ,course_doc,,courses/Revenue Generating Emails/4-Book-A-Call-Email-Templates.md,unknown,,pdf,319488
+74,docs_rest,FzdgmLQD,course_doc,,courses/Revenue Generating Emails/Resources Links.md,unknown,,txt,
+75,docs_rest,c7Ew1TaQ,course_doc,,courses/Get Ready To Launch/Resources Links.md,unknown,,txt,
+76,docs_rest,0vNQlbDK,orphan_doc,,library/fourdaycashmachine.md,unknown,,pdf,4194304
+77,docs_rest,lqdiWBqD,orphan_doc,,library/Swipe.md,unknown,,pdf,800768
+78,docs_rest,BnFAzBJL,orphan_doc,,library/AB Testing Template sheet.md,unknown,,pdf,70656
+79,docs_rest,sjVmURCT,orphan_doc,,library/AC Book Writing Worksheet.md,unknown,,pdf,81920
+80,docs_rest,IydkmDxS,orphan_doc,,library/AC Design Tempalte.md,unknown,,pdf,82944
+81,docs_rest,wqdCCZ6Q,orphan_doc,,library/AC Economics Calculator.md,unknown,,pdf,88064
+82,docs_rest,0yVUnbiC,orphan_doc,,library/AC EMAIL TEMPLATES.md,unknown,,pdf,80896
+83,docs_rest,kiUCxbgD,orphan_doc,,library/AC Figma File Template.md,unknown,,pdf,79872
+84,docs_rest,Y2NiwTRB,orphan_doc,,library/AC funnel on Groovefunnels.md,unknown,,pdf,50176
+85,docs_rest,EydWFb5J,orphan_doc,,library/AC Lever Analysis.md,unknown,,pdf,83968
+86,docs_rest,cudC0bTR,orphan_doc,,library/AC Product MockUp.md,unknown,,pdf,76800
+87,docs_rest,N7EUWTab,orphan_doc,,library/AC Template on ClickFunnels.md,unknown,,pdf,75776
+88,docs_rest,MyVUBRAA,orphan_doc,,library/AC Upsells.md,unknown,,pdf,60416
+89,docs_rest,xmUGELxa,orphan_doc,,library/AC VIDEO TEMPLATE.md,unknown,,pdf,78848
+90,docs_rest,suVyAZgT,orphan_doc,,library/Alex Hormozi.md,unknown,,pdf,80896
+91,docs_rest,xjMwXLSY,orphan_doc,,library/Automatic Clients Funnel Template for Go High Level.md,unknown,,pdf,58368
+92,docs_rest,0nMyjbpS,orphan_doc,,library/Beating Controls Template.md,unknown,,pdf,70656
+93,docs_rest,0jEmzTRL,orphan_doc,,library/Billable Hours Calculator.md,unknown,,pdf,63488
+94,docs_rest,E6VmnLCT,orphan_doc,,library/Bullet Based Upsell1.md,unknown,,pdf,129024
+95,docs_rest,grFSERJQ,orphan_doc,,library/Call Watch History Sheet.md,unknown,,pdf,60416
+96,docs_rest,xuVggTRJ,orphan_doc,,library/ClickFunnels Resetting Timer.md,unknown,,pdf,75776
+97,docs_rest,Y6VgARAC,orphan_doc,,library/CMO CRO Proposal Templates.md,unknown,,pdf,67584
+98,docs_rest,UnECnJab,orphan_doc,,library/Economics Spreadsheet Template.md,unknown,,pdf,80896
+99,docs_rest,AvdWgDSK,orphan_doc,,library/Editing AC template on Figma.md,unknown,,pdf,66560
+100,docs_rest,ovMAUJ7Q,orphan_doc,,library/Evergreen Webinars.md,unknown,,pdf,59392
+101,docs_rest,M2cwyRhQ,orphan_doc,,library/Go High Level Appointment Funnel.md,unknown,,pdf,69632
+102,docs_rest,dmUUjLJJ,orphan_doc,,library/Graphics for mockup1.md,unknown,,pdf,60416
+103,docs_rest,x6FiTJJI,orphan_doc,,library/Graphics For Mockups.md,unknown,,pdf,60416
+104,docs_rest,U7VGXLJL,orphan_doc,,library/Low Ticket Ecom Sales Page.md,unknown,,pdf,82944
+105,docs_rest,MuF0iLBZ,orphan_doc,,library/Stripe or Paypal screenshot templates.md,unknown,,pdf,57344
+106,docs_rest,0yVk3b4I,orphan_doc,,library/sheet I use to track split tests.md,unknown,,pdf,79872
+107,docs_rest,U7UQmRCJ,orphan_doc,,library/Ultimate Copywriting Library.md,unknown,,pdf,81920
+108,docs_rest,BvdgBBqR,orphan_doc,,library/Vimeo gif thumbnail custom code.md,unknown,,pdf,48128
+109,smoke,V7U0mT4Q,audio,undated-other-None-V7U0mT4Q,courses/Advanced Acquisition Theory Course/6 3 LEVELS OF CUSTOMERS.md,1436,0.1340,mp4,89128960
+110,lpt16,wiUyTRZb,audio,2025-02-19-coaching-2-wiUyTRZb,calls/2025/02 February/2025-02-19 February Reading Offers - With Loren Pinilis.md,16556,1.5452,mp3,397410304
+111,lpt16,NzMGQTqL,audio,2025-02-06-theory-2-NzMGQTqL,calls/2025/02 February/2025-02-06 February Reading Offers.md,16114,1.5040,mp3,321912832
+112,lpt16,lmNAUTSR,audio,2025-01-23-theory-1-lmNAUTSR,calls/2025/01 January/2025-01-23 Breaking Through Impossibilities.md,15408,1.4381,mp3,308281344
+113,lpt16,tudEhZpZ,audio,2024-01-18-theory-1-tudEhZpZ,calls/2024/01 January/2024-01-18 Criteria of Markets Part 1.md,14473,1.3508,mp3,174063616
+114,lpt16,prdyUB7b,audio,undated-other-5-prdyUB7b,calls/2024/05 May/Market Efficiency Ratios.md,14314,1.3360,mp4,2147483648
+115,lpt16,wnNGjTSY,audio,2025-01-28-coaching-1-wnNGjTSY,calls/2025/01 January/2025-01-28 Reading Offers - With Kevin Sheerin.md,14310,1.3356,mp3,343932928
+116,lpt16,U2dCxTzb,audio,2022-08-11-other-8-U2dCxTzb,calls/2022/08 August/2022-08-11 Integration Call Part 1.md,14301,1.3348,mp4,2147483648
+117,lpt16,cvVGUTII,audio,2025-02-20-theory-2-cvVGUTII,calls/2025/02 February/2025-02-20 Releasing Emotions.md,14155,1.3211,mp3,283115520
+118,lpt16,JiUGhRpS,audio,2025-02-13-theory-2-JiUGhRpS,calls/2025/02 February/2025-02-13 Depth of Copy.md,14145,1.3202,mp3,283115520
+119,lpt16,cidCnR5C,audio,2023-04-20-theory-4-cidCnR5C,calls/2023/04 April/2023-04-20 Rapport & Openings.md,14113,1.3172,mp4,2147483648
+120,lpt16,N3NGVLxR,audio,2024-01-25-theory-1-N3NGVLxR,calls/2024/01 January/2024-01-25 Criteria of Markets Part 2.md,14070,1.3132,mp3,168820736
+121,lpt16,5zVQWbQJ,audio,2024-02-19-guest-2-5zVQWbQJ,calls/2024/02 February/2024-02-19 Ben and Loren FB Ads Masterclass.md,13858,1.2934,mp3,166723584
+122,lpt16,lzFSHZRI,audio,2024-04-11-theory-4-lzFSHZRI,calls/2024/04 April/2024-04-11 Momentum Marketing.md,13746,1.2830,mp3,164626432
+123,lpt16,wncWST5L,audio,2025-01-27-coaching-1-wncWST5L,calls/2025/01 January/2025-01-27 Google Search Ads 101 - With Charles Kirkland.md,13673,1.2761,mp3,273678336
+124,lpt16,8rcgkbwA,audio,2025-01-02-theory-1-8rcgkbwA,calls/2025/01 January/2025-01-02 January Reading Offers.md,13528,1.2626,mp3,270532608
+125,lpt16,F6F2HJRJ,audio,2024-01-11-theory-1-F6F2HJRJ,calls/2024/01 January/2024-01-11 Thoughts into Emotions.md,13293,1.2407,mp3,159383552
+126,remainder,pjFQiLQQ,audio,2025-02-04-coaching-2-pjFQiLQQ,calls/2025/02 February/2025-02-04 Offer Fundamentals - With Kevin Sheerin.md,0,0.0000,mp3,94371840
+127,remainder,A2dWSZAK,audio,undated-other-None-A2dWSZAK,courses/7 Figure Sales Funnel/2-1 Sales Funnel Assembly.md,50,0.0047,mp4,14680064
+128,remainder,c3EwRbYY,audio,undated-other-None-c3EwRbYY,courses/7 Figure Sales Funnel/2-6 Call Booking Confirmation.md,142,0.0133,mp4,14680064
+129,remainder,5yVGkLiD,audio,undated-other-None-5yVGkLiD,courses/Get Ready To Launch/7-2 Schedule Once Setup.md,265,0.0247,mp4,51380224
+130,remainder,MuFSCDBI,audio,undated-other-None-MuFSCDBI,courses/Million Dollar Branding/3-2 Font Pairings.md,322,0.0301,mp4,53477376
+131,remainder,QiFAkDAa,audio,undated-other-None-QiFAkDAa,courses/Automatic Clients Course/0 AC Welcome Video.md,342,0.0319,mp4,79691776
+132,remainder,xydEFD5J,audio,undated-other-None-xydEFD5J,courses/Plug & Play High Converting Sales Letter/4 7-Figure Fill-In-The-Blank Sales Letter.md,343,0.0320,mp4,84934656
+133,remainder,wmcgWbaL,audio,undated-other-None-wmcgWbaL,courses/7 Figure Sales Funnel/2-3 Order Form Assembly.md,364,0.0340,mp4,76546048
+134,remainder,kvVmxDIA,audio,undated-other-None-kvVmxDIA,courses/Revenue Generating Emails/6 Email Autoresponders.md,409,0.0382,mp4,70254592
+135,remainder,cmFQRJZA,audio,undated-other-None-cmFQRJZA,courses/Million Dollar Branding/3-1 Color Schemes.md,463,0.0432,mp4,104857600
+136,remainder,s6NCULIB,audio,undated-other-None-s6NCULIB,courses/7 Figure Sales Funnel/2-5 Call Booking Page.md,501,0.0468,mp4,101711872
+137,remainder,lmMwVJDJ,audio,undated-other-None-lmMwVJDJ,courses/Converting ads/1 What is advertising.md,529,0.0494,mp4,115343360
+138,remainder,pnV02RSD,audio,undated-other-None-pnV02RSD,courses/Converting Upsells/5 Recording Video Sales Letters.md,563,0.0525,mp4,58720256
+139,remainder,MjFylRrB,audio,undated-other-None-MjFylRrB,courses/Converting ads/2 What advertising is not.md,570,0.0532,mp4,76546048
+140,remainder,MjVUiJ7T,audio,undated-other-None-MjVUiJ7T,courses/7 Figure Sales Funnel/2-4 One Time Offers.md,643,0.0600,mp4,199229440
+141,remainder,crcS2LSZ,audio,undated-other-None-crcS2LSZ,courses/Advanced Acquisition Theory Course/8 OUR 7-FIGURE SALES FUNNEL.md,668,0.0623,mp4,36700160
+142,remainder,5iEkzb4Q,audio,undated-other-None-5iEkzb4Q,courses/Converting ads/8 How to scale ads.md,698,0.0651,mp4,101711872
+143,remainder,4iF2kR5A,audio,undated-other-None-4iF2kR5A,courses/7 Figure Sales Funnel/2-2 Sales Page Assembly.md,702,0.0655,mp4,399507456
+144,remainder,QqEkwLDJ,audio,undated-other-None-QqEkwLDJ,courses/Rapid Launch Stack/1 Rapid Launch Stack.md,993,0.0927,mp4,55574528
+145,remainder,E7EmGLbJ,audio,undated-other-None-E7EmGLbJ,courses/Converting ads/9 When ads stop working.md,1023,0.0955,mp4,82837504
+146,remainder,wzVQyTra,audio,undated-other-None-wzVQyTra,courses/Advanced Acquisition Theory Course/10 PRIVATE INVITATION TO THE AUTOMATIC CLIENTS PROGRAM.md,1190,0.1111,mp4,69206016
+147,remainder,hjE23DTQ,audio,undated-other-None-hjE23DTQ,courses/Advanced Acquisition Theory Course/7 WHY EVERYTHING WE DO IS MOBILE FIRST.md,1239,0.1156,mp4,85983232
+148,remainder,UrMGjLiS,audio,undated-other-None-UrMGjLiS,courses/Advanced Acquisition Theory Course/3 SALES VELOCITY.md,1413,0.1319,mp4,77594624
+149,remainder,UmEwTTYR,audio,undated-other-None-UmEwTTYR,"courses/Advanced Acquisition Theory Course/5 DOMINATING FACEBOOK, GOOGLE AND YOUTUBE.md",2166,0.2022,mp4,122683392
+150,remainder,4mdSwL5J,audio,undated-other-None-4mdSwL5J,courses/Converting ads/5 things to consider when creating ads.md,2190,0.2044,mp4,247463936
+151,remainder,Njc0DL4a,audio,undated-other-None-Njc0DL4a,courses/Get Ready To Launch/7-1 Tech Integration.md,2344,0.2188,mp4,512753664
+152,remainder,wycSkJ5R,audio,undated-other-None-wycSkJ5R,courses/Million Dollar Branding/3-3 Brand Graphics.md,2605,0.2431,mp4,418381824
+153,remainder,Y3UQjTpL,audio,undated-other-None-Y3UQjTpL,courses/Advanced Acquisition Theory Course/9 THE 7-FIGURE AUTOMATIC CLIENTS FORMULA.md,2967,0.2769,mp4,155189248
+154,remainder,Z2EQVb4b,audio,undated-other-None-Z2EQVb4b,courses/Advanced Acquisition Theory Course/4 10X FACTOR OF SCALING.md,3321,0.3100,mp4,222298112
+155,remainder,g6USmRRI,audio,undated-other-None-g6USmRRI,courses/Advanced Acquisition Theory Course/2 TRANSITION PERIODS.md,3346,0.3123,mp4,171966464
+156,remainder,omcQCbqS,audio,undated-other-None-omcQCbqS,courses/Converting ads/7 Creating Ads.md,3384,0.3158,mp4,461373440
+157,remainder,giF2xTjS,audio,undated-other-None-giF2xTjS,courses/Advanced Acquisition Theory Course/1 100 BOOKS A DAY.md,3694,0.3448,mp4,198180864
+158,remainder,kiEiBJ6C,audio,undated-other-None-kiEiBJ6C,courses/7 Day Fast Start/4 THE AWARENESS BRIDGE & YOUR PROFIT CENTER.md,4027,0.3759,mp4,166723584
+159,remainder,QvFUlJxD,audio,undated-other-None-QvFUlJxD,courses/Converting ads/6 Ad networks & why people visit them.md,4058,0.3787,mp4,394264576
+160,remainder,InViQbBR,audio,2022-08-22-guest-8-InViQbBR,calls/2022/08 August/2022-08-22 Guest Speaker Rohan Sheth on Event Model.md,4078,0.3806,mp4,378535936
+161,remainder,cmdySBiQ,audio,undated-other-None-cmdySBiQ,courses/Converting ads/3 How to succeed in advertising.md,4711,0.4397,mp4,840957952
+162,remainder,17VGwLrb,audio,undated-other-None-17VGwLrb,courses/7 Day Fast Start/6 GETTING YOUR FIRST 10 HIGH TICKET CLIENTS.md,4735,0.4419,mp4,200278016
+163,remainder,ZzU0kTZQ,audio,undated-other-None-ZzU0kTZQ,courses/7 Day Fast Start/7 SCALING & OPTIMIZING YOUR OFFER.md,4867,0.4543,mp4,191889408
+164,remainder,93MkzLRY,audio,2022-07-27-guest-7-93MkzLRY,calls/2022/07 July/2022-07-27 Guest Speaker John Caprani on Network Mastery.md,5155,0.4811,mp4,814743552
+165,remainder,8iFkATYI,audio,undated-other-None-8iFkATYI,courses/7 Day Fast Start/3 YOUR ACQUISITION OFFER.md,5434,0.5072,mp4,244318208
+166,remainder,RrM2CLTC,audio,2025-02-11-coaching-2-RrM2CLTC,calls/2025/02 February/2025-02-11 Avatar Assumptions 1.0 - With Kevin Sheerin.md,5502,0.5135,mp3,92274688
+167,remainder,kuFkRbJI,audio,undated-other-None-kuFkRbJI,"courses/7 Day Fast Start/5 GETTING YOUR FIRST 1,000 CUSTOMERS.md",5868,0.5477,mp4,268435456
+168,remainder,IrNGmLbY,audio,undated-other-None-IrNGmLbY,courses/Automatic Clients Course/7 AC - Unannounced bonus.md,6007,0.5607,mp4,344981504
+169,remainder,J6VwiRqa,audio,undated-other-None-J6VwiRqa,"courses/7 Day Fast Start/2 YOUR MARKET, SUPERPOWER & DISRUPTIVE IDEA.md",6027,0.5625,mp4,254803968
+170,remainder,p7VUBL5D,audio,2025-02-21-coaching-2-p7VUBL5D,calls/2025/02 February/2025-02-21 DTC Brand Case Study Part 1 - With Brandon Vasquez.md,6273,0.5855,mp3,125829120
+171,remainder,97NAyRyA,audio,2022-04-18-guest-4-97NAyRyA,calls/2022/04 April/2022-04-18 Mike Gandia.md,6276,0.5858,mp4,1073741824
+172,remainder,hnNURZKL,audio,2022-04-27-training-4-hnNURZKL,calls/2022/04 April/2022-04-27 Podcast VSL Training.md,6478,0.6046,mp4,722468864
+173,remainder,lyEmARZR,audio,2025-01-21-coaching-1-lyEmARZR,calls/2025/01 January/2025-01-21 Tangible vs. Intangible Bumps - With Kevin Sheerin.md,6758,0.6307,mp3,162529280
+174,remainder,93Ug2R5I,audio,2022-10-31-other-10-93Ug2R5I,calls/2022/10 October/2022-10-31 Mindstream Call.md,6956,0.6492,mp4,553648128
+175,remainder,hrdmRTAY,audio,2025-02-28-coaching-2-hrdmRTAY,calls/2025/02 February/2025-02-28 DTC Brand Case Study Part 2.md,6971,0.6506,mp3,167772160
+176,remainder,53EW0B7J,audio,2022-07-25-guest-7-53EW0B7J,calls/2022/07 July/2022-07-25 Guest Speaker Erfan Riahi on Closing.md,7063,0.6592,mp4,1073741824
+177,remainder,ZqFUQJgY,audio,2023-02-27-guest-2-ZqFUQJgY,calls/2023/02 February/2023-02-27 Ray Blakney.md,7157,0.6680,mp4,2147483648
+178,remainder,lrdQjZyZ,audio,2025-02-18-coaching-2-lrdQjZyZ,calls/2025/02 February/2025-02-18 The Nature Of Needs - With Kevin Sheerin.md,7187,0.6708,mp3,173015040
+179,remainder,lvEUwZCD,audio,2024-06-03-guest-6-lvEUwZCD,calls/2024/06 June/2024-06-03 with Isaac Lara - How To Selll to Women Addendum.md,7315,0.6827,mp3,88080384
+180,remainder,IqVSkD5Z,audio,2024-09-27-other-9-IqVSkD5Z,calls/2024/09 September/2024-09-27 Coffee Room Impromptu Call.md,7326,0.6838,mp4,649068544
+181,remainder,46MSkJqS,audio,2022-06-13-guest-6-46MSkJqS,"calls/2022/06 June/2022-06-13 Matt Bacak, The Birth of High Ticket and Free CD Formula.md",7367,0.6876,mp4,882900992
+182,remainder,V3dSBLYZ,audio,2022-06-16-guest-6-V3dSBLYZ,"calls/2022/06 June/2022-06-16 Blake Wyatt, Ultimate Economics Tracking for Scale and ROAS.md",7371,0.6880,mp4,2147483648
+183,remainder,AyUCjJJY,audio,2024-08-12-guest-8-AyUCjJJY,calls/2024/08 August/2024-08-12 Luke Jaten on Direct Mail Secrets.md,7473,0.6975,mp3,90177536
+184,remainder,oyMwQTBb,audio,2022-05-30-guest-5-oyMwQTBb,"calls/2022/05 May/2022-05-30 Ron-Lynch, Uncensored Call.md",7487,0.6988,mp4,2147483648
+185,remainder,wnF2GBKS,audio,2022-07-11-guest-7-wnF2GBKS,calls/2022/07 July/2022-07-11 Double Trouble Publishing.md,7491,0.6992,mp4,2147483648
+186,remainder,cvMWiD4C,audio,2024-08-05-guest-8-cvMWiD4C,calls/2024/08 August/2024-08-05 Lonnie Jones on SEO.md,7531,0.7029,mp3,90177536
+187,remainder,8yF0lLSY,audio,undated-other-None-8yF0lLSY,courses/7 Day Fast Start/1 7-FIGURE MATH & AC FORMULA.md,7558,0.7054,mp4,342884352
+188,remainder,h3NkxBqD,audio,2022-09-07-guest-9-h3NkxBqD,calls/2022/09 September/2022-09-07 Guest Speaker Call - Sam Park YT Ads Masterclass.md,7733,0.7217,mp4,1043333120
+189,remainder,lyE0BBBb,audio,2022-04-25-guest-4-lyE0BBBb,calls/2022/04 April/2022-04-25 Dale LAB Profile.md,7755,0.7238,mp4,974127104
+190,remainder,cjMw1Rxb,audio,2022-06-27-guest-6-cjMw1Rxb,calls/2022/06 June/2022-06-27 Dale on Equity.md,7785,0.7266,mp4,2147483648
+191,remainder,42MUwZYS,audio,2023-07-06-theory-7-42MUwZYS,calls/2023/07 July/2023-07-06 3 Step Sales Page.md,8052,0.7515,mp4,823132160
+192,remainder,JyUUXDqR,audio,2024-06-24-guest-6-JyUUXDqR,calls/2024/06 June/2024-06-24 Brandon Vasquez on CRO Tactical Tips To Move The Needle Part 1.md,8097,0.7557,mp3,97517568
+193,remainder,17ESRbBJ,audio,2024-01-31-coaching-1-17ESRbBJ,calls/2024/01 January/2024-01-31 The CRO Audit Accelerator Pt. 2- With Brandon Vasquez.md,8196,0.7650,mp3,197132288
+194,remainder,RiEUQBCR,audio,2023-06-22-theory-6-RiEUQBCR,calls/2023/06 June/2023-06-22 Timeline Language.md,8245,0.7695,mp4,696254464
+195,remainder,UyNwhZIR,audio,2025-02-07-coaching-2-UyNwhZIR,calls/2025/02 February/2025-02-07 Adventures In CRO - With Brandon Vasquez.md,8732,0.8150,mp3,149946368
+196,remainder,kucygZiL,audio,2023-02-02-theory-2-kucygZiL,calls/2023/02 February/2023-02-02 Vitamins & Stuff.md,8924,0.8329,mp4,1073741824
+197,remainder,w3d0GLpR,audio,2022-11-25-mastermind-11-w3d0GLpR,calls/2022/11 November/2022-11-25 Real.md,8926,0.8331,mp4,1073741824
+198,remainder,BjEgRJ4I,audio,2024-10-10-theory-10-BjEgRJ4I,calls/2024/10 October/2024-10-10 Building Beliefs.md,8957,0.8360,mp3,179306496
+199,remainder,4uNkSbCJ,audio,2023-06-29-theory-6-4uNkSbCJ,calls/2023/06 June/2023-06-29 Copy Payoffs.md,9020,0.8419,mp4,936378368
+200,remainder,hnEiFLQL,audio,2023-06-08-theory-6-hnEiFLQL,calls/2023/06 June/2023-06-08 Instant Promo Technique.md,9068,0.8463,mp4,860880896
+201,remainder,VzEm0Lpb,audio,2022-08-01-guest-8-VzEm0Lpb,calls/2022/08 August/2022-08-01 Guest Speaker Pauline Longdon on Copywriting.md,9086,0.8480,mp4,987758592
+202,remainder,1jdCkLST,audio,2024-08-01-theory-8-1jdCkLST,calls/2024/08 August/2024-08-01 Reading Offers 3.md,9113,0.8505,mp3,109051904
+203,remainder,ljF0mZ4Y,audio,2025-02-12-coaching-2-ljF0mZ4Y,calls/2025/02 February/2025-02-12 Diving Into Data Part 3 - With Loren Pinilis.md,9140,0.8531,mp3,292552704
+204,remainder,lzUSkTZZ,audio,2021-06-07-other-6-lzUSkTZZ,calls/2021/06 June/2021-06-07 How To Sell & Close High Ticket.md,9140,0.8531,mp4,589299712
+205,remainder,pqcQXL4C,audio,2022-07-21-training-7-pqcQXL4C,calls/2022/07 July/2022-07-21 Evaluative Call Booking Models.md,9144,0.8534,mp4,1073741824
+206,remainder,VnEkUJCB,audio,2024-08-26-guest-8-VnEkUJCB,calls/2024/08 August/2024-08-26 Charles Kirkland Local Lead Gen Unveiled.md,9259,0.8642,mp4,2147483648
+207,remainder,l3EWFBAa,audio,2024-07-25-theory-7-l3EWFBAa,calls/2024/07 July/2024-07-25 Controlling The Evaluation Process.md,9283,0.8664,mp3,111149056
+208,remainder,p3FAzDhT,audio,2022-11-03-other-11-p3FAzDhT,calls/2022/11 November/2022-11-03 Core Emotions of Markets - Outcomes - Desire Stacking.md,9287,0.8668,mp4,2147483648
+209,remainder,4rMikDyA,audio,2024-08-08-theory-8-4rMikDyA,calls/2024/08 August/2024-08-08 Basis of Business Strategy.md,9338,0.8715,mp3,112197632
+210,remainder,s2FUxZAB,audio,2022-11-02-other-11-s2FUxZAB,calls/2022/11 November/2022-11-02 Fireside Chat - Offer Creation.md,9346,0.8723,mp4,2147483648
+211,remainder,prNAgRqC,audio,2024-11-28-theory-11-prNAgRqC,calls/2024/11 November/2024-11-28 2024 Thanksgiving Round Table.md,9386,0.8760,mp3,187695104
+212,remainder,B3FQBJ4D,audio,2022-09-08-training-9-B3FQBJ4D,calls/2022/09 September/2022-09-08 VSL Masterclass Part 3 - The Close.md,9395,0.8769,mp4,1073741824
+213,remainder,EvNgxRKZ,audio,2023-11-23-theory-11-EvNgxRKZ,calls/2023/11 November/2023-11-23 Thanksgiving Real.md,9411,0.8784,mp3,113246208
+214,remainder,QjFQFRaa,audio,2022-07-07-other-7-QjFQFRaa,calls/2022/07 July/2022-07-07 Weekly Calls - The Philosophy of Offers.md,9468,0.8837,mp4,2147483648
+215,remainder,JiFyiBiZ,audio,2024-10-24-theory-10-JiFyiBiZ,calls/2024/10 October/2024-10-24 Pre-Openings.md,9491,0.8858,mp3,189792256
+216,remainder,93EGARpJ,audio,2022-12-01-theory-12-93EGARpJ,calls/2022/12 December/2022-12-01 Authority Handover.md,9557,0.8920,mp4,1073741824
+217,remainder,9jdm2bpQ,audio,2025-02-14-coaching-2-9jdm2bpQ,calls/2025/02 February/2025-02-14 CRO Adventures Reading Offers - With Brandon Vasquez.md,9779,0.9127,mp3,168820736
+218,remainder,huFgSRaZ,audio,2022-07-16-other-7-huFgSRaZ,calls/2022/07 July/2022-07-16 Secrets of The Game Mindset Call.md,9947,0.9284,mp4,2147483648
+219,remainder,wzVwCRyC,audio,2022-12-22-theory-12-wzVwCRyC,calls/2022/12 December/2022-12-22 December Integration Call 3.md,9959,0.9295,mp4,1073741824
+220,remainder,0vVmhR6L,audio,2024-07-18-theory-7-0vVmhR6L,calls/2024/07 July/2024-07-18 Short Term Vs Long Term Thinking Audiences.md,9993,0.9327,mp3,119537664
+221,remainder,xqcAhZDC,audio,2024-09-26-theory-9-xqcAhZDC,calls/2024/09 September/2024-09-26 How To Create Good Products.md,9993,0.9327,mp3,200278016
+222,remainder,ZyM00DIS,audio,2024-10-17-theory-10-ZyM00DIS,calls/2024/10 October/2024-10-17 Hierarchy of a Pitch & Deep Optimizations.md,10005,0.9338,mp3,200278016
+223,remainder,dzMWXB4R,audio,2023-08-10-theory-8-dzMWXB4R,calls/2023/08 August/2023-08-10 Assumptive Questions.md,10043,0.9373,mp4,2147483648
+224,remainder,4nVkTL5S,audio,2025-02-05-coaching-2-4nVkTL5S,calls/2025/02 February/2025-02-05 Digging Into Data Part 2 - With Loren Pinilis.md,10050,0.9380,mp3,241172480
+225,remainder,EvdWXJTI,audio,2023-07-13-theory-7-EvdWXJTI,calls/2023/07 July/2023-07-13 List Management.md,10093,0.9420,mp4,914358272
+226,remainder,FmFyVJgA,audio,2023-01-12-theory-1-FmFyVJgA,calls/2023/01 January/2023-01-12 Anatomy of Ads.md,10178,0.9499,mp4,1073741824
+227,remainder,oqUm2DxC,audio,2024-09-19-theory-9-oqUm2DxC,calls/2024/09 September/2024-09-19 Selling To Outcomes 2.0.md,10193,0.9513,mp3,122683392
+228,remainder,FmFgnJrJ,audio,2022-09-19-guest-9-FmFgnJrJ,calls/2022/09 September/2022-09-19 Guest Speaker Call - Jordan Hall.md,10237,0.9555,mp4,2147483648
+229,remainder,UucgQBZR,audio,2024-06-20-theory-6-UucgQBZR,calls/2024/06 June/2024-06-20 Right Now Process.md,10271,0.9586,mp3,123731968
+230,remainder,s2cWGbRI,audio,2023-05-11-theory-5-s2cWGbRI,calls/2023/05 May/2023-05-11 Seasonal Adjustment Strategies.md,10318,0.9630,mp4,1073741824
+231,remainder,gjc2zZiA,audio,2025-01-22-coaching-1-gjc2zZiA,calls/2025/01 January/2025-01-22 Coaching Calls - Meta Ads Mastery - With Loren Pinilis.md,10386,0.9694,mp3,249561088
+232,remainder,t2diXBiT,audio,2022-11-17-training-11-t2diXBiT,calls/2022/11 November/2022-11-17 Mechanism of Fear & Optimism.md,10395,0.9702,mp4,1042284544
+233,remainder,4jFwRTLa,audio,2023-09-21-theory-9-4jFwRTLa,calls/2023/09 September/2023-09-21 POV Process Part 2.md,10413,0.9719,mp4,2147483648
+234,remainder,4vNSSRaD,audio,2025-01-29-coaching-1-4vNSSRaD,calls/2025/01 January/2025-01-29 Digging Into Data Part 1 - With Loren Pinilis.md,10422,0.9727,mp3,250609664
+235,remainder,4nEQGBoK,audio,2023-10-12-theory-10-4nEQGBoK,calls/2023/10 October/2023-10-12 Creating An Awareness Bridge.md,10476,0.9778,mp3,125829120
+236,remainder,pjUEzbwa,audio,2023-05-18-theory-5-pjUEzbwa,calls/2023/05 May/2023-05-18 Educational vs Motivational Copy.md,10496,0.9796,mp4,1073741824
+237,remainder,17MUiboL,audio,2022-10-20-training-10-17MUiboL,calls/2022/10 October/2022-10-20 Astrology + Market Maturation Cycles.md,10497,0.9797,mp4,2147483648
+238,remainder,VqFEgBAS,audio,2023-08-17-theory-8-VqFEgBAS,calls/2023/08 August/2023-08-17 Market Assumptions.md,10497,0.9797,mp4,1073741824
+239,remainder,RrVEWT7A,audio,2024-12-26-theory-12-RrVEWT7A,calls/2024/12 December/2024-12-26 Who Campaign.md,10507,0.9807,mp3,210763776
+240,remainder,92FUjTqZ,audio,2023-08-31-theory-8-92FUjTqZ,calls/2023/08 August/2023-08-31 Marketing Measures.md,10512,0.9811,mp4,2147483648
+241,remainder,pvd0RJrB,audio,2022-06-23-other-6-pvd0RJrB,calls/2022/06 June/2022-06-23 Weekly Calls - Competing on Economics.md,10522,0.9821,mp4,2147483648
+242,remainder,c7EERbbS,audio,2022-09-29-training-9-c7EERbbS,calls/2022/09 September/2022-09-29 CMO-CRO Roles.md,10532,0.9830,mp4,1073741824
+243,remainder,sid0AZYB,audio,2023-02-09-theory-2-sid0AZYB,calls/2023/02 February/2023-02-09 Theory - Redefine Yourself.md,10544,0.9841,mp4,1073741824
+244,remainder,B3V2gDzT,audio,2024-03-21-theory-3-B3V2gDzT,calls/2024/03 March/2024-03-21 Conceptual God Model.md,10565,0.9861,mp3,126877696
+245,remainder,56NAAD4b,audio,2024-11-14-theory-11-56NAAD4b,calls/2024/11 November/2024-11-14 Mechanism of Love.md,10629,0.9920,mp3,212860928
+246,remainder,9zUSRTpC,audio,2023-06-01-theory-6-9zUSRTpC,calls/2023/06 June/2023-06-01 Age Cycles.md,10663,0.9952,mp4,1073741824
+247,remainder,JuVyBJ7A,audio,2023-01-19-theory-1-JuVyBJ7A,calls/2023/01 January/2023-01-19 Publishing Profits.md,10674,0.9962,mp4,1073741824
+248,remainder,dqECHTQQ,audio,2023-02-15-guest-2-dqECHTQQ,calls/2023/02 February/2023-02-15 Mike Gandia Publishing.md,10720,1.0005,mp4,2147483648
+249,remainder,82NAmB7T,audio,2024-06-27-theory-6-82NAmB7T,calls/2024/06 June/2024-06-27 Increasing Beliefs.md,10729,1.0014,mp3,128974848
+250,remainder,0vEyQTjI,audio,2023-12-28-other-12-0vEyQTjI,calls/2023/12 December/2023-12-28 Year End Roundtable Call.md,10747,1.0031,mp3,128974848
+251,remainder,UuV2XRII,audio,2024-02-22-theory-2-UuV2XRII,calls/2024/02 February/2024-02-22 Organic Content Structures.md,10778,1.0059,mp3,128974848
+252,remainder,Y6NG3Rja,audio,2022-12-15-theory-12-Y6NG3Rja,calls/2022/12 December/2022-12-15 December Integration Call 2.md,10802,1.0082,mp4,1073741824
+253,remainder,M2NWCBba,audio,2024-01-24-coaching-1-M2NWCBba,calls/2024/01 January/2024-01-24 The CRO Audit Accelerator - With Brandon Vasquez.md,10827,1.0105,mp3,260046848
+254,remainder,E7U2hBKC,audio,2023-12-21-theory-12-E7U2hBKC,calls/2023/12 December/2023-12-21 Clean Biz-Ops.md,10834,1.0112,mp3,130023424
+255,remainder,M6dm2TzR,audio,2024-04-04-theory-4-M6dm2TzR,calls/2024/04 April/2024-04-04 Perfect Launch Sequence.md,10846,1.0123,mp3,130023424
+256,remainder,ovEWhJbA,audio,2025-01-09-coaching-1-ovEWhJbA,calls/2025/01 January/2025-01-09 Perfect Path To Coaching.md,10860,1.0136,mp3,217055232
+257,remainder,VqdiCRrJ,audio,2024-07-04-theory-7-VqdiCRrJ,calls/2024/07 July/2024-07-04 Reading Offers 2.md,10884,1.0158,mp3,131072000
+258,remainder,0yFE0BZD,audio,2023-01-26-theory-1-0yFE0BZD,calls/2023/01 January/2023-01-26 Symbolism.md,10922,1.0194,mp4,1073741824
+259,remainder,d7Ni1DwR,audio,2022-06-30-other-6-d7Ni1DwR,calls/2022/06 June/2022-06-30 Weekly Calls - Intentional Business Models.md,10936,1.0207,mp4,1073741824
+260,remainder,AjFw3BQK,audio,2023-05-25-theory-5-AjFw3BQK,calls/2023/05 May/2023-05-25 What Not To Say In Copy.md,10955,1.0225,mp4,1073741824
+261,remainder,YyEWgJSK,audio,2023-07-27-theory-7-YyEWgJSK,calls/2023/07 July/2023-07-27 Emotional Spending.md,10974,1.0242,mp4,1065353216
+262,remainder,QmVGhTpL,audio,2022-12-08-theory-12-QmVGhTpL,calls/2022/12 December/2022-12-08 December Integration Call 1.md,10977,1.0245,mp4,1073741824
+263,remainder,12UAXTwK,audio,2024-11-21-theory-11-12UAXTwK,calls/2024/11 November/2024-11-21 Installing Decisions.md,10998,1.0265,mp3,220200960
+264,remainder,Z6E0UTKR,audio,2022-08-04-training-8-Z6E0UTKR,calls/2022/08 August/2022-08-04 Upsell Masterclass.md,11023,1.0288,mp4,2147483648
+265,remainder,8mMkwbIJ,audio,2025-02-16-coaching-2-8mMkwbIJ,calls/2025/02 February/2025-02-16 AI Hack That Writes Your Google Ads on Autopilot.md,11080,1.0341,mp4,1073741824
+266,remainder,0vdA0R7L,audio,2025-02-17-coaching-2-0vdA0R7L,calls/2025/02 February/2025-02-17 AI Hack That Writes Your Google Ads on Autopilot - With Charles Kirkland.md,11080,1.0341,mp3,183500800
+267,remainder,o3V2yRyJ,audio,2024-08-29-theory-8-o3V2yRyJ,calls/2024/08 August/2024-08-29 Market Pendulums.md,11090,1.0351,mp3,133169152
+268,remainder,ZjNGhTSA,audio,2023-12-07-theory-12-ZjNGhTSA,calls/2023/12 December/2023-12-07 Truth vs Trust.md,11105,1.0365,mp3,133169152
+269,remainder,8iUySDhY,audio,2025-02-24-coaching-2-8iUySDhY,calls/2025/02 February/2025-02-24 February Reading Offers - With Charles Kirkland.md,11106,1.0366,mp3,222298112
+270,remainder,c3EwibLB,audio,2023-07-20-theory-7-c3EwibLB,calls/2023/07 July/2023-07-20 Selling To Women.md,11108,1.0367,mp4,1037041664
+271,remainder,QnVAVbrL,audio,2023-03-02-theory-3-QnVAVbrL,calls/2023/03 March/2023-03-02 Absolution of Responsibility.md,11136,1.0394,mp4,1073741824
+272,remainder,8yUwHDCA,audio,2024-07-11-theory-7-8yUwHDCA,calls/2024/07 July/2024-07-11 Engineering Commitment.md,11145,1.0402,mp3,134217728
+273,remainder,hjcSFT7I,audio,2022-10-27-training-10-hjcSFT7I,calls/2022/10 October/2022-10-27 What and the Who.md,11205,1.0458,mp4,1073741824
+274,remainder,52ckkTTI,audio,2025-02-27-theory-2-52ckkTTI,calls/2025/02 February/2025-02-27 Root Beliefs.md,11228,1.0479,mp3,224395264
+275,remainder,RrcgQJ4b,audio,2025-02-10-coaching-2-RrcgQJ4b,calls/2025/02 February/2025-02-10 How To Be A Media Buyer - With Charles Kirkland.md,11233,1.0484,mp3,269484032
+276,remainder,IiUghJRL,audio,2024-02-15-theory-2-IiUghJRL,calls/2024/02 February/2024-02-15 Creating MOAT.md,11239,1.0490,mp3,135266304
+277,remainder,86MQHbaA,audio,2025-01-20-other-1-86MQHbaA,calls/2025/01 January/2025-01-20 Introduction To Google Ads - With Charles Kirkland.md,11296,1.0543,mp3,451936256
+278,remainder,4iEWSLqL,audio,2023-04-06-theory-4-4iEWSLqL,calls/2023/04 April/2023-04-06 Risk Reversals.md,11302,1.0549,mp4,1073741824
+279,remainder,QvcCQbDS,audio,2023-03-30-theory-3-QvcCQbDS,calls/2023/03 March/2023-03-30 Problem - Solution Ratios.md,11313,1.0559,mp4,1073741824
+280,remainder,MmMmABhJ,audio,undated-other-5-MmMmABhJ,calls/2024/05 May/Selling To Women 3.0.md,11318,1.0563,mp3,136314880
+281,remainder,t7FgXbiS,audio,2024-09-05-theory-9-t7FgXbiS,calls/2024/09 September/2024-09-05 Psychology of Business Models.md,11319,1.0564,mp3,136314880
+282,remainder,V6V2GZza,audio,2023-04-13-theory-4-V6V2GZza,calls/2023/04 April/2023-04-13 Levels of Desire.md,11342,1.0586,mp4,1073741824
+283,remainder,smMExDaL,audio,2023-08-03-theory-8-smMExDaL,calls/2023/08 August/2023-08-03 Selling To The Ego.md,11397,1.0637,mp4,2147483648
+284,remainder,l6NGTR5D,audio,2023-11-30-theory-11-l6NGTR5D,calls/2023/11 November/2023-11-30 Architecture of Awareness.md,11415,1.0654,mp3,137363456
+285,remainder,t3VAkb5J,audio,2024-06-06-theory-6-t3VAkb5J,calls/2024/06 June/2024-06-06 Reading Offers 1.md,11451,1.0688,mp3,137363456
+286,remainder,cnNkSDgY,audio,2024-12-19-theory-12-cnNkSDgY,calls/2024/12 December/2024-12-19 Copy Logic.md,11571,1.0800,mp3,231735296
+287,remainder,g7E2QTST,audio,2025-01-30-theory-1-g7E2QTST,calls/2025/01 January/2025-01-30 Conspiracy Marketing.md,11577,1.0805,mp3,231735296
+288,remainder,x3Mi0JJL,audio,undated-other-5-x3Mi0JJL,calls/2024/05 May/Mechanism Of Will Power.md,11582,1.0810,mp4,2147483648
+289,remainder,hydijL6I,audio,2023-09-07-theory-9-hydijL6I,calls/2023/09 September/2023-09-07 Hidden Architecture Of Quiz Funnels.md,11592,1.0819,mp4,2147483648
+290,remainder,J7MWlT6R,audio,2024-11-07-theory-11-J7MWlT6R,calls/2024/11 November/2024-11-07 Theory - November Reading Offers Call.md,11593,1.0820,mp3,231735296
+291,remainder,Y3F2SDqb,audio,2023-02-23-theory-2-Y3F2SDqb,calls/2023/02 February/2023-02-23 Creating Desire.md,11600,1.0827,mp4,2147483648
+292,remainder,EqN2UTLK,audio,2024-03-07-theory-3-EqN2UTLK,calls/2024/03 March/2024-03-07 Converting Audiences.md,11662,1.0885,mp3,140509184
+293,remainder,9ycSBZxA,audio,2024-06-13-theory-6-9ycSBZxA,calls/2024/06 June/2024-06-13 Creating And Spotting Opportunities.md,11676,1.0898,mp3,140509184
+294,remainder,QvcAyRIZ,audio,2024-12-12-other-12-QvcAyRIZ,calls/2024/12 December/2024-12-12 Call - Value Matrix.md,11707,1.0927,mp4,2147483648
+295,remainder,wmEwhJoD,audio,2024-12-12-theory-12-wmEwhJoD,calls/2024/12 December/2024-12-12 Value Matrix.md,11707,1.0927,mp3,233832448
+296,remainder,IzFmGbhB,audio,2023-11-09-theory-11-IzFmGbhB,calls/2023/11 November/2023-11-09 Market Positions.md,11740,1.0957,mp3,140509184
+297,remainder,tuNGSDJC,audio,2024-03-14-theory-3-tuNGSDJC,calls/2024/03 March/2024-03-14 Market Assumptions 2.0 (Counter Arguments).md,11743,1.0960,mp3,141557760
+298,remainder,A6dgCLpT,audio,2024-09-12-theory-9-A6dgCLpT,calls/2024/09 September/2024-09-12 September 2024 Reading Offers Call.md,11745,1.0962,mp3,141557760
+299,remainder,FmFGgRoJ,audio,2022-07-14-other-7-FmFGgRoJ,calls/2022/07 July/2022-07-14 Weekly Calls - Market Based Funnel Architecture & Design.md,11745,1.0962,mp4,1073741824
+300,remainder,IvUCnRhS,audio,2024-10-31-theory-10-IvUCnRhS,calls/2024/10 October/2024-10-31 Mechanism of Motivation.md,11772,1.0987,mp3,235929600
+301,remainder,Bjc0SLRC,audio,2023-11-16-theory-11-Bjc0SLRC,calls/2023/11 November/2023-11-16 Go Back Mechanism.md,11810,1.1023,mp3,141557760
+302,remainder,AmMiWTjS,audio,2024-03-28-theory-3-AmMiWTjS,calls/2024/03 March/2024-03-28 Lowering Argumentative Resistance.md,11840,1.1051,mp3,142606336
+303,remainder,orUWQBKC,audio,2023-03-09-other-3-orUWQBKC,calls/2023/03 March/2023-03-09 Call - Creating Rationalizations.md,11852,1.1062,mp4,2147483648
+304,remainder,gyEQTZ5S,audio,2023-02-16-theory-2-gyEQTZ5S,calls/2023/02 February/2023-02-16 Primary Motivators of Action.md,11875,1.1083,mp4,1073741824
+305,remainder,EnMGUTzZ,audio,2023-06-15-theory-6-EnMGUTzZ,calls/2023/06 June/2023-06-15 Optimizing For Limitations.md,11907,1.1113,mp4,1073741824
+306,remainder,57EWmJ5I,audio,2022-10-06-training-10-57EWmJ5I,calls/2022/10 October/2022-10-06 Bible Offer + Recurring Membership Models.md,12009,1.1208,mp4,2147483648
+307,remainder,0mFiHTIK,audio,2022-07-20-guest-7-0mFiHTIK,calls/2022/07 July/2022-07-20 Guest Speaker Patrick Kenney on Google Ads.md,12126,1.1318,mp4,1073741824
+308,remainder,EiVEXR7A,audio,2023-05-04-theory-5-EiVEXR7A,calls/2023/05 May/2023-05-04 Reading Data Call 1.0.md,12127,1.1319,mp4,1073741824
+309,remainder,9vNiSZ4T,audio,2025-01-16-other-1-9vNiSZ4T,calls/2025/01 January/2025-01-16 Call - Mechanism Of Comprehension.md,12221,1.1406,mp3,244318208
+310,remainder,QrcW1TYJ,audio,2023-04-25-theory-4-QrcW1TYJ,calls/2023/04 April/2023-04-25 Complaints To Conversions.md,12258,1.1441,mp3,146800640
+311,remainder,AmFCHRJB,audio,2023-09-14-theory-9-AmFCHRJB,calls/2023/09 September/2023-09-14 POV Process.md,12259,1.1442,mp4,2147483648
+312,remainder,QnVChZbT,audio,2022-07-18-guest-7-QnVChZbT,calls/2022/07 July/2022-07-18 Guest Speaker Loren on FB Ads.md,12280,1.1461,mp4,2147483648
+313,remainder,YzMEHRQJ,audio,2023-03-23-theory-3-YzMEHRQJ,calls/2023/03 March/2023-03-23 Basis of Objections.md,12367,1.1543,mp4,1073741824
+314,remainder,RnEASRBT,audio,2023-12-14-theory-12-RnEASRBT,calls/2023/12 December/2023-12-14 Objection Handling Story Structures.md,12375,1.1550,mp3,148897792
+315,remainder,12UkTJRQ,audio,2024-01-04-theory-1-12UkTJRQ,calls/2024/01 January/2024-01-04 Industry Back Ends.md,12401,1.1574,mp3,148897792
+316,remainder,gicGhRiB,audio,2024-12-05-theory-12-gicGhRiB,calls/2024/12 December/2024-12-05 December Reading Offers.md,12403,1.1576,mp3,248512512
+317,remainder,8rVkyBSQ,audio,2023-10-26-theory-10-8rVkyBSQ,calls/2023/10 October/2023-10-26 Requirements.md,12507,1.1673,mp3,149946368
+318,remainder,QvdyjBRL,audio,2022-12-29-theory-12-QvdyjBRL,calls/2022/12 December/2022-12-29 Relationship Trust Cycles.md,12591,1.1752,mp4,1073741824
+319,remainder,8jd2nB5Y,audio,2023-10-19-theory-10-8jd2nB5Y,calls/2023/10 October/2023-10-19 Cause For Arguments.md,12617,1.1776,mp3,152043520
+320,remainder,gncA0DZZ,audio,2024-02-08-theory-2-gncA0DZZ,calls/2024/02 February/2024-02-08 Criteria of Markets Implementation Call.md,12629,1.1787,mp3,152043520
+321,remainder,xidizZIL,audio,2024-08-22-theory-8-xidizZIL,calls/2024/08 August/2024-08-22 Call of Duty Biz Ops Part 2.md,12644,1.1801,mp3,152043520
+322,remainder,83FwyZwb,audio,2023-01-05-theory-1-83FwyZwb,calls/2023/01 January/2023-01-05 Limiting Beliefs.md,12649,1.1806,mp4,1073741824
+323,remainder,ojNm3T4b,audio,2022-10-13-training-10-ojNm3T4b,calls/2022/10 October/2022-10-13 Web Hosting Offers + 5 Step Sales Process.md,12655,1.1811,mp4,2147483648
+324,remainder,QmcWhTwJ,audio,undated-other-5-QmcWhTwJ,calls/2024/05 May/Next 5 Years.md,12655,1.1811,mp4,2147483648
+325,remainder,NrdwHDQB,audio,2024-02-29-theory-2-NrdwHDQB,calls/2024/02 February/2024-02-29 Creating Marketing Models.md,12663,1.1819,mp3,152043520
+326,remainder,gidiDR5T,audio,2022-11-10-training-11-gidiDR5T,calls/2022/11 November/2022-11-10 Biz-Op Blueprint.md,12676,1.1831,mp4,2147483648
+327,remainder,xmNG3D4L,audio,2023-10-05-other-10-xmNG3D4L,calls/2023/10 October/2023-10-05 Call - Selling To Women Part 2.md,12682,1.1837,mp3,152043520
+328,remainder,83MgETiC,audio,2022-08-25-training-8-83MgETiC,calls/2022/08 August/2022-08-25 Integration Call Part 2.md,12932,1.2070,mp4,2147483648
+329,remainder,ZzNkyRhK,audio,2023-11-02-theory-11-ZzNkyRhK,calls/2023/11 November/2023-11-02 Catalog Model.md,12935,1.2073,mp3,155189248
+330,remainder,h7cAwBJD,audio,2022-07-28-training-7-h7cAwBJD,calls/2022/07 July/2022-07-28 What To Sell & Selling On Outcomes.md,12964,1.2100,mp4,2147483648
+331,remainder,dvFW0BwZ,audio,2022-09-22-training-9-dvFW0BwZ,calls/2022/09 September/2022-09-22 Low Ticket Offers.md,13000,1.2133,mp4,2147483648
+332,remainder,wmVGnZaQ,audio,2024-02-01-theory-2-wmVGnZaQ,calls/2024/02 February/2024-02-01 Criteria of Markets Part 3.md,13010,1.2143,mp3,156237824
+333,remainder,MjUgnb6B,audio,2022-09-01-training-9-MjUgnb6B,calls/2022/09 September/2022-09-01 VSL Masterclass Part 2 Body Copy.md,13018,1.2150,mp4,2147483648
+334,remainder,BuNAzJTT,audio,2025-02-03-coaching-2-BuNAzJTT,calls/2025/02 February/2025-02-03 Google Case Studies - With Charles Kirkland.md,13056,1.2186,mp3,261095424
+335,remainder,4jMUBZ5Y,audio,2024-04-18-theory-4-4jMUBZ5Y,calls/2024/04 April/2024-04-18 Symbolic Language.md,13061,1.2190,mp3,156237824
+336,remainder,8rNwVLAY,audio,2023-08-24-theory-8-8rNwVLAY,calls/2023/08 August/2023-08-24 Sales Format Innovation.md,13061,1.2190,mp4,2147483648
+337,remainder,YnEkFBrT,audio,2023-03-16-theory-3-YnEkFBrT,calls/2023/03 March/2023-03-16 TSL Structures.md,13075,1.2203,mp4,1073741824
+338,remainder,dnc0BDSa,audio,2024-08-15-theory-8-dnc0BDSa,calls/2024/08 August/2024-08-15 Call of Duty Biz-Ops.md,13100,1.2227,mp3,157286400
+339,remainder,Z7dwRb6R,audio,2025-02-25-coaching-2-Z7dwRb6R,calls/2025/02 February/2025-02-25 Low Ticket Mastery - With Kevin Sheerin.md,13165,1.2287,mp3,315621376
+340,remainder,03UW2LCY,audio,2024-10-03-other-10-03UW2LCY,calls/2024/10 October/2024-10-03 Call - October Reading Offers Call.md,13222,1.2341,mp3,158334976
+341,remainder,hnVAFBiI,audio,2022-09-15-training-9-hnVAFBiI,calls/2022/09 September/2022-09-15 VSL Masterclass Part 4 - Rhythm - Style - Cadence.md,13232,1.2350,mp4,1073741824
+342,remainder,oyNS1b5I,audio,2023-04-27-theory-4-oyNS1b5I,calls/2023/04 April/2023-04-27 Anatomy of Ads 2.0.md,13290,1.2404,mp4,1073741824
+343,remainder,dvcEDToK,audio,2024-04-25-theory-4-dvcEDToK,calls/2024/04 April/2024-04-25 Complaints To Conversions on Vimeo.md,unknown,,mp4,2147483648
