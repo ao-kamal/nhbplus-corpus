@@ -88,7 +88,7 @@ def v4(d_manifest, d_header, d_decoded):
 
 
 def v5(first_start, last_end, d_manifest, n_words, speech_start=None,
-     speech_end=None):
+     speech_end=None, speech_basis="speech"):
     """Edge gaps against SPEECH edges when measured, wall-clock otherwise.
 
     AMENDMENT 2026-10-16 (live evidence): hnNURZKL head 24.735 s and U2dCxTzb
@@ -99,6 +99,11 @@ def v5(first_start, last_end, d_manifest, n_words, speech_start=None,
     speech PASS and only wall-clock FAILs need a silence measurement
     (bounded 60+60 s windows, never a full decode). The basis is recorded
     per verdict; unmeasured edges stay wall-clock-strict, never silently lax.
+    Where the edge audio is not silence either (9zUSRTpC: 10 s trailing
+    music/outro bed), a 60 s edge re-probe (~$0.005) decides: if its last
+    word matches the full transcript's last word, nothing was dropped and
+    speech_end is the re-probe's last-word end with basis "re-probe" (live
+    2026-10-16: re-probe ends 10653.2 = transcript end 10653.195, PASS).
     """
     if n_words == 0:
         raise V5Fail("EMPTY: no words (fetch/decode failure, retry costs money)")
@@ -107,7 +112,7 @@ def v5(first_start, last_end, d_manifest, n_words, speech_start=None,
         raise V5Fail("EMPTY: no duration")
     if speech_start is not None:
         head = float(first_start) - float(speech_start)
-        basis = "speech"
+        basis = speech_basis
     else:
         head, basis = float(first_start), "wall-clock"
     if speech_end is not None:

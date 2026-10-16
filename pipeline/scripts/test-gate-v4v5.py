@@ -120,6 +120,10 @@ def _():
     out = g.v5(2.32, 14280.555, 14301.461, 47896,
                speech_start=0.0, speech_end=14280.6)
     assert out["basis"] == "speech" and out["tail_gap"] == 0.05, out
+    # 9zUSRTpC: trailing music bed, re-probe last word == transcript last word.
+    out = g.v5(0.32, 10653.195, 10663.211, 33038,
+               speech_start=0.0, speech_end=10653.2, speech_basis="re-probe")
+    assert out["basis"] == "re-probe" and out["tail_gap"] == 0.01, out
     # Same inputs WITHOUT speech edges still FAIL wall-clock (strict default).
     try:
         g.v5(24.735, 6476.505, 6478.272, 22084)

@@ -12,9 +12,9 @@
 {"gate": "V-md5", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-md5.json", "counts": {"PASS": 6}}
 {"gate": "V-z72", "verdict": "STARTED", "script": "test-submit.py", "script_digest": "bdd11ab33153d6b1"}
 {"gate": "V-z72", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V-z72.json", "counts": {"PASS": 7}}
-{"gate": "V4", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "70e6f1c699b65da7"}
+{"gate": "V4", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "ea3e52755e05ae45"}
 {"gate": "V4", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V4.json", "counts": {"PASS": 8}}
-{"gate": "V5", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "70e6f1c699b65da7"}
+{"gate": "V5", "verdict": "STARTED", "script": "test-gate-v4v5.py", "script_digest": "ea3e52755e05ae45"}
 {"gate": "V5", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V5.json", "counts": {"PASS": 9}}
 {"gate": "V3", "verdict": "STARTED", "script": "test-gate-v3.py", "script_digest": "4fb5bac714ea1645"}
 {"gate": "V3", "verdict": "PASS", "receipt": "C:\\Users\\layiw\\Documents\\Kamal\\nhbplus-corpus\\pipeline\\out\\gate-receipts\\V3.json", "counts": {"PASS": 10}}
