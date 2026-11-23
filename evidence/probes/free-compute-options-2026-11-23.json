@@ -1,0 +1,57 @@
+{
+  "record_type": "PLATFORM_PROBE_DOCUMENTARY",
+  "probe_date": "2026-11-23",
+  "question": "Free remote compute with datacenter internet for batch-2 transcription, after Azure free credit exhausted and Google AI Pro credits ruled out by operator.",
+  "why_remote": "Operator confirmed internet speed was an independent reason for choosing a VM, not just disk space. Per-file fetch solved the 320 GB disk problem (evidence: nhbplus-perfile-fetch-solved-2026-10-15.json) but NOT the bandwidth problem — ~180 GiB must traverse a datacenter link, not the operator's home connection.",
+  "updated_requirement": {
+    "peak_disk": "~4 GiB loopback (was 320 GB — superseded)",
+    "runtime": "~3-5 h continuous (fetch ~3.4 h for 180 GiB at 15.8 MB/s + STT ~25 min)",
+    "platform": "Linux x86_64, root, megacmd .deb, ffmpeg, python3",
+    "network": "datacenter egress to mega.nz and api.eu.deepgram.com"
+  },
+  "options_scored": [
+    {
+      "name": "GitHub Codespaces",
+      "free": "120 core-hours/month on personal account = 60 h on a 2-core machine; 15 GB storage",
+      "card": "none needed for included quota",
+      "fit": "STRONG — datacenter internet, root in devcontainer, apt install megacmd, 60 h >> ~5 h needed, 15 GB >> 4 GiB peak",
+      "blocker": "gh CLI authenticated as ao-kamal but token lacks 'codespace' scope. Needs `gh auth refresh -h github.com -s codespace` (interactive) — an operator action.",
+      "unproven": "MEGA and api.eu.deepgram.com reachability from a codespace; megacmd .deb install in devcontainer. Must probe before build.",
+      "sources": ["https://docs.github.com/en/billing/concepts/product-billing/github-codespaces", "https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository"]
+    },
+    {
+      "name": "Azure — new free trial",
+      "free": "$200 / 30 days",
+      "fit": "The prior 30-day trial (started 2026-10-14) has simply EXPIRED by time at 2026-11-23 (40 days), which is the likely reason for 'credit used up' rather than actual compute spend (~$0.21/day idle).",
+      "blocker": "One free account per person; a new trial requires new identity/payment details and the tenant security-defaults block (AADSTS530035) still prevents provisioning. Not legitimate to create a second free account.",
+      "sources": ["https://azure.microsoft.com/en-us/free/"]
+    },
+    {
+      "name": "Oracle Cloud Always Free",
+      "free": "2 OCPU / 12 GB ARM, 200 GB block, 10 TB egress, forever",
+      "blocker": "Operator's prior signup failed (per 2026-10-14 artifact). Oracle rejects PIN debit / virtual / prepaid cards; Nov 2026 report of a Nigerian user with a verified Mastercard still failing at account creation. Region-based rejection is likely, not card-based.",
+      "sources": ["https://www.oracle.com/africa/cloud/free/faq/", "https://community.oracle.com/CustomerConnect/discussion/985716/"]
+    },
+    {
+      "name": "Railway anonymous free VM",
+      "free": "2 vCPU / 2 GB RAM, no card, no account",
+      "blocker": "2 GB RAM insufficient; 60 min build + 24 h claim window; unclaimed boxes deleted. Too short for ~5 h.",
+      "sources": ["https://railway.com/free-vm.md"]
+    },
+    {
+      "name": "InstaBox",
+      "free": "4 vCPU / 8 GB / 20 GB, Google or GitHub login, no card",
+      "blocker": "8 h continuous max, 30 min idle sleep — too short/risky for a ~5 h unattended fetch; service maturity unverified.",
+      "sources": ["https://vps-craft.com/free-vps"]
+    },
+    {
+      "name": "Local WSL",
+      "free": "yes — tools already present (ffmpeg, ffprobe, python3, mega-get), 924 GB disk, sudo",
+      "blocker": "Operator ruled out: home internet cannot carry ~180 GiB. This was an independent design reason for the VM.",
+      "evidence": "wsl-capability.sh / wsl-test3.sh run 2026-11-23"
+    }
+  ],
+  "recommendation": "GitHub Codespaces — the only option with datacenter bandwidth, no card, enough hours, and an already-authenticated GitHub account. One interactive scope refresh required, then live probe before build.",
+  "operator_action_required": "Run `gh auth refresh -h github.com -s codespace` (opens browser once). Then say 'refreshed' and I will provision a codespace and probe MEGA + Deepgram reachability before committing to the run.",
+  "proof_class": "DOCUMENTARY_ONLY — no provider account was created, no compute provisioned, no claims about reachability are proven."
+}
