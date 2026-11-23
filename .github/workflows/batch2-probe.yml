@@ -1,0 +1,46 @@
+name: batch2 compute probe
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Runner specs and tools
+        run: |
+          echo "=== runner ==="
+          nproc; free -h | head -2; df -h / | tail -1
+          echo "=== preinstalled ==="
+          command -v ffprobe python3 curl jq || true
+
+      - name: Install megacmd from official MEGA repo
+        run: |
+          set -e
+          curl -fsSL https://mega.nz/MEGACmdRepo.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/megacmd.gpg >/dev/null
+          echo 'deb [signed-by=/usr/share/keyrings/megacmd.gpg] https://mega.nz/linux/repo/xUbuntu_24.04/ ./' | sudo tee /etc/apt/sources.list.d/megacmd.list >/dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y megacmd -qq
+          echo "=== installed ==="
+          mega-version 2>&1 | head -2
+          command -v mega-get mega-ls
+
+      - name: MEGA reachability - list folder, no media bytes
+        run: |
+          echo "=== mega-ls public folder (listing only) ==="
+          timeout 45 mega-ls "https://mega.nz/folder/7WZkxQjK#yc0fQSTRiV2_NXUF7XFV4Q" 2>&1 | head -12 || echo "MEGA_LS_FAILED"
+
+      - name: Deepgram EU reachability
+        run: |
+          python3 - <<'PY'
+import urllib.request, urllib.error
+for path in ("/v1/listen", "/v1/balances"):
+    try:
+        r = urllib.request.urlopen("https://api.eu.deepgram.com"+path, timeout=12)
+        print("EU", path, "HTTP", r.status)
+    except urllib.error.HTTPError as e:
+        print("EU", path, "HTTP", e.code, "(endpoint exists or auth-gated - reachability OK)")
+    except Exception as e:
+        print("EU", path, "ERR", str(e)[:120])
+PY
+          echo "PROBE_DONE"
