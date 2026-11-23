@@ -29,13 +29,15 @@ in the two UPDATE trees plus the 2025 guest playlists.
 | Audio rows (mp3/mp4) | 400 | Dedup by call → **362 unique calls** |
 | — mp3/mp4 duplicate pairs | 36 | Transcribe **once** per call |
 | — mp4 only | 1 | include |
-| Known durations | 360 calls, **878.7 h** | 2 calls need on-fetch measurement |
+| **Additional mp3-only calls** | **32** | **Added 2026-11-23 at operator request — June–July 2025, distinct calls, not alternates** |
+| **Total audio calls** | **392** | 362 mp4-preferred + 30 new mp3 (2 mp3 were already in the 362) |
+| Known durations | 389 calls, ~899 h | 3 calls need on-fetch measurement |
 | Resource docs | 50 (22 pdf, 27 docx, 1 other) | Ship as **native attachments**, no md conversion |
 | "AI Summary" files | 83 (10 mp4, 68 pdf, 5 other) | **Excluded entirely** — no STT, no import, no attachment |
 | Handle/name overlap with corpus #1 | 0 | Clean new set |
 
-**Spend estimate (derived, not asserted):** 878.7 h × 60 × $0.0056 = **$295.25** at
-the mono/keyterm-on rate; ~$590 if every unit keeps stereo. **No hard stop** — the
+**Spend estimate (derived, not asserted):** 899 h × 60 × $0.0056 = **~$302** at
+the mono/keyterm-on rate; ~$604 if every unit keeps stereo. **No hard stop** — the
 operator wants everything transcribed. The vendor's ~$200/account 402 backstop still
 applies, so the secondary key is a required sequential wallet, not optional.
 
@@ -96,7 +98,7 @@ all `test-*.py`, `rescan.py`, `verify-names.py`, `verify_egress.py`.
 
 ## 6. Risks / open items
 
-- **Spend** ~$295 needs the secondary wallet (402 at ~$200/account). Both keys are
+- **Spend** ~$302 needs the secondary wallet (402 at ~$200/account). Both keys are
   known where to find them, but their *validity* is unproven — probe before spending.
 - **2 undated durations** — measure on fetch, as corpus #1 did for `dvcEDToK`.
 - **Container dedup correctness** — 36 calls exist as both mp3 and mp4; picking

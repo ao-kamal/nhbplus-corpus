@@ -1,0 +1,4007 @@
+{
+ "batch": 2,
+ "counts": {
+  "audio_calls": 392,
+  "resources": 50,
+  "ai_summary_excluded": 83,
+  "audio_rows_raw": 400,
+  "container_dups_removed": 38,
+  "mp3_added": 30
+ },
+ "calls": [
+  {
+   "basename": "03032025nhbcoachingcallgooglecasestudiespart2withcharles",
+   "handle": "eSpWGTBL",
+   "name": "03_03_2025_NHB_Coaching_Call_Google_Case_Studies_Part_2_With_Charles.mp4 3:04:56",
+   "leaf": "Charles Google Ads",
+   "dur_s": 11096,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03042025nhbcoachingcallmarchreadingofferswithkevinsheerin",
+   "handle": "qPwXRLxB",
+   "name": "03_04_2025_NHB_Coaching_Call_March_Reading_Offers_With_Kevin_Sheerin.mp4 6:15:43",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 22543,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03052025nhbcoachingcallfoundationstowritingcopyintros",
+   "handle": "6fpCBBqR",
+   "name": "03_05_2025_NHB_Coaching_Call_Foundations_to_Writing_Copy_Intros.mp4 3:12:53",
+   "leaf": "Loren FB ADS",
+   "dur_s": 11573,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03062025nhbtheorycallmarchreadingoffers",
+   "handle": "SXx1RBKC",
+   "name": "03-06-2025 NHB Theory Call - March Reading Offers.mp4 3:49:14",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 13754,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03072025nhbcoachingcalladvertorialrecipeswithbrandonvasquez",
+   "handle": "7K5lXAJJ",
+   "name": "03_07_2025_NHB_Coaching_Call_Advertorial_Recipes_With_Brandon_Vasquez.mp4 1:45:53",
+   "leaf": "Brandon CRO",
+   "dur_s": 6353,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "06022025nhbcoachingcallgooglecasestudiespart11withcharleskirkland",
+   "handle": "nHI2XLwY",
+   "name": "06-02-2025 NHB Coaching Call - Google Case Studies Part 11 - With Charles Kirkland.mp4 3:24:29",
+   "leaf": "2025-06",
+   "dur_s": 12269,
+   "alternates_not_fetched": [
+    "feYynDYZ"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06032025nhbcoachingcalloncognitivebiaseswithkevinsheerin",
+   "handle": "jaBUHDCD",
+   "name": "06-03-2025 NHB Coaching Call - On Cognitive Biases - With Kevin Sheerin.mp4 2:06:38",
+   "leaf": "2025-06",
+   "dur_s": 7598,
+   "alternates_not_fetched": [
+    "zbAkQJLK"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06042025nhbcoachingcallendlesscreativewinnerswithlorenpinilis",
+   "handle": "fTYSQbjY",
+   "name": "06-04-2025 NHB Coaching Call - Endless Creative Winners - With Loren Pinilis.mp4 1:51:44",
+   "leaf": "2025-06",
+   "dur_s": 6704,
+   "alternates_not_fetched": [
+    "vbYESbAB"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06052025nhbtheorycalljune2025readingoffers",
+   "handle": "SGYi3BzL",
+   "name": "06-05-2025 NHB Theory Call - June 2025 Reading Offers.mp4 3:13:08",
+   "leaf": "2025-06",
+   "dur_s": 11588,
+   "alternates_not_fetched": [
+    "yeR01brL"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06092025nhbcoachingcallgooglecasestudiespart12withcharleskirkland",
+   "handle": "SXIEAZwB",
+   "name": "06-09-2025 NHB Coaching Call - Google Case Studies Part 12 - With Charles Kirkland.mp4 3:19:41",
+   "leaf": "2025-06",
+   "dur_s": 11981,
+   "alternates_not_fetched": [
+    "meYghDgQ"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06102025lowticketmastery20withkevinsheerin",
+   "handle": "nKBgyBqQ",
+   "name": "06-10-2025 Low Ticket Mastery 2.0 - With Kevin Sheerin.mp4 2:23:59",
+   "leaf": "2025-06",
+   "dur_s": 8639,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "06102025nhbcoachingcalllowticketmastery20withkevinsheerin",
+   "handle": "bPQG1bCT",
+   "name": "06-10-2025 NHB Coaching Call - Low Ticket Mastery 2.0 - With Kevin Sheerin.mp3 2:23:59",
+   "leaf": "2025-06",
+   "dur_s": 8639,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "06112025nhbcoachingcalljune2025hotseatswithlorenpinilis",
+   "handle": "ufQCWZQL",
+   "name": "06-11-2025 NHB Coaching Call - June 2025 Hot Seats - With Loren Pinilis.mp4 2:57:18",
+   "leaf": "2025-06",
+   "dur_s": 10638,
+   "alternates_not_fetched": [
+    "CXYmGBaK"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06122025nhbtheorycallcreatinganofferfactory",
+   "handle": "nSYkWZaS",
+   "name": "06-12-2025 NHB Theory Call - Creating An Offer Factory.mp4 3:35:40",
+   "leaf": "2025-06",
+   "dur_s": 12940,
+   "alternates_not_fetched": [
+    "HLQ01L7Z"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06132025nhbcoachingcallreductiveoptimizationwithbrandonvasquez",
+   "handle": "XLBwTDSY",
+   "name": "06-13-2025 NHB Coaching Call - Reductive Optimization - With Brandon Vasquez.mp4 1:33:26",
+   "leaf": "2025-06",
+   "dur_s": 5606,
+   "alternates_not_fetched": [
+    "ubZy1Bja"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06162025nhbcoachingcallgooglecasestudiespart13withcharleskirkland",
+   "handle": "GWQ0ybBa",
+   "name": "06-16-2025 NHB Coaching Call - Google Case Studies Part 13 - With Charles Kirkland.mp4 5:04:13",
+   "leaf": "2025-06",
+   "dur_s": 18253,
+   "alternates_not_fetched": [
+    "SaRUWBoI"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06172025nhbcoachingcalljune2025hotseatswithkevinsheerin",
+   "handle": "KTRmgDZR",
+   "name": "06-17-2025 NHB Coaching Call - June 2025 Hot Seats - With Kevin Sheerin.mp4 4:33:20",
+   "leaf": "2025-06",
+   "dur_s": 16400,
+   "alternates_not_fetched": [
+    "uCJwmLhK"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06182025metahealthsummitupdatewithlorenpinilis",
+   "handle": "jfYU0RiL",
+   "name": "06-18-2025 - Meta Health Summit Update - With Loren Pinilis.mp4 1:43:32",
+   "leaf": "2025-06",
+   "dur_s": 6212,
+   "alternates_not_fetched": [
+    "HHBEAZYB"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06192025nhbtheorycallcleanclaims",
+   "handle": "mPJAjDQY",
+   "name": "06-19-2025 NHB Theory Call - Clean Claims.mp4 3:07:35",
+   "leaf": "2025-06",
+   "dur_s": 11255,
+   "alternates_not_fetched": [
+    "CbRGQTrA"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06202025nhbcoachingcallthednapsychologyofheadlineswithbrandonvasquez",
+   "handle": "DXIEFTDK",
+   "name": "06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines - With Brandon Vasquez.mp4 1:36:54",
+   "leaf": "2025-06",
+   "dur_s": 5814,
+   "alternates_not_fetched": [
+    "iTZ20bhJ"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06232025nhbcoachingcallgooglecasestudiespart14withcharleskirkland",
+   "handle": "KHR2TJaZ",
+   "name": "06-23-2025 NHB Coaching Call - Google Case Studies Part 14 - With Charles Kirkland.mp4 5:24:34",
+   "leaf": "2025-06",
+   "dur_s": 19474,
+   "alternates_not_fetched": [
+    "jHIyRTgK"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06242025nhbcoachingcallmessagingmatrixwithisaaclara",
+   "handle": "yPRWUb5K",
+   "name": "06-24-2025 NHB Coaching Call - Messaging Matrix - With Isaac Lara.mp4 2:18:25",
+   "leaf": "2025-06",
+   "dur_s": 8305,
+   "alternates_not_fetched": [
+    "fTJgDbpD"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06242025overservedvsunderservedmarketswithkevinsheerin",
+   "handle": "aTQGQBwS",
+   "name": "06-24-2025 Over Served vs Under Served Markets - With Kevin Sheerin.mp4 2:12:32",
+   "leaf": "2025-06",
+   "dur_s": 7952,
+   "alternates_not_fetched": [
+    "DWYWDTYJ"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06252025nhbcoachingcallintegratingfbgroupswithpaidadswithlorenpinilis",
+   "handle": "aTJW0ZSC",
+   "name": "06-25-2025 NHB Coaching Call - Integrating FB Groups with Paid Ads - With Loren Pinilis.mp4 2:01:28",
+   "leaf": "2025-06",
+   "dur_s": 7288,
+   "alternates_not_fetched": [
+    "rfJi1bKZ"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06262025nhbtheorycallcreatingthemes",
+   "handle": "uWBEmZCY",
+   "name": "06-26-2025 NHB Theory Call - Creating Themes.mp4 4:01:39",
+   "leaf": "2025-06",
+   "dur_s": 14499,
+   "alternates_not_fetched": [
+    "OGAW2BIb"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06272025nhbcoachingcallcroadventuresjune2025hotseatswithbrandonvasquez",
+   "handle": "rfJERZpB",
+   "name": "06-27-2025 NHB Coaching Call - CRO Adventures - June 2025 Hot Seats - With Brandon Vasquez.mp4 2:28:54",
+   "leaf": "2025-06",
+   "dur_s": 8934,
+   "alternates_not_fetched": [
+    "TPISwJwR"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "06302025nhbcoachingcallgooglecasestudiespart15withcharleskirkland",
+   "handle": "GPJAnL6I",
+   "name": "06-30-2025 NHB Coaching Call - Google Case Studies Part 15 - With Charles Kirkland.mp4 3:03:34",
+   "leaf": "2025-06",
+   "dur_s": 11014,
+   "alternates_not_fetched": [
+    "3TQUhRgC"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07012025nhbcoachingcallhowtocreateexperiencewithemailcopywithisaaclara",
+   "handle": "LTQAABKC",
+   "name": "07-01-2025 NHB Coaching Call - How To Create Experience With Email Copy - With Isaac Lara.mp4 1:52:42",
+   "leaf": "2025-07",
+   "dur_s": 6762,
+   "alternates_not_fetched": [
+    "KKZWFLqQ"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07022025nhbcoachingcallcritiquingrealworldads1withlorenpinilis",
+   "handle": "OTImUTCL",
+   "name": "07-02-2025 NHB Coaching Call - Critiquing Real World Ads 1 - With Loren Pinilis.mp4 1:53:21",
+   "leaf": "2025-07",
+   "dur_s": 6801,
+   "alternates_not_fetched": [
+    "vDRkGbgL"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07032025nhbcoachingcallavatarassumptions30withkevinsheerin",
+   "handle": "zCYS3TSC",
+   "name": "07-03-2025 NHB Coaching Call - Avatar Assumptions 3.0 - With Kevin Sheerin.mp4 3:19:51",
+   "leaf": "2025-07",
+   "dur_s": 11991,
+   "alternates_not_fetched": [
+    "reJgnJZD"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07032025nhbtheorycalljuly2025readingoffers",
+   "handle": "WGAwVJDI",
+   "name": "07-03-2025 NHB Theory Call - July 2025 Reading Offers.mp4 3:03:45",
+   "leaf": "2025-07",
+   "dur_s": 11025,
+   "alternates_not_fetched": [
+    "mXQiWJpD"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07072025nhbcoachingcallgooglecasestudiespart16withcharleskirkland",
+   "handle": "zLQiwTJL",
+   "name": "07-07-2025 NHB Coaching Call - Google Case Studies Part 16 - With Charles Kirkland.mp4 3:43:13",
+   "leaf": "2025-07",
+   "dur_s": 13393,
+   "alternates_not_fetched": [
+    "WLQmlB7C"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07082025nhbcoachingcallctasreimaginedwithisaaclara",
+   "handle": "uHBEhTzT",
+   "name": "07-08-2025 NHB Coaching Call - CTAs Reimagined - With Isaac Lara.mp4 1:22:37",
+   "leaf": "2025-07",
+   "dur_s": 4957,
+   "alternates_not_fetched": [
+    "LOIkiBaQ"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07082025nhbcoachingcallwhatspossible10withkevinsheerin",
+   "handle": "GKZihLAB",
+   "name": "07-08-2025 NHB Coaching Call - Whats Possible 1.0 - With Kevin Sheerin.mp4 2:18:26",
+   "leaf": "2025-07",
+   "dur_s": 8306,
+   "alternates_not_fetched": [
+    "nGZ0UZxD"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07102025nhbtheorycallcreatingacontentengine",
+   "handle": "TeZkhJZR",
+   "name": "07-10-2025 NHB Theory Call - Creating A Content Engine.mp4 2:54:16",
+   "leaf": "2025-07",
+   "dur_s": 10456,
+   "alternates_not_fetched": [
+    "ODYWwRKa"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07112025nhbcoachingcallfunnelteardowncasestudywithbrandonvasquez",
+   "handle": "ffRSgTxD",
+   "name": "07-11-2025 NHB Coaching Call - Funnel Teardown Case-Study - With Brandon Vasquez.mp3 00:00",
+   "leaf": "2025-07",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07142025nhbcoachingcallgooglecasestudiespart17withcharleskirkland",
+   "handle": "2KBChLSI",
+   "name": "07-14-2025 NHB Coaching Call - Google Case Studies Part 17 - With Charles Kirkland.mp4 1:46:36",
+   "leaf": "2025-07",
+   "dur_s": 6396,
+   "alternates_not_fetched": [
+    "aWR0XTLT"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07152025nhbcoachingcalljuly2025readingofferswithkevinsheerin",
+   "handle": "uaQmiT4R",
+   "name": "07-15-2025 NHB Coaching Call - July 2025 Reading Offers - With Kevin Sheerin.mp4 3:43:51",
+   "leaf": "2025-07",
+   "dur_s": 13431,
+   "alternates_not_fetched": [
+    "qTIggBrB"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07152025nhbcoachingcallmessagingmatrix20withisaaclara",
+   "handle": "OSBwSDbB",
+   "name": "07-15-2025 NHB Coaching Call - Messaging Matrix 2.0 - With Isaac Lara.mp4 2:03:31",
+   "leaf": "2025-07",
+   "dur_s": 7411,
+   "alternates_not_fetched": [
+    "WWBCzJoA"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07162025nhbcoachingcallcommentmanagementwithlorenpinilis",
+   "handle": "ifQE3LzS",
+   "name": "07-16-2025 NHB Coaching Call - Comment Management - With Loren Pinilis.mp4 1:24:24",
+   "leaf": "2025-07",
+   "dur_s": 5064,
+   "alternates_not_fetched": [
+    "qCRWjZ7L"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07172025nhbtheorycallthemissingmechanismofconversions",
+   "handle": "rOIAQbbZ",
+   "name": "07-17-2025 NHB Theory Call - The Missing Mechanism of Conversions.mp3 2:52:43",
+   "leaf": "2025-07",
+   "dur_s": 10363,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07182025nhbcoachingcallvsloptimizationtacticstoincreaseconsumptionconversionswithbrandonvasquez",
+   "handle": "iHRkHZgZ",
+   "name": "07-18-2025 NHB Coaching Call - VSL Optimization - Tactics to Increase Consumption Conversions - With Brandon Vasquez.mp4 1:56:13",
+   "leaf": "2025-07",
+   "dur_s": 6973,
+   "alternates_not_fetched": [
+    "vTAAALpC"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "07212025nhbcoachingcallgooglecasestudiespart18withcharleskirkland",
+   "handle": "rHQ20LxA",
+   "name": "07-21-2025 NHB Coaching Call - Google Case Studies Part 18 - With Charles Kirkland.mp4 3:17:17",
+   "leaf": "2025-07",
+   "dur_s": 11837,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07222025nhbcoachingcalllearningyourlimitationswithkevinsheerin",
+   "handle": "ieBAmTgC",
+   "name": "07-22-2025 NHB Coaching Call - Learning Your Limitations - With Kevin Sheerin.mp4 2:14:28",
+   "leaf": "2025-07",
+   "dur_s": 8068,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07222025nhbcoachingcallreadingoffers1withisaaclara",
+   "handle": "DPQUCbBY",
+   "name": "07-22-2025 NHB Coaching Call - Reading Offers 1 - With Isaac Lara.mp4 1:56:33",
+   "leaf": "2025-07",
+   "dur_s": 6993,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07232025nhbcoachingcallcritiquingrealworldads2withlorenpinilis",
+   "handle": "zWIS3LbQ",
+   "name": "07-23-2025 NHB Coaching Call - Critiquing Real World Ads 2 - With Loren Pinilis.mp4 2:06:30",
+   "leaf": "2025-07",
+   "dur_s": 7590,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07242025nhbtheorycallcompetingonenergeticswithalensultanic",
+   "handle": "ObREEZLC",
+   "name": "07-24-2025 NHB Theory Call - Competing on Energetics - With Alen Sultanic.mp4 3:06:21",
+   "leaf": "2025-07",
+   "dur_s": 11181,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07252025nhbcoachingcalljulyreadingofferswithbrandonvasquez",
+   "handle": "zeJgUJLC",
+   "name": "07-25-2025 NHB Coaching Call - July Reading Offers - With Brandon Vasquez.mp4 4:21:01",
+   "leaf": "2025-07",
+   "dur_s": 15661,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07282025nhbcoachingcallgooglecasestudiespart19withcharleskirkland",
+   "handle": "nDQEVbBa",
+   "name": "07-28-2025 NHB Coaching Call - Google Case Studies Part 19 - With Charles Kirkland.mp4 2:48:40",
+   "leaf": "2025-07",
+   "dur_s": 10120,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07292025nhbcoachingcallbackendtofrontendoptimization1withisaaclara",
+   "handle": "vTBAGD6J",
+   "name": "07-29-2025 NHB Coaching Call - Back End To Front End Optimization 1 - With Isaac Lara.mp4 1:21:48",
+   "leaf": "2025-07",
+   "dur_s": 4908,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07292025nhbcoachingcallcomparativeconversionswithkevinsheerin",
+   "handle": "OXJ2wbBR",
+   "name": "07-29-2025 NHB Coaching Call - Comparative Conversions - With Kevin Sheerin.mp4 2:29:40",
+   "leaf": "2025-07",
+   "dur_s": 8980,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07302025nhbcoachingcallaudiencebasicswithlorenpinilis",
+   "handle": "2HQ0FRZZ",
+   "name": "07-30-2025 NHB Coaching Call - Audience Basics - With Loren Pinilis.mp4 2:05:19",
+   "leaf": "2025-07",
+   "dur_s": 7519,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "07312025nhbtheorycallthelanguageofresistancewithalensultanic",
+   "handle": "SeYkRDSa",
+   "name": "07-31-2025 NHB Theory Call - The Language of Resistance - With Alen Sultanic.mp4 3:28:31",
+   "leaf": "2025-07",
+   "dur_s": 12511,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08012025nhbcoachingcallcrofiresidechatwithbrandonvasquezandcharleskirkland",
+   "handle": "ybhAyDoB",
+   "name": "08-01-2025 NHB Coaching Call - CRO Fireside Chat - With Brandon Vasquez and Charles Kirkland.mp4 2:52:45",
+   "leaf": "2025-08",
+   "dur_s": 10365,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08042025nhbcoachingcallcultlikefollowupwithcharleskirkland",
+   "handle": "KSoU0bCA",
+   "name": "08-04-2025 NHB Coaching Call - Cult-Like Follow-Up - With Charles Kirkland.mp4 3:25:06",
+   "leaf": "2025-08",
+   "dur_s": 12306,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08052025cmomodelsmacrovsmicrowithissaclara",
+   "handle": "mXoSwBbR",
+   "name": "08-05-2025 CMO Models - Macro vs Micro - With Issac Lara.mp4 1:34:17",
+   "leaf": "2025-08",
+   "dur_s": 5657,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08052025nhbcoachingcallbasebeliefswithkevinsheerin",
+   "handle": "jahWwTRD",
+   "name": "08-05-2025 NHB Coaching Call - Base Beliefs - With Kevin Sheerin.mp4 3:15:56",
+   "leaf": "2025-08",
+   "dur_s": 11756,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08062025nhbcoachingcallpostidfocusandnewwaysoftestingwithlorenpinilis",
+   "handle": "mShGWJpJ",
+   "name": "08-06-2025 NHB Coaching Call - Post ID Focus And New Ways of Testing - With Loren Pinilis.mp4 1:26:09",
+   "leaf": "2025-08",
+   "dur_s": 5169,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08072025nhbtheorycallaugust2025readingoffersbyalensultanic",
+   "handle": "qfhWyZ7a",
+   "name": "08-07-2025 NHB Theory Call - August 2025 Reading Offers - By Alen Sultanic.mp4 3:21:28",
+   "leaf": "2025-08",
+   "dur_s": 12088,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08082025nhbtheorycallpricingstrategiesforscalingwithbrandonvasquez",
+   "handle": "zfp2XBhR",
+   "name": "08-08-2025 NHB Theory Call - Pricing Strategies for Scaling - With Brandon Vasquez.mp4 1:33:11",
+   "leaf": "2025-08",
+   "dur_s": 5591,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08112025nhbtheorycallgooglecasestudiespart20withcharleskirkland",
+   "handle": "WG50TbSS",
+   "name": "08-11-2025 NHB Theory Call - Google Case Studies Part 20 - With Charles Kirkland.mp4 2:52:29",
+   "leaf": "2025-08",
+   "dur_s": 10349,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08122025nhbtheorycallbuildinginhousemarketingproductionteamswithissaclara",
+   "handle": "SfoyTRCL",
+   "name": "08-12-2025 NHB Theory Call - Building In-House Marketing Production Teams - With Issac Lara.mp4 1:52:48",
+   "leaf": "2025-08",
+   "dur_s": 6768,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08122025nhbtheorycallrecurringlowticketfastascensionpathwayswithkevinsheerin",
+   "handle": "XSoADTjR",
+   "name": "08-12-2025 NHB Theory Call - Recurring Low Ticket Fast Ascension Pathways - With Kevin Sheerin.mp4 2:28:41",
+   "leaf": "2025-08",
+   "dur_s": 8921,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08132025nhbcoachingcallaugusthotseatswithlorenpinilis",
+   "handle": "zXpwQBpa",
+   "name": "08-13-2025 NHB Coaching Call - August Hot Seats - With Loren Pinilis.mp4 2:43:24",
+   "leaf": "2025-08",
+   "dur_s": 9804,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08142025nhbtheorycallthemathmodelofconviction",
+   "handle": "aKpkBbSa",
+   "name": "08-14-2025 NHB Theory Call - The Math Model Of Conviction.mp4 2:57:13",
+   "leaf": "2025-08",
+   "dur_s": 10633,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08152025nhbcoachingcalllivecroauditswithbrandonvasquez",
+   "handle": "qXwgUZyJ",
+   "name": "08-15-2025 NHB Coaching Call - Live CRO Audits - With Brandon Vasquez.mp4 1:59:43",
+   "leaf": "2025-08",
+   "dur_s": 7183,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08182025nhbcoachingcallgoogletoolsformarketingwithcharleskirkland",
+   "handle": "CXoQnJ5Z",
+   "name": "08-18-2025 NHB Coaching Call - Google Tools for Marketing - With Charles Kirkland.mp4 3:39:45",
+   "leaf": "2025-08",
+   "dur_s": 13185,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08192025nhbcoachingcallproblemsroundtableorganicaudienceconsiderationswithkevinsheeren",
+   "handle": "fH5iTbbD",
+   "name": "08-19-2025 NHB Coaching Call - Problems Round Table Organic Audience Considerations - With Kevin Sheeren.mp4 2:14:49",
+   "leaf": "2025-08",
+   "dur_s": 8089,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08192025nhbcoachingcallreadingoffers2withisaaclara",
+   "handle": "2XokARyR",
+   "name": "08-19-2025 NHB Coaching Call - Reading Offers 2 - With Isaac Lara.mp4 2:42:34",
+   "leaf": "2025-08",
+   "dur_s": 9754,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08202025nhbcoachingcallkeepingyourfacebookaccountsafefromhackingwithlorenpinilis",
+   "handle": "WPowTTiS",
+   "name": "08-20-2025 NHB Coaching Call - Keeping Your Facebook Account Safe from Hacking - With Loren Pinilis.mp4 1:27:40",
+   "leaf": "2025-08",
+   "dur_s": 5260,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08222025nhbcoachingcallaugustreadingofferswithbrandonvasquez",
+   "handle": "3ThwWDYa",
+   "name": "08-22-2025 NHB Coaching Call - August Reading Offers - With Brandon Vasquez.mp4 1:39:45",
+   "leaf": "2025-08",
+   "dur_s": 5985,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08252025nhbcoachingcallgoogleppcandnativeadsspytoolswithcharleskirkland",
+   "handle": "nLxUBJ7B",
+   "name": "08-25-2025 NHB Coaching Call - Google PPC and Native Ads Spy Tools - With Charles Kirkland.mp4 2:44:32",
+   "leaf": "2025-08",
+   "dur_s": 9872,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08262025nhbcoachingcallaugustreadingofferspart1withkevinsheerin",
+   "handle": "uKpElJLC",
+   "name": "08-26-2025 NHB Coaching Call - August Reading Offers Part 1 - With Kevin Sheerin.mp4 3:05:44",
+   "leaf": "2025-08",
+   "dur_s": 11144,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "08262025nhbcoachingcallautomationflowsforcashflowwithisaaclara",
+   "handle": "fOpwVb4B",
+   "name": "08-26-2025 NHB Coaching Call - Automation Flows for Cash Flow - With Isaac Lara.mp4 1:54:48",
+   "leaf": "2025-08",
+   "dur_s": 6888,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09012025nhbcoachingcallgooglecasestudiespart21withcharleskirkland",
+   "handle": "3bhHHC4J",
+   "name": "09-01-2025 NHB Coaching Call - Google Case Studies Part 21 - With Charles Kirkland.mp4 4:18:36",
+   "leaf": "2025-09",
+   "dur_s": 15516,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09022025nhbcoachingcalladtoofferalignmentwithkevinsheerin",
+   "handle": "jK5xDagB",
+   "name": "09-02-2025 NHB Coaching Call - Ad To Offer Alignment - With Kevin Sheerin.mp4 3:21:55",
+   "leaf": "2025-09",
+   "dur_s": 12115,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09022025nhbcoachingcallhowtodocpronadyingemaillistwithisaaclara",
+   "handle": "jDpx1aZZ",
+   "name": "09-02-2025 NHB Coaching Call - How to do CPR on a Dying Email List - With Isaac Lara.mp4 1:34:14",
+   "leaf": "2025-09",
+   "dur_s": 5654,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09032025nhbcoachingcallbottrafficcasestudyonfightingbackwithlorenpinilis",
+   "handle": "nDwziQrZ",
+   "name": "09-03-2025 NHB Coaching Call - Bot Traffic_ Case Study on Fighting Back - With Loren Pinilis.mp4 2:00:27",
+   "leaf": "2025-09",
+   "dur_s": 7227,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09042025nhbtheorycallseptember2025readingoffersbyalensultanic",
+   "handle": "TT43QQaL",
+   "name": "09-04-2025 NHB Theory Call - September 2025 Reading Offers - By Alen Sultanic.mp4 3:36:52",
+   "leaf": "2025-09",
+   "dur_s": 13012,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09052025nhbcoachingcallwhattotestwhenwhywithbrandonvasquez",
+   "handle": "7Ow1EYbQ",
+   "name": "09-05-2025 NHB Coaching Call - What to Test When Why - With Brandon Vasquez.mp4 1:13:52",
+   "leaf": "2025-09",
+   "dur_s": 4432,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09082025nhbcoachingcallgooglemoneytreemethodwithcharleskirkland",
+   "handle": "iWolHCyZ",
+   "name": "09-08-2025 NHB Coaching Call - Google Money Tree Method - With Charles Kirkland.mp4 3:09:06",
+   "leaf": "2025-09",
+   "dur_s": 11346,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09092025nhbcoachingcallreactivevsproactivecustomersthekeytoconvertingleadsgrowingltvwithisaaclara",
+   "handle": "negRzA7Z",
+   "name": "09-09-2025 NHB Coaching Call - Reactive vs. Proactive Customers_ The Key to Converting Leads Growing LTV - With Isaac Lara.mp4 1:21:42",
+   "leaf": "2025-09",
+   "dur_s": 4902,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09102025nhbcoachingcallseptemberreadingofferswithcharleskirklandandbrandonvasquez",
+   "handle": "7KwDTS7T",
+   "name": "09-10-2025 NHB Coaching Call - September Reading Offers - With Charles Kirkland and Brandon Vasquez.mp4 2:06:16",
+   "leaf": "2025-09",
+   "dur_s": 7576,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09112025nhbtheorycallthetimingmatrixbyalensultanic",
+   "handle": "LTpx0CBI",
+   "name": "09-11-2025 NHB Theory Call - The Timing Matrix - By Alen Sultanic.mp4 2:40:57",
+   "leaf": "2025-09",
+   "dur_s": 9657,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09122025nhbcoachingcallreductiveoptimization20withbrandonvasquez",
+   "handle": "KLoxkSjD",
+   "name": "09-12-2025 NHB Coaching Call - Reductive Optimization 2.0 - With Brandon Vasquez.mp4 1:37:58",
+   "leaf": "2025-09",
+   "dur_s": 5878,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09152025nhbcoachingcalllocalppcadswithcharleskirkland",
+   "handle": "jX4RjAyD",
+   "name": "09-15-2025 NHB Coaching Call - Local PPC Ads - With Charles Kirkland.mp4 3:36:41",
+   "leaf": "2025-09",
+   "dur_s": 13001,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09162025nhbcoachingcallclicktheorywithkevinsheerin",
+   "handle": "WWpDyCLA",
+   "name": "09-16-2025 NHB Coaching Call - Click Theory - With Kevin Sheerin.mp4 2:25:48",
+   "leaf": "2025-09",
+   "dur_s": 8748,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09162025nhbcoachingcallseptemberreadingofferswithisaaclara",
+   "handle": "jfhh3CLK",
+   "name": "09-16-2025 NHB Coaching Call - September Reading Offers - With Isaac Lara.mp4 3:44:11",
+   "leaf": "2025-09",
+   "dur_s": 13451,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09172025nhbcoachingcallcopyflowwithlorenpinilis",
+   "handle": "mXpjSITL",
+   "name": "09-17-2025 NHB Coaching Call - Copy Flow - With Loren Pinilis.mp4 2:10:53",
+   "leaf": "2025-09",
+   "dur_s": 7853,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09182025nhbtheorycallchaosmanagementbyalensultanic",
+   "handle": "mCxXBSRA",
+   "name": "09-18-2025 NHB Theory Call - Chaos Management - By Alen Sultanic.mp4 3:07:28",
+   "leaf": "2025-09",
+   "dur_s": 11248,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09192025nhbcoachingcallseptemberreadingofferswithbrandonvasquez",
+   "handle": "Sbgx1YzZ",
+   "name": "09-19-2025 NHB Coaching Call - September Reading Offers - With Brandon Vasquez.mp4 2:06:13",
+   "leaf": "2025-09",
+   "dur_s": 7573,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09222025nhbcoachingcallmilliondollarblackfridaywithcharleskirkland",
+   "handle": "GSgHwKhC",
+   "name": "09-22-2025 NHB Coaching Call - Million Dollar Black Friday - With Charles Kirkland.mp4 2:36:08",
+   "leaf": "2025-09",
+   "dur_s": 9368,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09232025nhbcoachingcallq4cashinjectionswithisaaclara",
+   "handle": "uWwBWITb",
+   "name": "09-23-2025 NHB Coaching Call - Q4 Cash Injections - With Isaac Lara.mp4 1:13:32",
+   "leaf": "2025-09",
+   "dur_s": 4412,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09232025nhbcoachingcallseptemberreadingofferswithkevinsheerin",
+   "handle": "Oa4BXaLI",
+   "name": "09-23-2025 NHB Coaching Call - September Reading Offers - With Kevin Sheerin.mp4 4:07:53",
+   "leaf": "2025-09",
+   "dur_s": 14873,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09242025nhbcoachingcallcritiquingrealworldadsvol4withlorenpinilis",
+   "handle": "XawlnQQR",
+   "name": "09-24-2025 NHB Coaching Call - Critiquing Real World Ads Vol. 4 - With Loren Pinilis.mp4 1:24:57",
+   "leaf": "2025-09",
+   "dur_s": 5097,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09252025nhbtheorycallmilliondollarconsultingbyalensultanic",
+   "handle": "jK5nBApK",
+   "name": "09-25-2025 NHB Theory Call - Million Dollar Consulting - By Alen Sultanic.mp4 3:04:43",
+   "leaf": "2025-09",
+   "dur_s": 11083,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09262025nhbcoachingcallheatmapmastery20withbrandonvasquez",
+   "handle": "rThnRKYI",
+   "name": "09-26-2025 NHB Coaching Call - Heatmap Mastery 2.0 - With Brandon Vasquez.mp4 1:30:56",
+   "leaf": "2025-09",
+   "dur_s": 5456,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09292025nhbcoachingcallseptemberreadingofferswithcharleskirkland",
+   "handle": "yOpnnQgD",
+   "name": "09-29-2025 NHB Coaching Call - September Reading Offers - With Charles Kirkland.mp4 2:27:53",
+   "leaf": "2025-09",
+   "dur_s": 8873,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09302025nhbcoachingcallattentioninisolationsiloedconsumptionwithkevinsheerin",
+   "handle": "2T5VDC7J",
+   "name": "09-30-2025 NHB Coaching Call - Attention In Isolation Siloed Consumption - With Kevin Sheerin.mp4 1:50:22",
+   "leaf": "2025-09",
+   "dur_s": 6622,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "09302025nhbcoachingcallhowtosellexperiencewithissaclara",
+   "handle": "DepVSI4I",
+   "name": "09-30-2025 NHB Coaching Call - How To Sell Experience - With Issac Lara.mp4 1:46:45",
+   "leaf": "2025-09",
+   "dur_s": 6405,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1012025lorenadsmanagertimesavingtricks",
+   "handle": "Hew2iabb",
+   "name": "10-1-2025 - Loren - Ads Manager Time-Saving Tricks.mp4 1:57:11",
+   "leaf": "2025-10",
+   "dur_s": 7031,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1022025alenoctobermonthlyreadingoffers",
+   "handle": "fegE2RCS",
+   "name": "10-2-2025 - Alen - October Monthly Reading Offers.mp4 1:05:39",
+   "leaf": "2025-10",
+   "dur_s": 3939,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1022025alenthewillpowerequation",
+   "handle": "neoGzDoZ",
+   "name": "10-2-2025 - Alen - The Will Power Equation.mp4 2:24:50",
+   "leaf": "2025-10",
+   "dur_s": 8690,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1032025brandonoctoberreadingoffers",
+   "handle": "eToUSDra",
+   "name": "10-3-2025 - Brandon - October Reading Offers.mp4 1:25:20",
+   "leaf": "2025-10",
+   "dur_s": 5120,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10062025charlesgoogleadsdeepdivelocalbusinessgrowthin",
+   "handle": "XK5xDbIC",
+   "name": "10_06_2025_Charles_Google_Ads_Deep_Dive_Local_Business_Growth_in.mp4 2:40:06",
+   "leaf": "2025-10",
+   "dur_s": 9606,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1072025issaczerotoherocmoseries1",
+   "handle": "2ChkiRCZ",
+   "name": "10-7-2025 - Issac - Zero To Hero CMO Series 1.mp4 1:33:56",
+   "leaf": "2025-10",
+   "dur_s": 5636,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1072025kevinconversionratekillers",
+   "handle": "jSxl0ZxT",
+   "name": "10-7-2025 - Kevin - Conversion Rate Killers.mp4 2:19:11",
+   "leaf": "2025-10",
+   "dur_s": 8351,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1082025lorenbrandonoctoberreadingoffers",
+   "handle": "2TxjAJRa",
+   "name": "10-8-2025 - Loren Brandon - October Reading Offers.mp4 2:33:55",
+   "leaf": "2025-10",
+   "dur_s": 9235,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1092025alencreatingconcepts",
+   "handle": "7TpFWbyY",
+   "name": "10-9-2025 - Alen - Creating Concepts.mp4 2:42:14",
+   "leaf": "2025-10",
+   "dur_s": 9734,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10102025brandonpitchingcroservices",
+   "handle": "HL5y1aaI",
+   "name": "10-10-2025 - Brandon - Pitching CRO Services.mp4 2:05:11",
+   "leaf": "2025-10",
+   "dur_s": 7511,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10132025charlesgoogledisplaynetwork101",
+   "handle": "vfg0XYTA",
+   "name": "10-13-2025 - Charles - Google Display Network 101.mp4 2:43:02",
+   "leaf": "2025-10",
+   "dur_s": 9782,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10142025issacreadingoffers4",
+   "handle": "LW4mUKoQ",
+   "name": "10-14-2025 - Issac - Reading Offers 4.mp4 2:03:18",
+   "leaf": "2025-10",
+   "dur_s": 7398,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10142025kevinbehaviouralsentimentanalysis",
+   "handle": "7GgARAYC",
+   "name": "10-14-2025 - Kevin - Behavioural Sentiment Analysis.mp4 1:56:37",
+   "leaf": "2025-10",
+   "dur_s": 6997,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10152025chrishadidcopywritingmastery",
+   "handle": "WHpiDQTb",
+   "name": "10-15-2025 - Chris Hadid - Copywriting Mastery.mp4 1:51:17",
+   "leaf": "2025-10",
+   "dur_s": 6677,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10152025lorenmetasandromedaupdate",
+   "handle": "bbhwyKjQ",
+   "name": "10-15-2025 - Loren - Metas Andromeda Update.mp4 2:19:33",
+   "leaf": "2025-10",
+   "dur_s": 8373,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10162025aleninstallingcriteria",
+   "handle": "3PpiEDRZ",
+   "name": "10-16-2025 - Alen - Installing Criteria.mp4 2:55:29",
+   "leaf": "2025-10",
+   "dur_s": 10529,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10172025brandonbumpmastery",
+   "handle": "vOx0GLCL",
+   "name": "10-17-2025 - Brandon - Bump Mastery.mp4 1:29:01",
+   "leaf": "2025-10",
+   "dur_s": 5341,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10202025charlesoffersqa",
+   "handle": "jOwW2bCR",
+   "name": "10-20-2025 - Charles - Offers QA.mp4 3:28:12",
+   "leaf": "2025-10",
+   "dur_s": 12492,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10212025isaacmarketingtocustomerswithhybridlimitingbeliefs",
+   "handle": "DPgFWBxZ",
+   "name": "10_21_2025_Isaac_Marketing_to_Customers_with_Hybrid_Limiting_Beliefs.mp4 1:26:02",
+   "leaf": "2025-10",
+   "dur_s": 5162,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10212025kevinreadingoffers",
+   "handle": "eCxSTTpI",
+   "name": "10-21-2025 - Kevin - Reading Offers.mp4 4:58:48",
+   "leaf": "2025-10",
+   "dur_s": 17928,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10222025chrishadidreadingoffers",
+   "handle": "PPoS2Z7Q",
+   "name": "10-22-2025 - Chris Hadid - Reading Offers.mp4 1:49:42",
+   "leaf": "2025-10",
+   "dur_s": 6582,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10222025lorencritiquingrealworldadsvol5",
+   "handle": "TOwiVRQa",
+   "name": "10-22-2025 - Loren - Critiquing Real World Ads Vol. 5.mp4 1:41:11",
+   "leaf": "2025-10",
+   "dur_s": 6071,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10232025alentheobjectofdesire",
+   "handle": "ebZUkJjA",
+   "name": "10-23-2025 - Alen - The Object of Desire.mp4 3:06:31",
+   "leaf": "2025-10",
+   "dur_s": 11191,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10242025brandonthebusinessofbecomingacro",
+   "handle": "7WZ02ZKC",
+   "name": "10-24-2025 - Brandon - The Business of Becoming a CRO.mp4 1:35:02",
+   "leaf": "2025-10",
+   "dur_s": 5702,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10272025charlesreadingoffers",
+   "handle": "OOIG0JhR",
+   "name": "10-27-2025 - Charles - Reading Offers.mp4 3:24:01",
+   "leaf": "2025-10",
+   "dur_s": 12241,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10282025issacthebusinessofbeingacmo",
+   "handle": "aDYiRRzA",
+   "name": "10-28-2025 - Issac - The Business of Being a CMO.mp4 1:19:55",
+   "leaf": "2025-10",
+   "dur_s": 4795,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10282025kevinidealclientprofiles",
+   "handle": "CGxCUTJJ",
+   "name": "10-28-2025 - Kevin - Ideal Client Profiles.mp4 2:48:42",
+   "leaf": "2025-10",
+   "dur_s": 10122,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10292025lorenhowtohandlealgoshiftsandromedapt2",
+   "handle": "Pf4zkbSQ",
+   "name": "10_29_2025_Loren_How_to_Handle_Algo_Shifts_Andromeda_Pt_2.mp4 1:41:04",
+   "leaf": "2025-10",
+   "dur_s": 6064,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "10292025chrishaddadcuriosity",
+   "handle": "Se5EgDJa",
+   "name": "10-29-2025 - Chris Haddad - Curiosity.mp4 1:26:18",
+   "leaf": "2025-10",
+   "dur_s": 5178,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11032025charlesgoogleattributiontracking",
+   "handle": "OT4zQLgY",
+   "name": "11-03-2025 - Charles - Google Attribution Tracking.mp4 2:52:22",
+   "leaf": "2025-11",
+   "dur_s": 10342,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11042025issachowtogofromemailtofcmopro2",
+   "handle": "WH5hwZYa",
+   "name": "11-04-2025 - Issac - How to go from EMAIL to FCMO PRO 2.mp4 1:49:18",
+   "leaf": "2025-11",
+   "dur_s": 6558,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11042025kevinbuyerawarnessjourney",
+   "handle": "ebxXEDpD",
+   "name": "11-04-2025 - Kevin - Buyer Awarness Journey.mp4 2:44:15",
+   "leaf": "2025-11",
+   "dur_s": 9855,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11052025chrishaddadproducttitles",
+   "handle": "rT5V1D6R",
+   "name": "11-05-2025 - Chris Haddad - Product Titles.mp4 1:43:31",
+   "leaf": "2025-11",
+   "dur_s": 6211,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11052025lorenoptimizationevents",
+   "handle": "PWpm0bjT",
+   "name": "11-05-2025 - Loren - Optimization Events.mp4 2:33:35",
+   "leaf": "2025-11",
+   "dur_s": 9215,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11062025alennovemberreadingoffers2",
+   "handle": "uHpixTTJ",
+   "name": "11-06-2025 - Alen - November Reading Offers 2.mp4 2:48:14",
+   "leaf": "2025-11",
+   "dur_s": 10094,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11072025firesidechatwithmarketingavengers",
+   "handle": "LXhShBRZ",
+   "name": "11-07-2025 - Fire side chat with Marketing Avengers.mp4 2:45:37",
+   "leaf": "2025-11",
+   "dur_s": 9937,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11102025charlestheanatomyofhighconvertinggoogleadfor",
+   "handle": "3SgByJSJ",
+   "name": "11_10_2025_Charles_The_anatomy_of_high_converting_Google_Ad_for.mp4 2:20:59",
+   "leaf": "2025-11",
+   "dur_s": 8459,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11112025issacreadingoffers05",
+   "handle": "3HgRWRAK",
+   "name": "11-11-2025 - Issac - Reading Offers - 05.mp4 1:54:24",
+   "leaf": "2025-11",
+   "dur_s": 6864,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11112025kevinfunnelmessagingrefinement",
+   "handle": "nSxTlBKS",
+   "name": "11-11-2025 - Kevin - Funnel Messaging Refinement.mp4 2:05:58",
+   "leaf": "2025-11",
+   "dur_s": 7558,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11122025chrishaddadhooksmechanisms",
+   "handle": "GC53FTRR",
+   "name": "11-12-2025 - Chris Haddad - Hooks Mechanisms.mp4 1:26:05",
+   "leaf": "2025-11",
+   "dur_s": 5165,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11122025lorennovemberreadingoffers",
+   "handle": "rDZ1xZoK",
+   "name": "11-12-2025 - Loren - November Reading Offers.mp4 2:25:58",
+   "leaf": "2025-11",
+   "dur_s": 8758,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11132025alenmastermind",
+   "handle": "KeA1hJ6A",
+   "name": "11-13-2025 - Alen - Mastermind.mp4 2:52:34",
+   "leaf": "2025-11",
+   "dur_s": 10354,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11142025brandonnoveltyinthesalesprocess",
+   "handle": "7HJnTRAK",
+   "name": "11-14-2025 - Brandon - Novelty In The Sales Process.mp4 2:31:47",
+   "leaf": "2025-11",
+   "dur_s": 9107,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11172025charleshowtodriveb2candb2bsaleswithgoogleppc",
+   "handle": "HS4BzbCS",
+   "name": "11_17_2025_Charles_How_to_Drive_B2C_and_B2B_Sales_with_Google_PPC.mp4 2:01:16",
+   "leaf": "2025-11",
+   "dur_s": 7276,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11182025issaclarawhateconomicleverstouseforthebooka",
+   "handle": "SHoX3ZCT",
+   "name": "11_18_2025_Issac_Lara_What_Economic_Levers_to_Use_For_The_Book_a.mp4 1:31:59",
+   "leaf": "2025-11",
+   "dur_s": 5519,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11182025kevinnovemberreadingoffers",
+   "handle": "naJRzZwa",
+   "name": "11-18-2025 - Kevin - November Reading Offers.mp4 4:25:36",
+   "leaf": "2025-11",
+   "dur_s": 15936,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11192025chrishadidnovemberreadingoffers",
+   "handle": "TLRHXBLJ",
+   "name": "11-19-2025 - Chris Hadid - November Reading Offers.mp4 2:01:11",
+   "leaf": "2025-11",
+   "dur_s": 7271,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11192025lorenblackfridayandothersalesperiods",
+   "handle": "rXwxjSjI",
+   "name": "11-19-2025 - Loren - Black Friday and other Sales Periods.mp4 1:48:24",
+   "leaf": "2025-11",
+   "dur_s": 6504,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11202025alenthehavingdoingbeingframework",
+   "handle": "XHwygTzI",
+   "name": "11-20-2025 - Alen - The Having Doing Being Framework.mp4 2:56:27",
+   "leaf": "2025-11",
+   "dur_s": 10587,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11212025brandonnovemberreadingoffers",
+   "handle": "fDx0BLTY",
+   "name": "11-21-2025 - Brandon - November Reading Offers.mp4 1:08:37",
+   "leaf": "2025-11",
+   "dur_s": 4117,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11242025charlesnovemberreadingoffers",
+   "handle": "SDpU1ZxA",
+   "name": "11-24-2025 - Charles - November Reading Offers.mp4 2:29:57",
+   "leaf": "2025-11",
+   "dur_s": 8997,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11252025issaclarabookacalleconomiccalculator",
+   "handle": "eHpyRLYK",
+   "name": "11-25-2025 - Issac Lara - Book-a-Call Economic Calculator.mp4 1:52:31",
+   "leaf": "2025-11",
+   "dur_s": 6751,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11252025kevincollaborativecreation",
+   "handle": "WHACUJ5J",
+   "name": "11-25-2025 - Kevin - Collaborative Creation.mp4 2:35:47",
+   "leaf": "2025-11",
+   "dur_s": 9347,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11262025chrishaddidhowtodiscoverthedeepirrationaldesires",
+   "handle": "nK5RBLjI",
+   "name": "11_26_2025_Chris_Haddid_How_To_Discover_The_Deep_Irrational_Desires.mp4 1:22:13",
+   "leaf": "2025-11",
+   "dur_s": 4933,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11262025lorenthanksgivingama",
+   "handle": "STh1DbID",
+   "name": "11-26-2025 - Loren - Thanksgiving AMA.mp4 1:32:01",
+   "leaf": "2025-11",
+   "dur_s": 5521,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11272025alenpricingproximitymatrix",
+   "handle": "DfwTHZpR",
+   "name": "11-27-2025 - Alen - Pricing Proximity Matrix.mp4 2:25:59",
+   "leaf": "2025-11",
+   "dur_s": 8759,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "11282025brandonkevinfiresidechat",
+   "handle": "bewjCJDJ",
+   "name": "11-28-2025 - Brandon Kevin - Fireside Chat.mp4 2:23:51",
+   "leaf": "2025-11",
+   "dur_s": 8631,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12012025charlesgoogleofferteardownforinfoandservicebusiness",
+   "handle": "LbZT3b6Y",
+   "name": "12_01_2025_Charles_Google_Offer_Tear_Down_For_Info_and_Service_Business.mp4 3:50:24",
+   "leaf": "2025-12",
+   "dur_s": 13824,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12022025issaclaraemailrevenuestrategiesfordecember",
+   "handle": "OeAzTZrb",
+   "name": "12_02_2025_Issac_Lara_Email_Revenue_Strategies_for_December.mp4 1:18:30",
+   "leaf": "2025-12",
+   "dur_s": 4710,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12022025kevincreatingmoatininfooffers",
+   "handle": "nPoRCZAR",
+   "name": "12-02-2025 - Kevin - Creating Moat In Info Offers.mp4 2:09:47",
+   "leaf": "2025-12",
+   "dur_s": 7787,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12032025chrishadidsalesletterstructure",
+   "handle": "bXh3QDCJ",
+   "name": "12-03-2025 - Chris Hadid - Sales Letter Structure.mp4 1:43:07",
+   "leaf": "2025-12",
+   "dur_s": 6187,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12032025lorencritiquingrealworldadsvol6",
+   "handle": "nX5nRTKS",
+   "name": "12-03-2025 - Loren - Critiquing Real World Ads Vol. 6.mp4 2:04:32",
+   "leaf": "2025-12",
+   "dur_s": 7472,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12042025alenmonthlyreadingoffers2",
+   "handle": "qHxTQT7B",
+   "name": "12-04-2025 - Alen - Monthly Reading Offers 2.mp4 2:20:10",
+   "leaf": "2025-12",
+   "dur_s": 8410,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12052025brandonanatomyofhighconvertinglandingpages20",
+   "handle": "OeZXyDqC",
+   "name": "12_05_2025_Brandon_Anatomy_of_High_Converting_Landing_Pages_2_0.mp4 40:30",
+   "leaf": "2025-12",
+   "dur_s": 2430,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12082025robertallthingsai",
+   "handle": "rOxHDbCJ",
+   "name": "12-08-2025 - Robert - All Things AI.mp4 2:10:07",
+   "leaf": "2025-12",
+   "dur_s": 7807,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12082025charlesmilliondollarkeywords",
+   "handle": "ySwjBBoZ",
+   "name": "12-08-2025 Charles Million Dollar Keywords.mp4 3:13:54",
+   "leaf": "2025-12",
+   "dur_s": 11634,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12092025nhbcoachingcallreadingoffers6withisaaclara",
+   "handle": "eXYnFZzK",
+   "name": "12_09_2025_NHB_Coaching_Call_Reading_Offers_6_With_Isaac_Lara.mp4",
+   "leaf": "2025-12",
+   "dur_s": null,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "1292025kevinfasttestingformula",
+   "handle": "reZVUDjJ",
+   "name": "12-9-2025 - Kevin - Fast Testing Formula.mp4 3:47:39",
+   "leaf": "2025-12",
+   "dur_s": 13659,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12102025chrishadidtheempathygame",
+   "handle": "fK4nQDpA",
+   "name": "12-10-2025 - Chris Hadid - The Empathy Game.mp4 1:14:08",
+   "leaf": "2025-12",
+   "dur_s": 4448,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12102025lorenmonthlyhotseatsdecember2025",
+   "handle": "fC4jVLSD",
+   "name": "12-10-2025 - Loren - Monthly Hot Seats December 2025.mp4 1:53:59",
+   "leaf": "2025-12",
+   "dur_s": 6839,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12112025alenemotionalcopyarcs",
+   "handle": "qG5nQLRQ",
+   "name": "12-11-2025 - Alen - Emotional Copy Arcs.mp4 3:46:57",
+   "leaf": "2025-12",
+   "dur_s": 13617,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12122025brandonthestructurebehindhighconvertingvsls",
+   "handle": "TTA1ATqQ",
+   "name": "12_12_2025_Brandon_The_Structure_Behind_High_Converting_VSLs.mp4 1:38:17",
+   "leaf": "2025-12",
+   "dur_s": 5897,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12152025charlesgoogleqaandmindsetforonlinesuccess",
+   "handle": "GKJVHBjS",
+   "name": "12_15_2025_Charles_Google_QA_and_Mindset_For_Online_Success.mp4 3:03:23",
+   "leaf": "2025-12",
+   "dur_s": 11003,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12152025robertcreatingrealisticaivideos",
+   "handle": "OWgXCTaR",
+   "name": "12-15-2025 - Robert - Creating Realistic AI Videos.mp4 1:52:45",
+   "leaf": "2025-12",
+   "dur_s": 6765,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12162025issacproblemsolutionswithaiemailcopy",
+   "handle": "bGIyyJDJ",
+   "name": "12_16_2025_Issac_Problem__Solutions_with_AI_Email_Copy.mp4 1:52:33",
+   "leaf": "2025-12",
+   "dur_s": 6753,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12162025kevindecemberreadingoffers",
+   "handle": "LLQHCZxL",
+   "name": "12-16-2025 - Kevin - December Reading Offers.mp4 3:49:53",
+   "leaf": "2025-12",
+   "dur_s": 13793,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12172025lorenbrandontheinterplaybetweenpaidadsandcro",
+   "handle": "WOBiBLTT",
+   "name": "12_17_2025_Loren_Brandon_The_Interplay_Between_Paid_Ads_and_CRO.mp4 1:21:19",
+   "leaf": "2025-12",
+   "dur_s": 4879,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12182025alenbuyermodes",
+   "handle": "baBDhBSI",
+   "name": "12-18-2025 - Alen - Buyer Modes.mp4 3:16:55",
+   "leaf": "2025-12",
+   "dur_s": 11815,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12192025brandondecemberreadingoffers",
+   "handle": "mbAxQLKK",
+   "name": "12-19-2025 - Brandon - December Reading Offers.mp4 1:42:22",
+   "leaf": "2025-12",
+   "dur_s": 6142,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12222025charlesgetpositionedbeforedemandspikes",
+   "handle": "iH4XgYJI",
+   "name": "12-22-2025 - Charles - Get Positioned Before Demand Spikes.mp4 2:03:36",
+   "leaf": "2025-12",
+   "dur_s": 7416,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12222025robertpersuasivecopywritingwithai",
+   "handle": "uKBn0LhA",
+   "name": "12-22-2025 - Robert - Persuasive Copywriting with AI.mp4 1:59:44",
+   "leaf": "2025-12",
+   "dur_s": 7184,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12232025issaclarajanuaryemailmarketingstrategies",
+   "handle": "GGQF1JaY",
+   "name": "12-23-2025 - Issac Lara - January Email Marketing Strategies.mp4 1:10:00",
+   "leaf": "2025-12",
+   "dur_s": 4200,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12232025kevinsellingtothevoid",
+   "handle": "SHRTULaQ",
+   "name": "12-23-2025 - Kevin - Selling To The Void.mp4 1:21:07",
+   "leaf": "2025-12",
+   "dur_s": 4867,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12242025alenthenhbfamilycall",
+   "handle": "PWJ3lDCK",
+   "name": "12-24-2025 - Alen - The NHB Family Call.mp4 2:08:58",
+   "leaf": "2025-12",
+   "dur_s": 7738,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12292025robertsaving23hoursperdaywithaiagents",
+   "handle": "uTY0TDCJ",
+   "name": "12_29_2025_Robert_Saving_2_3_Hours_Per_Day_With_AI_Agents.mp4 2:02:59",
+   "leaf": "2025-12",
+   "dur_s": 7379,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12292025nhbcoachingcalldecemberreadingoffe",
+   "handle": "DWZjDJZB",
+   "name": "12-29-2025 NHB Coaching Call - December Reading Offe.mp4 3:47:54",
+   "leaf": "2025-12",
+   "dur_s": 13674,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "12302025issacdifferentclientarchetypesyoullworkwithin",
+   "handle": "HWJ2AL4S",
+   "name": "12_30_2025_Issac_Different_Client_Archetypes_Youll_Work_With_In.mp4 1:24:14",
+   "leaf": "2025-12",
+   "dur_s": 5054,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01012026alenwordshapes",
+   "handle": "zDQgXRJL",
+   "name": "01-01-2026 - Alen - Word Shapes.mp4 2:30:27",
+   "leaf": "2026-01",
+   "dur_s": 9027,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01022026brandoncrofoundationsfor2026",
+   "handle": "SDQCzLgT",
+   "name": "01-02-2026 - Brandon - CRO Foundations For 2026.mp4 1:46:02",
+   "leaf": "2026-01",
+   "dur_s": 6362,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01052026charlesliveppccampaignbuild",
+   "handle": "qDZmFLJa",
+   "name": "01-05-2026 - Charles - Live PPC Campaign Build.mp4 2:41:44",
+   "leaf": "2026-01",
+   "dur_s": 9704,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01052026robertscalingaivideoproduction",
+   "handle": "HHJ0BRwB",
+   "name": "01-05-2026 - Robert - Scaling AI Video Production.mp4 2:02:55",
+   "leaf": "2026-01",
+   "dur_s": 7375,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01062026kevinarchitectingascension10",
+   "handle": "LP5l0QaL",
+   "name": "01-06-2026 - Kevin - Architecting Ascension 1.0.mp4 2:37:39",
+   "leaf": "2026-01",
+   "dur_s": 9459,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01072026chrishaddadbuildingtheperfectoffer",
+   "handle": "OGxFFSjb",
+   "name": "01-07-2026 - Chris Haddad - Building The Perfect Offer.mp4 1:00:11",
+   "leaf": "2026-01",
+   "dur_s": 3611,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01072026lorencritiquingrealworldadsvol7",
+   "handle": "Tbol3ARR",
+   "name": "01-07-2026 - Loren - Critiquing Real World Ads Vol 7.mp4 2:09:52",
+   "leaf": "2026-01",
+   "dur_s": 7792,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01082026alenmonthlynhbhotseat",
+   "handle": "OLAiwDAK",
+   "name": "01-08-2026 - Alen - Monthly NHB Hot Seat.mp4 3:01:07",
+   "leaf": "2026-01",
+   "dur_s": 10867,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01092026monsterfiresidechatftalenbrandonlorencharles",
+   "handle": "7HxSUJzB",
+   "name": "01_09_2026_Monster_Fireside_Chat_ft_Alen_Brandon_Loren_Charles.mp4 2:42:21",
+   "leaf": "2026-01",
+   "dur_s": 9741,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01122026charlesmappingthe2026scalingprotocoldiagnosing",
+   "handle": "CHpHyaJA",
+   "name": "01_12_2026_Charles_Mapping_The_2026_Scaling_Protocol__Diagnosing.mp4 2:05:12",
+   "leaf": "2026-01",
+   "dur_s": 7512,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01122026robertusingaitobuildanappthatautorepliesto",
+   "handle": "LT4hkIAT",
+   "name": "01_12_2026_Robert_Using_AI_to_Build_an_App_That_Auto_Replies_to.mp4 1:55:31",
+   "leaf": "2026-01",
+   "dur_s": 6931,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01132026issaclaramonthlyhotseat",
+   "handle": "jPREgbiQ",
+   "name": "01-13-2026 - Issac Lara - Monthly Hot Seat.mp4 2:06:05",
+   "leaf": "2026-01",
+   "dur_s": 7565,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01132026kevinmultiplemechanisms",
+   "handle": "COYgkLJY",
+   "name": "01-13-2026 - Kevin - Multiple Mechanisms.mp4 2:17:11",
+   "leaf": "2026-01",
+   "dur_s": 8231,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01142026chrishaddadthedeepemotionalwant",
+   "handle": "fPQywD4K",
+   "name": "01-14-2026 - Chris Haddad - The Deep Emotional Want.mp4 1:18:37",
+   "leaf": "2026-01",
+   "dur_s": 4717,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01142026lorenmonthlyhotseat",
+   "handle": "TCYmyZwS",
+   "name": "01-14-2026 - Loren - Monthly Hot Seat.mp4 2:32:13",
+   "leaf": "2026-01",
+   "dur_s": 9133,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01152026alenselftoself",
+   "handle": "DPJQADxa",
+   "name": "01-15-2026 - Alen - Self to Self.mp4 3:09:50",
+   "leaf": "2026-01",
+   "dur_s": 11390,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01162026brandonmarketpositioning",
+   "handle": "LKRAwTaR",
+   "name": "01-16-2026 - Brandon - Market Positioning.mp4 1:21:11",
+   "leaf": "2026-01",
+   "dur_s": 4871,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01192026robertaianimationsautomatedvideoediting",
+   "handle": "nWozSCKJ",
+   "name": "01_19_2026_Robert_AI_Animations__Automated_Video_Editing.mp4 1:55:31",
+   "leaf": "2026-01",
+   "dur_s": 6931,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01192026charlesthestrategyofscale",
+   "handle": "PSxAjBBA",
+   "name": "01-19-2026 - Charles - The Strategy of Scale.mp4 2:38:56",
+   "leaf": "2026-01",
+   "dur_s": 9536,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01202026issaclaradifferentclientarchetypesyoullworkwith",
+   "handle": "OWhzSSwI",
+   "name": "01_20_2026_Issac_Lara_Different_Client_Archetypes_Youll_Work_With.mp4 1:35:25",
+   "leaf": "2026-01",
+   "dur_s": 5725,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01202026monthlynhbprohotseatwithkevinsheerinmp4",
+   "handle": "3HpyVRLK",
+   "name": "01-20-2026 Monthly NHB Pro Hot Seat - With Kevin Sheerin.mp4.mp4 2:22:35",
+   "leaf": "2026-01",
+   "dur_s": 8555,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01212026chrishaddadmonthlynhbprohotseat",
+   "handle": "KK5W1T6A",
+   "name": "01-21-2026 - Chris Haddad - Monthly NHB Pro Hot Seat.mp4 1:45:18",
+   "leaf": "2026-01",
+   "dur_s": 6318,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01212026lorenwhatsgoingonnowinmetaads",
+   "handle": "ODhGQZqJ",
+   "name": "01-21-2026 - Loren - Whats Going On Now In Meta Ads.mp4 2:00:12",
+   "leaf": "2026-01",
+   "dur_s": 7212,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01222026alenhigherlevellimitingbeliefs",
+   "handle": "DTg2DJZa",
+   "name": "01-22-2026 - Alen - Higher Level Limiting Beliefs.mp4 3:28:06",
+   "leaf": "2026-01",
+   "dur_s": 12486,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01232026brandonmonthlynhbprohotseat",
+   "handle": "XX4mSJbZ",
+   "name": "01-23-2026 - Brandon - Monthly NHB Pro Hot Seat.mp4 2:23:22",
+   "leaf": "2026-01",
+   "dur_s": 8602,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01262026robertbuildingquizfunnelsandaipersonalassistants",
+   "handle": "eO4hWS4a",
+   "name": "01_26_2026_Robert_Building_Quiz_Funnels_and_AI_Personal_Assistants.mp4 1:55:43",
+   "leaf": "2026-01",
+   "dur_s": 6943,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01262026monthlynhbprohotseatwithcharlesk",
+   "handle": "zKhSDLgA",
+   "name": "01-26-2026 Monthly NHB Pro Hot Seat - With Charles K.mp4 4:14:02",
+   "leaf": "2026-01",
+   "dur_s": 15242,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01272026isaaclaratheemailmarketingplaybookformechanics",
+   "handle": "CO4XSIqB",
+   "name": "01_27_2026_Isaac_Lara_The_Email_Marketing_Playbook_For_Mechanics.mp4 2:03:34",
+   "leaf": "2026-01",
+   "dur_s": 7414,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01282026chrishaddadwelcometothefomoformula",
+   "handle": "SC4AwJIJ",
+   "name": "01-28-2026 - Chris Haddad - Welcome To The FOMO Formula.mp4 1:28:50",
+   "leaf": "2026-01",
+   "dur_s": 5330,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "01282026lorencritiquingrealworldadsvol8",
+   "handle": "yehiHRIQ",
+   "name": "01-28-2026 - Loren - Critiquing Real World Ads Vol. 8.mp4 2:19:56",
+   "leaf": "2026-01",
+   "dur_s": 8396,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02022026charlesofferbottleneckbreakdown",
+   "handle": "bOxTUYhR",
+   "name": "02-02-2026 - Charles - Offer Bottleneck Breakdown.mp4 2:37:40",
+   "leaf": "2026-02",
+   "dur_s": 9460,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02022026robertaimastery",
+   "handle": "XXRTXJLT",
+   "name": "02-02-2026 - Robert - AI Mastery.mp4 1:55:30",
+   "leaf": "2026-02",
+   "dur_s": 6930,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02032026issaclaramacromarketingmovesforbookacalloffer",
+   "handle": "OP5m1S7a",
+   "name": "02_03_2026_Issac_Lara_Macro_Marketing_Moves_For_Book_A_Call_Offer.mp4 1:52:53",
+   "leaf": "2026-02",
+   "dur_s": 6773,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02032026kevinthetimelineofproblemsprimarysecondaryproblems",
+   "handle": "7eg0zabJ",
+   "name": "02_03_2026_Kevin_The_Time_Line_Of_Problems_Primary__Secondary_Problems.mp4 2:38:12",
+   "leaf": "2026-02",
+   "dur_s": 9492,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02042026chrishaddadcredibilityandtrust",
+   "handle": "aTRRHbxC",
+   "name": "02-04-2026 - Chris Haddad - Credibility and Trust.mp4 1:54:10",
+   "leaf": "2026-02",
+   "dur_s": 6850,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02042026lorenhiddensettingsthatwreckmetaads",
+   "handle": "DeRnTDSR",
+   "name": "02-04-2026 - Loren - Hidden Settings That Wreck Meta Ads.mp4 2:03:53",
+   "leaf": "2026-02",
+   "dur_s": 7433,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02052026alenmonthlynhbprohotseat",
+   "handle": "6PYBBTKK",
+   "name": "02-05-2026 - Alen - Monthly NHB Pro Hot Seat.mp4 44:59",
+   "leaf": "2026-02",
+   "dur_s": 2699,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02052026alenandkevincopyconflictstyles",
+   "handle": "jfBAALQA",
+   "name": "02-05-2026 - Alen and Kevin - Copy Conflict Styles.mp4 3:01:39",
+   "leaf": "2026-02",
+   "dur_s": 10899,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02062026brandoncharlesandkevinfebruaryfiresidechat",
+   "handle": "fSBhiDbC",
+   "name": "02_06_2026_Brandon_Charles_and_Kevin_February_Fireside_Chat.mp4 2:17:47",
+   "leaf": "2026-02",
+   "dur_s": 8267,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02092026robertvibecodingametaadsspytoolin20minutes",
+   "handle": "ybR1kJoL",
+   "name": "02_09_2026_Robert_Vibe_Coding_a_Meta_Ads_Spy_Tool_in_20_Minutes.mp4 2:00:51",
+   "leaf": "2026-02",
+   "dur_s": 7251,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02092026charleslandingpagebottleneck",
+   "handle": "mHByGZgb",
+   "name": "02-09-2026 - Charles - Landing Page Bottleneck.mp4 2:05:31",
+   "leaf": "2026-02",
+   "dur_s": 7531,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02102026issaclaramonthlynhbprohotseat",
+   "handle": "zWIgWTxb",
+   "name": "02-10-2026 - Issac Lara - Monthly NHB Pro Hot Seat.mp4 2:24:21",
+   "leaf": "2026-02",
+   "dur_s": 8661,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02112026chrishaddadsomaticcopywriting",
+   "handle": "DKAyTRqI",
+   "name": "02-11-2026 - Chris Haddad - Somatic Copywriting.mp4 1:08:30",
+   "leaf": "2026-02",
+   "dur_s": 4110,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02122026alenthecoreemotionsofsocialmedianetworks",
+   "handle": "SHZF0bwB",
+   "name": "02_12_2026_Alen_The_Core_Emotions_of_Social_Media_Networks.mp4 3:42:32",
+   "leaf": "2026-02",
+   "dur_s": 13352,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02132026brandonandisaaccroroundtable",
+   "handle": "rfZyyLbJ",
+   "name": "02-13-2026 - Brandon and Isaac - CRO Roundtable.mp4 2:00:04",
+   "leaf": "2026-02",
+   "dur_s": 7204,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02162026charleswhywinningadsdiewhenyoumovethem",
+   "handle": "eCI0yZDI",
+   "name": "02_16_2026_Charles_Why_Winning_Ads_Die_When_You_Move_Them.mp4 1:53:43",
+   "leaf": "2026-02",
+   "dur_s": 6823,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02162026robertopenclaw2xyourproductivitywithanaiassistant",
+   "handle": "yaQ0RTAB",
+   "name": "02_16_2026_Robert_OpenClaw_2x_Your_Productivity_With_an_AI_Assistant.mp4 2:04:42",
+   "leaf": "2026-02",
+   "dur_s": 7482,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02172026isaaclaraemailsegmenting101",
+   "handle": "TPQyzTqZ",
+   "name": "02-17-2026 - Isaac Lara - Email Segmenting 101.mp4 1:32:16",
+   "leaf": "2026-02",
+   "dur_s": 5536,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02172026kevinmonthlynhbprohotseat",
+   "handle": "6exWFZjQ",
+   "name": "02-17-2026 - Kevin - Monthly NHB Pro Hot Seat.mp4 3:02:46",
+   "leaf": "2026-02",
+   "dur_s": 10966,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02182026chrishaddadmonthlynhbprohotseat",
+   "handle": "uf4WXR7C",
+   "name": "02-18-2026 - Chris Haddad - Monthly NHB Pro Hot Seat.mp4 1:14:55",
+   "leaf": "2026-02",
+   "dur_s": 4495,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02182026lorenpiniliswhatsworkingnowintesting",
+   "handle": "HKgkHbAA",
+   "name": "02-18-2026 - Loren Pinilis - Whats Working Now In Testing.mp4 2:43:44",
+   "leaf": "2026-02",
+   "dur_s": 9824,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02192026alenovernightexperts",
+   "handle": "SGxGnTYB",
+   "name": "02-19-2026 - Alen - Overnight Experts.mp4 2:26:23",
+   "leaf": "2026-02",
+   "dur_s": 8783,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02202026monthlynhbprohotseatwithbpart001",
+   "handle": "PTxkWLDQ",
+   "name": "02-20-2026 Monthly NHB Pro Hot Seat - With B.part001.mp4 2:39:09",
+   "leaf": "2026-02",
+   "dur_s": 9549,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02202026monthlynhbprohotseatwithbpart002",
+   "handle": "rTxAVL7K",
+   "name": "02-20-2026 Monthly NHB Pro Hot Seat - With B.part002.mp4 04:46",
+   "leaf": "2026-02",
+   "dur_s": 286,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02232026robertaiadsanimationsmotiongraphics",
+   "handle": "7SIiHToZ",
+   "name": "02_23_2026_Robert_AI_Ads_Animations__Motion_Graphics.mp4 2:02:51",
+   "leaf": "2026-02",
+   "dur_s": 7371,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02232026monthlynhbprohotseatwithcpart001",
+   "handle": "PPh22Jgb",
+   "name": "02-23-2026 Monthly NHB Pro Hot Seat - With C.part001.mp4 3:05:37",
+   "leaf": "2026-02",
+   "dur_s": 11137,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02232026monthlynhbprohotseatwithcpart002",
+   "handle": "7G4mTBYI",
+   "name": "02-23-2026 Monthly NHB Pro Hot Seat - With C.part002.mp4 50:36",
+   "leaf": "2026-02",
+   "dur_s": 3036,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02242026isaacemailmarketingformarch",
+   "handle": "fHgHzAgL",
+   "name": "02-24-2026 - Isaac - Email Marketing For March.mp4 1:53:31",
+   "leaf": "2026-02",
+   "dur_s": 6811,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02242026kevinthelaunchprocessoverview",
+   "handle": "WS5xDapA",
+   "name": "02-24-2026 - Kevin - The Launch Process Overview.mp4 2:30:30",
+   "leaf": "2026-02",
+   "dur_s": 9030,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "02252026chrishaddadpigmethodbeatmap",
+   "handle": "WO4hmSLI",
+   "name": "02-25-2026 - Chris Haddad - PIG Method Beat Map.mp4 1:17:30",
+   "leaf": "2026-02",
+   "dur_s": 4650,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03022026robertautomaticcontentcreatingpowerfuluniquecontent",
+   "handle": "2WQFzLzR",
+   "name": "03_02_2026_Robert_Automatic_Content_Creating_Powerful_Unique_Content.mp4 2:03:00",
+   "leaf": "2026-03",
+   "dur_s": 7380,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03022026charlesaihypevsrealconversions",
+   "handle": "rOAWVDBC",
+   "name": "03-02-2026 - Charles - AI Hype vs. Real Conversions.mp4 2:27:17",
+   "leaf": "2026-03",
+   "dur_s": 8837,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03032026kevinlaunchprocess20strategicaccomodation",
+   "handle": "7CQVCLYZ",
+   "name": "03_03_2026_Kevin_Launch_Process_2_0_Strategic_Accomodation.mp4 2:18:41",
+   "leaf": "2026-03",
+   "dur_s": 8321,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03032026isaaclaramonthlynhbprohotseat",
+   "handle": "7SQyxJLb",
+   "name": "03-03-2026 - Isaac Lara - Monthly NHB Pro Hot Seat.mp4 2:43:02",
+   "leaf": "2026-03",
+   "dur_s": 9782,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03042026chrishaddadhowtoinjectyourcopywithpassionand",
+   "handle": "3bBBAZJC",
+   "name": "03_04_2026_Chris_Haddad_How_To_Inject_Your_Copy_With_Passion_and.mp4 1:13:51",
+   "leaf": "2026-03",
+   "dur_s": 4431,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03042026lorenpixelandcapifoundations",
+   "handle": "uXQC3RAT",
+   "name": "03-04-2026 - Loren - Pixel and CAPI Foundations.mp4 2:05:52",
+   "leaf": "2026-03",
+   "dur_s": 7552,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03052026monthlynhbprohotseatmp4",
+   "handle": "eeAAxJqa",
+   "name": "03-05-2026 Monthly NHB Pro Hot Seat.mp4.mp4 2:53:38",
+   "leaf": "2026-03",
+   "dur_s": 10418,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03062026brandonheatmaps30",
+   "handle": "iKRjkDIR",
+   "name": "03-06-2026 - Brandon - Heatmaps 3.0.mp4 1:40:51",
+   "leaf": "2026-03",
+   "dur_s": 6051,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03092026charleswhymostadsfailandhowtodiagnosethem",
+   "handle": "CHJ3iZKY",
+   "name": "03_09_2026_Charles_Why_Most_Ads_Fail_and_How_to_Diagnose_Them.mp4 3:05:14",
+   "leaf": "2026-03",
+   "dur_s": 11114,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03092026robertbuildingviralaiavatarpages",
+   "handle": "2KQFGJrb",
+   "name": "03-09-2026 - Robert - Building Viral AI Avatar Pages.mp4 1:44:24",
+   "leaf": "2026-03",
+   "dur_s": 6264,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03102026issaclaraaffirmationvsaspirationalmessaging",
+   "handle": "faB1GbQa",
+   "name": "03_10_2026_Issac_Lara_Affirmation_vs_Aspirational_Messaging.mp4 1:49:04",
+   "leaf": "2026-03",
+   "dur_s": 6544,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03102026kevinprofitingfromhobbyniches",
+   "handle": "6GZhVTyR",
+   "name": "03-10-2026 - Kevin - Profiting from Hobby Niches.mp4 2:36:54",
+   "leaf": "2026-03",
+   "dur_s": 9414,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03112026monthlynhbprohotseatwithchrishaddad",
+   "handle": "OOAniRZD",
+   "name": "03-11-2026 Monthly NHB Pro Hot Seat - With Chris Haddad.mp4 1:17:55",
+   "leaf": "2026-03",
+   "dur_s": 4675,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03122026nhbprotheorycalltheclientgettingprocessmp41080pnone",
+   "handle": "rbY1SboY",
+   "name": "03_12_2026_NHB_Pro_Theory_Call_The_Client_Getting_Process_mp4_1080pNone.mp4 3:16:01",
+   "leaf": "2026-03",
+   "dur_s": 11761,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03132026nhbprotheorycalladtolandingpagealignmentwith",
+   "handle": "qCZRFZyD",
+   "name": "03_13_2026_NHB_Pro_Theory_Call_Ad_to_Landing_Page_Alignment_With.mp4 2:05:23",
+   "leaf": "2026-03",
+   "dur_s": 7523,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03162026nhbprotheorycall1mviewsand10kfollowersin13",
+   "handle": "qbIzXbZK",
+   "name": "03_16_2026_NHB_Pro_Theory_Call_1M_Views_and_10K_Followers_in_13.mp4 2:10:17",
+   "leaf": "2026-03",
+   "dur_s": 7817,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03172026nhbprotheorycallautomationaudits1withisaaclara",
+   "handle": "6HYlHZ4J",
+   "name": "03_17_2026_NHB_Pro_Theory_Call_Automation_Audits_1_With_Isaac_Lara.mp4 2:41:08",
+   "leaf": "2026-03",
+   "dur_s": 9668,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03172026nhbprotheorycallidealclientprofiles20withkevin",
+   "handle": "CDxxyS6S",
+   "name": "03_17_2026_NHB_Pro_Theory_Call_Ideal_Client_Profiles_2_0_With_Kevin.mp4 2:00:41",
+   "leaf": "2026-03",
+   "dur_s": 7241,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03182026nhbprotheorycallcognitivebiaseswithchrishaddad",
+   "handle": "KWw3iaKT",
+   "name": "03_18_2026_NHB_Pro_Theory_Call_Cognitive_Biases_With_Chris_Haddad.mp4 1:46:00",
+   "leaf": "2026-03",
+   "dur_s": 6360,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03182026nhbprotheorycalltheoryofcreativefatiguewithloren",
+   "handle": "KLpDgYwR",
+   "name": "03_18_2026_NHB_Pro_Theory_Call_Theory_of_Creative_Fatigue_With_Loren.mp4 2:26:12",
+   "leaf": "2026-03",
+   "dur_s": 8772,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03192026nhbprotheorycallpoliticsofmarketingmov1080pnone",
+   "handle": "PPwjFYqZ",
+   "name": "03_19_2026_NHB_Pro_Theory_Call_Politics_of_Marketing_mov_1080pNone.mp4 3:42:29",
+   "leaf": "2026-03",
+   "dur_s": 13349,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03202026nhbprotheorycalllandingpageauditchecklisttoincrease",
+   "handle": "PWxDhCrL",
+   "name": "03_20_2026_NHB_Pro_Theory_Call_Landing_Page_Audit_Checklist_to_Increase.mp4 1:26:18",
+   "leaf": "2026-03",
+   "dur_s": 5178,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03232026nhbprotheorycallmarch2026updateonaiworkflows",
+   "handle": "DWwHHKoQ",
+   "name": "03_23_2026_NHB_Pro_Theory_Call_March_2026_Update_on_AI_Workflows.mp4 2:17:02",
+   "leaf": "2026-03",
+   "dur_s": 8222,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03242026nhbprotheorycallaprilemailmarketingstrategies",
+   "handle": "vPpT2S7T",
+   "name": "03_24_2026_NHB_Pro_Theory_Call_April_Email_Marketing_Strategies.mp4 2:05:44",
+   "leaf": "2026-03",
+   "dur_s": 7544,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03252026nhbprotheorycallamazingsecretdiscoveredbyon",
+   "handle": "TPxVnaIY",
+   "name": "03_25_2026_NHB_Pro_Theory_Call_Amazing_Secret_Discovered_By_On.mp4 1:11:15",
+   "leaf": "2026-03",
+   "dur_s": 4275,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03252026nhbprotheorycallwhatsworkingnowinmetaadsai",
+   "handle": "fS53zAJK",
+   "name": "03_25_2026_NHB_Pro_Theory_Call_Whats_Working_Now_In_Meta_Ads_AI.mp4 1:56:43",
+   "leaf": "2026-03",
+   "dur_s": 7003,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03262026nhbprotheorycalltruthpatterns1080pnone",
+   "handle": "GG41GAiZ",
+   "name": "03_26_2026_NHB_Pro_Theory_Call_Truth_Patterns_1080pNone.mp4 3:05:38",
+   "leaf": "2026-03",
+   "dur_s": 11138,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03302026nhbprotheorycallaiinfluencersvideoautomation",
+   "handle": "XPoA0LSK",
+   "name": "03_30_2026_NHB_Pro_Theory_Call_AI_Influencers_Video_Automation.mp4 1:49:36",
+   "leaf": "2026-03",
+   "dur_s": 6576,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03312026monthlynhbprohotseatwithisaaclaramp41080pnone",
+   "handle": "KShSBLjL",
+   "name": "03_31_2026_Monthly_NHB_Pro_Hot_Seat_With_Isaac_Lara_mp4_1080pNone.mp4 1:43:00",
+   "leaf": "2026-03",
+   "dur_s": 6180,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "03312026nhbprotheorycalllivefunnelbreakdownprimal",
+   "handle": "STpiQRhY",
+   "name": "03_31_2026_NHB_Pro_Theory_Call_Live_Funnel_Breakdown_Primal.mp4 2:10:34",
+   "leaf": "2026-03",
+   "dur_s": 7834,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04012026nhbprotheorycallvslbreakdownresetdigestionwith",
+   "handle": "Ka4DhA7a",
+   "name": "04_01_2026_NHB_Pro_Theory_Call_VSL_Breakdown_Reset_Digestion_With.mp4 1:11:37",
+   "leaf": "2026-04",
+   "dur_s": 4297,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04032026nhbprotheorycallisitatrafficproblemorafunnel",
+   "handle": "GepDFKTL",
+   "name": "04_03_2026_NHB_Pro_Theory_Call_Is_It_a_Traffic_Problem_or_a_Funnel.mp4 53:44",
+   "leaf": "2026-04",
+   "dur_s": 3224,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04062026nhbprotheorycallaiworkflowsforadscontentlead",
+   "handle": "GW4BhApD",
+   "name": "04_06_2026_NHB_Pro_Theory_Call_AI_Workflows_for_Ads_Content__Lead.mp4 2:00:34",
+   "leaf": "2026-04",
+   "dur_s": 7234,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04072026nhbprotheorycalldoubleretentionprocesswithkevin",
+   "handle": "vG5xCKZQ",
+   "name": "04_07_2026_NHB_Pro_Theory_Call_Double_Retention_Process_With_Kevin.mp4 1:21:07",
+   "leaf": "2026-04",
+   "dur_s": 4867,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04072026nhbprotheorycallugcfieldguidewithisaaclaramp4",
+   "handle": "aawHHKQT",
+   "name": "04_07_2026_NHB_Pro_Theory_Call_UGC_Field_Guide_With_Isaac_Lara_mp4.mp4 2:12:32",
+   "leaf": "2026-04",
+   "dur_s": 7952,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04082026monthlynhbprohotseatwithchrishaddadmp41080pnone",
+   "handle": "aPxj3Spb",
+   "name": "04_08_2026_Monthly_NHB_Pro_Hot_Seat_With_Chris_Haddad_mp4_1080pNone.mp4 1:56:40",
+   "leaf": "2026-04",
+   "dur_s": 7000,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04082026nhbprotheorycallwhatsnewinmetaadsapril2026",
+   "handle": "OD4xCIhL",
+   "name": "04_08_2026_NHB_Pro_Theory_Call_Whats_New_in_Meta_Ads_April_2026.mp4 1:41:07",
+   "leaf": "2026-04",
+   "dur_s": 6067,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04092026nhbprotheorycallcompactcopymov1080pnone",
+   "handle": "WW5VHLaA",
+   "name": "04_09_2026_NHB_Pro_Theory_Call_Compact_Copy_mov_1080pNone.mp4 2:33:04",
+   "leaf": "2026-04",
+   "dur_s": 9184,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04102026nhbprotheorycalloptimizingtheupsellpathwithbrandon",
+   "handle": "XKxBALbA",
+   "name": "04_10_2026_NHB_Pro_Theory_Call_Optimizing_The_Upsell_Path_With_Brandon.mp4 1:43:39",
+   "leaf": "2026-04",
+   "dur_s": 6219,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04132026nhbprotheorycalltheonetechniqueiusedtoamplify",
+   "handle": "CP4nULpD",
+   "name": "04_13_2026_NHB_Pro_Theory_Call_The_One_Technique_I_Used_to_Amplify.mp4 2:35:38",
+   "leaf": "2026-04",
+   "dur_s": 9338,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04132026nhbprotheorycallvibecodingacfunnelsvibedesigning",
+   "handle": "eTxBRJ6S",
+   "name": "04_13_2026_NHB_Pro_Theory_Call_Vibe_Coding_AC_Funnels__Vibe_Designing.mp4 1:53:44",
+   "leaf": "2026-04",
+   "dur_s": 6824,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04142026nhbprotheorycalllivefunnelbreakdownsnativepath",
+   "handle": "SeozTBRI",
+   "name": "04_14_2026_NHB_Pro_Theory_Call_Live_Funnel_Breakdowns_Native_Path.mp4 3:23:52",
+   "leaf": "2026-04",
+   "dur_s": 12232,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04142026nhbprotheorycallltvascensionwithisaaclaraand",
+   "handle": "PDwViTaC",
+   "name": "04_14_2026_NHB_Pro_Theory_Call_LTV_Ascension_With_Isaac_Lara_and.mp4 2:19:30",
+   "leaf": "2026-04",
+   "dur_s": 8370,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04152026nhbprotheorycallhooksandmechanismsbrainstorming",
+   "handle": "uewRXZwB",
+   "name": "04_15_2026_NHB_Pro_Theory_Call_Hooks_and_Mechanisms_Brainstorming.mp4 1:06:43",
+   "leaf": "2026-04",
+   "dur_s": 4003,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04162026nhbprotheorycallcreatingpermissionmp41080pnone",
+   "handle": "Oah3hL7I",
+   "name": "04_16_2026_NHB_Pro_Theory_Call_Creating_Permission_mp4_1080pNone.mp4 3:04:32",
+   "leaf": "2026-04",
+   "dur_s": 11072,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04172026nhbprotheorycallquickstartcroguestcallwithtristan",
+   "handle": "afpBBJTZ",
+   "name": "04_17_2026_NHB_Pro_Theory_Call_Quickstart_CRO_Guest_Call_with_Tristan.mp4 1:40:43",
+   "leaf": "2026-04",
+   "dur_s": 6043,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04202026nhbprotheorycallclaudedesignofferauditsand",
+   "handle": "fbojyCQQ",
+   "name": "04_20_2026_NHB_Pro_Theory_Call_Claude_Design_Offer_Audits_and.mp4 1:53:38",
+   "leaf": "2026-04",
+   "dur_s": 6818,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04202026nhbprotheorycallwhymostentrepreneursareworking",
+   "handle": "CHhn2KIb",
+   "name": "04_20_2026_NHB_Pro_Theory_Call_Why_Most_Entrepreneurs_Are_Working.mp4 2:52:00",
+   "leaf": "2026-04",
+   "dur_s": 10320,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04212026nhbprotheorycallthecmoentryframeworkwithisaac",
+   "handle": "KDgnQYjT",
+   "name": "04_21_2026_NHB_Pro_Theory_Call_The_CMO_Entry_Framework_With_Isaac.mp4 1:39:01",
+   "leaf": "2026-04",
+   "dur_s": 5941,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04222026nhbprotheorycallexperimentsformalabtestswith",
+   "handle": "abpC0LBR",
+   "name": "04_22_2026_NHB_Pro_Theory_Call_Experiments_Formal_AB_Tests_With.mp4 2:16:13",
+   "leaf": "2026-04",
+   "dur_s": 8173,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04222026nhbprotheorycallstorystormingwithchrishaddadmp4",
+   "handle": "HfoE3bSR",
+   "name": "04_22_2026_NHB_Pro_Theory_Call_Storystorming_With_Chris_Haddad_mp4.mp4 1:15:56",
+   "leaf": "2026-04",
+   "dur_s": 4556,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04232026nhbprotheorycallinstallingcircumstancesmp41080pnone",
+   "handle": "vf4GmRzR",
+   "name": "04_23_2026_NHB_Pro_Theory_Call_Installing_Circumstances_mp4_1080pNone.mp4 2:33:13",
+   "leaf": "2026-04",
+   "dur_s": 9193,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04242026monthlynhbprohotseatwithbrandonvasquezmp41080pnone",
+   "handle": "zKhknZjA",
+   "name": "04_24_2026_Monthly_NHB_Pro_Hot_Seat_With_Brandon_Vasquez_mp4_1080pNone.mp4 1:41:59",
+   "leaf": "2026-04",
+   "dur_s": 6119,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04272026nhbprotheorycallchatgptimages20aiadcreative",
+   "handle": "yHpQHLIb",
+   "name": "04_27_2026_NHB_Pro_Theory_Call_ChatGPT_Images_2_0_AI_Ad_Creative.mp4 1:51:57",
+   "leaf": "2026-04",
+   "dur_s": 6717,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04272026nhbprotheorycallhowtobuildanacquisitionsystem",
+   "handle": "nC5QGZCD",
+   "name": "04_27_2026_NHB_Pro_Theory_Call_How_to_Build_an_Acquisition_System.mp4 3:31:40",
+   "leaf": "2026-04",
+   "dur_s": 12700,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04282026nhbprotheorycallkeyconceptswithkevinsheerinmp4",
+   "handle": "LbowWB4Z",
+   "name": "04_28_2026_NHB_Pro_Theory_Call_Key_Concepts_With_Kevin_Sheerin_mp4.mp4 2:52:41",
+   "leaf": "2026-04",
+   "dur_s": 10361,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04292026nhbprotheorycallcritiquingrealworldadsvol11",
+   "handle": "CTo2nJTC",
+   "name": "04_29_2026_NHB_Pro_Theory_Call_Critiquing_Real_World_Ads_Vol_11.mp4 2:03:52",
+   "leaf": "2026-04",
+   "dur_s": 7432,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "04292026nhbprotheorycalllogicalfallacieswithchris",
+   "handle": "aOwGkTrS",
+   "name": "04_29_2026_NHB_Pro_Theory_Call_Logical_Fallacies_With_Chris.mp4 1:35:49",
+   "leaf": "2026-04",
+   "dur_s": 5749,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "april2025readingoffers",
+   "handle": "rOhCxbCZ",
+   "name": "April 2025 - Reading offers.mp4 3:38:41",
+   "leaf": "Loren FB ADS",
+   "dur_s": 13121,
+   "alternates_not_fetched": [
+    "WC5jTaQB",
+    "KXwTWQ5S",
+    "TT4j0DgL"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "auctioninsightsandmanualbiddingloren",
+   "handle": "HXpUxRYL",
+   "name": "Auction Insights and Manual Bidding - Loren.mp4 1:55:58",
+   "leaf": "Loren FB ADS",
+   "dur_s": 6958,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "findingandmanagingclientwork",
+   "handle": "He5GjTTS",
+   "name": "Finding and managing client work.mp4 3:54:48",
+   "leaf": "Loren FB ADS",
+   "dur_s": 14088,
+   "alternates_not_fetched": [
+    "DLpCnDCA"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "march2025readingoffers",
+   "handle": "SbxSWbpK",
+   "name": "March 2025 - Reading offers.mp4 2:59:10",
+   "leaf": "Loren FB ADS",
+   "dur_s": 10750,
+   "alternates_not_fetched": [
+    "TX5H2J6Q"
+   ],
+   "container": "mp4"
+  },
+  {
+   "basename": "may2025readingoffersloren",
+   "handle": "behi0ZZR",
+   "name": "May 2025 - Reading Offers - Loren.mp4 3:05:07",
+   "leaf": "Loren FB ADS",
+   "dur_s": 11107,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "metaaccountstructurebasicsforacfunnel",
+   "handle": "2OgWHLTI",
+   "name": "Meta Account Structure Basics for AC Funnel.mp4 3:07:21",
+   "leaf": "Loren FB ADS",
+   "dur_s": 11241,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "metaadsforwebinarbaclorean",
+   "handle": "iPo2DLaA",
+   "name": "Meta Ads for webinar BAC - Lorean.mp4 2:15:52",
+   "leaf": "Loren FB ADS",
+   "dur_s": 8152,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "metaadsoptimization",
+   "handle": "2WpizbbQ",
+   "name": "Meta Ads Optimization.mp4 2:48:45",
+   "leaf": "Loren FB ADS",
+   "dur_s": 10125,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "metacompliancebasicsloren",
+   "handle": "2ThWnTZB",
+   "name": "Meta Compliance Basics - Loren.mp4 2:12:37",
+   "leaf": "Loren FB ADS",
+   "dur_s": 7957,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "retargettingconceptsloren",
+   "handle": "HThiwDwb",
+   "name": "Retargetting Concepts - Loren.mp4 2:00:16",
+   "leaf": "Loren FB ADS",
+   "dur_s": 7216,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "thestorybomb",
+   "handle": "HG4EyJZB",
+   "name": "The Story Bomb.mp4 2:43:21",
+   "leaf": "Loren FB ADS",
+   "dur_s": 9801,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "troubleshootingcasestudy",
+   "handle": "yTo0hZjA",
+   "name": "Trouble Shooting Case study.mp4 2:24:30",
+   "leaf": "Loren FB ADS",
+   "dur_s": 8670,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasestudiespart3",
+   "handle": "PLhF2KIY",
+   "name": "Google Case studies - part 3.mp4 3:24:12",
+   "leaf": "Charles Google Ads",
+   "dur_s": 12252,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasestudiespart6",
+   "handle": "HaoREATR",
+   "name": "Google Case studies - part 6.mp4 2:59:48",
+   "leaf": "Charles Google Ads",
+   "dur_s": 10788,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasestudiespart8",
+   "handle": "7ehHUSrA",
+   "name": "Google Case studies - part 8.mp4 3:36:32",
+   "leaf": "Charles Google Ads",
+   "dur_s": 12992,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasestudiespart10charles",
+   "handle": "vagBECCB",
+   "name": "Google Case Studies Part 10 - Charles.mp4 3:51:00",
+   "leaf": "Charles Google Ads",
+   "dur_s": 13860,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasestudypart4",
+   "handle": "PXhBSCpL",
+   "name": "Google Case study Part 4.mp4 2:55:39",
+   "leaf": "Charles Google Ads",
+   "dur_s": 10539,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasestudypart5",
+   "handle": "7Cp1mahD",
+   "name": "Google Case study Part 5.mp4 2:44:32",
+   "leaf": "Charles Google Ads",
+   "dur_s": 9872,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasestudypart7",
+   "handle": "WS5BgJJD",
+   "name": "Google Case study Part 7.mp4 4:27:38",
+   "leaf": "Charles Google Ads",
+   "dur_s": 16058,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "googlecasesstudiespart9",
+   "handle": "jX4TTRBK",
+   "name": "Google Cases studies part - 9.mp4 2:16:32",
+   "leaf": "Charles Google Ads",
+   "dur_s": 8192,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "may2025readingofferscharles",
+   "handle": "jOplSRKK",
+   "name": "May 2025 - Reading Offers - Charles.mp4 2:19:11",
+   "leaf": "Charles Google Ads",
+   "dur_s": 8351,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "metaadsmasterycasestudy",
+   "handle": "HahV3BDB",
+   "name": "Meta Ads mastery case study.mp4 2:53:12",
+   "leaf": "Charles Google Ads",
+   "dur_s": 10392,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "thehiddenleverbehindprofitablepaidmediacharles",
+   "handle": "LbpTHTiI",
+   "name": "The Hidden Lever Behind Profitable Paid Media - charles.mp4 3:01:49",
+   "leaf": "Charles Google Ads",
+   "dur_s": 10909,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "april2025readingoffers2",
+   "handle": "PLoTGR6Y",
+   "name": "April 2025 - Reading offers 2.mp4 3:44:39",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 13479,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "avatarassumptions20",
+   "handle": "vPoFRKJR",
+   "name": "Avatar Assumptions 20.mp4 2:15:04",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 8104,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "buildingoffers10",
+   "handle": "KfpxXBDA",
+   "name": "building offers 10.mp4 2:59:29",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 10769,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "may2025readingofferskevin51325",
+   "handle": "LPojzLhT",
+   "name": "May 2025 Reading Offers - Kevin 5-13-25.mp4 7:26:18",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 26778,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "primarysecondarypayoff20kevin",
+   "handle": "LbgT3JTb",
+   "name": "Primary Secondary Payoff 20 - Kevin.mp4 2:00:55",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 7255,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "primaryvssecondarypayoffs",
+   "handle": "ib4zSJBA",
+   "name": "Primary vs secondary payoffs.mp4 2:27:53",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 8873,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "productfirstmarketingkevin",
+   "handle": "XD5BmLia",
+   "name": "Product First Marketing - Kevin.mp4 2:23:30",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 8610,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "selfevidentvsevaluationoffers",
+   "handle": "LSpV2RgL",
+   "name": "Self Evident vs evaluation offers.mp4 2:43:50",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 9830,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "softvshardsellingkevin",
+   "handle": "OGh1kDYC",
+   "name": "Soft vs Hard Selling - Kevin.mp4 1:37:14",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 5834,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "unconciousmechanismsofconversions",
+   "handle": "WfgzzbSR",
+   "name": "unconcious mechanisms of conversions.mp4 2:35:42",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 9342,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "uniformsolutionstowelldefinedproblems",
+   "handle": "7W4zmBqC",
+   "name": "Uniform Solutions to well defined problems.mp4 1:55:11",
+   "leaf": "Kevin Low Ticket",
+   "dur_s": 6911,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "creatingcopytranceformation",
+   "handle": "qXxnxYYJ",
+   "name": "Creating Copy Trance Formation.mp4 3:36:12",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 12972,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "croalignmentandlimitationsalen",
+   "handle": "6LonGQJZ",
+   "name": "CRO alignment and limitations - Alen.mp4 2:28:46",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 8926,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "doubleascension",
+   "handle": "eapxWYCA",
+   "name": "Double Ascension.mp4 3:52:08",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 13928,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "impliedlanguage",
+   "handle": "qew1CCDa",
+   "name": "Implied Language.mp4 3:42:04",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 13324,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "marketingmindmaps",
+   "handle": "6H4xFS7L",
+   "name": "Marketing Mindmaps.mp4 3:35:53",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 12953,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "may2025readingoffers",
+   "handle": "Kf5XQQqa",
+   "name": "May 2025 - Reading Offers.mp4 4:11:26",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 15086,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "presuppositionsalen",
+   "handle": "WaonxagL",
+   "name": "Pre-suppositions - Alen.mp4 4:01:07",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 14467,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "realproblemstates",
+   "handle": "SHonHIiZ",
+   "name": "Real Problem States.mp4 3:17:10",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 11830,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "storiesthatsellalen51525",
+   "handle": "LfgTAIpD",
+   "name": "Stories that Sell - Alen 5-15-25.mp4 3:22:46",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 12166,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "themechanismoffaith",
+   "handle": "3e5VCYRJ",
+   "name": "The Mechanism Of Faith.mp4 2:55:00",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 10500,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "whichfunnelformulae",
+   "handle": "Ob4lRQQI",
+   "name": "Which Funnel Formulae.mp4 3:26:59",
+   "leaf": "Alen Marketing Mastery",
+   "dur_s": 12419,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "anatomyofhighconvertinglandingpages",
+   "handle": "LapTgSyC",
+   "name": "Anatomy of high converting landing pages.mp4 2:06:00",
+   "leaf": "Brandon CRO",
+   "dur_s": 7560,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "april2025readingoffersbrandon",
+   "handle": "uGoTWJDa",
+   "name": "April 2025 - Reading offers Brandon.mp4 4:14:57",
+   "leaf": "Brandon CRO",
+   "dur_s": 15297,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "casestudysplittestingstrategiesbrandon51625",
+   "handle": "uPoHgbhJ",
+   "name": "Case Study- Split Testing Strategies - Brandon 5-16-25.mp4 2:05:26",
+   "leaf": "Brandon CRO",
+   "dur_s": 7526,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "casestudythecroandmediabuyingfeedbackloopbrandon",
+   "handle": "WHoFGR5A",
+   "name": "case_study_The_CRO_and_media_buying_feedback_loop_Brandon.mp4 1:29:03",
+   "leaf": "Brandon CRO",
+   "dur_s": 5343,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "competitorresearchwithbrandonvasquez",
+   "handle": "PapTUBDb",
+   "name": "Competitor Research - With Brandon Vasquez.mp4 1:21:41",
+   "leaf": "Brandon CRO",
+   "dur_s": 4901,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "croroundtablediscussionbrandon",
+   "handle": "bDhzzbqb",
+   "name": "CRO Round Table Discussion - Brandon.mp4 2:15:14",
+   "leaf": "Brandon CRO",
+   "dur_s": 8114,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "heatmapsmastery",
+   "handle": "aahDQTBJ",
+   "name": "Heatmaps mastery.mp4 2:28:59",
+   "leaf": "Brandon CRO",
+   "dur_s": 8939,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "marchreadingofferswithbrandonvasquez",
+   "handle": "eS413BRQ",
+   "name": "March Reading Offers - With Brandon Vasquez.mp4 3:42:38",
+   "leaf": "Brandon CRO",
+   "dur_s": 13358,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "marketvoicetomarketfit",
+   "handle": "ae5BxTYa",
+   "name": "Market Voice To Market Fit.mp4 1:41:32",
+   "leaf": "Brandon CRO",
+   "dur_s": 6092,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "may2025readingofferscroadventures",
+   "handle": "WHhXmTxC",
+   "name": "May 2025 Reading Offers - CRO Adventures.mp4 3:52:30",
+   "leaf": "Brandon CRO",
+   "dur_s": 13950,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "turningskepticismintoconversionsbrandon",
+   "handle": "DOo30JTD",
+   "name": "Turning Skepticism into conversions - Brandon.mp4 1:57:13",
+   "leaf": "Brandon CRO",
+   "dur_s": 7033,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "visualshortcutstoconversions",
+   "handle": "uH5zFTAD",
+   "name": "Visual Shortcuts to Conversions.mp4 2:40:45",
+   "leaf": "Brandon CRO",
+   "dur_s": 9645,
+   "alternates_not_fetched": [],
+   "container": "mp4"
+  },
+  {
+   "basename": "06022025nhbcoachingcallgooglecasestudiespart11withcharleskirkland",
+   "handle": "feYynDYZ",
+   "name": "06-02-2025 NHB Coaching Call - Google Case Studies Part 11 - With Charles Kirkland.mp3 3:24:29",
+   "leaf": "2025-06",
+   "dur_s": 12269,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06032025nhbcoachingcalloncognitivebiaseswithkevinsheerin",
+   "handle": "zbAkQJLK",
+   "name": "06-03-2025 NHB Coaching Call - On Cognitive Biases - With Kevin Sheerin.mp3 2:06:38",
+   "leaf": "2025-06",
+   "dur_s": 7598,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06042025nhbcoachingcallendlesscreativewinnerswithlorenpinilis",
+   "handle": "vbYESbAB",
+   "name": "06-04-2025 NHB Coaching Call - Endless Creative Winners - With Loren Pinilis.mp3 1:51:44",
+   "leaf": "2025-06",
+   "dur_s": 6704,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06052025nhbtheorycalljune2025readingoffers",
+   "handle": "yeR01brL",
+   "name": "06-05-2025 NHB Theory Call - June 2025 Reading Offers.mp3 3:13:08",
+   "leaf": "2025-06",
+   "dur_s": 11588,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06092025nhbcoachingcallgooglecasestudiespart12withcharleskirkland",
+   "handle": "meYghDgQ",
+   "name": "06-09-2025 NHB Coaching Call - Google Case Studies Part 12 - With Charles Kirkland.mp3 3:19:41",
+   "leaf": "2025-06",
+   "dur_s": 11981,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06112025nhbcoachingcalljune2025hotseatswithlorenpinilis",
+   "handle": "CXYmGBaK",
+   "name": "06-11-2025 NHB Coaching Call - June 2025 Hot Seats - With Loren Pinilis.mp3 2:57:18",
+   "leaf": "2025-06",
+   "dur_s": 10638,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06122025nhbtheorycallcreatinganofferfactory",
+   "handle": "HLQ01L7Z",
+   "name": "06-12-2025 NHB Theory Call - Creating An Offer Factory.mp3 3:35:40",
+   "leaf": "2025-06",
+   "dur_s": 12940,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06132025nhbcoachingcallreductiveoptimizationwithbrandonvasquez",
+   "handle": "ubZy1Bja",
+   "name": "06-13-2025 NHB Coaching Call - Reductive Optimization - With Brandon Vasquez.mp3 1:33:26",
+   "leaf": "2025-06",
+   "dur_s": 5606,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06162025nhbcoachingcallgooglecasestudiespart13withcharleskirkland",
+   "handle": "SaRUWBoI",
+   "name": "06-16-2025 NHB Coaching Call - Google Case Studies Part 13 - With Charles Kirkland.mp3 00:00",
+   "leaf": "2025-06",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06172025nhbcoachingcalljune2025hotseatswithkevinsheerin",
+   "handle": "uCJwmLhK",
+   "name": "06-17-2025 NHB Coaching Call - June 2025 Hot Seats - With Kevin Sheerin.mp3 4:33:20",
+   "leaf": "2025-06",
+   "dur_s": 16400,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06182025metahealthsummitupdatewithlorenpinilis",
+   "handle": "HHBEAZYB",
+   "name": "06-18-2025 - Meta Health Summit Update - With Loren Pinilis.mp3 1:43:32",
+   "leaf": "2025-06",
+   "dur_s": 6212,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06192025nhbtheorycallcleanclaims",
+   "handle": "CbRGQTrA",
+   "name": "06-19-2025 NHB Theory Call - Clean Claims.mp3 3:07:35",
+   "leaf": "2025-06",
+   "dur_s": 11255,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06202025nhbcoachingcallthednapsychologyofheadlineswithbrandonvasquez",
+   "handle": "iTZ20bhJ",
+   "name": "06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines - With Brandon Vasquez.mp3 1:36:54",
+   "leaf": "2025-06",
+   "dur_s": 5814,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06232025nhbcoachingcallgooglecasestudiespart14withcharleskirkland",
+   "handle": "jHIyRTgK",
+   "name": "06-23-2025 NHB Coaching Call - Google Case Studies Part 14 - With Charles Kirkland.mp3 5:24:34",
+   "leaf": "2025-06",
+   "dur_s": 19474,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06242025nhbcoachingcallmessagingmatrixwithisaaclara",
+   "handle": "fTJgDbpD",
+   "name": "06-24-2025 NHB Coaching Call - Messaging Matrix - With Isaac Lara.mp3 2:18:25",
+   "leaf": "2025-06",
+   "dur_s": 8305,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06242025overservedvsunderservedmarketswithkevinsheerin",
+   "handle": "DWYWDTYJ",
+   "name": "06-24-2025 Over Served vs Under Served Markets - With Kevin Sheerin.mp3 2:12:32",
+   "leaf": "2025-06",
+   "dur_s": 7952,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06252025nhbcoachingcallintegratingfbgroupswithpaidadswithlorenpinilis",
+   "handle": "rfJi1bKZ",
+   "name": "06-25-2025 NHB Coaching Call - Integrating FB Groups with Paid Ads - With Loren Pinilis.mp3 2:01:28",
+   "leaf": "2025-06",
+   "dur_s": 7288,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06262025nhbtheorycallcreatingthemes",
+   "handle": "OGAW2BIb",
+   "name": "06-26-2025 NHB Theory Call - Creating Themes.mp3 4:01:39",
+   "leaf": "2025-06",
+   "dur_s": 14499,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06272025nhbcoachingcallcroadventuresjune2025hotseatswithbrandonvasquez",
+   "handle": "TPISwJwR",
+   "name": "06-27-2025 NHB Coaching Call - CRO Adventures - June 2025 Hot Seats - With Brandon Vasquez.mp3 2:28:54",
+   "leaf": "2025-06",
+   "dur_s": 8934,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "06302025nhbcoachingcallgooglecasestudiespart15withcharleskirkland",
+   "handle": "3TQUhRgC",
+   "name": "06-30-2025 NHB Coaching Call - Google Case Studies Part 15 - With Charles Kirkland.mp3 3:03:34",
+   "leaf": "2025-06",
+   "dur_s": 11014,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07012025nhbcoachingcallhowtocreateexperiencewithemailcopywithisaaclara",
+   "handle": "KKZWFLqQ",
+   "name": "07-01-2025 NHB Coaching Call - How To Create Experience With Email Copy - With Isaac Lara.mp3 00:00",
+   "leaf": "2025-07",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07022025nhbcoachingcallcritiquingrealworldads1withlorenpinilis",
+   "handle": "vDRkGbgL",
+   "name": "07-02-2025 NHB Coaching Call - Critiquing Real World Ads 1 - With Loren Pinilis.mp3 00:00",
+   "leaf": "2025-07",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07032025nhbtheorycalljuly2025readingoffers",
+   "handle": "mXQiWJpD",
+   "name": "07-03-2025 NHB Theory Call - July 2025 Reading Offers.mp3 00:00",
+   "leaf": "2025-07",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07072025nhbcoachingcallgooglecasestudiespart16withcharleskirkland",
+   "handle": "WLQmlB7C",
+   "name": "07-07-2025 NHB Coaching Call - Google Case Studies Part 16 - With Charles Kirkland.mp3 00:00",
+   "leaf": "2025-07",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07082025nhbcoachingcallctasreimaginedwithisaaclara",
+   "handle": "LOIkiBaQ",
+   "name": "07-08-2025 NHB Coaching Call - CTAs Reimagined - With Isaac Lara.mp3 00:00",
+   "leaf": "2025-07",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07102025nhbtheorycallcreatingacontentengine",
+   "handle": "ODYWwRKa",
+   "name": "07-10-2025 NHB Theory Call - Creating A Content Engine.mp3 00:00",
+   "leaf": "2025-07",
+   "dur_s": 0,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07142025nhbcoachingcallgooglecasestudiespart17withcharleskirkland",
+   "handle": "aWR0XTLT",
+   "name": "07-14-2025 NHB Coaching Call - Google Case Studies Part 17 - With Charles Kirkland.mp3 1:46:36",
+   "leaf": "2025-07",
+   "dur_s": 6396,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07152025nhbcoachingcalljuly2025readingofferswithkevinsheerin",
+   "handle": "qTIggBrB",
+   "name": "07-15-2025 NHB Coaching Call - July 2025 Reading Offers - With Kevin Sheerin.mp3 3:43:51",
+   "leaf": "2025-07",
+   "dur_s": 13431,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07162025nhbcoachingcallcommentmanagementwithlorenpinilis",
+   "handle": "qCRWjZ7L",
+   "name": "07-16-2025 NHB Coaching Call - Comment Management - With Loren Pinilis.mp3 1:24:24",
+   "leaf": "2025-07",
+   "dur_s": 5064,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  },
+  {
+   "basename": "07182025nhbcoachingcallvsloptimizationtacticstoincreaseconsumptionconversionswithbrandonvasquez",
+   "handle": "vTAAALpC",
+   "name": "07-18-2025 NHB Coaching Call - VSL Optimization - Tactics to Increase Consumption Conversions - With Brandon Vasquez.mp3 1:56:13",
+   "leaf": "2025-07",
+   "dur_s": 6973,
+   "alternates_not_fetched": [],
+   "container": "mp3"
+  }
+ ],
+ "resources": [
+  {
+   "name": "06-03-2025 NHB Coaching Call - On Cognitive Biases - With Kevin Sheerin.pdf",
+   "handle": "yeBkmLAT",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-04-2025 NHB Coaching Call - Endless Creative Winners - With Loren Pinilis.pdf",
+   "handle": "bPBmlZCA",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-05-2025 NHB Theory Call - June 2025 Reading Offers.pdf",
+   "handle": "nSRAQBQR",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-12-2025 NHB Theory Call - Creating An Offer Factory.pdf",
+   "handle": "nXZWEThQ",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-13-2025 NHB Coaching Call - Reductive Optimization - With Brandon Vasquez.pdf",
+   "handle": "bPBAyL4S",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-18-2025 - Meta Health Summit Update - With Loren Pinilis.pdf",
+   "handle": "reYGyB5D",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-19-2025 NHB Theory Call - Clean Claims.pdf",
+   "handle": "mWZ2QZhY",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines - With Brandon Vasquez.pdf",
+   "handle": "efAgxThK",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines Notes - With Brandon Vasquez.pdf",
+   "handle": "nDRmnBpb",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-23-2025 NHB Coaching Call - Google Case Studies Part 14 - With Charles Kirkland.pdf",
+   "handle": "6XBUAbga",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-24-2025 Over Served vs Under Served Markets - With Kevin Sheerin.pdf",
+   "handle": "vDQkzb4Q",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-25-2025 NHB Coaching Call - Integrating FB Groups with Paid Ads - With Loren Pinilis.pdf",
+   "handle": "CTZEhbhA",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "06-26-2025 NHB Theory Call - Creating Themes.pdf",
+   "handle": "PaZ0jbRS",
+   "leaf": "2025-06",
+   "ext": "pdf"
+  },
+  {
+   "name": "07-01-2025 NHB Coaching Call - How To Create Experience With Email Copy - With Isaac Lara.pdf",
+   "handle": "2SZmXZRQ",
+   "leaf": "2025-07",
+   "ext": "pdf"
+  },
+  {
+   "name": "07-02-2025 NHB Coaching Call - Critiquing Real World Ads 1 - With Loren Pinilis.pdf",
+   "handle": "XTYUCDQQ",
+   "leaf": "2025-07",
+   "ext": "pdf"
+  },
+  {
+   "name": "07-03-2025 NHB Coaching Call - Avatar Assumptions 3.0 - With Kevin Sheerin.pdf",
+   "handle": "GaRkgbLZ",
+   "leaf": "2025-07",
+   "ext": "0"
+  },
+  {
+   "name": "07-10-2025 NHB Theory Call - Creating A Content Engine.pdf",
+   "handle": "OHI0RRpC",
+   "leaf": "2025-07",
+   "ext": "pdf"
+  },
+  {
+   "name": "07-16-2025 NHB Coaching Call - Comment Management - With Loren Pinilis.pdf",
+   "handle": "eCRg2BQQ",
+   "leaf": "2025-07",
+   "ext": "pdf"
+  },
+  {
+   "name": "07-17-2025 NHB Theory Call - The Missing Mechanism of Conversions.pdf",
+   "handle": "zaJCwBqa",
+   "leaf": "2025-07",
+   "ext": "pdf"
+  },
+  {
+   "name": "07-18-2025 NHB Coaching Call - VSL Optimization - Tactics to Increase Consumption Conversions - With Brandon Vasquez.pdf",
+   "handle": "SOIGybpa",
+   "leaf": "2025-07",
+   "ext": "pdf"
+  },
+  {
+   "name": "07-22-2025 Exercise Sheet - Learning Your Limitations - NHB Offer Fundamentals .docx",
+   "handle": "bGRGWRoK",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "07-22-2025 Learning Your Limitations - NHB Offer Fundamentals .docx",
+   "handle": "eaYWDJZY",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "07-23-2025 Meta Ads Mastery Call - Wed July 23.docx",
+   "handle": "yOJkiBiZ",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "07-24-2025 NHB PRO.docx",
+   "handle": "KSICVBCR",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "07-29-2025 Back End To Front End Optimization 1 - With Isaac Lara.docx",
+   "handle": "jTAwEJAY",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "07-29-2025 Offer Fundamentals Call - Comparative Conversions - With Kevin Sheerin.docx",
+   "handle": "nLYCwJgJ",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "07-30-2025 Meta Ads Mastery Call - Wed July 30.docx",
+   "handle": "LLIGXTBb",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "07-31-2025 NHB PRO.docx",
+   "handle": "jfZUwLqD",
+   "leaf": "2025-07",
+   "ext": "docx"
+  },
+  {
+   "name": "08-04-2025 Aug 4 2025.docx",
+   "handle": "2SRUkb4Y",
+   "leaf": "2025-08",
+   "ext": "docx"
+  },
+  {
+   "name": "08-05-2025 Base Beliefs - Offer Fundamentals Calls.docx",
+   "handle": "nXRwkLiI",
+   "leaf": "2025-08",
+   "ext": "docx"
+  },
+  {
+   "name": "08-05-2025 CMO Models_ Macro vs Micro .docx",
+   "handle": "mOIGBZKL",
+   "leaf": "2025-08",
+   "ext": "docx"
+  },
+  {
+   "name": "09-01-2025 Start With a Clear Problem Definition.docx",
+   "handle": "2TAyGRQI",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-02-2025 How to do CPR on a Dying Email List.docx",
+   "handle": "fGBiEDgC",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-02-2025 Offer Fundamentals - Ad To Offer Alignment... .docx",
+   "handle": "qTBA0RDa",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-03-2025 Meta Ads Mastery Call - Wed Sep 3.docx",
+   "handle": "CPJC0RjK",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-04-2025 NHB PRO.docx",
+   "handle": "ybA2mbxL",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-05-2025 CRO Prioritization_ What to Test When and Why.docx",
+   "handle": "yfAClbyL",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-09-2025 NHB Coaching Call - Reactive vs. Proactive Customers_ The Key to Converting Leads Growing LTV - With Isaac Lara AI Su.pdf",
+   "handle": "7fhWgRiZ",
+   "leaf": "2025-09",
+   "ext": "pdf"
+  },
+  {
+   "name": "09-09-2025 Reactive vs. Proactive Customers_ The Key to Converting Leads Growing LTV _ CMO Pro.docx",
+   "handle": "2OYWyB7T",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-11-2025 NHB PRO The Timing Matrix.docx",
+   "handle": "jaI0gDJR",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-12-2025 NHB PRO_ Adventures in CRO_Reductive Optimization .docx",
+   "handle": "HHY0CDZR",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-16-2025 NHB Offer Fundamentals - Click Theory.docx",
+   "handle": "2fQ2Abba",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-17-2025 Meta Ads Mastery Call - Wed Sep 17.docx",
+   "handle": "POAwkBDR",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-18-2025 NHB Pro Chaos Management.docx",
+   "handle": "jDRmDBoZ",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-23-2025 Q4 Cash Injections.pdf",
+   "handle": "rDwy3bJb",
+   "leaf": "2025-09",
+   "ext": "pdf"
+  },
+  {
+   "name": "09-24-2025 Meta Ads Mastery Call - Wed Sep 24.docx",
+   "handle": "ffYgSZTI",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-25-2025NBH Pro.docx",
+   "handle": "mfZWFBxK",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-26-2025 NHB Pro_Adventures in CRO_Heatmap Mastery 2.0.docx",
+   "handle": "KeZwXRoa",
+   "leaf": "2025-09",
+   "ext": "docx"
+  },
+  {
+   "name": "09-30-2025 NHB Coaching Call - How To Sell Experience - With Issac Lara.pdf",
+   "handle": "GShSiZha",
+   "leaf": "2025-09",
+   "ext": "pdf"
+  },
+  {
+   "name": "09-30-2025 NHB Pro - Attention In Isolation Siloed Consumption.docx",
+   "handle": "WKA0SB5a",
+   "leaf": "2025-09",
+   "ext": "docx"
+  }
+ ],
+ "excluded": {
+  "ai_summary": [
+   "06-02-2025 NHB Coaching Call - Google Case Studies Part 11 - With Charles Kirkland AI Summary.mp4 13:44",
+   "06-03-2025 NHB Coaching Call - On Cognitive Biases - With Kevin Sheerin AI Summary.mp4 15:52",
+   "06-04-2025 NHB Coaching Call - Endless Creative Winners - With Loren Pinilis AI Summary.mp4 11:53",
+   "06-05-2025 NHB Theory Call - June 2025 Reading Offers AI Summary.mp4 13:23",
+   "06-24-2025 NHB Coaching Call - Messaging Matrix - With Isaac Lara AI Summary.mp4 12:45",
+   "06-24-2025 Over Served vs Under Served Markets - With Kevin Sheerin AI Summary.mp4 11:21",
+   "06-26-2025 NHB Theory Call - Creating Themes AI Summary.mp4 13:14",
+   "07-02-2025 NHB Coaching Call - Critiquing Real World Ads 1 - With Loren Pinilis AI Summary.mp4 10:57",
+   "07-03-2025 NHB Theory Call - July 2025 Reading Offers - Mindset Bit AI Summary.mp4 13:55",
+   "08-21-2025 NHB Theory Call - Creating World Class Hooks AI Summary - With Alen Sultanic.mp4 3:37:30",
+   "06-02-2025 NHB Coaching Call - Google Case Studies Part 11 - With Charles Kirkland AI Summary.pdf",
+   "06-03-2025 NHB Coaching Call - On Cognitive Biases - With Kevin Sheerin AI Summary.pdf",
+   "06-04-2025 NHB Coaching Call - Endless Creative Winners - With Loren Pinilis AI Summary.pdf",
+   "06-05-2025 NHB Theory Call - June 2025 Reading Offers AI Summary.pdf",
+   "06-09-2025 NHB Coaching Call - Google Case Studies Part 12 - With Charles Kirkland AI Summary.pdf",
+   "06-10-2025 NHB Coaching Call - Low Ticket Mastery 2.0 - With Kevin Sheerin AI Summary.pdf",
+   "06-11-2025 NHB Coaching Call - June 2025 Hot Seats - With Loren Pinilis AI Summary.pdf",
+   "06-12-2025 NHB Theory Call - Creating An Offer Factory AI Summary.pdf",
+   "06-13-2025 NHB Coaching Call - Reductive Optimization - With Brandon Vasquez AI Summary.pdf",
+   "06-16-2025 NHB Coaching Call - Google Case Studies Part 13 - With Charles Kirkland AI Summary.pdf",
+   "06-17-2025 NHB Coaching Call - June 2025 Hot Seats - With Kevin Sheerin AI Summary.pdf",
+   "06-18-2025 NHB Coaching Call - Meta Health Summit Update - With Loren Pinilis AI Summary.pdf",
+   "06-19-2025 NHB Theory Call - Clean Claims AI Summary.pdf",
+   "06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines - With Brandon Vasquez AI Summary.pdf",
+   "06-23-2025 NHB Coaching Call - Google Case Studies Part 14 - With Charles Kirkland AI Summary.pdf",
+   "06-24-2025 NHB Coaching Call - Messaging Matrix - With Isaac Lara AI Summary.pdf",
+   "06-24-2025 NHB Coaching Call - Over Served vs Under Served Markets - With Kevin Sheerin AI Summary.pdf",
+   "06-25-2025 NHB Coaching Call - Integrating FB Groups with Paid Ads - With Loren Pinilis AI Summary.pdf",
+   "06-26-2025 NHB Theory Call - Creating Themes AI Summary.pdf",
+   "06-27-2025 NHB Coaching Call - CRO Adventures - June 2025 Hot Seats - With Brandon Vasquez AI Summary.pdf",
+   "06-30-2025 NHB Coaching Call - Google Case Studies Part 15 - With Charles Kirkland AI Summary.pdf",
+   "07-02-2025 NHB Coaching Call - Critiquing Real World Ads 1 - With Loren Pinilis AI Summary.pdf",
+   "07-03-2025 NHB Coaching Call - Avatar Assumptions 3.0 - With Kevin Sheerin AI Summary.pdf",
+   "07-03-2025 NHB Theory Call - July 2025 Reading Offers AI Summary.pdf",
+   "07-07-2025 NHB Coaching Call - Google Case Studies Part 16 - With Charles Kirkland AI Summary.pdf",
+   "07-10-2025 NHB Theory Call - Creating A Content Engine AI Summary.pdf",
+   "07-11-2025 NHB Coaching Call - Funnel Teardown Case-Study - With Brandon Vasquez AI Summary.pdf",
+   "07-14-2025 NHB Coaching Call - Google Case Studies Part 17 - With Charles Kirkland AI Summary.pdf",
+   "07-15-2025 NHB Coaching Call - July 2025 Reading Offers - With Kevin Sheerin AI Summary.pdf",
+   "07-15-2025 NHB Coaching Call - Messaging Matrix 2.0 - With Isaac Lara AI Summary.pdf",
+   "07-16-2025 NHB Coaching Call - Comment Management - With Loren Pinilis AI Summary.pdf",
+   "07-17-2025 NHB Theory Call - The Missing Mechanism of Conversions AI Summary.pdf",
+   "07-18-2025 NHB Coaching Call - VSL Optimization - Tactics to Increase Consumption Conversions - With Brandon Vasquez AI Summary.pdf",
+   "07-21-2025 NHB Coaching Call - Google Case Studies Part 18 - With Charles Kirkland AI Summary.pdf",
+   "07-22-2025 NHB Coaching Call - Learning Your Limitations - With Kevin Sheerin AI Summary.pdf",
+   "07-22-2025 NHB Coaching Call - Reading Offers 1 - With Isaac Lara AI Summary.pdf",
+   "07-23-2025 NHB Coaching Call - Critiquing Real World Ads 2 - With Loren Pinilis AI Summary.pdf",
+   "07-24-2025 NHB Theory Call - Competing on Energetics AI Summary.pdf",
+   "07-25-2025 NHB Coaching Call - July Reading Offers - With Brandon Vasquez AI Summary.pdf",
+   "07-28-2025 NHB Coaching Call - Google Case Studies Part 19 - With Charles Kirkland AI Summary.pdf",
+   "07-29-2025 NHB Coaching Call - Back End To Front End Optimization 1 - With Isaac Lara AI Summary.pdf",
+   "07-29-2025 NHB Coaching Call - Comparative Conversions - With Kevin Sheerin AI Summary.pdf",
+   "07-30-2025 NHB Coaching Call - Audience Basics - With Loren Pinilis AI Summary.pdf",
+   "07-31-2025 NHB Theory Call - The Language of Resistance AI Summary.pdf",
+   "08-01-2025 NHB Coaching Call - CRO Fireside Chat - With Brandon Vasquez and Charles Kirkland AI Summary.pdf",
+   "08-04-2025 NHB Coaching Call - Cult-Like Follow-Up - With Charles Kirkland AI Summary.pdf",
+   "08-05-2025 NHB Coaching Call - Base Beliefs - With Kevin Sheerin AI Summary.pdf",
+   "08-05-2025 NHB Coaching Call - CMO Models_ Macro vs Micro - With Isaac Lara AI Summary.pdf",
+   "08-06-2025 NHB Coaching Call - Post ID Focus And New Ways of Testing - With Loren Pinilis AI Summary.pdf",
+   "09-01-2025 NHB Coaching Call - Google Case Studies Part 21 - With Charles Kirkland AI Summary.pdf",
+   "09-02-2025 NHB Coaching Call - Ad To Offer Alignment - With Kevin Sheerin AI Summary.pdf",
+   "09-02-2025 NHB Coaching Call - How to do CPR on a Dying Email List - With Isaac Lara AI Summary.pdf",
+   "09-03-2025 NHB Coaching Call - Bot Traffic_ Case Study on Fighting Back - With Loren Pinilis AI Summary.pdf",
+   "09-04-2025 NHB Theory Call - September 2025 Reading Offers AI Summary.pdf",
+   "09-05-2025 NHB Coaching Call - What to Test When Why - With Brandon Vasquez AI Summary.pdf",
+   "09-08-2025 NHB Coaching Call - Google Money Tree Method - With Charles Kirkland AI Summary.pdf",
+   "09-10-2025 NHB Coaching Call - September Reading Offers - With Charles Kirkland and Brandon Vasquez AI Summary.pdf",
+   "09-11-2025 NHB Theory Call - The Timing Matrix AI Summary.pdf",
+   "09-12-2025 NHB Coaching Call - Reductive Optimization 2.0 - With Brandon Vasquez AI Summary.pdf",
+   "09-15-2025 NHB Coaching Call - Local PPC Ads - With Charles Kirkland AI Summary.pdf",
+   "09-16-2025 NHB Coaching Call - Click Theory - With Kevin Sheerin AI Summary.pdf",
+   "09-16-2025 NHB Coaching Call - September Reading Offers - With Isaac Lara AI Summary.pdf",
+   "09-17-2025 NHB Coaching Call - Copy Flow - With Loren Pinilis AI Summary.pdf",
+   "09-18-2025 NHB Theory Call - Chaos Management AI Summary.pdf",
+   "09-19-2025 NHB Coaching Call - September Reading Offers - With Brandon Vasquez AI Summary.pdf",
+   "09-22-2025 NHB Coaching Call - Million Dollar Black Friday - With Charles Kirkland AI Summary.pdf",
+   "09-23-2025 NHB Coaching Call - Q4 Cash Injections - With Isaac Lara AI Summary.pdf",
+   "09-23-2025 NHB Coaching Call - September Reading Offers - With Kevin Sheerin AI Summary.pdf",
+   "09-24-2025 NHB Coaching Call - Critiquing Real World Ads Vol. 4 - With Loren Pinilis AI Summary.pdf",
+   "09-25-2025 NHB Theory Call - Million Dollar Consulting AI Summary.pdf",
+   "09-26-2025 NHB Coaching Call - Heatmap Mastery 2.0 - With Brandon Vasquez AI Summary.pdf",
+   "09-29-2025 NHB Coaching Call - September Reading Offers - With Charles Kirkland AI Summary.pdf",
+   "09-30-2025 NHB Coaching Call - Attention In Isolation Siloed Consumption - With Kevin Sheerin AI Summary.pdf"
+  ]
+ },
+ "dedup": {
+  "overlap_with_corpus1": 0
+ }
+}
