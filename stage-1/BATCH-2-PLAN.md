@@ -108,3 +108,34 @@ all `test-*.py`, `rescan.py`, `verify-names.py`, `verify_egress.py`.
   they cannot leak into either STT or attachments. Gate on the literal token.
 - **Spec contradiction** — batch 2 deliberately follows the operator's native-
   attachment decision over spec §8. This is recorded here, not silently applied.
+
+## 7. Execution amendments (2026-11-24) — authoritative over §§1–6
+
+- **Final population** is 392 audio calls + 50 resources = 442 targets, not 362.
+  The 32 mp3-only June–July 2025 calls were added by operator decision.
+- **No hard stop.** The ledger's `$213.48` corpus-1 stop is disabled with
+  `NO_HARD_STOP=1`; it caused 24 valid calls to be rejected before the fix.
+- **Three sequential Deepgram keys, never concurrent.** dg1 (original, SHA-256
+  `bc7527b0…`) and dg2 (wallet, `f362ac5b…`) both returned live HTTP 402
+  `ASR_PAYMENT_REQUIRED` on 2026-11-24 — evidence:
+  `evidence/probes/deepgram-both-keys-exhausted-2026-11-24.json`. The operator
+  supplied a third key (SHA-256 `3c2a32ea…`) proven live by HTTP 200; staged on
+  the VM only as `/home/azureuser/dg3.key`, mode `0600`. Failover is
+  primary → secondary → tertiary, one key at a time.
+- **Concurrency** is 16, read from `submit.TRANSCRIBE_CONCURRENCY` by
+  `bulk-v2.py` (single source of truth). The earlier 25-way setting was not the
+  cause of the disk stalls — the cause was a reaping threshold of 25 against a
+  smaller pool, which pre-built parts ahead of workers. See `bulk-v2.py`.
+- **Ledger durability:** `commit`, `release`, `settle` and `mark_lost` are now
+  idempotent per part/attempt token; every non-settle outcome releases its
+  commit; `submit.post_file` captures HTTP error bodies and enforces a total
+  deadline watchdog (per-socket timeout alone let a trickling upload hang).
+  Verified offline by `test-fixes.py` / `test-submit.py` equivalents.
+- **PAID_UNKNOWN is never auto-resubmitted.** The two operator-approved calls
+  (`qPwXRLxB`, `WHACUJ5J`) and four paid-but-unsettled attempts were explicitly
+  reset in this pass only; their orphaned commits are booked as `lost` with an
+  idempotency token, not silently re-committed.
+- **Status at time of writing:** 355/392 settled. The five batch-2 beads
+  (`yx4`, `9zh`, `dgu`, `r0k`, `594`) remain open until all 392 receipts and the
+  merged-vault gates exist. An honest blocker is a success; a bead closed on a
+  pending assertion is not.
