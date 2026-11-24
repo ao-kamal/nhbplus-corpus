@@ -131,6 +131,10 @@ def main():
         settled.discard(h)
     rows = [r for r in csv.DictReader(open(WL, encoding="utf-8"))
             if r["kind"] == "audio" and r["handle"] not in settled]
+    only = os.environ.get("HANDLES")
+    if only:
+        want = set(only.split(","))
+        rows = [r for r in rows if r["handle"] in want]
     log({"event": "start", "remaining": len(rows), "already_settled": len(settled),
          "workers": WORKERS})
     done_n = 0
