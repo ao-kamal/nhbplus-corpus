@@ -18,8 +18,9 @@ spec = importlib.util.spec_from_file_location("bf", os.path.join(SCR, "bulk-fina
 bf = importlib.util.module_from_spec(spec); spec.loader.exec_module(bf)
 sl, ps, sub, log, UNITS, WL = bf.sl, bf.ps, bf.sub, bf.log, bf.UNITS, bf.WL
 
-WORKERS = 16
+WORKERS = sub.TRANSCRIBE_CONCURRENCY  # single source of truth with submit.py
 DISK_FLOOR = 4_000_000_000
+MAX_PASSES = 2
 
 
 def submit2(prep, keys, ledger):
@@ -80,7 +81,7 @@ def submit2(prep, keys, ledger):
     ps.settle(udir, status, complete, extras={
         "transport": "sync", "account": acct, "metadata_duration": md,
         "settle_quantity": round(md * prep["in_ch"], 3)})
-    ledger.settle(acct, cost, actual)
+    ledger.settle(acct, cost, actual, part_id=h + "-p00-" + acct)
     utts = obj["results"]["utterances"]
     gi = {"handle": h, "d_response": md, "d_decoded": dur,
           "n_utterances": len(utts), "first_start": utts[0]["start"],
@@ -120,7 +121,8 @@ def main():
         if rr.get("status") == "settled": continue
         c = rr.get("committed_usd", 0) or 0
         if c:
-            ledger.mark_lost("tertiary", c, c)
+            ledger.mark_lost("tertiary", c, c,
+                             part_id=str(rr.get("sent_ts", h)))
             log({"handle": h, "outcome": "committed_marked_lost", "amount": c})
         for fn in ("state.json", "receipt.json", "response-part-00.json",
                    "response-part-00.json.partial", "gate-inputs.json"):
@@ -132,35 +134,55 @@ def main():
     log({"event": "start", "remaining": len(rows), "already_settled": len(settled),
          "workers": WORKERS})
     done_n = 0
-    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-        futs = {}
-        for row in rows:
-            while len(futs) >= WORKERS:
+    pending = list(rows)
+    retryable = {"FETCH_FAIL", "PREP_ERROR", "REMUX_FAIL", "ERROR", "HTTP_400"}
+    for pass_no in range(1, MAX_PASSES + 1):
+        if not pending:
+            break
+        if pass_no > 1:
+            log({"event": "retry_pass", "pass": pass_no, "remaining": len(pending)})
+        next_pending = []
+        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+            futs = {}
+            by_handle = {r["handle"]: r for r in pending}
+            def reap(wait):
+                if not futs:
+                    return
+                if wait:
+                    from concurrent.futures import FIRST_COMPLETED, wait as cwait
+                    cwait(list(futs), return_when=FIRST_COMPLETED, timeout=60)
                 ready = [f for f in futs if f.done()]
                 for f in ready:
                     try: out = f.result()
                     except Exception as e:
-                        out = {"handle": futs[f], "outcome": "ERROR", "note": str(e)[:200]}
+                        out = {"handle": futs[f], "outcome": "ERROR",
+                               "note": str(e)[:200]}
                     log(out); del futs[f]; done_n += 1
-                if futs: time.sleep(2)
-            while shutil.disk_usage(UNITS).free < DISK_FLOOR:
-                time.sleep(20)
-            try:
-                prep = bf.process(row, keys, ledger)
-            except Exception as e:
-                log({"handle": row["handle"], "outcome": "PREP_ERROR", "note": str(e)[:200]})
-                continue
-            if "part" not in prep:
-                log(prep); continue
-            futs[pool.submit(submit2, prep, keys, ledger)] = prep["handle"]
-        while futs:
-            ready = [f for f in futs if f.done()]
-            for f in ready:
-                try: out = f.result()
+                    if (out.get("outcome") in retryable and
+                            out["handle"] in by_handle):
+                        next_pending.append(by_handle[out["handle"]])
+            for row in pending:
+                if len(futs) >= WORKERS:
+                    reap(False)
+                while len(futs) >= WORKERS:
+                    reap(True)
+                while shutil.disk_usage(UNITS).free < DISK_FLOOR:
+                    time.sleep(20)
+                try:
+                    prep = bf.process(row, keys, ledger)
                 except Exception as e:
-                    out = {"handle": futs[f], "outcome": "ERROR", "note": str(e)[:200]}
-                log(out); del futs[f]; done_n += 1
-            if futs: time.sleep(2)
+                    log({"handle": row["handle"], "outcome": "PREP_ERROR",
+                         "note": str(e)[:200]})
+                    next_pending.append(row); continue
+                if "part" not in prep:
+                    log(prep); next_pending.append(row); continue
+                futs[pool.submit(submit2, prep, keys, ledger)] = prep["handle"]
+            reap(True)
+            while futs:
+                reap(True)
+        pending = next_pending
+    if pending:
+        log({"event": "unresolved", "handles": [r["handle"] for r in pending]})
     log({"event": "done", "processed": done_n, "ledger": ledger.totals()})
 
 

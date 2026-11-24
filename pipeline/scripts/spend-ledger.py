@@ -63,7 +63,8 @@ def commit_cost(billed_seconds, channels=1):
 
 
 def _blank():
-    return {"accounts": {}, "totals": dict(ZERO), "released_parts": []}
+    return {"accounts": {}, "totals": dict(ZERO), "released_parts": [],
+            "committed_parts": [], "settled_parts": [], "lost_parts": []}
 
 
 def _load(path):
@@ -123,8 +124,12 @@ class Ledger:
         return running
 
     def commit(self, aid, part_id, cost):
+        """Idempotent per part_id: a repeated commit is a no-op."""
         def fn(ledger):
+            if part_id in ledger.get("committed_parts", []):
+                return False
             self.check_stop(ledger)
+            ledger.setdefault("committed_parts", []).append(part_id)
             a = self._acct(ledger, aid)
             a["committed"] = round(a["committed"] + cost, 6)
             t = ledger["totals"]
@@ -132,8 +137,12 @@ class Ledger:
             return self.check_stop(ledger)
         return self._locked(fn)
 
-    def settle(self, aid, cost, actual):
+    def settle(self, aid, cost, actual, part_id=None):
         def fn(ledger):
+            if part_id is not None and part_id in ledger.get("settled_parts", []):
+                return False
+            if part_id is not None:
+                ledger.setdefault("settled_parts", []).append(part_id)
             a = self._acct(ledger, aid)
             a["committed"] = round(a["committed"] - cost, 6)
             a["settled"] = round(a["settled"] + actual, 6)
@@ -157,8 +166,13 @@ class Ledger:
             return True
         return self._locked(fn)
 
-    def mark_lost(self, aid, cost, actual):
+    def mark_lost(self, aid, cost, actual, part_id=None):
+        """Idempotent per attempt token; never double-subtracts committed."""
         def fn(ledger):
+            if part_id is not None and part_id in ledger.get("lost_parts", []):
+                return False
+            if part_id is not None:
+                ledger.setdefault("lost_parts", []).append(part_id)
             a = self._acct(ledger, aid)
             a["committed"] = round(a["committed"] - cost, 6)
             a["lost"] = round(a["lost"] + actual, 6)
@@ -200,7 +214,8 @@ class Ledger:
         t = self.totals()
         return {"stt_actual_usd": round(t["settled"] + t["lost"], 4),
                 "stt_committed_usd": round(t["committed"], 4),
-                "stt_forecast_usd": SPEND_HARD_STOP_USD,
+                "stt_forecast_usd": None if NO_HARD_STOP else SPEND_HARD_STOP_USD,
+                "stt_hard_stop_active": not NO_HARD_STOP,
                 "vm_days_actual": vm_days,
                 "ledger_totals": t}
 
