@@ -1,0 +1,36 @@
+{
+  "probe_date": "2026-11-24",
+  "question": "Are both Deepgram keys still able to transcribe the remaining batch-2 calls?",
+  "verdict": "NO — both keys return HTTP 402 ASR_PAYMENT_REQUIRED",
+  "method": "Tiny live STT probe: 0.3s 440Hz sine encoded as FLAC in .mka, POSTed to https://api.eu.deepgram.com/v1/listen with model=nova-3, diarize=true, smart_format=true, punctuate=true, utterances=true, language=en, mip_opt_out=true. Executed on VM nhbplus-batch2-vm (68.210.151.161). No credentials in this artifact.",
+  "results": [
+    {
+      "key": "dg1 (primary)",
+      "http_status": 402,
+      "err_code": "ASR_PAYMENT_REQUIRED",
+      "err_msg": "Project does not have enough credits for this request and does not have an overage agreement.",
+      "request_id": "01a20e3d-7805-7ae3-ad08-6aaecdadade1"
+    },
+    {
+      "key": "dg2 (secondary / wallet failover)",
+      "http_status": 402,
+      "err_code": "ASR_PAYMENT_REQUIRED",
+      "err_msg": "Project does not have enough credits for this request and does not have an overage agreement.",
+      "request_id": "01a20e3d-7860-7d03-87b8-eea5eb9e4595"
+    }
+  ],
+  "corroborating_evidence": {
+    "batch2_scope": "392 audio calls",
+    "settled": 352,
+    "settled_by_account": {"primary": 142, "secondary": 210},
+    "unsettled": 40,
+    "http_402_outcomes_in_run_log": 10,
+    "http_402_handles": ["KKZWFLqQ", "vDRkGbgL", "mXQiWJpD", "WLQmlB7C", "LOIkiBaQ", "ODYWwRKa", "aWR0XTLT", "qTIggBrB", "qCRWjZ7L", "vTAAALpC"],
+    "paid_unknown_handles": ["qPwXRLxB", "WHACUJ5J"],
+    "stuck_sent_handles": ["LPojzLhT", "Kf5XQQqa", "eS413BRQ", "ae5BxTYa"],
+    "runner_termination": "clean 'done' event; 34 calls had no unit dir because the disk guard/PREP_ERROR path exhausted the pass — not a 402 crash",
+    "ledger_totals": {"committed": 29.426, "dead": 0.0, "lost": 0.0, "released": 215.9114, "settled": 331.6477}
+  },
+  "gate_status": "BLOCKED — 38 remaining calls cannot be transcribed without additional Deepgram credit. 2 more (qPwXRLxB, WHACUJ5J) are operator-approved PAID_UNKNOWN reruns that also need credit. No bead may close on a pending assertion.",
+  "un_gate": "Add credits to either Deepgram project, then re-probe with this same tiny-POST method; on HTTP 200, resume bulk-final.py (it skips settled rows at CSV level). Do not add a third key or use two keys concurrently."
+}
