@@ -146,6 +146,7 @@ def main():
             futs = {}
             by_handle = {r["handle"]: r for r in pending}
             def reap(wait):
+                nonlocal done_n
                 if not futs:
                     return
                 if wait:
