@@ -167,6 +167,7 @@ def main():
                 while len(futs) >= WORKERS:
                     reap(True)
                 while shutil.disk_usage(UNITS).free < DISK_FLOOR:
+                    reap(False)  # report completions while waiting for disk
                     time.sleep(20)
                 try:
                     prep = bf.process(row, keys, ledger)
