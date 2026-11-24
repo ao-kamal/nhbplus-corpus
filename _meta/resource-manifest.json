@@ -1,0 +1,406 @@
+{
+ "resources": [
+  {
+   "handle": "yeBkmLAT",
+   "name": "06-03-2025 NHB Coaching Call - On Cognitive Biases - With Kevin Sheerin.pdf",
+   "path": "vault/attachments/06-03-2025 NHB Coaching Call - On Cognitive Biases - With Kevin Sheerin.pdf",
+   "sha256": "c0b3434c340284b327ce15caa1201697e83f8acbc7e4a6dc7f0cf8ddf658652b",
+   "size": 5840877,
+   "ext": "pdf"
+  },
+  {
+   "handle": "bPBmlZCA",
+   "name": "06-04-2025 NHB Coaching Call - Endless Creative Winners - With Loren Pinilis.pdf",
+   "path": "vault/attachments/06-04-2025 NHB Coaching Call - Endless Creative Winners - With Loren Pinilis.pdf",
+   "sha256": "0a2e8b6e6ee7db4dd3a4baf4ce95eb99fadb0a22007f0f37185aae12a094b924",
+   "size": 126177,
+   "ext": "pdf"
+  },
+  {
+   "handle": "nSRAQBQR",
+   "name": "06-05-2025 NHB Theory Call - June 2025 Reading Offers.pdf",
+   "path": "vault/attachments/06-05-2025 NHB Theory Call - June 2025 Reading Offers.pdf",
+   "sha256": "733440939051464cb9c3fdb396e4c5e41f3ee98045c07b1a7642f2b07467111f",
+   "size": 213199,
+   "ext": "pdf"
+  },
+  {
+   "handle": "nXZWEThQ",
+   "name": "06-12-2025 NHB Theory Call - Creating An Offer Factory.pdf",
+   "path": "vault/attachments/06-12-2025 NHB Theory Call - Creating An Offer Factory.pdf",
+   "sha256": "c5c198db802e11db27c67c8a0eec0ffade636b01424a8eb1d8342bdab4468462",
+   "size": 401141,
+   "ext": "pdf"
+  },
+  {
+   "handle": "bPBAyL4S",
+   "name": "06-13-2025 NHB Coaching Call - Reductive Optimization - With Brandon Vasquez.pdf",
+   "path": "vault/attachments/06-13-2025 NHB Coaching Call - Reductive Optimization - With Brandon Vasquez.pdf",
+   "sha256": "9c6a3c4bfab9d71677651b4157a14962e130f25776368c03af3a0c37846e5919",
+   "size": 413204,
+   "ext": "pdf"
+  },
+  {
+   "handle": "reYGyB5D",
+   "name": "06-18-2025 - Meta Health Summit Update - With Loren Pinilis.pdf",
+   "path": "vault/attachments/06-18-2025 - Meta Health Summit Update - With Loren Pinilis.pdf",
+   "sha256": "020c31bd706e3c4caa44760468165725cd96cb99a5e1bf66d446853ddeefafa4",
+   "size": 80676,
+   "ext": "pdf"
+  },
+  {
+   "handle": "mWZ2QZhY",
+   "name": "06-19-2025 NHB Theory Call - Clean Claims.pdf",
+   "path": "vault/attachments/06-19-2025 NHB Theory Call - Clean Claims.pdf",
+   "sha256": "dfba6fec70e58fba35c5fc6cbbd875ef0b04efaffdfe6a1dfd0a17bc61ca26ca",
+   "size": 124960,
+   "ext": "pdf"
+  },
+  {
+   "handle": "efAgxThK",
+   "name": "06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines - With Brandon Vasquez.pdf",
+   "path": "vault/attachments/06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines - With Brandon Vasquez.pdf",
+   "sha256": "b5c8a56f22a42ea6204d0b74524b59c59824fa794e936075314406cb58c29af4",
+   "size": 5299420,
+   "ext": "pdf"
+  },
+  {
+   "handle": "nDRmnBpb",
+   "name": "06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines Notes - With Brandon Vasquez.pdf",
+   "path": "vault/attachments/06-20-2025 NHB Coaching Call - The DNA Psychology of Headlines Notes - With Brandon Vasquez.pdf",
+   "sha256": "900247d94205131973f8e17b3dad393df38a91ea6d24f9496c6a3d52d7281dcf",
+   "size": 212643,
+   "ext": "pdf"
+  },
+  {
+   "handle": "6XBUAbga",
+   "name": "06-23-2025 NHB Coaching Call - Google Case Studies Part 14 - With Charles Kirkland.pdf",
+   "path": "vault/attachments/06-23-2025 NHB Coaching Call - Google Case Studies Part 14 - With Charles Kirkland.pdf",
+   "sha256": "058770d34eb487d62b06326d4377f091355a758dc1d74d378be3f0298b648358",
+   "size": 141802,
+   "ext": "pdf"
+  },
+  {
+   "handle": "vDQkzb4Q",
+   "name": "06-24-2025 Over Served vs Under Served Markets - With Kevin Sheerin.pdf",
+   "path": "vault/attachments/06-24-2025 Over Served vs Under Served Markets - With Kevin Sheerin.pdf",
+   "sha256": "851af4cec63ffa8ebafe55fc6e4c980e9ea961c3938b3e9546ff2513b6f0b0fc",
+   "size": 3066452,
+   "ext": "pdf"
+  },
+  {
+   "handle": "CTZEhbhA",
+   "name": "06-25-2025 NHB Coaching Call - Integrating FB Groups with Paid Ads - With Loren Pinilis.pdf",
+   "path": "vault/attachments/06-25-2025 NHB Coaching Call - Integrating FB Groups with Paid Ads - With Loren Pinilis.pdf",
+   "sha256": "6938e8cca3542c1736f5e20aa8747f9249dd5df07c31e671ff690c5df23fdbf5",
+   "size": 79755,
+   "ext": "pdf"
+  },
+  {
+   "handle": "PaZ0jbRS",
+   "name": "06-26-2025 NHB Theory Call - Creating Themes.pdf",
+   "path": "vault/attachments/06-26-2025 NHB Theory Call - Creating Themes.pdf",
+   "sha256": "999822392bf23279c186faf349c3d41c6ef64cfc61cf10582b585f5eb857e6e3",
+   "size": 613251,
+   "ext": "pdf"
+  },
+  {
+   "handle": "2SZmXZRQ",
+   "name": "07-01-2025 NHB Coaching Call - How To Create Experience With Email Copy - With Isaac Lara.pdf",
+   "path": "vault/attachments/07-01-2025 NHB Coaching Call - How To Create Experience With Email Copy - With Isaac Lara.pdf",
+   "sha256": "4c6086e78d9fc3f496496ee1c5402f5e133f7cd7c4cf623ea86f4c5f8febadd4",
+   "size": 451670,
+   "ext": "pdf"
+  },
+  {
+   "handle": "XTYUCDQQ",
+   "name": "07-02-2025 NHB Coaching Call - Critiquing Real World Ads 1 - With Loren Pinilis.pdf",
+   "path": "vault/attachments/07-02-2025 NHB Coaching Call - Critiquing Real World Ads 1 - With Loren Pinilis.pdf",
+   "sha256": "d255d9964968280c70b2b73724c5653b0a3484310be655878f6a113d0e3db4fd",
+   "size": 122316,
+   "ext": "pdf"
+  },
+  {
+   "handle": "GaRkgbLZ",
+   "name": "07-03-2025 NHB Coaching Call - Avatar Assumptions 3.0 - With Kevin Sheerin.pdf",
+   "path": "vault/attachments/07-03-2025 NHB Coaching Call - Avatar Assumptions 3.0 - With Kevin Sheerin.pdf",
+   "sha256": "2c92202783466cbb8d96b8f8ba6f0cd2c6147bd2e8033a41945549f567c20499",
+   "size": 319818,
+   "ext": "0"
+  },
+  {
+   "handle": "OHI0RRpC",
+   "name": "07-10-2025 NHB Theory Call - Creating A Content Engine.pdf",
+   "path": "vault/attachments/07-10-2025 NHB Theory Call - Creating A Content Engine.pdf",
+   "sha256": "7b4207d98cd5bd5a51284d41772af6350ce37f966616933b02351d3beefae482",
+   "size": 1998140,
+   "ext": "pdf"
+  },
+  {
+   "handle": "eCRg2BQQ",
+   "name": "07-16-2025 NHB Coaching Call - Comment Management - With Loren Pinilis.pdf",
+   "path": "vault/attachments/07-16-2025 NHB Coaching Call - Comment Management - With Loren Pinilis.pdf",
+   "sha256": "19df77dc118ef0a25b59677fa0a8a179c267caab9fc55b73c9781b7386b154d2",
+   "size": 56124,
+   "ext": "pdf"
+  },
+  {
+   "handle": "zaJCwBqa",
+   "name": "07-17-2025 NHB Theory Call - The Missing Mechanism of Conversions.pdf",
+   "path": "vault/attachments/07-17-2025 NHB Theory Call - The Missing Mechanism of Conversions.pdf",
+   "sha256": "2673cc3eefeaf0b4a361618f889d85bda1e9eb0ae8eb97a4084f83efaec69aa3",
+   "size": 236667,
+   "ext": "pdf"
+  },
+  {
+   "handle": "SOIGybpa",
+   "name": "07-18-2025 NHB Coaching Call - VSL Optimization - Tactics to Increase Consumption Conversions - With Brandon Vasquez.pdf",
+   "path": "vault/attachments/07-18-2025 NHB Coaching Call - VSL Optimization - Tactics to Increase Consumption Conversions - With Brandon Vasquez.pdf",
+   "sha256": "6bb180401273df415ca840e73fc25564b84cac463bb37043cddd97018025f8a4",
+   "size": 5990510,
+   "ext": "pdf"
+  },
+  {
+   "handle": "bGRGWRoK",
+   "name": "07-22-2025 Exercise Sheet - Learning Your Limitations - NHB Offer Fundamentals .docx",
+   "path": "vault/attachments/07-22-2025 Exercise Sheet - Learning Your Limitations - NHB Offer Fundamentals .docx",
+   "sha256": "434364256156b9ddff2bfab41d61b5e3601cfc3d17b17175226a07ef5f5af6c0",
+   "size": 9081,
+   "ext": "docx"
+  },
+  {
+   "handle": "eaYWDJZY",
+   "name": "07-22-2025 Learning Your Limitations - NHB Offer Fundamentals .docx",
+   "path": "vault/attachments/07-22-2025 Learning Your Limitations - NHB Offer Fundamentals .docx",
+   "sha256": "61c7b4d85fadf7ab53393eb682f0bc50ffaf6e0a99f0504d7e78b2a628a4ace8",
+   "size": 97230,
+   "ext": "docx"
+  },
+  {
+   "handle": "yOJkiBiZ",
+   "name": "07-23-2025 Meta Ads Mastery Call - Wed July 23.docx",
+   "path": "vault/attachments/07-23-2025 Meta Ads Mastery Call - Wed July 23.docx",
+   "sha256": "70d75a19c10d47b56f385ba9d8686cba475a7aa46f91646854007657b892b119",
+   "size": 10697,
+   "ext": "docx"
+  },
+  {
+   "handle": "KSICVBCR",
+   "name": "07-24-2025 NHB PRO.docx",
+   "path": "vault/attachments/07-24-2025 NHB PRO.docx",
+   "sha256": "1e6eae6ecebf8e82707e8feca17bb4dd54b1e19faf923a1ad1f0482a94cac264",
+   "size": 219075,
+   "ext": "docx"
+  },
+  {
+   "handle": "jTAwEJAY",
+   "name": "07-29-2025 Back End To Front End Optimization 1 - With Isaac Lara.docx",
+   "path": "vault/attachments/07-29-2025 Back End To Front End Optimization 1 - With Isaac Lara.docx",
+   "sha256": "1073d31dea10b3e6d9b8eabb21fe3459bb1a415e7641214c56f46c9f281aa754",
+   "size": 51042,
+   "ext": "docx"
+  },
+  {
+   "handle": "nLYCwJgJ",
+   "name": "07-29-2025 Offer Fundamentals Call - Comparative Conversions - With Kevin Sheerin.docx",
+   "path": "vault/attachments/07-29-2025 Offer Fundamentals Call - Comparative Conversions - With Kevin Sheerin.docx",
+   "sha256": "2a8c38f78c0219c777ae0f29b71da5da0c7f8f728fcadfc52fec74b3d51d66c3",
+   "size": 3178986,
+   "ext": "docx"
+  },
+  {
+   "handle": "LLIGXTBb",
+   "name": "07-30-2025 Meta Ads Mastery Call - Wed July 30.docx",
+   "path": "vault/attachments/07-30-2025 Meta Ads Mastery Call - Wed July 30.docx",
+   "sha256": "1aeadc95cb6a1f03b71988a72e56b2bdc4bbf5455b8890c8af09d25503ebca78",
+   "size": 38211,
+   "ext": "docx"
+  },
+  {
+   "handle": "jfZUwLqD",
+   "name": "07-31-2025 NHB PRO.docx",
+   "path": "vault/attachments/07-31-2025 NHB PRO.docx",
+   "sha256": "3322c286d5b6a1233a09f18a8ec45d4e78476b28fac657386037fffb156bda75",
+   "size": 723666,
+   "ext": "docx"
+  },
+  {
+   "handle": "2SRUkb4Y",
+   "name": "08-04-2025 Aug 4 2025.docx",
+   "path": "vault/attachments/08-04-2025 Aug 4 2025.docx",
+   "sha256": "f59b249b978b7253e0edc3e7eb7aaa30b8e4baa14718ac33a01abef2b3b92ce5",
+   "size": 8788,
+   "ext": "docx"
+  },
+  {
+   "handle": "nXRwkLiI",
+   "name": "08-05-2025 Base Beliefs - Offer Fundamentals Calls.docx",
+   "path": "vault/attachments/08-05-2025 Base Beliefs - Offer Fundamentals Calls.docx",
+   "sha256": "ad89d08b297ef27343c0e7463695609e070c771f5da9d8b2cc3a100f9ffb0230",
+   "size": 15069,
+   "ext": "docx"
+  },
+  {
+   "handle": "mOIGBZKL",
+   "name": "08-05-2025 CMO Models_ Macro vs Micro .docx",
+   "path": "vault/attachments/08-05-2025 CMO Models_ Macro vs Micro .docx",
+   "sha256": "94c5a4cb55aae8e2510499cac85631f5adc149d7d470e8e2ecca4ebba5aab497",
+   "size": 9567,
+   "ext": "docx"
+  },
+  {
+   "handle": "2TAyGRQI",
+   "name": "09-01-2025 Start With a Clear Problem Definition.docx",
+   "path": "vault/attachments/09-01-2025 Start With a Clear Problem Definition.docx",
+   "sha256": "c62320f54c4f71dbda1998bbd52dde1dcb95a09da7583c6859d7e6a2c3a4378f",
+   "size": 9252,
+   "ext": "docx"
+  },
+  {
+   "handle": "fGBiEDgC",
+   "name": "09-02-2025 How to do CPR on a Dying Email List.docx",
+   "path": "vault/attachments/09-02-2025 How to do CPR on a Dying Email List.docx",
+   "sha256": "afebc3aaabcff964e98a5d2d97439db5ae8058578b3d9c0d4b698d7fff820f90",
+   "size": 335350,
+   "ext": "docx"
+  },
+  {
+   "handle": "qTBA0RDa",
+   "name": "09-02-2025 Offer Fundamentals - Ad To Offer Alignment... .docx",
+   "path": "vault/attachments/09-02-2025 Offer Fundamentals - Ad To Offer Alignment... .docx",
+   "sha256": "71fb7c560a36640fe5621a4318de91640f1867bc8aea802a584e100b9b3fefe3",
+   "size": 12655,
+   "ext": "docx"
+  },
+  {
+   "handle": "CPJC0RjK",
+   "name": "09-03-2025 Meta Ads Mastery Call - Wed Sep 3.docx",
+   "path": "vault/attachments/09-03-2025 Meta Ads Mastery Call - Wed Sep 3.docx",
+   "sha256": "6fec32bda9757290a763f8a669827b1f152352cf0e56be2cd49ee8c5db52b71e",
+   "size": 11071,
+   "ext": "docx"
+  },
+  {
+   "handle": "ybA2mbxL",
+   "name": "09-04-2025 NHB PRO.docx",
+   "path": "vault/attachments/09-04-2025 NHB PRO.docx",
+   "sha256": "eae582f909f5d5e74876e5e96681ce9880ea709d72a94ef4c3820bef4edd8164",
+   "size": 9067,
+   "ext": "docx"
+  },
+  {
+   "handle": "yfAClbyL",
+   "name": "09-05-2025 CRO Prioritization_ What to Test When and Why.docx",
+   "path": "vault/attachments/09-05-2025 CRO Prioritization_ What to Test When and Why.docx",
+   "sha256": "49ff127c3778a98cb948be883b585a11c121110540ae1c37ac34c6cf4e5325ca",
+   "size": 1013055,
+   "ext": "docx"
+  },
+  {
+   "handle": "7fhWgRiZ",
+   "name": "09-09-2025 NHB Coaching Call - Reactive vs. Proactive Customers_ The Key to Converting Leads Growing LTV - With Isaac Lara AI Su.pdf",
+   "path": "vault/attachments/09-09-2025 NHB Coaching Call - Reactive vs. Proactive Customers_ The Key to Converting Leads Growing LTV - With Isaac Lara AI Su.pdf",
+   "sha256": "5151ecd09da2bc53ae23be45efc51f7cfc7041640cabb95db398c52758882561",
+   "size": 191906,
+   "ext": "pdf"
+  },
+  {
+   "handle": "2OYWyB7T",
+   "name": "09-09-2025 Reactive vs. Proactive Customers_ The Key to Converting Leads Growing LTV _ CMO Pro.docx",
+   "path": "vault/attachments/09-09-2025 Reactive vs. Proactive Customers_ The Key to Converting Leads Growing LTV _ CMO Pro.docx",
+   "sha256": "abf6ec6c1963dabffcfad096d100a6d8362243b1b2a4a89c6c2beb7fe18b02cf",
+   "size": 367643,
+   "ext": "docx"
+  },
+  {
+   "handle": "jaI0gDJR",
+   "name": "09-11-2025 NHB PRO The Timing Matrix.docx",
+   "path": "vault/attachments/09-11-2025 NHB PRO The Timing Matrix.docx",
+   "sha256": "3e0b4af090d19cbab7a7c5d5e281c6138db82804bd3e527921df4ab114b9500b",
+   "size": 13302,
+   "ext": "docx"
+  },
+  {
+   "handle": "HHY0CDZR",
+   "name": "09-12-2025 NHB PRO_ Adventures in CRO_Reductive Optimization .docx",
+   "path": "vault/attachments/09-12-2025 NHB PRO_ Adventures in CRO_Reductive Optimization .docx",
+   "sha256": "ef030333f92fc89be1302b9fc49250b3cacf58bd2c6e91c8a6f978394b1d8104",
+   "size": 14783,
+   "ext": "docx"
+  },
+  {
+   "handle": "2fQ2Abba",
+   "name": "09-16-2025 NHB Offer Fundamentals - Click Theory.docx",
+   "path": "vault/attachments/09-16-2025 NHB Offer Fundamentals - Click Theory.docx",
+   "sha256": "d94d3b70024a98d12fe8bc45bbe89f7490bea9749de577bcf72cb2b060dc53b0",
+   "size": 1833821,
+   "ext": "docx"
+  },
+  {
+   "handle": "POAwkBDR",
+   "name": "09-17-2025 Meta Ads Mastery Call - Wed Sep 17.docx",
+   "path": "vault/attachments/09-17-2025 Meta Ads Mastery Call - Wed Sep 17.docx",
+   "sha256": "94808e23c92d2994064ea3625c1de3445ed6e2ed8a456db2c48d045e6c9cb633",
+   "size": 9641,
+   "ext": "docx"
+  },
+  {
+   "handle": "jDRmDBoZ",
+   "name": "09-18-2025 NHB Pro Chaos Management.docx",
+   "path": "vault/attachments/09-18-2025 NHB Pro Chaos Management.docx",
+   "sha256": "67d306346bea4babadf6d695b5b184b9bf7d86c1305905ca31642fd11f83dcfb",
+   "size": 2970470,
+   "ext": "docx"
+  },
+  {
+   "handle": "rDwy3bJb",
+   "name": "09-23-2025 Q4 Cash Injections.pdf",
+   "path": "vault/attachments/09-23-2025 Q4 Cash Injections.pdf",
+   "sha256": "0bedd793ae30f8d4f661571c113ecde7a68391cc6cdc9ea98d6caf758813b711",
+   "size": 915838,
+   "ext": "pdf"
+  },
+  {
+   "handle": "ffYgSZTI",
+   "name": "09-24-2025 Meta Ads Mastery Call - Wed Sep 24.docx",
+   "path": "vault/attachments/09-24-2025 Meta Ads Mastery Call - Wed Sep 24.docx",
+   "sha256": "dbf64a4917ded021314e40bbab2c1318f3155efe6afcef36178faf3ba4521f12",
+   "size": 11055,
+   "ext": "docx"
+  },
+  {
+   "handle": "mfZWFBxK",
+   "name": "09-25-2025NBH Pro.docx",
+   "path": "vault/attachments/09-25-2025NBH Pro.docx",
+   "sha256": "45f7c36dbb1ccd3bad690c30eacdf3f7e2bc439a8ada8ad439e69ee96d61424b",
+   "size": 229802,
+   "ext": "docx"
+  },
+  {
+   "handle": "KeZwXRoa",
+   "name": "09-26-2025 NHB Pro_Adventures in CRO_Heatmap Mastery 2.0.docx",
+   "path": "vault/attachments/09-26-2025 NHB Pro_Adventures in CRO_Heatmap Mastery 2.0.docx",
+   "sha256": "e0d7be37890c129f63e81b5b6921ce46453a61d28292e7215b730536022bebcf",
+   "size": 25179,
+   "ext": "docx"
+  },
+  {
+   "handle": "GShSiZha",
+   "name": "09-30-2025 NHB Coaching Call - How To Sell Experience - With Issac Lara.pdf",
+   "path": "vault/attachments/09-30-2025 NHB Coaching Call - How To Sell Experience - With Issac Lara.pdf",
+   "sha256": "7740ed4b80c732ab0e9ad5e24cf4075f172483c692b02420759e359f4df815a2",
+   "size": 746618,
+   "ext": "pdf"
+  },
+  {
+   "handle": "WKA0SB5a",
+   "name": "09-30-2025 NHB Pro - Attention In Isolation Siloed Consumption.docx",
+   "path": "vault/attachments/09-30-2025 NHB Pro - Attention In Isolation Siloed Consumption.docx",
+   "sha256": "e20cf8968f30ba7ef7c58283f8d4664952378aa732a67be9cb8f77f46729adaa",
+   "size": 13202,
+   "ext": "docx"
+  }
+ ],
+ "count": 50,
+ "errors": []
+}
