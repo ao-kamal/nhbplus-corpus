@@ -1,7 +1,7 @@
 ---
-title: 03 12 2026 NHB Pro Theory Call The Client Getting Process mp4 1080pNone
+title: 03 12 2026 NHB Pro Theory Call The Client Getting Process
 date: unknown
-type: theory
+type: other
 duration: 196
 speakers: 15
 ---

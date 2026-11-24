@@ -1,5 +1,5 @@
 ---
-title: 03 31 2026 Monthly NHB Pro Hot Seat With Isaac Lara mp4 1080pNone
+title: 03 31 2026 Monthly NHB Pro Hot Seat With Isaac Lara
 date: unknown
 type: other
 duration: 103

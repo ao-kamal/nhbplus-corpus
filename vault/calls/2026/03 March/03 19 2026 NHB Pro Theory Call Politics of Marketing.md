@@ -1,7 +1,7 @@
 ---
-title: 03 19 2026 NHB Pro Theory Call Politics of Marketing mov 1080pNone
+title: 03 19 2026 NHB Pro Theory Call Politics of Marketing
 date: unknown
-type: theory
+type: other
 duration: 222
 speakers: 9
 ---

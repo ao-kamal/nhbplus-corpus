@@ -1,5 +1,5 @@
 ---
-title: 2026-02-23 Monthly NHB Pro Hot Seat - With C.part002.mp4 5036
+title: 2026-02-23 Monthly NHB Pro Hot Seat - With C Part 2
 date: 2026-02-23
 type: other
 duration: 51

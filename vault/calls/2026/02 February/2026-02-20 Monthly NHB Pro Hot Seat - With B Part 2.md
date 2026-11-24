@@ -1,5 +1,5 @@
 ---
-title: 2026-02-20 Monthly NHB Pro Hot Seat - With B.part002.mp4 0446
+title: 2026-02-20 Monthly NHB Pro Hot Seat - With B Part 2
 date: 2026-02-20
 type: other
 duration: 5

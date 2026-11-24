@@ -1,7 +1,7 @@
 ---
-title: 04 03 2026 NHB Pro Theory Call Is It a Traffic Problem or a Funnel.mp4 5344
+title: 04 03 2026 NHB Pro Theory Call Is It a Traffic Problem or a Funnel
 date: unknown
-type: theory
+type: other
 duration: 54
 speakers: 4
 ---

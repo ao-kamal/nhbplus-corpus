@@ -1,7 +1,7 @@
 ---
-title: 04 16 2026 NHB Pro Theory Call Creating Permission mp4 1080pNone
+title: 04 16 2026 NHB Pro Theory Call Creating Permission
 date: unknown
-type: theory
+type: other
 duration: 185
 speakers: 10
 ---

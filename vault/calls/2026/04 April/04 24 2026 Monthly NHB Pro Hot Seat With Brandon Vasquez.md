@@ -1,5 +1,5 @@
 ---
-title: 04 24 2026 Monthly NHB Pro Hot Seat With Brandon Vasquez mp4 1080pNone
+title: 04 24 2026 Monthly NHB Pro Hot Seat With Brandon Vasquez
 date: unknown
 type: other
 duration: 102

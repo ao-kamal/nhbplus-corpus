@@ -1,5 +1,5 @@
 ---
-title: 2026-02-20 Monthly NHB Pro Hot Seat - With B.part001
+title: 2026-02-20 Monthly NHB Pro Hot Seat - With B Part 1
 date: 2026-02-20
 type: other
 duration: 159

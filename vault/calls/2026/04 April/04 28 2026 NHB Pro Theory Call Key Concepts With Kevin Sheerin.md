@@ -1,7 +1,7 @@
 ---
-title: 04 28 2026 NHB Pro Theory Call Key Concepts With Kevin Sheerin mp4
+title: 04 28 2026 NHB Pro Theory Call Key Concepts With Kevin Sheerin
 date: unknown
-type: theory
+type: other
 duration: 173
 speakers: 4
 ---

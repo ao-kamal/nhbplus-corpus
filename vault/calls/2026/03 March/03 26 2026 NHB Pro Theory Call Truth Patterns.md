@@ -1,7 +1,7 @@
 ---
-title: 03 26 2026 NHB Pro Theory Call Truth Patterns 1080pNone
+title: 03 26 2026 NHB Pro Theory Call Truth Patterns
 date: unknown
-type: theory
+type: other
 duration: 186
 speakers: 13
 ---

@@ -1,7 +1,7 @@
 ---
-title: 04 09 2026 NHB Pro Theory Call Compact Copy mov 1080pNone
+title: 04 09 2026 NHB Pro Theory Call Compact Copy
 date: unknown
-type: theory
+type: other
 duration: 153
 speakers: 11
 ---

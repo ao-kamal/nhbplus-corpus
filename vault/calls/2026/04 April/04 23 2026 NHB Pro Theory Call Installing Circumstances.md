@@ -1,7 +1,7 @@
 ---
-title: 04 23 2026 NHB Pro Theory Call Installing Circumstances mp4 1080pNone
+title: 04 23 2026 NHB Pro Theory Call Installing Circumstances
 date: unknown
-type: theory
+type: other
 duration: 153
 speakers: 6
 ---

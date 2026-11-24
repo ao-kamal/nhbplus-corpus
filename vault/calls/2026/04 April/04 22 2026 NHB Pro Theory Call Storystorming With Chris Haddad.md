@@ -1,7 +1,7 @@
 ---
-title: 04 22 2026 NHB Pro Theory Call Storystorming With Chris Haddad mp4
+title: 04 22 2026 NHB Pro Theory Call Storystorming With Chris Haddad
 date: unknown
-type: theory
+type: other
 duration: 76
 speakers: 6
 ---

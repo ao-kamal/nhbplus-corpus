@@ -1,5 +1,5 @@
 ---
-title: 12 05 2025 Brandon Anatomy of High Converting Landing Pages 2 0.mp4 4030
+title: 12 05 2025 Brandon Anatomy of High Converting Landing Pages 2.0
 date: unknown
 type: other
 duration: 40

@@ -1,5 +1,5 @@
 ---
-title: 2026-02-05 Alen - Monthly NHB Pro Hot Seat.mp4 4459
+title: 2026-02-05 Alen - Monthly NHB Pro Hot Seat
 date: 2026-02-05
 type: other
 duration: 45

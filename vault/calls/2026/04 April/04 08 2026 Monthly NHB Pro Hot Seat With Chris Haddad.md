@@ -1,5 +1,5 @@
 ---
-title: 04 08 2026 Monthly NHB Pro Hot Seat With Chris Haddad mp4 1080pNone
+title: 04 08 2026 Monthly NHB Pro Hot Seat With Chris Haddad
 date: unknown
 type: other
 duration: 117

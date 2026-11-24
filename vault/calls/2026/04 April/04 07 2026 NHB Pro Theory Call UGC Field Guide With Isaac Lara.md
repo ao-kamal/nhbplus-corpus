@@ -1,7 +1,7 @@
 ---
-title: 04 07 2026 NHB Pro Theory Call UGC Field Guide With Isaac Lara mp4
+title: 04 07 2026 NHB Pro Theory Call UGC Field Guide With Isaac Lara
 date: unknown
-type: theory
+type: other
 duration: 133
 speakers: 4
 ---
